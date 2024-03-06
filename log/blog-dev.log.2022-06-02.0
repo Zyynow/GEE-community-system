@@ -1,0 +1,317 @@
+2022-06-02 00:20:57.606  INFO 65288 --- [restartedMain] com.jxufe.GuideSystemApplication         : Starting GuideSystemApplication using Java 11.0.12 on LAPTOP-1IDT75RI with PID 65288 (D:\wenjian\Java\GuideSystem\target\classes started by º«Óî·« in D:\wenjian\Java\GuideSystem)
+2022-06-02 00:20:57.611 DEBUG 65288 --- [restartedMain] com.jxufe.GuideSystemApplication         : Running with Spring Boot v2.6.4, Spring v5.3.16
+2022-06-02 00:20:57.612  INFO 65288 --- [restartedMain] com.jxufe.GuideSystemApplication         : The following 1 profile is active: "dev"
+2022-06-02 00:20:57.664  INFO 65288 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-06-02 00:20:57.674  INFO 65288 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-06-02 00:20:58.317  INFO 65288 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-06-02 00:20:58.405  INFO 65288 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 78 ms. Found 4 JPA repository interfaces.
+2022-06-02 00:20:59.129  INFO 65288 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-06-02 00:20:59.130  INFO 65288 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2022-06-02 00:20:59.130  INFO 65288 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-06-02 00:20:59.130  INFO 65288 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-06-02 00:20:59.134  INFO 65288 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2022-06-02 00:20:59.142  INFO 65288 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-06-02 00:20:59.142  INFO 65288 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2022-06-02 00:20:59.238  INFO 65288 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/dev]    : Initializing Spring embedded WebApplicationContext
+2022-06-02 00:20:59.239  INFO 65288 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1564 ms
+2022-06-02 00:20:59.421  INFO 65288 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-06-02 00:20:59.458  INFO 65288 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.5.Final
+2022-06-02 00:20:59.554  INFO 65288 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-02 00:20:59.636  INFO 65288 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-06-02 00:20:59.744  INFO 65288 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-06-02 00:20:59.755  INFO 65288 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
+2022-06-02 00:21:00.355  INFO 65288 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-02 00:21:00.361  INFO 65288 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-06-02 00:21:01.185  WARN 65288 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-06-02 00:21:01.435  INFO 65288 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-06-02 00:21:01.765  INFO 65288 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-06-02 00:21:01.800  INFO 65288 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/dev'
+2022-06-02 00:21:01.811  INFO 65288 --- [restartedMain] com.jxufe.GuideSystemApplication         : Started GuideSystemApplication in 4.736 seconds (JVM running for 5.9)
+2022-06-02 00:21:08.283  INFO 65288 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/dev]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-06-02 00:21:08.284  INFO 65288 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-06-02 00:21:08.286  INFO 65288 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-06-02 00:21:08.316  INFO 65288 --- [http-nio-8080-exec-1] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.IndexController.doIndex', args=[Page request [number: 0, size 4, sort: updateTime: DESC], {}]}
+2022-06-02 00:21:08.402  WARN 65288 --- [http-nio-8080-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.blogs.size]; use collection function syntax instead [size(t.blogs)].
+2022-06-02 00:21:08.413  INFO 65288 --- [http-nio-8080-exec-1] com.jxufe.aspect.LogAspect               : method : index
+2022-06-02 00:21:08.413  INFO 65288 --- [http-nio-8080-exec-1] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-02 00:21:11.904  INFO 65288 --- [http-nio-8080-exec-3] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/about', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.AboutController.doAbout', args=[]}
+2022-06-02 00:21:11.907  INFO 65288 --- [http-nio-8080-exec-3] com.jxufe.aspect.LogAspect               : method : about
+2022-06-02 00:21:11.907  INFO 65288 --- [http-nio-8080-exec-3] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-02 00:21:40.547  WARN 65288 --- [http-nio-8080-exec-7] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [300] milliseconds.
+2022-06-02 00:21:40.550  INFO 65288 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/login/exit', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.UserController.doExit', args=[org.apache.catalina.session.StandardSessionFacade@7fe0c8e8]}
+2022-06-02 00:21:40.552  INFO 65288 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : method : redirect:/index
+2022-06-02 00:21:40.552  INFO 65288 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-02 00:21:40.569  INFO 65288 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/index;jsessionid=B8CC7AA36A6E0D00DC046B2F651DB306', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.IndexController.doIndex', args=[Page request [number: 0, size 4, sort: updateTime: DESC], {}]}
+2022-06-02 00:21:40.583  INFO 65288 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : method : index
+2022-06-02 00:21:40.583  INFO 65288 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-02 00:21:55.155  INFO 65288 --- [http-nio-8080-exec-9] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/about', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.AboutController.doAbout', args=[]}
+2022-06-02 00:21:55.155  INFO 65288 --- [http-nio-8080-exec-9] com.jxufe.aspect.LogAspect               : method : about
+2022-06-02 00:21:55.155  INFO 65288 --- [http-nio-8080-exec-9] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-02 00:23:34.570  INFO 65288 --- [http-nio-8080-exec-1] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.IndexController.doIndex', args=[Page request [number: 0, size 4, sort: updateTime: DESC], {}]}
+2022-06-02 00:23:34.586  INFO 65288 --- [http-nio-8080-exec-1] com.jxufe.aspect.LogAspect               : method : index
+2022-06-02 00:23:34.587  INFO 65288 --- [http-nio-8080-exec-1] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-02 00:23:36.077  INFO 65288 --- [http-nio-8080-exec-10] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/about', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.AboutController.doAbout', args=[]}
+2022-06-02 00:23:36.078  INFO 65288 --- [http-nio-8080-exec-10] com.jxufe.aspect.LogAspect               : method : about
+2022-06-02 00:23:36.078  INFO 65288 --- [http-nio-8080-exec-10] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-02 12:17:50.867  INFO 37332 --- [restartedMain] com.jxufe.GuideSystemApplication         : Starting GuideSystemApplication using Java 11.0.12 on LAPTOP-1IDT75RI with PID 37332 (D:\wenjian\Java\GuideSystem\target\classes started by º«Óî·« in D:\wenjian\Java\GuideSystem)
+2022-06-02 12:17:50.868 DEBUG 37332 --- [restartedMain] com.jxufe.GuideSystemApplication         : Running with Spring Boot v2.6.4, Spring v5.3.16
+2022-06-02 12:17:50.869  INFO 37332 --- [restartedMain] com.jxufe.GuideSystemApplication         : The following 1 profile is active: "dev"
+2022-06-02 12:17:50.906  INFO 37332 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-06-02 12:17:50.906  INFO 37332 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-06-02 12:17:51.664  INFO 37332 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-06-02 12:17:51.734  INFO 37332 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 60 ms. Found 4 JPA repository interfaces.
+2022-06-02 12:17:52.591  INFO 37332 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-06-02 12:17:52.592  INFO 37332 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2022-06-02 12:17:52.593  INFO 37332 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-06-02 12:17:52.593  INFO 37332 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-06-02 12:17:52.605  INFO 37332 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2022-06-02 12:17:52.614  INFO 37332 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-06-02 12:17:52.614  INFO 37332 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2022-06-02 12:17:52.708  INFO 37332 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/dev]    : Initializing Spring embedded WebApplicationContext
+2022-06-02 12:17:52.709  INFO 37332 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1802 ms
+2022-06-02 12:17:52.886  INFO 37332 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-06-02 12:17:52.934  INFO 37332 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.5.Final
+2022-06-02 12:17:53.047  INFO 37332 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-02 12:17:53.122  INFO 37332 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-06-02 12:17:53.232  INFO 37332 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-06-02 12:17:53.245  INFO 37332 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
+2022-06-02 12:17:53.911  INFO 37332 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-02 12:17:53.916  INFO 37332 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-06-02 12:17:54.786  WARN 37332 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-06-02 12:17:55.051  INFO 37332 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-06-02 12:17:55.402  INFO 37332 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-06-02 12:17:55.439  INFO 37332 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/dev'
+2022-06-02 12:17:55.449  INFO 37332 --- [restartedMain] com.jxufe.GuideSystemApplication         : Started GuideSystemApplication in 5.118 seconds (JVM running for 6.249)
+2022-06-02 12:18:08.531  INFO 37332 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/dev]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-06-02 12:18:08.532  INFO 37332 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-06-02 12:18:08.533  INFO 37332 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-06-02 12:18:08.563  INFO 37332 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.IndexController.doIndex', args=[Page request [number: 0, size 4, sort: updateTime: DESC], {}]}
+2022-06-02 12:18:08.648  WARN 37332 --- [http-nio-8080-exec-2] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.blogs.size]; use collection function syntax instead [size(t.blogs)].
+2022-06-02 12:18:08.659  INFO 37332 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : method : index
+2022-06-02 12:18:08.659  INFO 37332 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-02 12:18:17.435  INFO 37332 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/types/-1', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.TypeShowController.doTypes', args=[Page request [number: 0, size 4, sort: updateTime: DESC], -1, {}]}
+2022-06-02 12:18:17.451  INFO 37332 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : method : types
+2022-06-02 12:18:17.452  INFO 37332 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-02 12:49:38.549  INFO 64240 --- [restartedMain] com.jxufe.GuideSystemApplication         : Starting GuideSystemApplication using Java 11.0.12 on LAPTOP-1IDT75RI with PID 64240 (D:\wenjian\Java\GuideSystem\target\classes started by º«Óî·« in D:\wenjian\Java\GuideSystem)
+2022-06-02 12:49:38.550 DEBUG 64240 --- [restartedMain] com.jxufe.GuideSystemApplication         : Running with Spring Boot v2.6.4, Spring v5.3.16
+2022-06-02 12:49:38.551  INFO 64240 --- [restartedMain] com.jxufe.GuideSystemApplication         : The following 1 profile is active: "dev"
+2022-06-02 12:49:38.593  INFO 64240 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-06-02 12:49:38.593  INFO 64240 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-06-02 12:49:39.271  INFO 64240 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-06-02 12:49:39.334  INFO 64240 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 55 ms. Found 4 JPA repository interfaces.
+2022-06-02 12:49:39.935  INFO 64240 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-06-02 12:49:39.936  INFO 64240 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2022-06-02 12:49:39.936  INFO 64240 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-06-02 12:49:39.936  INFO 64240 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-06-02 12:49:39.939  INFO 64240 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2022-06-02 12:49:39.946  INFO 64240 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-06-02 12:49:39.947  INFO 64240 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2022-06-02 12:49:40.025  INFO 64240 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/dev]    : Initializing Spring embedded WebApplicationContext
+2022-06-02 12:49:40.025  INFO 64240 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1431 ms
+2022-06-02 12:49:40.178  INFO 64240 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-06-02 12:49:40.215  INFO 64240 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.5.Final
+2022-06-02 12:49:40.305  INFO 64240 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-02 12:49:40.367  INFO 64240 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-06-02 12:49:40.456  INFO 64240 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-06-02 12:49:40.467  INFO 64240 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
+2022-06-02 12:49:41.044  INFO 64240 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-02 12:49:41.049  INFO 64240 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-06-02 12:49:41.848  WARN 64240 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-06-02 12:49:42.106  INFO 64240 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-06-02 12:49:42.428  INFO 64240 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-06-02 12:49:42.466  INFO 64240 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/dev'
+2022-06-02 12:49:42.476  INFO 64240 --- [restartedMain] com.jxufe.GuideSystemApplication         : Started GuideSystemApplication in 4.444 seconds (JVM running for 5.469)
+2022-06-02 12:49:55.481  INFO 64240 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/dev]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-06-02 12:49:55.482  INFO 64240 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-06-02 12:49:55.483  INFO 64240 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-06-02 12:49:55.513  INFO 64240 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.IndexController.doIndex', args=[Page request [number: 0, size 4, sort: updateTime: DESC], {}]}
+2022-06-02 12:49:55.590  WARN 64240 --- [http-nio-8080-exec-2] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.blogs.size]; use collection function syntax instead [size(t.blogs)].
+2022-06-02 12:49:55.600  INFO 64240 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : method : index
+2022-06-02 12:49:55.601  INFO 64240 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-02 12:49:57.500  INFO 64240 --- [http-nio-8080-exec-3] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/login', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.UserController.doLoginPage', args=[]}
+2022-06-02 12:49:57.503  INFO 64240 --- [http-nio-8080-exec-3] com.jxufe.aspect.LogAspect               : method : login
+2022-06-02 12:49:57.503  INFO 64240 --- [http-nio-8080-exec-3] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-02 12:49:57.586  INFO 64240 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/codeImage', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.VerificationController.doGet', args=[org.apache.catalina.connector.RequestFacade@3557684d, org.apache.catalina.connector.ResponseFacade@1f9a4669]}
+2022-06-02 12:49:58.465  WARN 64240 --- [http-nio-8080-exec-5] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [304] milliseconds.
+2022-06-02 12:49:58.526  INFO 64240 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : method : null
+2022-06-02 12:49:58.526  INFO 64240 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-02 12:50:13.729  INFO 64240 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/login/page', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.UserController.doLogin', args=[org.apache.catalina.connector.ResponseFacade@1f9a4669, yf, hyfhsy, wuv3, org.apache.catalina.session.StandardSessionFacade@1f6f5a07, {}]}
+2022-06-02 12:50:13.751 DEBUG 64240 --- [http-nio-8080-exec-6] c.j.d.UserDao.findByUsernameAndPassword  : ==>  Preparing: select * from t_user where username = ? and password = ?
+2022-06-02 12:50:13.757 DEBUG 64240 --- [http-nio-8080-exec-6] c.j.d.UserDao.findByUsernameAndPassword  : ==> Parameters: yf(String), f3b53cbd7fe408bb281efaf5d94f05c2(String)
+2022-06-02 12:50:13.764 DEBUG 64240 --- [http-nio-8080-exec-6] c.j.d.UserDao.findByUsernameAndPassword  : <==      Total: 0
+2022-06-02 12:50:13.766  INFO 64240 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : method : redirect:/login
+2022-06-02 12:50:13.766  INFO 64240 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-02 12:50:13.786  INFO 64240 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/login', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.UserController.doLoginPage', args=[]}
+2022-06-02 12:50:13.786  INFO 64240 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : method : login
+2022-06-02 12:50:13.786  INFO 64240 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-02 12:50:13.871  INFO 64240 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/codeImage', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.VerificationController.doGet', args=[org.apache.catalina.connector.RequestFacade@3557684d, org.apache.catalina.connector.ResponseFacade@1f9a4669]}
+2022-06-02 12:50:13.877  INFO 64240 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : method : null
+2022-06-02 12:50:13.877  INFO 64240 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-02 12:50:22.762  INFO 64240 --- [http-nio-8080-exec-10] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/login/page', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.UserController.doLogin', args=[org.apache.catalina.connector.ResponseFacade@1f9a4669, hyf, hyfhsy, 1cqw, org.apache.catalina.session.StandardSessionFacade@1f6f5a07, {}]}
+2022-06-02 12:50:22.763 DEBUG 64240 --- [http-nio-8080-exec-10] c.j.d.UserDao.findByUsernameAndPassword  : ==>  Preparing: select * from t_user where username = ? and password = ?
+2022-06-02 12:50:22.764 DEBUG 64240 --- [http-nio-8080-exec-10] c.j.d.UserDao.findByUsernameAndPassword  : ==> Parameters: hyf(String), f3b53cbd7fe408bb281efaf5d94f05c2(String)
+2022-06-02 12:50:22.767 DEBUG 64240 --- [http-nio-8080-exec-10] c.j.d.UserDao.findByUsernameAndPassword  : <==      Total: 1
+2022-06-02 12:50:22.768  INFO 64240 --- [http-nio-8080-exec-10] com.jxufe.aspect.LogAspect               : method : redirect:/user_index
+2022-06-02 12:50:22.768  INFO 64240 --- [http-nio-8080-exec-10] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-02 12:50:22.777  INFO 64240 --- [http-nio-8080-exec-9] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/user_index', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.IndexController.doIndex', args=[Page request [number: 0, size 4, sort: updateTime: DESC], {}]}
+2022-06-02 12:50:22.789  INFO 64240 --- [http-nio-8080-exec-9] com.jxufe.aspect.LogAspect               : method : index
+2022-06-02 12:50:22.790  INFO 64240 --- [http-nio-8080-exec-9] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-02 12:53:38.017  INFO 64240 --- [http-nio-8080-exec-8] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/about', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.AboutController.doAbout', args=[]}
+2022-06-02 12:53:38.020  INFO 64240 --- [http-nio-8080-exec-8] com.jxufe.aspect.LogAspect               : method : about
+2022-06-02 12:53:38.020  INFO 64240 --- [http-nio-8080-exec-8] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-02 12:53:54.405  INFO 64240 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/index', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.IndexController.doIndex', args=[Page request [number: 0, size 4, sort: updateTime: DESC], {}]}
+2022-06-02 12:53:54.420  INFO 64240 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : method : index
+2022-06-02 12:53:54.420  INFO 64240 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-02 12:54:06.259  INFO 64240 --- [http-nio-8080-exec-10] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/user_index', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.IndexController.doIndex', args=[Page request [number: 0, size 4, sort: updateTime: DESC], {}]}
+2022-06-02 12:54:06.272  INFO 64240 --- [http-nio-8080-exec-10] com.jxufe.aspect.LogAspect               : method : index
+2022-06-02 12:54:06.272  INFO 64240 --- [http-nio-8080-exec-10] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-02 12:58:42.039  INFO 67476 --- [restartedMain] com.jxufe.GuideSystemApplication         : Starting GuideSystemApplication using Java 11.0.12 on LAPTOP-1IDT75RI with PID 67476 (D:\wenjian\Java\GuideSystem\target\classes started by º«Óî·« in D:\wenjian\Java\GuideSystem)
+2022-06-02 12:58:42.039 DEBUG 67476 --- [restartedMain] com.jxufe.GuideSystemApplication         : Running with Spring Boot v2.6.4, Spring v5.3.16
+2022-06-02 12:58:42.039  INFO 67476 --- [restartedMain] com.jxufe.GuideSystemApplication         : The following 1 profile is active: "dev"
+2022-06-02 12:58:42.070  INFO 67476 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-06-02 12:58:42.070  INFO 67476 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-06-02 12:58:42.746  INFO 67476 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-06-02 12:58:42.809  INFO 67476 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 53 ms. Found 4 JPA repository interfaces.
+2022-06-02 12:58:43.413  INFO 67476 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-06-02 12:58:43.413  INFO 67476 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2022-06-02 12:58:43.413  INFO 67476 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-06-02 12:58:43.413  INFO 67476 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-06-02 12:58:43.413  INFO 67476 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2022-06-02 12:58:43.429  INFO 67476 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-06-02 12:58:43.429  INFO 67476 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2022-06-02 12:58:43.507  INFO 67476 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/dev]    : Initializing Spring embedded WebApplicationContext
+2022-06-02 12:58:43.507  INFO 67476 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1437 ms
+2022-06-02 12:58:43.647  INFO 67476 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-06-02 12:58:43.679  INFO 67476 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.5.Final
+2022-06-02 12:58:43.757  INFO 67476 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-02 12:58:43.815  INFO 67476 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-06-02 12:58:43.924  INFO 67476 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-06-02 12:58:43.940  INFO 67476 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
+2022-06-02 12:58:44.547  INFO 67476 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-02 12:58:44.547  INFO 67476 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-06-02 12:58:45.399  WARN 67476 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-06-02 12:58:45.664  INFO 67476 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-06-02 12:58:45.989  INFO 67476 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-06-02 12:58:46.024  INFO 67476 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/dev'
+2022-06-02 12:58:46.033  INFO 67476 --- [restartedMain] com.jxufe.GuideSystemApplication         : Started GuideSystemApplication in 4.43 seconds (JVM running for 5.52)
+2022-06-02 12:58:50.463  INFO 67476 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/dev]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-06-02 12:58:50.463  INFO 67476 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-06-02 12:58:50.464  INFO 67476 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-06-02 12:58:50.494  INFO 67476 --- [http-nio-8080-exec-1] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.IndexController.doIndex', args=[Page request [number: 0, size 4, sort: updateTime: DESC], {}]}
+2022-06-02 12:58:50.574  WARN 67476 --- [http-nio-8080-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.blogs.size]; use collection function syntax instead [size(t.blogs)].
+2022-06-02 12:58:50.585  INFO 67476 --- [http-nio-8080-exec-1] com.jxufe.aspect.LogAspect               : method : index
+2022-06-02 12:58:50.585  INFO 67476 --- [http-nio-8080-exec-1] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-02 12:58:58.416  INFO 67476 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/types/-1', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.TypeShowController.doTypes', args=[Page request [number: 0, size 4, sort: updateTime: DESC], -1, {}]}
+2022-06-02 12:58:58.433  INFO 67476 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : method : types
+2022-06-02 12:58:58.433  INFO 67476 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-02 12:59:00.802  INFO 67476 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/about', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.AboutController.doAbout', args=[]}
+2022-06-02 12:59:00.805  INFO 67476 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : method : about
+2022-06-02 12:59:00.805  INFO 67476 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-02 12:59:03.706  INFO 67476 --- [http-nio-8080-exec-1] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/index', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.IndexController.doIndex', args=[Page request [number: 0, size 4, sort: updateTime: DESC], {}]}
+2022-06-02 12:59:03.718  INFO 67476 --- [http-nio-8080-exec-1] com.jxufe.aspect.LogAspect               : method : index
+2022-06-02 12:59:03.718  INFO 67476 --- [http-nio-8080-exec-1] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-02 12:59:04.864  INFO 67476 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/login', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.UserController.doLoginPage', args=[]}
+2022-06-02 12:59:04.867  INFO 67476 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : method : login
+2022-06-02 12:59:04.867  INFO 67476 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-02 12:59:04.926  INFO 67476 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/codeImage', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.VerificationController.doGet', args=[org.apache.catalina.connector.RequestFacade@3bab3cd4, org.apache.catalina.connector.ResponseFacade@b2899b9]}
+2022-06-02 12:59:05.487  WARN 67476 --- [http-nio-8080-exec-5] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [279] milliseconds.
+2022-06-02 12:59:05.520  INFO 67476 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : method : null
+2022-06-02 12:59:05.520  INFO 67476 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-02 12:59:13.486  INFO 67476 --- [http-nio-8080-exec-8] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/login/page', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.UserController.doLogin', args=[org.apache.catalina.connector.ResponseFacade@b2899b9, hyf, hyfhsy, tnea, org.apache.catalina.session.StandardSessionFacade@241c81e3, {}]}
+2022-06-02 12:59:13.503 DEBUG 67476 --- [http-nio-8080-exec-8] c.j.d.UserDao.findByUsernameAndPassword  : ==>  Preparing: select * from t_user where username = ? and password = ?
+2022-06-02 12:59:13.509 DEBUG 67476 --- [http-nio-8080-exec-8] c.j.d.UserDao.findByUsernameAndPassword  : ==> Parameters: hyf(String), f3b53cbd7fe408bb281efaf5d94f05c2(String)
+2022-06-02 12:59:13.517 DEBUG 67476 --- [http-nio-8080-exec-8] c.j.d.UserDao.findByUsernameAndPassword  : <==      Total: 1
+2022-06-02 12:59:13.520  INFO 67476 --- [http-nio-8080-exec-8] com.jxufe.aspect.LogAspect               : method : redirect:/user_index
+2022-06-02 12:59:13.520  INFO 67476 --- [http-nio-8080-exec-8] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-02 12:59:13.535  INFO 67476 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/user_index', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.IndexController.doUserIndex', args=[Page request [number: 0, size 4, sort: updateTime: DESC], {}]}
+2022-06-02 12:59:13.546  INFO 67476 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : method : user_index
+2022-06-02 12:59:13.547  INFO 67476 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-02 12:59:33.216  INFO 67476 --- [http-nio-8080-exec-9] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/types/-1', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.TypeShowController.doTypes', args=[Page request [number: 0, size 4, sort: updateTime: DESC], -1, {}]}
+2022-06-02 12:59:33.224  INFO 67476 --- [http-nio-8080-exec-9] com.jxufe.aspect.LogAspect               : method : types
+2022-06-02 12:59:33.225  INFO 67476 --- [http-nio-8080-exec-9] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-02 17:24:47.949  INFO 65964 --- [restartedMain] com.jxufe.GuideSystemApplication         : Starting GuideSystemApplication using Java 11.0.12 on LAPTOP-1IDT75RI with PID 65964 (D:\wenjian\Java\GuideSystem\target\classes started by º«Óî·« in D:\wenjian\Java\GuideSystem)
+2022-06-02 17:24:47.949 DEBUG 65964 --- [restartedMain] com.jxufe.GuideSystemApplication         : Running with Spring Boot v2.6.4, Spring v5.3.16
+2022-06-02 17:24:47.965  INFO 65964 --- [restartedMain] com.jxufe.GuideSystemApplication         : The following 1 profile is active: "dev"
+2022-06-02 17:24:48.012  INFO 65964 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-06-02 17:24:48.012  INFO 65964 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-06-02 17:24:49.012  INFO 65964 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-06-02 17:24:49.090  INFO 65964 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 73 ms. Found 4 JPA repository interfaces.
+2022-06-02 17:24:50.043  INFO 65964 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-06-02 17:24:50.043  INFO 65964 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2022-06-02 17:24:50.043  INFO 65964 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-06-02 17:24:50.043  INFO 65964 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-06-02 17:24:50.059  INFO 65964 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2022-06-02 17:24:50.074  INFO 65964 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-06-02 17:24:50.074  INFO 65964 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2022-06-02 17:24:50.199  INFO 65964 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/dev]    : Initializing Spring embedded WebApplicationContext
+2022-06-02 17:24:50.199  INFO 65964 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2187 ms
+2022-06-02 17:24:50.434  INFO 65964 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-06-02 17:24:50.481  INFO 65964 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.5.Final
+2022-06-02 17:24:50.637  INFO 65964 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-02 17:24:50.746  INFO 65964 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-06-02 17:24:50.871  INFO 65964 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-06-02 17:24:50.887  INFO 65964 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
+2022-06-02 17:24:51.717  INFO 65964 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-02 17:24:51.717  INFO 65964 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-06-02 17:24:52.882  WARN 65964 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-06-02 17:24:53.266  INFO 65964 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-06-02 17:24:53.682  INFO 65964 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-06-02 17:24:53.746  INFO 65964 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/dev'
+2022-06-02 17:24:53.770  INFO 65964 --- [restartedMain] com.jxufe.GuideSystemApplication         : Started GuideSystemApplication in 6.511 seconds (JVM running for 7.947)
+2022-06-02 17:24:59.106  INFO 65964 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/dev]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-06-02 17:24:59.106  INFO 65964 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-06-02 17:24:59.106  INFO 65964 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2022-06-02 17:24:59.170  INFO 65964 --- [http-nio-8080-exec-1] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.IndexController.doIndex', args=[Page request [number: 0, size 4, sort: updateTime: DESC], {}]}
+2022-06-02 17:24:59.330  WARN 65964 --- [http-nio-8080-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.blogs.size]; use collection function syntax instead [size(t.blogs)].
+2022-06-02 17:24:59.354  INFO 65964 --- [http-nio-8080-exec-1] com.jxufe.aspect.LogAspect               : method : index
+2022-06-02 17:24:59.354  INFO 65964 --- [http-nio-8080-exec-1] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-02 17:25:25.212  INFO 65964 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/blog/16', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.IndexController.doBlog', args=[16, {}]}
+2022-06-02 17:25:25.308  INFO 65964 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : method : blog
+2022-06-02 17:25:25.308  INFO 65964 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-02 17:25:48.145  WARN 65964 --- [http-nio-8080-exec-7] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [580] milliseconds.
+2022-06-02 17:25:48.145  INFO 65964 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/comments/save', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.CommentController.doPost', args=[Comment{id=16, nickname='null', content='¹þ¹þ¹þ', avatar='null', adminComment=false, createTime=null}, org.apache.catalina.session.StandardSessionFacade@1cba8022]}
+2022-06-02 17:25:48.169  INFO 65964 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-02 17:25:48.169 ERROR 65964 --- [http-nio-8080-exec-7] c.j.handler.ControllerExceptionHandler   : Request URL : http://localhost:8080/dev/comments/save, Exception : null
+2022-06-02 17:25:48.169  WARN 65964 --- [http-nio-8080-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NullPointerException]
+2022-06-02 17:26:03.462  INFO 65964 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/index', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.IndexController.doIndex', args=[Page request [number: 0, size 4, sort: updateTime: DESC], {}]}
+2022-06-02 17:26:03.486  INFO 65964 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : method : index
+2022-06-02 17:26:03.486  INFO 65964 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-02 17:26:08.930  INFO 65964 --- [http-nio-8080-exec-3] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/login', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.UserController.doLoginPage', args=[]}
+2022-06-02 17:26:08.938  INFO 65964 --- [http-nio-8080-exec-3] com.jxufe.aspect.LogAspect               : method : login
+2022-06-02 17:26:08.938  INFO 65964 --- [http-nio-8080-exec-3] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-02 17:26:09.010  INFO 65964 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/codeImage', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.VerificationController.doGet', args=[org.apache.catalina.connector.RequestFacade@4a56bc3a, org.apache.catalina.connector.ResponseFacade@1b0b6345]}
+2022-06-02 17:26:09.749  INFO 65964 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : method : null
+2022-06-02 17:26:09.749  INFO 65964 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-02 17:26:11.726  INFO 65964 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/register', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.UserController.doRegister', args=[]}
+2022-06-02 17:26:11.726  INFO 65964 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : method : register
+2022-06-02 17:26:11.726  INFO 65964 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-02 17:26:15.537  INFO 65964 --- [http-nio-8080-exec-9] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/login', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.UserController.doLoginPage', args=[]}
+2022-06-02 17:26:15.538  INFO 65964 --- [http-nio-8080-exec-9] com.jxufe.aspect.LogAspect               : method : login
+2022-06-02 17:26:15.538  INFO 65964 --- [http-nio-8080-exec-9] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-02 17:26:15.600  INFO 65964 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/codeImage', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.VerificationController.doGet', args=[org.apache.catalina.connector.RequestFacade@3f6ebd8e, org.apache.catalina.connector.ResponseFacade@cac7c1c]}
+2022-06-02 17:26:15.616  INFO 65964 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : method : null
+2022-06-02 17:26:15.616  INFO 65964 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-02 17:26:16.557  INFO 65964 --- [http-nio-8080-exec-1] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/codeImage', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.VerificationController.doGet', args=[org.apache.catalina.connector.RequestFacade@3f6ebd8e, org.apache.catalina.connector.ResponseFacade@cac7c1c]}
+2022-06-02 17:26:16.601  INFO 65964 --- [http-nio-8080-exec-1] com.jxufe.aspect.LogAspect               : method : null
+2022-06-02 17:26:16.601  INFO 65964 --- [http-nio-8080-exec-1] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-02 17:26:16.719  INFO 65964 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/codeImage', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.VerificationController.doGet', args=[org.apache.catalina.connector.RequestFacade@3f6ebd8e, org.apache.catalina.connector.ResponseFacade@cac7c1c]}
+2022-06-02 17:26:16.763  INFO 65964 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : method : null
+2022-06-02 17:26:16.764  INFO 65964 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-02 17:26:16.881  INFO 65964 --- [http-nio-8080-exec-8] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/codeImage', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.VerificationController.doGet', args=[org.apache.catalina.connector.RequestFacade@3f6ebd8e, org.apache.catalina.connector.ResponseFacade@cac7c1c]}
+2022-06-02 17:26:16.926  INFO 65964 --- [http-nio-8080-exec-8] com.jxufe.aspect.LogAspect               : method : null
+2022-06-02 17:26:16.927  INFO 65964 --- [http-nio-8080-exec-8] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-02 17:26:17.666  INFO 65964 --- [http-nio-8080-exec-3] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/codeImage', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.VerificationController.doGet', args=[org.apache.catalina.connector.RequestFacade@3f6ebd8e, org.apache.catalina.connector.ResponseFacade@cac7c1c]}
+2022-06-02 17:26:17.675  INFO 65964 --- [http-nio-8080-exec-3] com.jxufe.aspect.LogAspect               : method : null
+2022-06-02 17:26:17.675  INFO 65964 --- [http-nio-8080-exec-3] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-02 17:26:17.841  INFO 65964 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/codeImage', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.VerificationController.doGet', args=[org.apache.catalina.connector.RequestFacade@3f6ebd8e, org.apache.catalina.connector.ResponseFacade@cac7c1c]}
+2022-06-02 17:26:17.884  INFO 65964 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : method : null
+2022-06-02 17:26:17.884  INFO 65964 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-02 17:26:18.859  INFO 65964 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/login', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.UserController.doLoginPage', args=[]}
+2022-06-02 17:26:18.859  INFO 65964 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : method : login
+2022-06-02 17:26:18.859  INFO 65964 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-02 17:26:18.990  INFO 65964 --- [http-nio-8080-exec-9] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/codeImage', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.VerificationController.doGet', args=[org.apache.catalina.connector.RequestFacade@3f6ebd8e, org.apache.catalina.connector.ResponseFacade@cac7c1c]}
+2022-06-02 17:26:18.998  INFO 65964 --- [http-nio-8080-exec-9] com.jxufe.aspect.LogAspect               : method : null
+2022-06-02 17:26:18.998  INFO 65964 --- [http-nio-8080-exec-9] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-02 17:26:24.351  INFO 65964 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/register', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.UserController.doRegister', args=[]}
+2022-06-02 17:26:24.351  INFO 65964 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : method : register
+2022-06-02 17:26:24.351  INFO 65964 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : ------------doAfter-----------

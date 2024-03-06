@@ -1,0 +1,120 @@
+2022-12-13 10:04:20.249  INFO 12384 --- [restartedMain] com.jxufe.GuideSystemApplication         : Starting GuideSystemApplication using Java 11.0.12 on LAPTOP-1IDT75RI with PID 12384 (D:\wenjian\Java\J2EE\GuideSystem\target\classes started by º«Óî·« in D:\wenjian\Java\J2EE\GuideSystem)
+2022-12-13 10:04:20.254 DEBUG 12384 --- [restartedMain] com.jxufe.GuideSystemApplication         : Running with Spring Boot v2.6.4, Spring v5.3.16
+2022-12-13 10:04:20.255  INFO 12384 --- [restartedMain] com.jxufe.GuideSystemApplication         : The following 1 profile is active: "dev"
+2022-12-13 10:04:20.308  INFO 12384 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-12-13 10:04:20.308  INFO 12384 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-12-13 10:04:21.038  INFO 12384 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-13 10:04:21.120  INFO 12384 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 73 ms. Found 5 JPA repository interfaces.
+2022-12-13 10:04:21.845  INFO 12384 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-12-13 10:04:21.846  INFO 12384 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : An older version [1.2.16] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.30]
+2022-12-13 10:04:21.846  INFO 12384 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.16] using APR version [1.6.3].
+2022-12-13 10:04:21.846  INFO 12384 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [false].
+2022-12-13 10:04:21.846  INFO 12384 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-12-13 10:04:22.901  INFO 12384 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.0.2m  2 Nov 2017]
+2022-12-13 10:04:22.922  INFO 12384 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-13 10:04:22.922  INFO 12384 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2022-12-13 10:04:23.014  INFO 12384 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/dev]    : Initializing Spring embedded WebApplicationContext
+2022-12-13 10:04:23.014  INFO 12384 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2705 ms
+2022-12-13 10:04:23.182  INFO 12384 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-13 10:04:23.232  INFO 12384 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.5.Final
+2022-12-13 10:04:23.366  INFO 12384 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-13 10:04:23.462  INFO 12384 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-12-13 10:04:23.608  INFO 12384 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-12-13 10:04:23.623  INFO 12384 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
+2022-12-13 10:04:24.393  INFO 12384 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-13 10:04:24.400  INFO 12384 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-13 10:04:25.459  WARN 12384 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-13 10:04:25.733  INFO 12384 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-12-13 10:04:26.180  INFO 12384 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-12-13 10:04:26.241  INFO 12384 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/dev'
+2022-12-13 10:04:26.256  INFO 12384 --- [restartedMain] com.jxufe.GuideSystemApplication         : Started GuideSystemApplication in 6.531 seconds (JVM running for 8.002)
+2022-12-13 10:05:13.616  INFO 12384 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/dev]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-12-13 10:05:13.617  INFO 12384 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-12-13 10:05:13.618  INFO 12384 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-12-13 10:05:13.635 ERROR 12384 --- [http-nio-8080-exec-2] o.a.c.c.C.[.[.[.[dispatcherServlet]      : Servlet.service() for servlet [dispatcherServlet] in context with path [/dev] threw exception [Request processing failed; nested exception is java.lang.IllegalArgumentException: Invalid contextPath '/dev': must match the start of requestPath: '//dev/admin'] with root cause
+
+java.lang.IllegalArgumentException: Invalid contextPath '/dev': must match the start of requestPath: '//dev/admin'
+	at org.springframework.http.server.DefaultRequestPath.validateContextPath(DefaultRequestPath.java:81)
+	at org.springframework.http.server.DefaultRequestPath.initContextPath(DefaultRequestPath.java:56)
+	at org.springframework.http.server.DefaultRequestPath.<init>(DefaultRequestPath.java:41)
+	at org.springframework.http.server.RequestPath.parse(RequestPath.java:79)
+	at org.springframework.web.util.ServletRequestPathUtils$ServletRequestPath.parse(ServletRequestPathUtils.java:258)
+	at org.springframework.web.util.ServletRequestPathUtils.parseAndCache(ServletRequestPathUtils.java:66)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:959)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at com.jxufe.filter.Filter.doFilter(Filter.java:47)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:359)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:889)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1735)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+2022-12-13 10:05:45.649  WARN 12384 --- [http-nio-8080-exec-2] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [386] milliseconds.
+2022-12-13 10:05:45.672 DEBUG 12384 --- [http-nio-8080-exec-2] c.j.d.A.findByUsernameAndPassword        : ==>  Preparing: select * from t_admin where username = ? and password = ?
+2022-12-13 10:05:45.678 DEBUG 12384 --- [http-nio-8080-exec-2] c.j.d.A.findByUsernameAndPassword        : ==> Parameters: admin(String), admin(String)
+2022-12-13 10:05:45.685 DEBUG 12384 --- [http-nio-8080-exec-2] c.j.d.A.findByUsernameAndPassword        : <==      Total: 0
+2022-12-13 10:05:58.757 DEBUG 12384 --- [http-nio-8080-exec-10] c.j.d.A.findByUsernameAndPassword        : ==>  Preparing: select * from t_admin where username = ? and password = ?
+2022-12-13 10:05:58.758 DEBUG 12384 --- [http-nio-8080-exec-10] c.j.d.A.findByUsernameAndPassword        : ==> Parameters: admin(String), admin(String)
+2022-12-13 10:05:58.759 DEBUG 12384 --- [http-nio-8080-exec-10] c.j.d.A.findByUsernameAndPassword        : <==      Total: 0
+2022-12-13 10:06:13.643 DEBUG 12384 --- [http-nio-8080-exec-1] c.j.d.A.findByUsernameAndPassword        : ==>  Preparing: select * from t_admin where username = ? and password = ?
+2022-12-13 10:06:13.643 DEBUG 12384 --- [http-nio-8080-exec-1] c.j.d.A.findByUsernameAndPassword        : ==> Parameters: hyf(String), hyfhsy(String)
+2022-12-13 10:06:13.648 DEBUG 12384 --- [http-nio-8080-exec-1] c.j.d.A.findByUsernameAndPassword        : <==      Total: 1
+2022-12-13 10:07:33.846  INFO 12384 --- [http-nio-8080-exec-1] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.IndexController.doIndex', args=[Page request [number: 0, size 6, sort: updateTime: DESC], {}, org.apache.catalina.connector.RequestFacade@4f1d0ec2]}
+2022-12-13 10:07:33.878  WARN 12384 --- [http-nio-8080-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.resources.size]; use collection function syntax instead [size(t.resources)].
+2022-12-13 10:07:33.889  INFO 12384 --- [http-nio-8080-exec-1] com.jxufe.aspect.LogAspect               : method : index
+2022-12-13 10:07:33.890  INFO 12384 --- [http-nio-8080-exec-1] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-12-13 10:07:37.803  INFO 12384 --- [http-nio-8080-exec-8] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/index', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.IndexController.doIndex', args=[Page request [number: 1, size 6, sort: updateTime: DESC], {}, org.apache.catalina.connector.RequestFacade@6a64ea45]}
+2022-12-13 10:07:37.817  INFO 12384 --- [http-nio-8080-exec-8] com.jxufe.aspect.LogAspect               : method : index
+2022-12-13 10:07:37.817  INFO 12384 --- [http-nio-8080-exec-8] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-12-13 10:07:39.535  INFO 12384 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/forum', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.ForumShowController.doForum', args=[org.apache.catalina.connector.RequestFacade@3879ae47, {}]}
+2022-12-13 10:07:39.538 DEBUG 12384 --- [http-nio-8080-exec-7] com.jxufe.dao.ForumDao.findListForums    : ==>  Preparing: select * from t_forum order by popular DESC
+2022-12-13 10:07:39.539 DEBUG 12384 --- [http-nio-8080-exec-7] com.jxufe.dao.ForumDao.findListForums    : ==> Parameters: 
+2022-12-13 10:07:39.541 DEBUG 12384 --- [http-nio-8080-exec-7] com.jxufe.dao.ForumDao.findListForums    : <==      Total: 6
+2022-12-13 10:07:39.546  INFO 12384 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : method : forum
+2022-12-13 10:07:39.546  INFO 12384 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-12-13 10:07:41.955  INFO 12384 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/forum/fblog/4', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.ForumShowController.doFblog', args=[Page request [number: 0, size 999, sort: updateTime: DESC], 4, org.apache.catalina.connector.RequestFacade@136c0f7, {}]}
+2022-12-13 10:07:41.956 DEBUG 12384 --- [http-nio-8080-exec-2] com.jxufe.dao.ForumDao.findForumById     : ==>  Preparing: select * from t_forum where id = ?
+2022-12-13 10:07:41.957 DEBUG 12384 --- [http-nio-8080-exec-2] com.jxufe.dao.ForumDao.findForumById     : ==> Parameters: 4(Integer)
+2022-12-13 10:07:41.957 DEBUG 12384 --- [http-nio-8080-exec-2] com.jxufe.dao.ForumDao.findForumById     : <==      Total: 1
+2022-12-13 10:07:41.996  INFO 12384 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : method : fblog
+2022-12-13 10:07:41.996  INFO 12384 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-12-13 10:07:46.824  INFO 12384 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/blog/5', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.IndexController.doBlogPage', args=[5, {}, org.apache.catalina.connector.RequestFacade@3879ae47]}
+2022-12-13 10:07:46.877  INFO 12384 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : method : blog
+2022-12-13 10:07:46.877  INFO 12384 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-12-13 10:08:08.497 DEBUG 12384 --- [http-nio-8080-exec-5] c.j.d.A.findByUsernameAndPassword        : ==>  Preparing: select * from t_admin where username = ? and password = ?
+2022-12-13 10:08:08.498 DEBUG 12384 --- [http-nio-8080-exec-5] c.j.d.A.findByUsernameAndPassword        : ==> Parameters: hyf(String), hyfhsy(String)
+2022-12-13 10:08:08.499 DEBUG 12384 --- [http-nio-8080-exec-5] c.j.d.A.findByUsernameAndPassword        : <==      Total: 1

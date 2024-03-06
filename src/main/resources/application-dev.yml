@@ -1,0 +1,24 @@
+#开发环境
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/2jd?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
+    username: root
+    password: hyfhsy
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+logging:
+  level:
+    root: info
+    com.jxufe: debug
+  file:
+    name: log/blog-dev.log
+
+server:
+  port: 8080
+  servlet:
+    context-path: /dev

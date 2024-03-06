@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head th:replace="admin/_fragments :: head(~{::title})">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--    引入semantic.min.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <!--    引入me.css-->
+    <link rel="stylesheet" href="../../static/css/me.css">
+    <title>管理后台</title>
+</head>
+
+<body>
+<!--导航-->
+<nav class="ui inverted attached segment m-padded-tb-mini">
+    <div class="ui container"> <!-- 加一个容器 -->
+        <div class="ui inverted secondary stackable menu"> <!-- 菜单 stackable:可堆叠的,表示屏幕小时自动堆叠-->
+            <h2 class="ui white header item">GuideSystem</h2> <!-- 蓝绿色标题 -->
+            <a href="#" th:href="@{/admin/resources}" class="m-item m-mobile-hide item"><i class="home icon"></i>指南</a> <!-- icon表示图表 -->
+            <a href="#" th:href="@{/admin/types}" class="m-item m-mobile-hide item"><i class="idea icon"></i>分类</a>
+            <a href="#" th:href="@{/admin/tags}"  class="m-item m-mobile-hide item"><i class="tags icon"></i>标签</a>
+            <a href="#" th:href="@{/admin/forums}"  class="m-item m-mobile-hide item"><i class="comments icon"></i>论坛</a>
+            <div class="right m-item m-mobile-hide menu">
+                <div class="ui dropdown item">
+                    <div class="text">
+                        <img class="ui avatar image" src="https://unsplash.it/100/100?image=1005" th:src="@{${session.admin.avatar}}">
+                    </div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <a href="#" th:href="@{/admin/logout}" class="item">退出</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="ui menu toggle black button icon m-top-right m-mobile-show">
+        <i class="sidebar icon"></i>
+    </a>
+</nav>
+
+<!--中间内容-->
+<div class="m-container m-padded-tb-big">
+    <br>
+    <div class="ui container">
+        <div class="ui success large message">
+            <h2>Hi,</h2>
+            <p><span>软件214</span>，欢迎来访！</p>
+        </div>
+        <div class="ui success large message">
+            <h3>个人描述,</h3>
+            <p>我是管理员哦</p>
+        </div>
+    </div>
+    <br>
+    <br>
+</div>
+
+<!--底部footer-->
+<footer th:replace="admin/_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive"> <!-- vertical:垂直的 segment:条横 inverted:倒置的 -->
+    <div class="ui center aligned container"> <!-- center aligned:居中 aligned:使成为一条线-->
+        <div class="ui inverted divided stackable grid"> <!-- inverted divided grid:格线分成16份 -->
+            <div class="three wide column">
+                <div class="ui inverted link list">
+                    <div class="item">
+                        <img src="../../static/images/WeChat.jpg" class="ui rounded image" alt="" style="width: 110px">
+                        <!-- rounded:圆角 -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- 分成三列 -->
+            <div class="three wide column">
+                <h4 class="ui inverted header m-text-thin">最新博客</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item m-text-thin">用户故事(User Story)</a>
+                    <a href="#" class="item m-text-thin">关于小熊是我对象这件事</a>
+                    <a href="#" class="item m-text-thin">摇滚乐牛逼!</a>
+                </div>
+            </div>
+
+            <!-- 分成三列 -->
+            <div class="three wide column">
+                <h4 class="ui inverted header m-text-thin">联系我</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item m-text-thin" style="height: 28px">QQ: 1923326384</a>
+                    <a href="#" class="item m-text-thin">邮箱: 1923326384@qq.com</a>
+                </div>
+            </div>
+
+            <!-- 分成七列 -->
+            <div class="seven wide column">
+                <h4 class="ui inverted header m-text-thin">个人留言</h4>
+                <p class="m-text-thin m-text-spaced m-opacity-mini m-text-lined">
+                    第一次跟着视频敲项目，尽管很多不知道的知识点但还是慢慢吞吞地敲下来了，后续肯定会自己独立完成一些项目，希望可以鼓励到自己。</p>
+            </div>
+
+        </div>
+        <div class="ui inverted section divider"></div>
+        <p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright @ 2021-2022 Hanyufan Designed by Hanyufan</p>
+    </div>
+</footer>
+
+<th:block th:replace="admin/_fragments :: script">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+</th:block>
+
+<script>
+    $('.menu.toggle').click(function () {
+        $('.m-item').toggleClass('m-mobile-hide');
+    });
+
+    $('.ui.dropdown').dropdown({
+        on: 'hover'
+    });
+</script>
+
+</body>
+</html>

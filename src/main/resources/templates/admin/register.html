@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="admin/_fragments :: head(~{::title})">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--    引入semantic.min.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <link rel="stylesheet" href="../../static/css/me.css" th:href="@{/css/me.css}">
+    <title>后台注册</title>
+</head>
+<body>
+
+<div class="m-container-small m-padded-tb-massive" style="max-width: 30em !important">
+    <div class="ur container">
+        <div class="ui middle aligned center aligned grid">
+            <div class="column">
+                <h2 class="ui image header">
+                    <!--<img src="assets/images/logo.png" class="image">-->
+                    <div class="content">
+                        GuideSystem
+                    </div>
+                </h2>
+                <form class="ui large form" method="post" action="#" th:action="@{/admin/register/success}">
+                    <div class="ui segment">
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="user icon"></i>
+                                <input type="text" name="username" placeholder="用户名">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="ui lock icon"></i>
+                                <input type="password" name="password" placeholder="密码">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="ui envelope icon"></i>
+                                <input type="email" name="email" placeholder="邮箱">
+                            </div>
+                        </div>
+                        <button class="ui fluid large yellow submit button" style="margin-bottom: 5px">注册</button>
+                        <a href="admin/login" style="margin-top: 5px">已有账号？选择登录！</a>
+                    </div>
+
+                    <div class="ui mini error message"></div>
+                    <div class="ui message negative mini" th:unless="${#strings.isEmpty(message)}" th:text="${message}">
+                        用户名已被占用！
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<th:block th:replace="admin/_fragments :: script">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+</th:block>
+
+<script>
+    $('.ui.form').form({
+        fields: {
+            username: {
+                identifier: 'username',
+                rules: [{
+                    type: 'empty',
+                    prompt: '用户名不能为空'
+                }]
+            },
+
+            content: {
+                identifier: 'password',
+                rules: [{
+                    type: 'empty',
+                    prompt: '密码不能为空'
+                }]
+            },
+
+            email: {
+                identifier: 'email',
+                rules: [{
+                    type: 'empty',
+                    prompt: '邮箱不能为空'
+                }]
+            }
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
+    <link rel="stylesheet" href="../static/css/animate.css" th:href="@{/css/animate.css}">
+    <link rel="stylesheet" href="../static/lib/prime/prism.css" th:href="@{/lib/prime/prism.css}">
+    <link rel="stylesheet" href="../static/lib/tocbot/tocbot.css" th:href="@{/lib/tocbot/tocbot.css}">
+    <link rel="stylesheet" href="../static/css/typo.css" th:href="@{/css/typo.css}">
+    <title>资料详情</title>
+</head>
+<body>
+
+<!--导航-->
+<nav th:replace="_fragments :: menu(1)" class="ui inverted attached segment m-padded-tb-mini">
+    <div class="ui container"> <!-- 加一个容器 -->
+        <div class="ui inverted secondary stackable menu"> <!-- 菜单 stackable:可堆叠的,表示屏幕小时自动堆叠-->
+            <h2 class="ui teal header item">Blog</h2> <!-- 蓝绿色标题 -->
+            <a href="#" th:href="@{/index}" class="m-item m-mobile-hide item"><i class="home icon"></i>首页</a>
+            <!-- icon表示图表 -->
+            <a href="#" th:href="@{/types/-1}" class="m-item m-mobile-hide item"><i class="idea icon"></i>分类</a>
+            <a href="#" th:href="@{/tags/-1}" class="m-item m-mobile-hide item"><i class="tags icon"></i>标签</a>
+            <a href="#" th:href="@{/archives}" class="m-item m-mobile-hide item"><i class="clone icon"></i>归档</a>
+            <a href="#" th:href="@{/about}" class="m-item m-mobile-hide item"><i class="info icon"></i>关于我</a>
+            <div class="right m-mobile-hide item m-item"> <!-- 靠右 -->
+                <div class="ui icon input">
+                    <input type="text" placeholder="Search...">
+                    <i class="search link icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="ui menu toggle black button icon m-top-right m-mobile-show">
+        <i class="sidebar icon"></i>
+    </a>
+</nav>
+
+<!--中间内容-->
+<div class="m-container-small m-padded-tb-big animate__fadeIn">
+    <div class="ui container">
+        <!--头部-->
+        <div class="ui top attached segment">
+            <div class="ui horizontal link list">
+                <div class="item">
+                    <p th:text="${resource.school}">韩宇帆</p>
+                </div>
+                <div class="item">
+                    <i class="calendar time icon"></i><span th:text="${#dates.format(resource.updateTime, 'yyyy-MM-dd')}">2022-03-08</span>
+                </div>
+                <div class="item">
+                    <i class="eye icon" th:text="${resource.views}">234</i>
+                </div>
+            </div>
+        </div>
+        <!--图片区域-->
+        <div class="ui attached segment animate__fadeIn">
+            <img src="https://unsplash.it/800/450?image=1005" th:src="@{${resource.firstPicture}}" alt=""
+                 class="ui fluid rounded image">
+        </div>
+        <!--内容-->
+        <div class="ui attached padded segment js-toc-content">
+            <div class="ui right aligned basic segment">
+                <div class="ui right basic label orange">指南</div>
+            </div>
+            <h2 class="ui center aligned m-text-header-thin header" th:text="${resource.title}">你就是我想把生命交予的人</h2>
+            <div id="content" class="typo typo-selection m-padded-lr" th:text="${resource.content}">
+                <p class="m-text" style="text-align: center">
+                    你就是我想在耳边细语的人<br>
+                    十九岁的我爱着你<br>
+                    就像拾着一朵栀子花<br>
+                    你的每一瓣花瓣值得温柔以待<br>
+                    我持续着<br>
+                    我去到你的梦里<br>
+                    你来到我的梦里<br>
+                    我们彼此忘记来历<br>
+                    认为这不算幼稚<br>
+                    哪怕九十九岁的自己也深爱着你<br>
+                    我的宝贝<br>
+                    请允许我用躯体和灵魂同你交流<br>
+                    你就是我想把生命交予的人<br>
+                </p>
+                <br>
+                <h2 class="ui center aligned m-text-header-thin header">微语录</h2>
+                <p class="m-text" style="text-align: center">
+                    我每天都要继续开心一点<br>
+                    我想要笑<br>
+                    我还想跳舞<br>
+                    如果有一片空地<br>
+                    我肯定要舞蹈<br>
+                    我每天都要喝一杯梅子酒<br>
+                    我想要梦<br>
+                    我还想啜泣<br>
+                    如果有一支蜡烛<br>
+                    我肯定要点燃<br>
+                    我每天都要留下一些文字<br>
+                    仅仅是一些文字<br>
+                    有颜色
+                    有记忆<br>
+                    有声响的文字<br>
+                </p>
+            </div>
+            <!--标签-->
+            <!--<div class="m-padded-lr m-padded-tb-small">-->
+            <!--    <div class="ui basic teal left pointing label">随记</div>-->
+            <!--</div>-->
+            <!--赞赏-->
+            <div class="ui center aligned basic segment">
+                <button id="payButton" class="ui orange basic circular button">支持</button>
+            </div>
+            <div class="ui pay flowing popup transition hidden">
+                <div class="ui orange basic label">
+                    <div class="ui images" style="font-size: inherit !important;">
+                        <div class="image">
+                            <img src="../static/images/E4E7BC788D0A42F0CE4D23167BD6BE14.jpg" th:src="@{/images/WeChat1.jpg}"
+                                 class="ui rounded bordered image"
+                                 style="width: 120px"></img>
+                            <div>支付宝</div>
+                        </div>
+                        <div class="image">
+                            <img src="../static/images/WeChat1.jpg" th:src="@{/images/WeChat1.jpg}"
+                                 class="ui rounded bordered image"
+                                 style="width: 120px"></img>
+                            <div>微信</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="ui attached positive message">
+            <!--博客信息-->
+            <div class="ui middle aligned grid">
+                <div class="eleven wide column">
+                    <ui class="list">
+                        <li>学校对象：<span th:text="${resource.school}">江西财经大学</span></li>
+                        <li>初次发表时间：<span
+                                th:text="${#dates.format(resource.createTime, 'yyyy-MM-dd HH:mm')}">2202-06-04 09:21</span></li>
+                        <li>最近更新：<span
+                                th:text="${#dates.format(resource.createTime, 'yyyy-MM-dd HH:mm')}">2202-06-04 16:06</span></li>
+                    </ui>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="m-padded m-right-bottom m-fixed">
+    <div class="ui vertical icon buttons">
+        <button type="button" class="ui toc blue button">目录</button>
+        <a href="#" th:href="@{/feedback}" class="ui blue button">反馈</a>
+        <a class="ui icon button"><i class="heart icon"></i></a>
+        <a href="#" id="toTop-button" class="ui button"><i class="chevron up icon"></i></a>
+    </div>
+</div>
+
+<div class="ui toc-container flowing popup transition hidden" style="width: 250px !important">
+    <ol class="js-toc">
+    </ol>
+</div>
+
+<br>
+<br>
+
+<!--底部footer-->
+<footer th:replace="_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive">
+    <!-- vertical:垂直的 segment:条横 inverted:倒置的 -->
+    <div class="ui center aligned container"> <!-- center aligned:居中 aligned:使成为一条线-->
+        <div class="ui inverted divided stackable grid"> <!-- inverted divided grid:格线分成16份 -->
+            <div class="three wide column">
+                <div class="ui inverted link list">
+                    <div class="item">
+                        <img src="../static/images/WeChat.jpg" th:src="@{/images/WeChat.jpg}"
+                             class="ui rounded image"
+                             alt="" style="width: 110px">
+                        <!-- rounded:圆角 -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- 分成三列 -->
+            <div class="three wide column">
+                <h4 class="ui inverted header m-text-thin">最新博客</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item m-text-thin">用户故事(User Story)</a>
+                    <a href="#" class="item m-text-thin">关于小熊是我对象这件事</a>
+                    <a href="#" class="item m-text-thin">摇滚乐牛逼!</a>
+                </div>
+            </div>
+
+            <!-- 分成三列 -->
+            <div class="three wide column">
+                <h4 class="ui inverted header m-text-thin">联系我</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item m-text-thin" style="height: 28px">QQ: 1923326384</a>
+                    <a href="#" class="item m-text-thin">邮箱: 1923326384@qq.com</a>
+                </div>
+            </div>
+
+            <!-- 分成七列 -->
+            <div class="seven wide column">
+                <h4 class="ui inverted header m-text-thin">个人留言</h4>
+                <p class="m-text-thin m-text-spaced m-opacity-mini m-text-lined">
+                    第一次跟着视频敲项目，尽管很多不知道的知识点但还是慢慢吞吞地敲下来了，后续肯定会自己独立完成一些项目，希望可以鼓励到自己。</p>
+            </div>
+
+        </div>
+        <div class="ui inverted section divider"></div>
+        <p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright @ 2021-2022 Hanyufan Designed by Hanyufan</p>
+    </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.3/jquery.scrollTo.min.js"></script>
+<script src="../static/lib/prime/prism.js" th:src="@{/lib/prime/prism.js}"></script>
+<script src="../static/lib/tocbot/tocbot.js" th:src="@{/lib/tocbot/tocbot.js}"></script>
+<script src="../static/lib/waypoints/jquery.waypoints.min.js" th:src="@{/lib/waypoints/jquery.waypoints.min.js}"></script>
+<!--点击执行操作-->
+<script>
+    $('.menu.toggle').click(function () {
+        $('.m-item').toggleClass('m-mobile-hide');
+    });
+
+    $('#payButton').popup({
+        popup: $('.pay.popup'),
+        on: 'click',
+        position: 'bottom center'
+    });
+
+    tocbot.init({
+        // Where to render the table of contents.
+        tocSelector: '.js-toc',
+        // Where to grab the headings to build the table of contents.
+        contentSelector: '.js-toc-content',
+        // Which headings to grab inside of the contentSelector element.
+        headingSelector: 'h1, h2, h3',
+    });
+
+    $('.toc.button').popup({
+        popup : $('.toc-container.popup'),
+        on : 'click',
+        position: 'left center'
+    });
+
+    $('#toTop-button').click(function () {
+        $(window).scrollTo(0,500);
+    });
+
+    var waypoint = new Waypoint({
+        element: document.getElementById('waypoint'),
+        handler: function(direction) {
+            if (direction == 'down') {
+                $('#toolbar').show(100);
+            } else {
+                $('#toolbar').hide(500);
+            }
+            console.log('Scrolled to waypoint!  ' + direction);
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+2022-06-11 23:26:20.283  INFO 131476 --- [restartedMain] com.jxufe.GuideSystemApplication         : Starting GuideSystemApplication using Java 11.0.12 on LAPTOP-1IDT75RI with PID 131476 (D:\wenjian\Java\GuideSystem\target\classes started by º«Óî·« in D:\wenjian\Java\GuideSystem)
+2022-06-11 23:26:20.290 DEBUG 131476 --- [restartedMain] com.jxufe.GuideSystemApplication         : Running with Spring Boot v2.6.4, Spring v5.3.16
+2022-06-11 23:26:20.291  INFO 131476 --- [restartedMain] com.jxufe.GuideSystemApplication         : The following 1 profile is active: "dev"
+2022-06-11 23:26:20.359  INFO 131476 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-06-11 23:26:20.360  INFO 131476 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-06-11 23:26:21.217  INFO 131476 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-06-11 23:26:21.298  INFO 131476 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 73 ms. Found 5 JPA repository interfaces.
+2022-06-11 23:26:22.140  INFO 131476 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-06-11 23:26:22.141  INFO 131476 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2022-06-11 23:26:22.142  INFO 131476 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-06-11 23:26:22.142  INFO 131476 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-06-11 23:26:22.158  INFO 131476 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2022-06-11 23:26:22.172  INFO 131476 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-06-11 23:26:22.173  INFO 131476 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2022-06-11 23:26:22.271  INFO 131476 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/dev]    : Initializing Spring embedded WebApplicationContext
+2022-06-11 23:26:22.271  INFO 131476 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1909 ms
+2022-06-11 23:26:22.458  INFO 131476 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-06-11 23:26:22.513  INFO 131476 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.5.Final
+2022-06-11 23:26:22.640  INFO 131476 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-11 23:26:22.729  INFO 131476 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-06-11 23:26:22.878  INFO 131476 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-06-11 23:26:22.892  INFO 131476 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
+2022-06-11 23:26:23.762  INFO 131476 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-11 23:26:23.772  INFO 131476 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-06-11 23:26:24.920  WARN 131476 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-06-11 23:26:25.231  INFO 131476 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-06-11 23:26:25.641  INFO 131476 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-06-11 23:26:25.691  INFO 131476 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/dev'
+2022-06-11 23:26:25.702  INFO 131476 --- [restartedMain] com.jxufe.GuideSystemApplication         : Started GuideSystemApplication in 6.248 seconds (JVM running for 7.703)
+2022-06-11 23:26:35.886  INFO 131476 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/dev]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-06-11 23:26:35.887  INFO 131476 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-06-11 23:26:35.888  INFO 131476 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-06-11 23:26:35.921  INFO 131476 --- [http-nio-8080-exec-1] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.IndexController.doIndex', args=[Page request [number: 0, size 4, sort: updateTime: DESC], {}, org.apache.catalina.connector.RequestFacade@3a187c1f]}
+2022-06-11 23:26:36.256  WARN 131476 --- [http-nio-8080-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [319] milliseconds.
+2022-06-11 23:26:36.338  WARN 131476 --- [http-nio-8080-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.resources.size]; use collection function syntax instead [size(t.resources)].
+2022-06-11 23:26:36.357  INFO 131476 --- [http-nio-8080-exec-1] com.jxufe.aspect.LogAspect               : method : index
+2022-06-11 23:26:36.358  INFO 131476 --- [http-nio-8080-exec-1] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-11 23:26:41.092  INFO 131476 --- [http-nio-8080-exec-1] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/forum;jsessionid=01971A1B78E7412EBE5963A540D2BBDC', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.ForumController.doForum', args=[org.apache.catalina.connector.RequestFacade@72a38735, {}]}
+2022-06-11 23:26:41.112 DEBUG 131476 --- [http-nio-8080-exec-1] com.jxufe.dao.ForumDao.findListForums    : ==>  Preparing: select * from t_forum order by id ASC
+2022-06-11 23:26:41.118 DEBUG 131476 --- [http-nio-8080-exec-1] com.jxufe.dao.ForumDao.findListForums    : ==> Parameters: 
+2022-06-11 23:26:41.131 DEBUG 131476 --- [http-nio-8080-exec-1] com.jxufe.dao.ForumDao.findListForums    : <==      Total: 4
+2022-06-11 23:26:41.134 DEBUG 131476 --- [http-nio-8080-exec-1] com.jxufe.dao.TagDao.findAllTag          : ==>  Preparing: select id, name from t_tag order by id DESC
+2022-06-11 23:26:41.134 DEBUG 131476 --- [http-nio-8080-exec-1] com.jxufe.dao.TagDao.findAllTag          : ==> Parameters: 
+2022-06-11 23:26:41.136 DEBUG 131476 --- [http-nio-8080-exec-1] com.jxufe.dao.TagDao.findAllTag          : <==      Total: 8
+2022-06-11 23:26:41.136  INFO 131476 --- [http-nio-8080-exec-1] com.jxufe.aspect.LogAspect               : method : forum
+2022-06-11 23:26:41.137  INFO 131476 --- [http-nio-8080-exec-1] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-11 23:26:42.696  INFO 131476 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/forum/fblog/1', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.ForumController.doFblog', args=[Page request [number: 0, size 999, sort: updateTime: DESC], 1, org.apache.catalina.connector.RequestFacade@5e85b38c, {}]}
+2022-06-11 23:26:42.698 DEBUG 131476 --- [http-nio-8080-exec-6] com.jxufe.dao.ForumDao.findForumById     : ==>  Preparing: select * from t_forum where id = ?
+2022-06-11 23:26:42.699 DEBUG 131476 --- [http-nio-8080-exec-6] com.jxufe.dao.ForumDao.findForumById     : ==> Parameters: 1(Integer)
+2022-06-11 23:26:42.701 DEBUG 131476 --- [http-nio-8080-exec-6] com.jxufe.dao.ForumDao.findForumById     : <==      Total: 1
+2022-06-11 23:26:42.702 DEBUG 131476 --- [http-nio-8080-exec-6] com.jxufe.dao.TagDao.findAllTag          : ==>  Preparing: select id, name from t_tag order by id DESC
+2022-06-11 23:26:42.702 DEBUG 131476 --- [http-nio-8080-exec-6] com.jxufe.dao.TagDao.findAllTag          : ==> Parameters: 
+2022-06-11 23:26:42.704 DEBUG 131476 --- [http-nio-8080-exec-6] com.jxufe.dao.TagDao.findAllTag          : <==      Total: 8
+2022-06-11 23:26:42.740  INFO 131476 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : method : fblog
+2022-06-11 23:26:42.741  INFO 131476 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-11 23:26:45.213  INFO 131476 --- [http-nio-8080-exec-9] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/blog/16', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.IndexController.doBlogPage', args=[16, {}]}
+2022-06-11 23:26:45.274  INFO 131476 --- [http-nio-8080-exec-9] com.jxufe.aspect.LogAspect               : method : blog
+2022-06-11 23:26:45.274  INFO 131476 --- [http-nio-8080-exec-9] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-11 23:27:07.224  INFO 131476 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/comments/save', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.CommentController.doPost', args=[Comment{id=16, nickname='null', content='Ð´µÄÕæºÃ£¡', avatar='null', adminComment=false, createTime=null}, org.apache.catalina.session.StandardSessionFacade@18143a39, org.apache.catalina.connector.ResponseFacade@646a7fa4]}
+2022-06-11 23:27:07.241  INFO 131476 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-11 23:27:07.243 ERROR 131476 --- [http-nio-8080-exec-2] c.j.handler.ControllerExceptionHandler   : Request URL : http://localhost:8080/dev/comments/save, Exception : null
+2022-06-11 23:27:07.244  WARN 131476 --- [http-nio-8080-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NullPointerException]
+2022-06-11 23:27:44.207  INFO 131476 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/comments/save', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.CommentController.doPost', args=[Comment{id=16, nickname='null', content='', avatar='null', adminComment=false, createTime=null}, org.apache.catalina.session.StandardSessionFacade@18143a39, org.apache.catalina.connector.ResponseFacade@6d409d6f]}
+2022-06-11 23:27:44.209  INFO 131476 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-11 23:27:44.210 ERROR 131476 --- [http-nio-8080-exec-5] c.j.handler.ControllerExceptionHandler   : Request URL : http://localhost:8080/dev/comments/save, Exception : null
+2022-06-11 23:27:44.210  WARN 131476 --- [http-nio-8080-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NullPointerException]
+2022-06-11 23:27:54.284  INFO 131476 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.IndexController.doIndex', args=[Page request [number: 0, size 4, sort: updateTime: DESC], {}, org.apache.catalina.connector.RequestFacade@72a38735]}
+2022-06-11 23:27:54.308  INFO 131476 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : method : index
+2022-06-11 23:27:54.309  INFO 131476 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-11 23:27:57.053  INFO 131476 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/forum;jsessionid=516AA1BC4039A3F2DFC32AA6E2EB52CF', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.ForumController.doForum', args=[org.apache.catalina.connector.RequestFacade@4ac7190d, {}]}
+2022-06-11 23:27:57.054 DEBUG 131476 --- [http-nio-8080-exec-5] com.jxufe.dao.ForumDao.findListForums    : ==>  Preparing: select * from t_forum order by id ASC
+2022-06-11 23:27:57.055 DEBUG 131476 --- [http-nio-8080-exec-5] com.jxufe.dao.ForumDao.findListForums    : ==> Parameters: 
+2022-06-11 23:27:57.057 DEBUG 131476 --- [http-nio-8080-exec-5] com.jxufe.dao.ForumDao.findListForums    : <==      Total: 4
+2022-06-11 23:27:57.058 DEBUG 131476 --- [http-nio-8080-exec-5] com.jxufe.dao.TagDao.findAllTag          : ==>  Preparing: select id, name from t_tag order by id DESC
+2022-06-11 23:27:57.059 DEBUG 131476 --- [http-nio-8080-exec-5] com.jxufe.dao.TagDao.findAllTag          : ==> Parameters: 
+2022-06-11 23:27:57.061 DEBUG 131476 --- [http-nio-8080-exec-5] com.jxufe.dao.TagDao.findAllTag          : <==      Total: 8
+2022-06-11 23:27:57.062  INFO 131476 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : method : forum
+2022-06-11 23:27:57.062  INFO 131476 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-11 23:27:58.698  INFO 131476 --- [http-nio-8080-exec-10] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/forum/fblog/1', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.ForumController.doFblog', args=[Page request [number: 0, size 999, sort: updateTime: DESC], 1, org.apache.catalina.connector.RequestFacade@5e85b38c, {}]}
+2022-06-11 23:27:58.699 DEBUG 131476 --- [http-nio-8080-exec-10] com.jxufe.dao.ForumDao.findForumById     : ==>  Preparing: select * from t_forum where id = ?
+2022-06-11 23:27:58.700 DEBUG 131476 --- [http-nio-8080-exec-10] com.jxufe.dao.ForumDao.findForumById     : ==> Parameters: 1(Integer)
+2022-06-11 23:27:58.701 DEBUG 131476 --- [http-nio-8080-exec-10] com.jxufe.dao.ForumDao.findForumById     : <==      Total: 1
+2022-06-11 23:27:58.701 DEBUG 131476 --- [http-nio-8080-exec-10] com.jxufe.dao.TagDao.findAllTag          : ==>  Preparing: select id, name from t_tag order by id DESC
+2022-06-11 23:27:58.701 DEBUG 131476 --- [http-nio-8080-exec-10] com.jxufe.dao.TagDao.findAllTag          : ==> Parameters: 
+2022-06-11 23:27:58.702 DEBUG 131476 --- [http-nio-8080-exec-10] com.jxufe.dao.TagDao.findAllTag          : <==      Total: 8
+2022-06-11 23:27:58.712  INFO 131476 --- [http-nio-8080-exec-10] com.jxufe.aspect.LogAspect               : method : fblog
+2022-06-11 23:27:58.712  INFO 131476 --- [http-nio-8080-exec-10] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-11 23:28:01.368  INFO 131476 --- [http-nio-8080-exec-3] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/blog/22', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.IndexController.doBlogPage', args=[22, {}]}
+2022-06-11 23:28:01.376  INFO 131476 --- [http-nio-8080-exec-3] com.jxufe.aspect.LogAspect               : method : blog
+2022-06-11 23:28:01.376  INFO 131476 --- [http-nio-8080-exec-3] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-11 23:28:32.891  INFO 131476 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/comments/save', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.CommentController.doPost', args=[Comment{id=22, nickname='null', content='', avatar='null', adminComment=false, createTime=null}, org.apache.catalina.session.StandardSessionFacade@4f701805, org.apache.catalina.connector.ResponseFacade@495d33a0]}
+2022-06-11 23:28:32.893  INFO 131476 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-11 23:28:32.894 ERROR 131476 --- [http-nio-8080-exec-5] c.j.handler.ControllerExceptionHandler   : Request URL : http://localhost:8080/dev/comments/save, Exception : null
+2022-06-11 23:28:32.894  WARN 131476 --- [http-nio-8080-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NullPointerException]
+2022-06-11 23:29:51.121  INFO 131476 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.IndexController.doIndex', args=[Page request [number: 0, size 4, sort: updateTime: DESC], {}, org.apache.catalina.connector.RequestFacade@1429d1e1]}
+2022-06-11 23:29:51.133  INFO 131476 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : method : index
+2022-06-11 23:29:51.134  INFO 131476 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-11 23:29:53.730  INFO 131476 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/forum;jsessionid=F2FD1A246E3C22453B5CEC4842C110A7', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.ForumController.doForum', args=[org.apache.catalina.connector.RequestFacade@74e9e3c7, {}]}
+2022-06-11 23:29:53.730 DEBUG 131476 --- [http-nio-8080-exec-6] com.jxufe.dao.ForumDao.findListForums    : ==>  Preparing: select * from t_forum order by id ASC
+2022-06-11 23:29:53.731 DEBUG 131476 --- [http-nio-8080-exec-6] com.jxufe.dao.ForumDao.findListForums    : ==> Parameters: 
+2022-06-11 23:29:53.732 DEBUG 131476 --- [http-nio-8080-exec-6] com.jxufe.dao.ForumDao.findListForums    : <==      Total: 4
+2022-06-11 23:29:53.733 DEBUG 131476 --- [http-nio-8080-exec-6] com.jxufe.dao.TagDao.findAllTag          : ==>  Preparing: select id, name from t_tag order by id DESC
+2022-06-11 23:29:53.734 DEBUG 131476 --- [http-nio-8080-exec-6] com.jxufe.dao.TagDao.findAllTag          : ==> Parameters: 
+2022-06-11 23:29:53.735 DEBUG 131476 --- [http-nio-8080-exec-6] com.jxufe.dao.TagDao.findAllTag          : <==      Total: 8
+2022-06-11 23:29:53.736  INFO 131476 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : method : forum
+2022-06-11 23:29:53.736  INFO 131476 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-11 23:29:57.805  INFO 131476 --- [http-nio-8080-exec-8] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/forum/fblog/4', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.ForumController.doFblog', args=[Page request [number: 0, size 999, sort: updateTime: DESC], 4, org.apache.catalina.connector.RequestFacade@72a38735, {}]}
+2022-06-11 23:29:57.806 DEBUG 131476 --- [http-nio-8080-exec-8] com.jxufe.dao.ForumDao.findForumById     : ==>  Preparing: select * from t_forum where id = ?
+2022-06-11 23:29:57.807 DEBUG 131476 --- [http-nio-8080-exec-8] com.jxufe.dao.ForumDao.findForumById     : ==> Parameters: 4(Integer)
+2022-06-11 23:29:57.808 DEBUG 131476 --- [http-nio-8080-exec-8] com.jxufe.dao.ForumDao.findForumById     : <==      Total: 1
+2022-06-11 23:29:57.810 DEBUG 131476 --- [http-nio-8080-exec-8] com.jxufe.dao.TagDao.findAllTag          : ==>  Preparing: select id, name from t_tag order by id DESC
+2022-06-11 23:29:57.810 DEBUG 131476 --- [http-nio-8080-exec-8] com.jxufe.dao.TagDao.findAllTag          : ==> Parameters: 
+2022-06-11 23:29:57.812 DEBUG 131476 --- [http-nio-8080-exec-8] com.jxufe.dao.TagDao.findAllTag          : <==      Total: 8
+2022-06-11 23:29:57.814  INFO 131476 --- [http-nio-8080-exec-8] com.jxufe.aspect.LogAspect               : method : fblog
+2022-06-11 23:29:57.815  INFO 131476 --- [http-nio-8080-exec-8] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-11 23:30:03.481  INFO 131476 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/forum/fblog/3', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.ForumController.doFblog', args=[Page request [number: 0, size 999, sort: updateTime: DESC], 3, org.apache.catalina.connector.RequestFacade@3a187c1f, {}]}
+2022-06-11 23:30:03.482 DEBUG 131476 --- [http-nio-8080-exec-2] com.jxufe.dao.ForumDao.findForumById     : ==>  Preparing: select * from t_forum where id = ?
+2022-06-11 23:30:03.482 DEBUG 131476 --- [http-nio-8080-exec-2] com.jxufe.dao.ForumDao.findForumById     : ==> Parameters: 3(Integer)
+2022-06-11 23:30:03.484 DEBUG 131476 --- [http-nio-8080-exec-2] com.jxufe.dao.ForumDao.findForumById     : <==      Total: 1
+2022-06-11 23:30:03.485 DEBUG 131476 --- [http-nio-8080-exec-2] com.jxufe.dao.TagDao.findAllTag          : ==>  Preparing: select id, name from t_tag order by id DESC
+2022-06-11 23:30:03.485 DEBUG 131476 --- [http-nio-8080-exec-2] com.jxufe.dao.TagDao.findAllTag          : ==> Parameters: 
+2022-06-11 23:30:03.486 DEBUG 131476 --- [http-nio-8080-exec-2] com.jxufe.dao.TagDao.findAllTag          : <==      Total: 8
+2022-06-11 23:30:03.494  INFO 131476 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : method : fblog
+2022-06-11 23:30:03.495  INFO 131476 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-11 23:30:06.231  INFO 131476 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/blog/28', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.IndexController.doBlogPage', args=[28, {}]}
+2022-06-11 23:30:06.237  INFO 131476 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : method : blog
+2022-06-11 23:30:06.237  INFO 131476 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : ------------doAfter-----------

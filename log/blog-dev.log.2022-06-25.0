@@ -1,0 +1,70 @@
+2022-06-25 10:14:33.498  INFO 6420 --- [restartedMain] com.jxufe.GuideSystemApplication         : Starting GuideSystemApplication using Java 11.0.12 on LAPTOP-1IDT75RI with PID 6420 (D:\wenjian\Java\GuideSystem\target\classes started by º«Óî·« in D:\wenjian\Java\GuideSystem)
+2022-06-25 10:14:33.503 DEBUG 6420 --- [restartedMain] com.jxufe.GuideSystemApplication         : Running with Spring Boot v2.6.4, Spring v5.3.16
+2022-06-25 10:14:33.503  INFO 6420 --- [restartedMain] com.jxufe.GuideSystemApplication         : The following 1 profile is active: "dev"
+2022-06-25 10:14:33.557  INFO 6420 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-06-25 10:14:33.558  INFO 6420 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-06-25 10:14:34.602  INFO 6420 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-06-25 10:14:34.707  INFO 6420 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 94 ms. Found 5 JPA repository interfaces.
+2022-06-25 10:14:36.348  INFO 6420 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-06-25 10:14:36.349  INFO 6420 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.31] using APR version [1.7.0].
+2022-06-25 10:14:36.349  INFO 6420 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-06-25 10:14:36.349  INFO 6420 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-06-25 10:14:36.362  INFO 6420 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1l  24 Aug 2021]
+2022-06-25 10:14:36.373  INFO 6420 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-06-25 10:14:36.373  INFO 6420 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2022-06-25 10:14:36.487  INFO 6420 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/dev]    : Initializing Spring embedded WebApplicationContext
+2022-06-25 10:14:36.487  INFO 6420 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2928 ms
+2022-06-25 10:14:36.801  INFO 6420 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-06-25 10:14:36.887  INFO 6420 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.5.Final
+2022-06-25 10:14:37.150  INFO 6420 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-25 10:14:37.328  INFO 6420 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-06-25 10:14:37.530  INFO 6420 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-06-25 10:14:37.552  INFO 6420 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
+2022-06-25 10:14:38.626  INFO 6420 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-25 10:14:38.635  INFO 6420 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-06-25 10:14:39.846  WARN 6420 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-06-25 10:14:40.146  INFO 6420 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-06-25 10:14:40.553  INFO 6420 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-06-25 10:14:40.593  INFO 6420 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/dev'
+2022-06-25 10:14:40.606  INFO 6420 --- [restartedMain] com.jxufe.GuideSystemApplication         : Started GuideSystemApplication in 7.977 seconds (JVM running for 10.066)
+2022-06-25 10:14:50.383  INFO 6420 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/dev]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-06-25 10:14:50.384  INFO 6420 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-06-25 10:14:50.386  INFO 6420 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-06-25 10:14:50.445  INFO 6420 --- [http-nio-8080-exec-1] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.IndexController.doIndex', args=[Page request [number: 0, size 6, sort: updateTime: DESC], {}, org.apache.catalina.connector.RequestFacade@763283a3]}
+2022-06-25 10:14:51.075  WARN 6420 --- [http-nio-8080-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [586] milliseconds.
+2022-06-25 10:14:51.228  WARN 6420 --- [http-nio-8080-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.resources.size]; use collection function syntax instead [size(t.resources)].
+2022-06-25 10:14:51.245  INFO 6420 --- [http-nio-8080-exec-1] com.jxufe.aspect.LogAspect               : method : index
+2022-06-25 10:14:51.245  INFO 6420 --- [http-nio-8080-exec-1] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-25 10:15:16.910  INFO 6420 --- [http-nio-8080-exec-8] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/forum;jsessionid=4EE09B4926C4DCDA4C761125E61A6F91', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.ForumShowController.doForum', args=[org.apache.catalina.connector.RequestFacade@4b1ff5ab, {}]}
+2022-06-25 10:15:16.954 DEBUG 6420 --- [http-nio-8080-exec-8] com.jxufe.dao.ForumDao.findListForums    : ==>  Preparing: select * from t_forum order by popular DESC
+2022-06-25 10:15:16.973 DEBUG 6420 --- [http-nio-8080-exec-8] com.jxufe.dao.ForumDao.findListForums    : ==> Parameters: 
+2022-06-25 10:15:16.993 DEBUG 6420 --- [http-nio-8080-exec-8] com.jxufe.dao.ForumDao.findListForums    : <==      Total: 6
+2022-06-25 10:15:17.008  INFO 6420 --- [http-nio-8080-exec-8] com.jxufe.aspect.LogAspect               : method : forum
+2022-06-25 10:15:17.009  INFO 6420 --- [http-nio-8080-exec-8] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-25 10:15:19.513  INFO 6420 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/forum/fblog/6', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.ForumShowController.doFblog', args=[Page request [number: 0, size 999, sort: updateTime: DESC], 6, org.apache.catalina.connector.RequestFacade@763283a3, {}]}
+2022-06-25 10:15:19.517 DEBUG 6420 --- [http-nio-8080-exec-4] com.jxufe.dao.ForumDao.findForumById     : ==>  Preparing: select * from t_forum where id = ?
+2022-06-25 10:15:19.519 DEBUG 6420 --- [http-nio-8080-exec-4] com.jxufe.dao.ForumDao.findForumById     : ==> Parameters: 6(Integer)
+2022-06-25 10:15:19.523 DEBUG 6420 --- [http-nio-8080-exec-4] com.jxufe.dao.ForumDao.findForumById     : <==      Total: 1
+2022-06-25 10:15:19.609  INFO 6420 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : method : fblog
+2022-06-25 10:15:19.610  INFO 6420 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-25 10:15:22.194  INFO 6420 --- [http-nio-8080-exec-1] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/otherAbout/1', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.AboutController.doOtherAbout', args=[1, {}]}
+2022-06-25 10:15:22.204 DEBUG 6420 --- [http-nio-8080-exec-1] com.jxufe.dao.UserDao.findUserById       : ==>  Preparing: select * from t_user where id = ?
+2022-06-25 10:15:22.205 DEBUG 6420 --- [http-nio-8080-exec-1] com.jxufe.dao.UserDao.findUserById       : ==> Parameters: 1(Long)
+2022-06-25 10:15:22.208 DEBUG 6420 --- [http-nio-8080-exec-1] com.jxufe.dao.UserDao.findUserById       : <==      Total: 1
+2022-06-25 10:15:22.209 DEBUG 6420 --- [http-nio-8080-exec-1] c.j.dao.ForumDao.findJoinForumsByUserId  : ==>  Preparing: SELECT tt.* FROM ( SELECT t_forum.*, IFNULL(t_forum_users.users_id, 0) as uid FROM t_forum LEFT JOIN t_forum_users ON t_forum_users.users_id = ? AND t_forum_users.forums_id = t_forum.id ) AS tt WHERE uid = ?
+2022-06-25 10:15:22.210 DEBUG 6420 --- [http-nio-8080-exec-1] c.j.dao.ForumDao.findJoinForumsByUserId  : ==> Parameters: 1(Long), 1(Long)
+2022-06-25 10:15:22.218 DEBUG 6420 --- [http-nio-8080-exec-1] c.j.dao.ForumDao.findJoinForumsByUserId  : <==      Total: 4
+2022-06-25 10:15:22.243  INFO 6420 --- [http-nio-8080-exec-1] com.jxufe.aspect.LogAspect               : method : other_about
+2022-06-25 10:15:22.243  INFO 6420 --- [http-nio-8080-exec-1] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-25 10:15:33.010  INFO 6420 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/blog/33', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.IndexController.doBlogPage', args=[33, {}, org.apache.catalina.connector.RequestFacade@763283a3]}
+2022-06-25 10:15:33.112  INFO 6420 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : method : blog
+2022-06-25 10:15:33.113  INFO 6420 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-25 10:15:43.000  INFO 6420 --- [http-nio-8080-exec-3] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/comments/save', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.CommentController.doPost', args=[Comment{id=33, nickname='null', content='', avatar='null', adminComment=false, createTime=null}, org.apache.catalina.session.StandardSessionFacade@3745ce2f, org.apache.catalina.connector.ResponseFacade@74315106]}
+2022-06-25 10:15:43.033  INFO 6420 --- [http-nio-8080-exec-3] com.jxufe.aspect.LogAspect               : method : null
+2022-06-25 10:15:43.034  INFO 6420 --- [http-nio-8080-exec-3] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-25 10:15:44.649  INFO 6420 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/login', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.UserController.doLoginPage', args=[]}
+2022-06-25 10:15:44.657  INFO 6420 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : method : login
+2022-06-25 10:15:44.658  INFO 6420 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-06-25 10:15:44.894  INFO 6420 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/codeImage', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.VerificationController.doGet', args=[org.apache.catalina.connector.RequestFacade@763283a3, org.apache.catalina.connector.ResponseFacade@74315106]}
+2022-06-25 10:15:46.461  INFO 6420 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : method : null
+2022-06-25 10:15:46.461  INFO 6420 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : ------------doAfter-----------

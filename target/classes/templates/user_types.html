@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="_fragments_login :: head(~{::title})">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--    引入semantic.min.css-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <!--    引入me.css-->
+    <link rel="stylesheet" href="../static/css/me.css">
+    <title>分类</title>
+</head>
+<body>
+
+<!--导航-->
+<nav th:replace="_fragments_login :: menu(3)" class="ui inverted attached segment m-padded-tb-mini">
+    <div class="ui container"> <!-- 加一个容器 -->
+        <div class="ui inverted secondary stackable menu"> <!-- 菜单 stackable:可堆叠的,表示屏幕小时自动堆叠-->
+            <h2 class="ui teal header item">GuideSystem</h2> <!-- 蓝绿色标题 -->
+            <a href="#" class="m-item m-mobile-hide item"><i class="home icon"></i>首页</a> <!-- icon表示图表 -->
+            <a href="#" class="active m-item m-mobile-hide item"><i class="idea icon"></i>分类</a>
+            <a href="#" class="m-item m-mobile-hide item"><i class="tags icon"></i>标签</a>
+            <a href="#" class="m-item m-mobile-hide item"><i class="clone icon"></i>归档</a>
+            <a href="#" class="m-item m-mobile-hide item"><i class="info icon"></i>关于我</a>
+            <div class="right m-mobile-hide item m-item"> <!-- 靠右 -->
+                <div class="ui icon input">
+                    <input type="text" placeholder="Search...">
+                    <i class="search link icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="ui menu toggle black button icon m-top-right m-mobile-show">
+        <i class="sidebar icon"></i>
+    </a>
+</nav>
+
+<!--中间内容-->
+<div class="m-container-small m-padded-tb-big">
+    <div class="ui container">
+        <!--header-->
+        <div class="ui top attached segment">
+            <div class="ui middle aligned two column grid">
+                <div class="column">
+                    <h3 class="ui header">分类</h3>
+                </div>
+                <div class="right aligned column">
+                    共 <h3 class="ui orange header m-inline-block m-text-thin" th:text="${#arrays.length(types)}">
+                    14</h3> 个
+                </div>
+            </div>
+        </div>
+        <!--header标签-->
+        <div class="ui attached segment m-padded-tb-medium">
+            <div class="ui labeled button m-margin-tb-tiny" th:each="type : ${types}">
+                <a href="#" th:href="@{/user_types/{id}(id=${type.id})}" class="ui basic button" th:classappend="${type.id==activeTypeId} ? 'teal'" th:text="${type.name}">思考与感悟</a>
+                <div class="ui basic left pointing label" th:classappend="${type.id==activeTypeId} ? 'teal'" th:text="${#arrays.length(type.blogs)}">24</div>
+            </div>
+            <!--/*-->
+            <div class="ui labeled button m-margin-tb-tiny">
+                <a href="#" class="ui basic button">开发者手册</a>
+                <div class="ui basic left pointing label">13</div>
+            </div>
+            <div class="ui labeled button m-margin-tb-tiny">
+                <a href="#" class="ui basic button">个人清单</a>
+                <div class="ui basic left pointing label">25</div>
+            </div>
+            <div class="ui labeled button m-margin-tb-tiny">
+                <a href="#" class="ui basic button">动态</a>
+                <div class="ui basic left pointing label">44</div>
+            </div>
+            <!--*/-->
+        </div>
+
+        <!--content-->
+        <div class="ui top attached segment">
+            <div class="ui padded vertical segment m-padded-tb-medium" style="padding-top: 1em !important;" th:each="resource : ${page.content}">
+                <div class="ui mobile reversed middle aligned stackable grid">
+                    <!--mobile reversed:手机移动端时反序-->
+                    <div class="eleven wide column">
+                        <h3 class="ui header"><a th:href="@{/user_resource/{id}(id=${resource.id})}" href="#" class="m-black"
+                                                 th:text="${resource.title}">哔哩哔哩
+                            (゜-゜)つロ 干杯~-bilibili</a></h3>
+                        <p class="m-text" th:text="|${resource.description}......|">
+                            bilibili是国内知名的视频弹幕网站,这里有及时的动漫新番,活跃的ACG氛围,有创意的Up主。大家可以在这里找到许多欢乐。</p>
+                        <div class="ui grid">
+                            <div class="eleven wide column">
+                                <div class="ui mini horizontal link list">
+                                    <div class="item">
+                                        <i class="calendar time icon"></i> <span
+                                            th:text="${#dates.format(resource.updateTime, 'yyyy-MM-dd')}">2022-03-08</span>
+                                    </div>
+                                    <div class="item">
+                                        <i class="eye icon"></i><span th:text="${resource.views}">234</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="right aligned five wide column">
+                                <a href="#" th:href="@{/user_types/{id}(id=${resource.type.id})}" target="_blank"
+                                   class="ui blue basic label m-padded-mini m-text-thin"
+                                   th:text="${resource.type.name}">江西财经大学</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="right aligned five wide column">
+                        <a href="#" th:href="@{/user_resource/{id}(id=${resource.id})}" class="_blank">
+                            <img src="../static/images/IMG_6361.JPG" th:src="@{${resource.firstPicture}}" alt=""
+                                 class="ui rounded image" width="220"
+                                 height="130">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!--/*-->
+            <div class="ui padded vertical segment m-padded-tb-medium">
+                <div class="ui mobile reversed stackable grid"> <!--mobile reversed:手机移动端时反序-->
+                    <div class="eleven wide column">
+                        <h3 class="ui header">哔哩哔哩 (゜-゜)つロ 干杯~-bilibili</h3>
+                        <p class="m-text">bilibili是国内知名的视频弹幕网站,这里有及时的动漫新番,活跃的ACG氛围,有创意的Up主。大家可以在这里找到许多欢乐。</p>
+                        <div class="ui stackable grid">
+                            <div class="eleven wide column">
+                                <div class="ui mini horizontal link list">
+                                    <div class="item">
+                                        <img src="../static/images/IMG_6361.JPG" alt="" class="ui avatar image">
+                                        <div class="content">
+                                            <a href="#" class="header">韩宇帆</a>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <i class="calendar time icon"></i> 2022-03-08
+                                    </div>
+                                    <div class="item">
+                                        <i class="eye icon"></i> 234
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="right aligned five wide column">
+                                <a href="#" target="_blank"
+                                   class="ui teal basic label m-padded-mini m-text-thin">娱乐玩耍</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="right aligned five wide column">
+                        <a href="#" class="_blank">
+                            <img src="../static/images/IMG_6361.JPG" alt="" class="ui rounded image" width="220"
+                                 height="130">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="ui padded vertical segment m-padded-tb-medium">
+                <div class="ui mobile reversed stackable grid"> <!--mobile reversed:手机移动端时反序-->
+                    <div class="eleven wide column">
+                        <h3 class="ui header">哔哩哔哩 (゜-゜)つロ 干杯~-bilibili</h3>
+                        <p class="m-text">bilibili是国内知名的视频弹幕网站,这里有及时的动漫新番,活跃的ACG氛围,有创意的Up主。大家可以在这里找到许多欢乐。</p>
+                        <div class="ui stackable grid">
+                            <div class="eleven wide column">
+                                <div class="ui mini horizontal link list">
+                                    <div class="item">
+                                        <img src="../static/images/IMG_6361.JPG" alt="" class="ui avatar image">
+                                        <div class="content">
+                                            <a href="#" class="header">韩宇帆</a>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <i class="calendar time icon"></i> 2022-03-08
+                                    </div>
+                                    <div class="item">
+                                        <i class="eye icon"></i> 234
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="right aligned five wide column">
+                                <a href="#" target="_blank"
+                                   class="ui teal basic label m-padded-mini m-text-thin">娱乐玩耍</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="right aligned five wide column">
+                        <a href="#" class="_blank">
+                            <img src="../static/images/IMG_6361.JPG" alt="" class="ui rounded image" width="220"
+                                 height="130">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!--*/-->
+        </div>
+
+        <!--footer-->
+        <div class="ui attached segment" th:if="${page.totalPages}>1">
+            <div class="ui middle aligned two column grid"> <!-- middle aligned:垂直方向居中 -->
+                <!--                        左侧-->
+                <div class="column">
+                    <a href="#" th:href="@{/user_types(page=${page.number}-1)}"
+                       th:unless="${page.first}" class="ui mini teal basic button">上一页</a> <!-- 小按钮 -->
+                </div>
+                <!--                        右侧-->
+                <div class="right aligned column">
+                    <a href="#" th:href="@{/user_types(page=${page.number}+1)}"
+                       th:unless="${page.last}" class="ui mini teal basic button">下一页</a> <!-- 小按钮 -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="m-padded m-right-bottom m-fixed">
+    <div class="ui vertical icon buttons">
+        <a href="feedback.html" th:href="@{/feedback}" type="button" class="ui blue button">反馈</a>
+        <a href="#" th:href="@{/fblog/input}" class="ui blue button">写贴</a>
+        <button class="ui icon button"><i class="headphones icon"></i></button>
+        <a href="#" class="ui button"><i class="chevron up icon"></i></a>
+    </div>
+</div>
+
+<!--底部footer-->
+<footer th:replace="_fragments_login :: footer" class="ui inverted vertical segment m-padded-tb-massive">
+    <!-- vertical:垂直的 segment:条横 inverted:倒置的 -->
+    <div class="ui center aligned container"> <!-- center aligned:居中 aligned:使成为一条线-->
+        <div class="ui inverted divided stackable grid"> <!-- inverted divided grid:格线分成16份 -->
+            <div class="three wide column">
+                <div class="ui inverted link list">
+                    <div class="item">
+                        <img src="../static/images/WeChat.jpg" class="ui rounded image" alt="" style="width: 110px">
+                        <!-- rounded:圆角 -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- 分成三列 -->
+            <div class="three wide column">
+                <h4 class="ui inverted header m-text-thin">最新博客</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item m-text-thin">用户故事(User Story)</a>
+                    <a href="#" class="item m-text-thin">关于小熊是我对象这件事</a>
+                    <a href="#" class="item m-text-thin">摇滚乐牛逼!</a>
+                </div>
+            </div>
+
+            <!-- 分成三列 -->
+            <div class="three wide column">
+                <h4 class="ui inverted header m-text-thin">联系我</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item m-text-thin" style="height: 28px">QQ: 1923326384</a>
+                    <a href="#" class="item m-text-thin">邮箱: 1923326384@qq.com</a>
+                </div>
+            </div>
+
+            <!-- 分成七列 -->
+            <div class="seven wide column">
+                <h4 class="ui inverted header m-text-thin">个人留言</h4>
+                <p class="m-text-thin m-text-spaced m-opacity-mini m-text-lined">
+                    第一次跟着视频敲项目，尽管很多不知道的知识点但还是慢慢吞吞地敲下来了，后续肯定会自己独立完成一些项目，希望可以鼓励到自己。</p>
+            </div>
+
+        </div>
+        <div class="ui inverted section divider"></div>
+        <p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright @ 2021-2022 Hanyufan Designed by Hanyufan</p>
+    </div>
+</footer>
+
+<th:block th:replace="_fragments_login :: script">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+</th:block>
+
+<script>
+    //点击执行操作
+    $('.menu.toggle').click(function () {
+        $('.m-item').toggleClass('m-mobile-hide');
+    });
+</script>
+</body>
+</html>

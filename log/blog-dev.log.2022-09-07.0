@@ -1,0 +1,56 @@
+2022-09-07 00:00:00.262  INFO 38584 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/dev]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-09-07 00:00:00.266  INFO 38584 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-09-07 00:00:00.268  INFO 38584 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-09-07 00:00:00.306  INFO 38584 --- [http-nio-8080-exec-1] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.IndexController.doIndex', args=[Page request [number: 0, size 6, sort: updateTime: DESC], {}, org.apache.catalina.connector.RequestFacade@2b50a69a]}
+2022-09-07 00:00:00.711  WARN 38584 --- [http-nio-8080-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [387] milliseconds.
+2022-09-07 00:00:00.797  WARN 38584 --- [http-nio-8080-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.resources.size]; use collection function syntax instead [size(t.resources)].
+2022-09-07 00:00:00.809  INFO 38584 --- [http-nio-8080-exec-1] com.jxufe.aspect.LogAspect               : method : index
+2022-09-07 00:00:00.809  INFO 38584 --- [http-nio-8080-exec-1] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-09-07 00:00:11.575  INFO 38584 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/resource/2;jsessionid=CC79DF6FDA99F8C0C5886C20B7C22126', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.IndexController.doResource', args=[2, {}, org.apache.catalina.connector.RequestFacade@32d3c66a]}
+2022-09-07 00:00:11.621  INFO 38584 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : method : resource
+2022-09-07 00:00:11.621  INFO 38584 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-09-07 00:00:25.747  INFO 38584 --- [http-nio-8080-exec-3] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/forum', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.ForumShowController.doForum', args=[org.apache.catalina.connector.RequestFacade@dccf2b, {}]}
+2022-09-07 00:00:25.766 DEBUG 38584 --- [http-nio-8080-exec-3] com.jxufe.dao.ForumDao.findListForums    : ==>  Preparing: select * from t_forum order by popular DESC
+2022-09-07 00:00:25.772 DEBUG 38584 --- [http-nio-8080-exec-3] com.jxufe.dao.ForumDao.findListForums    : ==> Parameters: 
+2022-09-07 00:00:25.781 DEBUG 38584 --- [http-nio-8080-exec-3] com.jxufe.dao.ForumDao.findListForums    : <==      Total: 6
+2022-09-07 00:00:25.789  INFO 38584 --- [http-nio-8080-exec-3] com.jxufe.aspect.LogAspect               : method : forum
+2022-09-07 00:00:25.789  INFO 38584 --- [http-nio-8080-exec-3] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-09-07 00:00:26.676  INFO 38584 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/index', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.IndexController.doIndex', args=[Page request [number: 0, size 6, sort: updateTime: DESC], {}, org.apache.catalina.connector.RequestFacade@32d3c66a]}
+2022-09-07 00:00:26.691  INFO 38584 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : method : index
+2022-09-07 00:00:26.691  INFO 38584 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-09-07 00:00:32.249  INFO 38584 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/resource/2', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.IndexController.doResource', args=[2, {}, org.apache.catalina.connector.RequestFacade@8bc81c]}
+2022-09-07 00:00:32.255  INFO 38584 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : method : resource
+2022-09-07 00:00:32.256  INFO 38584 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-09-07 00:00:36.520  INFO 38584 --- [http-nio-8080-exec-8] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/types/4', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.TypeShowController.doTypes', args=[Page request [number: 0, size 4, sort: updateTime: DESC], 4, {}, org.apache.catalina.connector.RequestFacade@dccf2b]}
+2022-09-07 00:00:36.545  INFO 38584 --- [http-nio-8080-exec-8] com.jxufe.aspect.LogAspect               : method : types
+2022-09-07 00:00:36.545  INFO 38584 --- [http-nio-8080-exec-8] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-09-07 00:00:38.234  INFO 38584 --- [http-nio-8080-exec-9] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/types/2', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.TypeShowController.doTypes', args=[Page request [number: 0, size 4, sort: updateTime: DESC], 2, {}, org.apache.catalina.connector.RequestFacade@2b50a69a]}
+2022-09-07 00:00:38.242  INFO 38584 --- [http-nio-8080-exec-9] com.jxufe.aspect.LogAspect               : method : types
+2022-09-07 00:00:38.243  INFO 38584 --- [http-nio-8080-exec-9] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-09-07 00:00:39.352  INFO 38584 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/resource/2', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.IndexController.doResource', args=[2, {}, org.apache.catalina.connector.RequestFacade@8bc81c]}
+2022-09-07 00:00:39.368  INFO 38584 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : method : resource
+2022-09-07 00:00:39.368  INFO 38584 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-09-07 00:00:41.768  INFO 38584 --- [http-nio-8080-exec-10] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/types/-1', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.TypeShowController.doTypes', args=[Page request [number: 0, size 4, sort: updateTime: DESC], -1, {}, org.apache.catalina.connector.RequestFacade@616a7def]}
+2022-09-07 00:00:41.778  INFO 38584 --- [http-nio-8080-exec-10] com.jxufe.aspect.LogAspect               : method : types
+2022-09-07 00:00:41.778  INFO 38584 --- [http-nio-8080-exec-10] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-09-07 00:00:43.447  INFO 38584 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/forum', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.ForumShowController.doForum', args=[org.apache.catalina.connector.RequestFacade@205889a3, {}]}
+2022-09-07 00:00:43.448 DEBUG 38584 --- [http-nio-8080-exec-6] com.jxufe.dao.ForumDao.findListForums    : ==>  Preparing: select * from t_forum order by popular DESC
+2022-09-07 00:00:43.448 DEBUG 38584 --- [http-nio-8080-exec-6] com.jxufe.dao.ForumDao.findListForums    : ==> Parameters: 
+2022-09-07 00:00:43.450 DEBUG 38584 --- [http-nio-8080-exec-6] com.jxufe.dao.ForumDao.findListForums    : <==      Total: 6
+2022-09-07 00:00:43.452  INFO 38584 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : method : forum
+2022-09-07 00:00:43.452  INFO 38584 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-09-07 00:00:45.347  INFO 38584 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/login', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.UserController.doLoginPage', args=[]}
+2022-09-07 00:00:45.350  INFO 38584 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : method : login
+2022-09-07 00:00:45.351  INFO 38584 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-09-07 00:00:45.405  INFO 38584 --- [http-nio-8080-exec-9] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/codeImage', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.VerificationController.doGet', args=[org.apache.catalina.connector.RequestFacade@8bc81c, org.apache.catalina.connector.ResponseFacade@54592336]}
+2022-09-07 00:00:45.797  INFO 38584 --- [http-nio-8080-exec-9] com.jxufe.aspect.LogAspect               : method : null
+2022-09-07 00:00:45.797  INFO 38584 --- [http-nio-8080-exec-9] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-09-07 00:00:49.685  INFO 38584 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/register', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.UserController.doRegister', args=[]}
+2022-09-07 00:00:49.685  INFO 38584 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : method : register
+2022-09-07 00:00:49.685  INFO 38584 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-09-07 00:00:53.700  INFO 38584 --- [http-nio-8080-exec-8] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/login', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.UserController.doLoginPage', args=[]}
+2022-09-07 00:00:53.700  INFO 38584 --- [http-nio-8080-exec-8] com.jxufe.aspect.LogAspect               : method : login
+2022-09-07 00:00:53.700  INFO 38584 --- [http-nio-8080-exec-8] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2022-09-07 00:00:53.759  INFO 38584 --- [http-nio-8080-exec-1] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/codeImage', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.VerificationController.doGet', args=[org.apache.catalina.connector.RequestFacade@32d3c66a, org.apache.catalina.connector.ResponseFacade@4788c71a]}
+2022-09-07 00:00:53.778  INFO 38584 --- [http-nio-8080-exec-1] com.jxufe.aspect.LogAspect               : method : null
+2022-09-07 00:00:53.778  INFO 38584 --- [http-nio-8080-exec-1] com.jxufe.aspect.LogAspect               : ------------doAfter-----------

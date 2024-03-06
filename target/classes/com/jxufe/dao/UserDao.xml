@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--
+成功的让mybatis将mapper接口和mapper.xml绑定起来:
+    mapper接口的全限定名，要和mapper.xml的namespace属性一致
+    mapper接口中的方法名要和mapper.xml中的SQL标签的id一致
+    mapper接口中的方法入参类型，要和mapper.xml中SQL语句的入参类型一致
+    mapper接口中的方法出参类型，要和mapper.xml中SQL语句的返回值类型一致
+-->
+<mapper namespace="com.jxufe.dao.UserDao">
+    <select id="findByUsernameAndPassword" resultType="com.jxufe.entity.User">
+        select * from t_user where username = #{username} and password = #{password}
+    </select>
+
+    <insert id="saveUser" parameterType="com.jxufe.entity.User">
+        insert into t_user(username, password, nickname, email, sex, create_time, avatar, blog_num)
+        values(#{username}, #{password}, #{nickname}, #{email}, #{sex}, #{createTime}, #{avatar}, #{blogNum});
+    </insert>
+
+    <select id="findByUsername" resultType="com.jxufe.entity.User">
+        select * from t_user where username = #{username}
+    </select>
+
+    <update id="updateUserInfo" parameterType="com.jxufe.entity.User">
+        update t_user set
+        nickname = #{nickname}, email = #{email}, sex = #{sex}, dream_college = #{dreamCollege},
+        avatar = #{avatar}, description = #{description}, signature = #{signature},
+        academic = #{academic}, school = #{school}, enrollment_time = #{enrollmentTime},
+        filed = #{filed}, address = #{address}, update_time = #{updateTime}
+        where id = #{id}
+    </update>
+
+    <insert id="addFeedback" parameterType="com.jxufe.entity.Feedback">
+        insert into t_feedback(title, content, create_time)
+        values(#{title}, #{content}, #{createTime})
+    </insert>
+
+    <update id="checkAndUpdatePassword">
+        update t_user set
+        password = #{newPassword} where password = #{oldPassword} and username = #{username}
+    </update>
+
+    <select id="findUserById" resultType="com.jxufe.entity.User" parameterType="java.lang.Long">
+        select * from t_user where id = #{id}
+    </select>
+
+    <select id="checkPassword" resultType="com.jxufe.entity.User">
+        select * from t_user where username = #{username} and password = #{oldPwd}
+    </select>
+
+    <update id="updateBlogNum">
+        update t_user set
+        blog_num = blog_num + 1 where id = #{id}
+    </update>
+</mapper>

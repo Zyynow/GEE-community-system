@@ -1,0 +1,26 @@
+#生产环境
+
+spring:
+  thymeleaf:
+    mode: HTML
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/2jd?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
+    username: root
+    password: hyfhsy
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true #把sql语句输出在控制台以及日志文件中
+
+logging:
+  level: #级别：全局
+    root: warn
+    com.jxufe: info
+  file:
+    name: log/blog-pro.log #指定日志的存储位置
+
+server:
+  port: 8080
+  servlet:
+    context-path: /pro

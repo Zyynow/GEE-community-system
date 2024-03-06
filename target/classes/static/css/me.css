@@ -1,0 +1,195 @@
+body {
+    background: url("../images/double-bubble-outline.png");
+}
+
+/*上下左右边距设置*/
+.m-padded-mini {
+    padding: 0.2em !important;
+}
+.m-padded-tiny {
+    padding: 0.3em !important;
+}
+.m-padded-small {
+    padding: 0.5em !important;
+}
+.m-padded {
+    padding: 1em !important;
+}
+
+
+/*设置很小的mapping*/
+.m-padded-tb-mini {
+    padding-top: 0.2em !important; /* 1em=14像素 */
+    padding-bottom: 0.2em !important;
+}
+.m-padded-tb-tiny {
+    padding-top: 0.3em !important; /* 1em=14像素 */
+    padding-bottom: 0.3em !important;
+}
+.m-padded-tb-small {
+    padding-top: 0.5em !important;
+    padding-bottom: 0.5em !important;
+}
+.m-padded-tb {
+    padding-top: 1em !important;
+    padding-bottom: 1em !important;
+}
+/*设置中等的mapping*/
+.m-padded-tb-medium {
+    padding-top: 2em !important;
+    padding-bottom: 2em !important;
+}
+/*设置第三大的mapping*/
+.m-padded-tb-big {
+    padding-top: 3em !important;
+    padding-bottom: 3em !important;
+}
+/*设置第二大的mapping*/
+.m-padded-tb-huge {
+    padding-top: 4em !important;
+    padding-bottom: 4em !important;
+}
+/*设置很大的mapping*/
+.m-padded-tb-massive {
+    padding-top: 5em !important;
+    padding-bottom: 5em !important;
+}
+
+.m-padded-lr {
+    padding-left: 4em !important;
+    padding-right: 4em !important;
+}
+
+
+/*设置字粗细*/
+.m-text {
+    font-weight: 300 !important;
+    letter-spacing: 1px !important;
+    line-height: 1.8;
+}
+.m-text-thin {
+    font-weight: 300 !important;
+}
+/*设置字间距*/
+.m-text-spaced {
+    letter-spacing: 1px !important;
+}
+/*设置行间距*/
+.m-text-lined {
+    line-height: 1.8 !important;
+}
+
+.m-text-header-thin {
+    font-weight: 400 !important;
+}
+
+
+/*设置字体透明度*/
+.m-opacity-mini {
+    opacity: 0.8 !important;
+}
+.m-opacity-tiny {
+    opacity: 0.6 !important;
+}
+
+
+/*display: 调整为一行制*/
+.m-inline-block {
+    display: inline-block !important;
+}
+
+.m-container-small {
+    max-width: 60em !important;
+    margin: auto !important;
+}
+.m-container {
+    max-width: 70em !important;
+    margin: auto !important;
+}
+.m-container-muddle {
+    max-width: 72em !important;
+    margin: auto !important;
+}
+
+
+.m-margin-tb-tiny {
+    margin-top: 0.3em !important;
+    margin-bottom: 0.3em !important;
+}
+.m-margin-top-small {
+    margin-top: 0.5em !important;
+}
+.m-margin-top {
+    margin-top: 1em !important;
+}
+.m-margin-top-large {
+    margin-top: 2em !important;
+}
+
+
+.m-black {
+    color: #333 !important;
+}
+
+
+.m-top-right {
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+}
+
+.m-mobile-show { /*这个在上面*/
+    display: none !important;
+}
+@media screen and (max-width: 768px){
+    .m-mobile-hide {
+        display: none !important;
+    }
+    .m-mobile-show { /*这个在下面*/
+        display: block !important;
+    }
+    .m-mobile-wide {
+        width: 100% !important;
+    }
+}
+
+.m-margin-buttom-mini {
+    margin-bottom: 0.5em !important;
+}
+
+.m-margin-top-mini {
+    margin-top: 0.2em !important;
+}
+
+.fixed-bottom {
+    position: fixed;
+    bottom: 0;
+    width:100%;
+}
+
+.m-fixed {
+    position: fixed !important;
+    z-index: 10 !important;
+}
+
+.m-right-bottom {
+    bottom: 0 !important;
+    right: 0 !important;
+}
+
+dt {width: 11em;}
+dd {margin: -1.5em 0 1em 0;padding: 0 0 1em 12em;border-bottom: 1px solid #ccc;}
+#submitform {width: 320px;text-align: right;}
+#SaveAccount {margin: 10px 0 0 0;}
+fieldset {width: 320px;}
+legend {font-size: 1.6em;padding: 10px 0px;color: #b0232a;font-weight: bold;}
+.prev, .next {background-color: #b0232a;padding: 5px 10px;color: #fff;text-decoration: none;}
+.prev:hover, .next:hover {background-color: #000;text-decoration: none;}
+.prev {float: left;}
+.next {float: right;}
+#steps {list-style: none;width: 100%;overflow: hidden;}
+#steps li {font-size: 24px;float: left;padding: 10px;color:#b0b1b3;}
+#steps li span {font-size: 11px;display:block;}
+#steps li.current {color: #000;}
+#makeWizard {background-color: #b0232a;color: #fff;padding: 5px 10px;text-decoration: none;font-size: 18px;}
+#makeWizard:hover {background-color: #000;}

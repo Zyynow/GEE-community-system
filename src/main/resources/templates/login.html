@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--    引入semantic.min.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
+    <title>登录</title>
+</head>
+<body>
+<br><br>
+
+<div style="max-width: 66em !important; margin: auto !important; padding-top: 3em !important; padding-bottom: 3em !important;">
+    <div class="ur container">
+        <div class="ui middle aligned center aligned grid">
+            <div class="column">
+                <h2 class="ui black image header">
+                    <div class="content">
+                        用户登录
+                    </div>
+                </h2>
+                <form class="ui large form" method="post" action="#" th:action="@{/login/success}">
+                    <div class="ui segment">
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="user icon"></i>
+                                <input type="text" name="username" th:value="${username}" placeholder="账号">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="lock icon"></i>
+                                <input type="password" name="password" th:value="${password}" placeholder="密码">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui grid">
+                                <div class="thirteen wide column">
+                                    <div class="ui left icon input">
+                                        <i class="code icon"></i>
+                                        <input type="text" name="vCode" placeholder="验证码">
+                                    </div>
+                                </div>
+                                <div class="two column">
+                                    <img src="codeImage" id="codeImg" onclick="changeImg()">
+                                </div>
+                            </div>
+                        </div>
+                        <button class="ui fluid large yellow submit button" style="margin-bottom: 5px">登 录</button>
+                        <a href="register">没有账号？注册一个！</a>
+                    </div>
+                    <div class="ui mini error message"></div>
+                    <div class="ui message negative mini" th:unless="${#strings.isEmpty(message)}" th:text="${message}">
+                        用户名或密码错误
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+
+<script>
+    $('.ui.form').form({
+        fields: {
+            title: {
+                identifier: 'username',
+                rules: [{
+                    type: 'empty',
+                    prompt: '账号不能为空'
+                }]
+            },
+
+            content: {
+                identifier: 'password',
+                rules: [{
+                    type: 'empty',
+                    prompt: '密码不能为空'
+                }]
+            }
+        }
+    });
+
+    function changeImg() //定义一个更换图片url的方法
+    {
+        document.getElementById("codeImg").src = "codeImage?num=" + Math.random();
+    };
+</script>
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:fragment="head(title)">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:replace="${title}">模板</title>
+    <!--    引入semantic.min.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <!--    引入animate.min.css-->
+    <link rel="stylesheet" href="../static/css/animate.css" th:href="@{/css/animate.css}">
+    <!--    引入prime.css-->
+    <link rel="stylesheet" href="../static/lib/prime/prism.css" th:href="@{/lib/prime/prism.css}">
+    <link rel="stylesheet" href="../../static/lib/editormd/css/editormd.min.css" th:href="@{/lib/editormd/css/editormd.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/me.css}" href="../static/css/me.css">
+</head>
+<body>
+
+<nav th:fragment="menu(n)" class="ui inverted attached segment m-padded-tb-mini">
+    <div class="ui container"> <!-- 加一个容器 -->
+        <div class="ui inverted secondary stackable menu"> <!-- 菜单 stackable:可堆叠的,表示屏幕小时自动堆叠-->
+            <h2 class="ui white header item">GuideSystem</h2>
+            <a th:href="@{/admin/resources}" href="#" class="m-item m-mobile-hide item" th:classappend="${n==1} ? 'active' "><i class="home icon"></i>指南</a> <!-- icon表示图表 -->
+            <a th:href="@{/admin/types}" href="#" class="m-item m-mobile-hide item" th:classappend="${n==2} ? 'active' "><i class="idea icon"></i>分类</a>
+            <a th:href="@{/admin/tags}" href="#" class="m-item m-mobile-hide item" th:classappend="${n==3} ? 'active' "><i class="tags icon"></i>标签</a>
+            <a th:href="@{/admin/forums}" href="#" class="m-item m-mobile-hide item" th:classappend="${n==4} ? 'active' "><i class="comments icon"></i>论坛</a>
+            <div class="right m-item m-mobile-hide menu">
+                <div class="ui dropdown item">
+                    <div class="text">
+                        <img class="ui avatar image" th:src="@{${session.admin.avatar}}" src="https://unsplash.it/100/100?image=1005">
+                    </div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <a href="#" th:href="@{/admin/logout}" class="item">退出</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="ui menu toggle black button icon m-top-right m-mobile-show">
+        <i class="sidebar icon"></i>
+    </a>
+</nav>
+
+<footer class="ui inverted vertical segment m-padded-tb-massive"> <!-- vertical:垂直的 segment:条横 inverted:倒置的 -->
+    <div class="ui center aligned container"> <!-- center aligned:居中 aligned:使成为一条线-->
+        <div class="ui inverted divided stackable grid"> <!-- inverted divided grid:格线分成16份 -->
+            <div class="three wide column">
+                <h4 class="ui inverted header m-text-thin">消费者维权</h4>
+                <div class="ui inverted link list">
+                    <a href="https://www.12377.cn/" class="item m-text-thin" target="_blank">中国互联网举报中心</a>
+                    <a href="https://www.12389.gov.cn/" class="item m-text-thin" target="_blank">公安部举报中心</a>
+                    <a href="https://www.beian.gov.cn/portal/index.do" class="item m-text-thin" target="_blank">全国互联网安全服务平台</a>
+                </div>
+            </div>
+
+            <!-- 分成三列 -->
+            <div class="three wide column">
+                <h4 class="ui inverted header m-text-thin">服务</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item m-text-thin">广告推广</a>
+                    <a href="#" class="item m-text-thin">技术支持</a>
+                    <a href="#" class="item m-text-thin">合作/招聘</a>
+                </div>
+            </div>
+
+            <!-- 分成三列 -->
+            <div class="three wide column">
+                <h4 class="ui inverted header m-text-thin">联系我</h4>
+                <div class="ui inverted link list">
+                    <span class="item m-text-thin" style="height: 28px">邮箱: 1923326384@qq.com</span>
+                    <span class="item m-text-thin">QQ: 1923326384</span>
+                </div>
+            </div>
+
+            <!-- 分成七列 -->
+            <div class="seven wide column">
+                <h4 class="ui inverted header m-text-thin">关于我们</h4>
+                <p class="m-text-thin m-text-spaced m-opacity-tiny">
+                    此系统旨在联合全国各大高校、教育考试院、教育厅等，将研究生录取相关信息全面化、公开化、透明化，减少考生在搜寻资料上遇到的麻烦，
+                    切实提高信息捕获效率，使考生能树立可行的目标，明确方向，提高上岸成功率！
+                </p>
+            </div>
+
+        </div>
+        <div class="ui inverted section divider"></div>
+        <p class="m-text-thin m-text-spaced m-opacity-tiny">版权 @ 2023-07-04 设计 软件214项目组</p>
+    </div>
+</footer>
+
+<th:block th:fragment="script">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+    <script src="../static/lib/prime/prism.js" th:src="@{/lib/prime/prism.js}"></script>
+    <script src="../../static/lib/editormd/editormd.min.js" th:src="@{/lib/editormd/editormd.min.js}"></script>
+</th:block>
+
+
+</body>
+</html>
