@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.jxufe</groupId>
-    <artifactId>GuideSystem</artifactId>
+    <artifactId>learn-community-system</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     
     <properties>

@@ -1,7 +1,6 @@
 package com.jxufe.service.implement;
 
 import com.jxufe.dao.ResourceRepository;
-import com.jxufe.entity.Blog;
 import com.jxufe.entity.Resource;
 import com.jxufe.entity.Type;
 import com.jxufe.exception.NotFoundException;
@@ -33,7 +32,11 @@ public class ResourceServiceImpl implements ResourceService {
 
     @Override
     public Resource getResource(Long id) {
-        return resourceRepository.getById(id);
+        Resource resource = resourceRepository.getById(id);
+        if (resource == null) {
+            throw new NotFoundException("该博客不存在");
+        }
+        return resource;
     }
 
     @Override
@@ -80,7 +83,7 @@ public class ResourceServiceImpl implements ResourceService {
     public Resource getAndConvert(Long id) {
         Resource resource = resourceRepository.getById(id);
         if (resource == null) {
-            throw new NotFoundException("资料不存在");
+            throw new NotFoundException("该博客不存在");
         }
         Resource b = new Resource();
         BeanUtils.copyProperties(resource, b);

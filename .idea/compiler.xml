@@ -6,16 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="GuideSystem" />
+        <module name="learn-community-system" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="GuideSystem" target="11" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="GuideSystem" options="-parameters" />
+      <module name="learn-community-system" options="-parameters" />
     </option>
   </component>
 </project>

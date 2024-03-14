@@ -42,7 +42,7 @@ public class ResourceController {
      * @return
      */
     @GetMapping("/resources")
-    public String doResources(@PageableDefault(size = 3, sort = {"updateTime"}, direction = Sort.Direction.DESC)
+    public String doResources(@PageableDefault(size = 6, sort = {"updateTime"}, direction = Sort.Direction.DESC)
                                       Pageable pageable, Model model, ResourceQuery resource) {
         model.addAttribute("types", typeService.listType());
         model.addAttribute("pages", resourceService.listResource(pageable, resource));
@@ -50,7 +50,7 @@ public class ResourceController {
     }
 
     @GetMapping("/resources/search")
-    public String doSearch(@PageableDefault(size = 3, sort = {"updateTime"}, direction = Sort.Direction.DESC)
+    public String doSearch(@PageableDefault(size = 6, sort = {"updateTime"}, direction = Sort.Direction.DESC)
                                        Pageable pageable, Model model, ResourceQuery resource) {
         model.addAttribute("pages", resourceService.listResource(pageable, resource));
         return "/admin/resources";

@@ -105,7 +105,7 @@ public class IndexController {
     public String doResource(@PathVariable Long id, Model model, HttpServletRequest request) {
         request.getSession().setAttribute("lastPath", request.getServletPath());
 
-        Resource resource = resourceService.getResource(id);
+        Resource resource = resourceService.getAndConvert(id);
         resourceService.updateViews(id);
         model.addAttribute("resource", resource);
         return "resource";
@@ -113,7 +113,7 @@ public class IndexController {
 
     @GetMapping("/user_resource/{id}")
     public String doUserResource(@PathVariable Long id, Model model) {
-        Resource resource = resourceService.getResource(id);
+        Resource resource = resourceService.getAndConvert(id);
         resourceService.updateViews(id);
         model.addAttribute("resource", resource);
         return "user_resource";
