@@ -45,7 +45,7 @@
 </nav>
 <br>
 
-<div class="m-container m-padded-tb">
+<div class="m-container m-padded-tb" id="contentDiv">
     <div class="ui container">
         <div class="ui grid">
             <div class="twelve wide column">
@@ -247,7 +247,7 @@
 <div class="m-padded m-right-bottom m-fixed">
     <div class="ui vertical icon buttons">
         <a href="feedback.html" th:href="@{/feedback}" type="button" class="ui blue button">反馈</a>
-        <a href="#" class="ui blue button">写贴</a>
+        <a href="#" th:href="@{/fblog/input}" class="ui blue button">写贴</a>
         <button class="ui icon button"><i class="headphones icon"></i></button>
         <a href="#" class="ui button"><i class="chevron up icon"></i></a>
     </div>

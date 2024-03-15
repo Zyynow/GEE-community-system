@@ -1,5 +1,6 @@
 package com.jxufe.dao;
 
+import com.jxufe.entity.ArchiveBlog;
 import com.jxufe.entity.Blog;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -36,6 +37,16 @@ public interface BlogRepository extends JpaRepository<Blog, Long>, JpaSpecificat
     @Query(value = "update t_blog set views = views + 1 where id = ?1", nativeQuery = true)
     Integer updateViews(Long id);
 
+    /**
+     * 大概率有问题 TODO
+     *
+     * @param id
+     * @param pageable
+     * @return
+     */
     @Query("select b from Blog b where b.user.id = ?1")
     List<Blog> findTopById(Long id, Pageable pageable);
+
+    @Query(value = "select * from t_blog where user_id = ?1 order by create_time desc", nativeQuery = true)
+    List<Blog> getArchiveBlogs(Long userId);
 }

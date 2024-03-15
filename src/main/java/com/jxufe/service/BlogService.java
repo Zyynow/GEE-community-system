@@ -1,5 +1,6 @@
 package com.jxufe.service;
 
+import com.jxufe.entity.ArchiveBlog;
 import com.jxufe.entity.Blog;
 import com.jxufe.vo.BlogQuery;
 import org.springframework.data.domain.Page;
@@ -39,4 +40,6 @@ public interface BlogService {
     Long countBlog();
 
     Integer updateViews(Long id);
+
+    List<Blog> getArchiveBlogs(Long userId);
 }

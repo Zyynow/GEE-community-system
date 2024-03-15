@@ -203,3 +203,10 @@ body{
     color: #ff6600;
     font-size: 12px;
 }
+
+/* 如果需要 footer 在滚动时始终保持底部，可以添加以下媒体查询，确保在小屏幕设备上也有效 */
+@media (max-width: 768px) {
+    .footer-class {
+        position: fixed;
+    }
+}

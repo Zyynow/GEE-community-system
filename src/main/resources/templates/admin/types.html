@@ -48,7 +48,7 @@
 
 
 <!--中间内容-->
-<div class="m-container m-padded-tb-big">
+<div class="m-container m-padded-tb-big" id="contentDiv">
     <div class="ui container">
         <div class="ui success message" th:unless="${#strings.isEmpty(message)}">
             <i class="close icon"></i>
@@ -162,6 +162,25 @@
     $('.message .close').on('click', function () {
         $(this).closest('.message').transition('fade');
     });
+
+    window.addEventListener('resize', function(){
+        let myDiv = document.getElementById('contentDiv');
+        if(myDiv.clientHeight < 550) {
+            myDiv.style.height = '550px';
+        } else {
+            // 如果之前已经设置了固定的550px高度，这里可以取消设置以恢复原始高度
+            myDiv.style.height = '';
+        }
+    });
+
+    // 页面加载完成后执行一次检查
+    (function() {
+        let myDiv = document.getElementById('contentDiv');
+        if(myDiv.clientHeight < 550) {
+            myDiv.style.height = '550px';
+        }
+    })();
+
 </script>
 </body>
 </html>

@@ -7,6 +7,7 @@
     <file url="file://$PROJECT_DIR$/src/main/resources/application.yml" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/static/css/app.css" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/static/css/other.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/static/css/timeline.css" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/static/images/店铺1.jpg" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/static/images/店铺2.jpg" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/static/images/店铺3.jpg" charset="UTF-8" />
@@ -15,12 +16,14 @@
     <file url="file://$PROJECT_DIR$/src/main/resources/static/js/bootstrap-notify.min.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/static/js/lightyear.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/static/js/perfect-scrollbar.min.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/static/lib/timeline" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/static/lib/waypoints" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/templates/about.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/templates/about_detail_info.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/templates/about_edit.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/templates/admin/tags-input.html" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/resources/templates/admin/tags.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/templates/archives.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/templates/edit_pwd.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/templates/fblog-input.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/templates/fblog.html" charset="UTF-8" />

@@ -19,7 +19,8 @@ public class WebConfig implements WebMvcConfigurer {
         .excludePathPatterns("/admin", "/admin/login", "/admin/register",
                 "/admin/login/success", "/admin/register/success");
 
-        registry.addInterceptor(new MyInterceptor()).addPathPatterns("/about/**",
+        registry.addInterceptor(new MyInterceptor()).addPathPatterns(
+                "/about/**",
                 "/feedback/**",
                 "/user_index/**",
                 "/user_types/**",
@@ -29,7 +30,10 @@ public class WebConfig implements WebMvcConfigurer {
                 "/user_other_about/**",
                 "/edit/**",
                 "/forum/join/**",
-                "/fblog/input/**");
+                "/fblog/input/**",
+                "/archives/**",
+                "/consumption_record/**"
+                );
 
 //        registry.addInterceptor(new OtherInterceptor())
 //                .addPathPatterns("/index", "/forum", "/types", "/search", "/resource");

@@ -1,6 +1,7 @@
 package com.jxufe.service.implement;
 
 import com.jxufe.dao.BlogRepository;
+import com.jxufe.entity.ArchiveBlog;
 import com.jxufe.entity.Blog;
 import com.jxufe.entity.Type;
 import com.jxufe.entity.User;
@@ -137,7 +138,7 @@ public class BlogServiceImpl implements BlogService {
         for (String year : years) {
             map.put(year, blogRepository.findByYear(year));
         }
-        return map ;
+        return map;
     }
 
     @Override
@@ -148,5 +149,10 @@ public class BlogServiceImpl implements BlogService {
     @Override
     public Integer updateViews(Long id) {
         return blogRepository.updateViews(id);
+    }
+
+    @Override
+    public List<Blog> getArchiveBlogs(Long userId) {
+        return blogRepository.getArchiveBlogs(userId);
     }
 }

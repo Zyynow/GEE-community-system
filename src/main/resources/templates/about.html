@@ -37,7 +37,7 @@
     </a>
 </nav>
 
-<div class="m-container m-padded-tb-big" style="width: 1100px !important;">
+<div class="m-container m-padded-tb-big" style="width: 1100px !important;" >
     <div class="ui container">
         <div class="ui stackable grid">
             <div class="four wide column">
@@ -46,49 +46,50 @@
                         <li><h4>我的订单</h4></li>
                         <li class="m-padded-tb-tiny">
                             <a href="#" style="color: #0a0a0a"><span>全部订单</span></a><i style="margin-left: 54px"
-                                                                                       class="ui angle double right icon m-inline-block"></i>
+                                                                                           class="ui angle double right icon m-inline-block"></i>
                         </li>
                         <li class="m-padded-tb-tiny">
                             <a href="#" style="color: #0a0a0a"><span>待支付</span></a><i style="margin-left: 68px"
-                                                                                      class="ui angle double right icon m-inline-block"></i>
+                                                                                         class="ui angle double right icon m-inline-block"></i>
                         </li>
                         <li class="m-padded-tb-tiny">
                             <a href="#" style="color: #0a0a0a"><span>待评价</span></a><i style="margin-left: 68px"
-                                                                                      class="ui angle double right icon m-inline-block"></i>
+                                                                                         class="ui angle double right icon m-inline-block"></i>
                         </li>
                         <li class="m-padded-tb-tiny">
                             <a href="#" style="color: #0a0a0a"><span>消费记录</span></a><i style="margin-left: 54px"
-                                                                                       class="ui angle double right icon m-inline-block"></i>
+                                                                                           class="ui angle double right icon m-inline-block"></i>
                         </li>
                         <br>
                         <li><h4>我的收藏</h4></li>
                         <li class="m-padded-tb-tiny">
                             <a href="#" style="color: #0a0a0a"><span>收藏的资料</span></a><i style="margin-left: 40px"
-                                                                                        class="ui angle double right icon m-inline-block"></i>
+                                                                                             class="ui angle double right icon m-inline-block"></i>
                         </li>
                         <li class="m-padded-tb-tiny">
                             <a href="#" style="color: #0a0a0a"><span>收藏的帖子</span></a><i style="margin-left: 40px"
-                                                                                        class="ui angle double right icon m-inline-block"></i>
+                                                                                             class="ui angle double right icon m-inline-block"></i>
                         </li>
                         <br>
                         <li><h4>我的钱包</h4></li>
                         <li class="m-padded-tb-tiny">
                             <a href="#" style="color: #0a0a0a"><span>余额</span></a><i style="margin-left: 82px"
-                                                                                     class="ui angle double right icon m-inline-block"></i>
+                                                                                       class="ui angle double right icon m-inline-block"></i>
                         </li>
                         <li class="m-padded-tb-tiny">
                             <a href="#" style="color: #0a0a0a"><span>优惠卷</span></a><i style="margin-left: 68px"
-                                                                                      class="ui angle double right icon m-inline-block"></i>
+                                                                                         class="ui angle double right icon m-inline-block"></i>
                         </li>
                         <br>
                         <li><h4>个人信息</h4></li>
                         <li class="m-padded-tb-tiny">
                             <a href="about/detail" th:href="@{/about/detail}"
                                style="color: #0a0a0a"><span>详细信息</span></a><i style="margin-left: 54px"
-                                                                              class="ui angle double right icon m-inline-block"></i>
+                                                                                  class="ui angle double right icon m-inline-block"></i>
                         </li>
                         <li class="m-padded-tb-tiny">
-                            <a href="about/edit" th:href="@{/about/edit}" style="color: #0a0a0a"><span>账户设置</span></a><i
+                            <a href="about/edit" th:href="@{/about/edit}"
+                               style="color: #0a0a0a"><span>账户设置</span></a><i
                                 style="margin-left: 54px" class="ui angle double right icon m-inline-block"></i>
                         </li>
                     </ul>
@@ -108,7 +109,7 @@
                         个签：<p class="m-inline-block" th:text="${session.user.signature}">不要停止我的音乐</p><br>
                         所在地：<p class="m-inline-block" th:text="${session.user.address}">江西南昌</p><br>
                         理想院校：<p class="ui blue basic label m-padded-mini m-text-thin"
-                                th:text="${session.user.dreamCollege}" style="margin-bottom: 10px">麻省理工大学</p>
+                                    th:text="${session.user.dreamCollege}" style="margin-bottom: 10px">麻省理工大学</p>
                     </div>
                 </div>
                 <div class="ui segment">

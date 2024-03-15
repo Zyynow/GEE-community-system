@@ -35,7 +35,7 @@
 </nav>
 
 <!--中间内容-->
-<div class="m-container-small m-padded-tb-big">
+<div class="m-container-muddle m-padded-tb-big" id="contentDiv">
     <div class="ui container">
         <!--header-->
         <div class="ui top attached segment">
@@ -44,15 +44,15 @@
                     <h3 class="ui header">分类</h3>
                 </div>
                 <div class="right aligned column">
-                    共 <h3 class="ui orange header m-inline-block m-text-thin" th:text="${#arrays.length(types)}">
+                    共 <h3 class="ui orange header m-inline-block m-text-thin" th:text="${#arrays.length(myTypes)}">
                     14</h3> 个
                 </div>
             </div>
         </div>
         <!--header标签-->
         <div class="ui attached segment m-padded-tb-medium">
-            <div class="ui labeled button m-margin-tb-tiny" th:each="type : ${types}">
-                <a href="#" th:href="@{/user_types/{id}(id=${type.id})}" class="ui basic button" th:classappend="${type.id==activeTypeId} ? 'teal'" th:text="${type.name}">思考与感悟</a>
+            <div class="ui labeled button m-margin-tb-tiny" th:each="type : ${myTypes}">
+                <a href="#" th:href="@{/user_types/{id}(id=${type.id})}" class="ui basic button" th:classappend="${type.id==myActiveTypeId} ? 'teal'" th:text="${type.name}">思考与感悟</a>
                 <div class="ui basic left pointing label" th:classappend="${type.id==activeTypeId} ? 'teal'" th:text="${#arrays.length(type.blogs)}">24</div>
             </div>
             <!--/*-->
@@ -73,14 +73,14 @@
 
         <!--content-->
         <div class="ui top attached segment">
-            <div class="ui padded vertical segment m-padded-tb-medium" style="padding-top: 1em !important;" th:each="resource : ${page.content}">
+            <div class="ui padded vertical segment m-padded-tb-medium" style="padding-top: 1em !important;" th:each="resource : ${myPage.content}">
                 <div class="ui mobile reversed middle aligned stackable grid">
                     <!--mobile reversed:手机移动端时反序-->
                     <div class="eleven wide column">
                         <h3 class="ui header"><a th:href="@{/user_resource/{id}(id=${resource.id})}" href="#" class="m-black"
                                                  th:text="${resource.title}">哔哩哔哩
                             (゜-゜)つロ 干杯~-bilibili</a></h3>
-                        <p class="m-text" th:text="|${resource.description}......|">
+                        <p class="m-text" th:text="|${resource.description}...|">
                             bilibili是国内知名的视频弹幕网站,这里有及时的动漫新番,活跃的ACG氛围,有创意的Up主。大家可以在这里找到许多欢乐。</p>
                         <div class="ui grid">
                             <div class="eleven wide column">
@@ -190,17 +190,17 @@
         </div>
 
         <!--footer-->
-        <div class="ui attached segment" th:if="${page.totalPages}>1">
+        <div class="ui attached segment" th:if="${myPage.totalPages}>1">
             <div class="ui middle aligned two column grid"> <!-- middle aligned:垂直方向居中 -->
                 <!--                        左侧-->
                 <div class="column">
-                    <a href="#" th:href="@{/user_types(page=${page.number}-1)}"
-                       th:unless="${page.first}" class="ui mini teal basic button">上一页</a> <!-- 小按钮 -->
+                    <a href="#" th:href="@{/user_types/{id}(id=${myActiveTypeId}, page=${myPage.number}-1)}"
+                       th:unless="${myPage.first}" class="ui mini teal basic button">上一页</a> <!-- 小按钮 -->
                 </div>
                 <!--                        右侧-->
                 <div class="right aligned column">
-                    <a href="#" th:href="@{/user_types(page=${page.number}+1)}"
-                       th:unless="${page.last}" class="ui mini teal basic button">下一页</a> <!-- 小按钮 -->
+                    <a href="#" th:href="@{/user_types/{id}(id=${myActiveTypeId}, page=${myPage.number}+1)}"
+                       th:unless="${myPage.last}" class="ui mini teal basic button">下一页</a> <!-- 小按钮 -->
                 </div>
             </div>
         </div>

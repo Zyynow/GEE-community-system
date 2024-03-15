@@ -50,7 +50,8 @@
     </a>
 </nav>
 
-<footer class="ui inverted vertical segment m-padded-tb-massive"> <!-- vertical:垂直的 segment:条横 inverted:倒置的 -->
+<footer class="ui inverted vertical segment m-padded-tb-massive footer-class"
+        style="position: relative; width: 100%; height: 328px;"> <!-- vertical:垂直的 segment:条横 inverted:倒置的 -->
     <div class="ui center aligned container"> <!-- center aligned:居中 aligned:使成为一条线-->
         <div class="ui inverted divided stackable grid"> <!-- inverted divided grid:格线分成16份 -->
             <div class="three wide column">
@@ -106,5 +107,25 @@
     <script src="../static/js/main.min.js" th:src="@{/js/main.min.js}"></script>
     <script src="../static/js/perfect-scrollbar.min.js" th:src="@{/js/perfect-scrollbar.min.js}"></script>
 </th:block>
+
+<script>
+    window.addEventListener('resize', function(){
+        let myDiv = document.getElementById('contentDiv');
+        if(myDiv.clientHeight < 550) {
+            myDiv.style.height = '550px';
+        } else {
+            // 如果之前已经设置了固定的550px高度，这里可以取消设置以恢复原始高度
+            myDiv.style.height = '';
+        }
+    });
+
+    // 页面加载完成后执行一次检查
+    (function() {
+        let myDiv = document.getElementById('contentDiv');
+        if(myDiv.clientHeight < 550) {
+            myDiv.style.height = '550px';
+        }
+    })();
+</script>
 </body>
 </html>
