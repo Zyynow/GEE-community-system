@@ -9,4 +9,6 @@ public interface CommentService {
     Comment saveComment(Comment comment);
 
     List<Comment> findListByBlogId(Long id);
+
+    List<Comment> findSubListByParentId(Long id);
 }

@@ -43,7 +43,7 @@ public class Blog {
     @ManyToOne
     private User user;
 
-    @OneToMany(mappedBy = "blog")
+    @Transient
     private List<Comment> comments = new ArrayList<>();
 
     public User getUser() {
@@ -93,7 +93,7 @@ public class Blog {
     }
 
     public boolean getPublished() {
-        return  published;
+        return published;
     }
 
     public Blog() {

@@ -1,7 +1,9 @@
 package com.jxufe.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "t_comment")
@@ -15,14 +17,22 @@ public class Comment {
     @Lob
     private String content;
     private String avatar;
+    private String parentNickname;
+    private String hostId;
 
     private boolean adminComment; //管理员标记
 
     @Temporal(TemporalType.TIMESTAMP) //时间+日期
     private Date createTime;
 
-    @ManyToOne
-    private Blog blog;
+    // 父评论
+    private Long parentCommentId;
+
+    // 子评论
+    @Transient // 不会尝试为这个字段创建数据库列映射，而是需要在应用层通过业务逻辑或者其他方式维护
+    private List<Comment> childComment;
+
+    private Long blogId;
 
     public Long getId() {
         return id;
@@ -64,12 +74,12 @@ public class Comment {
         this.createTime = createTime;
     }
 
-    public Blog getBlog() {
-        return blog;
+    public Long getBlogId() {
+        return blogId;
     }
 
-    public void setBlog(Blog blog) {
-        this.blog = blog;
+    public void setBlogId(Long blogId) {
+        this.blogId = blogId;
     }
 
     public boolean isAdminComment() {
@@ -87,8 +97,45 @@ public class Comment {
                 ", nickname='" + nickname + '\'' +
                 ", content='" + content + '\'' +
                 ", avatar='" + avatar + '\'' +
+                ", parentNickname='" + parentNickname + '\'' +
+                ", hostId='" + hostId + '\'' +
                 ", adminComment=" + adminComment +
                 ", createTime=" + createTime +
+                ", parentCommentId=" + parentCommentId +
+                ", childComment=" + childComment +
+                ", blogId=" + blogId +
                 '}';
+    }
+
+    public Long getParentCommentId() {
+        return parentCommentId;
+    }
+
+    public void setParentCommentId(Long parentCommentId) {
+        this.parentCommentId = parentCommentId;
+    }
+
+    public List<Comment> getChildComment() {
+        return childComment;
+    }
+
+    public void setChildComment(List<Comment> childComment) {
+        this.childComment = childComment;
+    }
+
+    public String getParentNickname() {
+        return parentNickname;
+    }
+
+    public void setParentNickname(String parentNickname) {
+        this.parentNickname = parentNickname;
+    }
+
+    public String getHostId() {
+        return hostId;
+    }
+
+    public void setHostId(String hostId) {
+        this.hostId = hostId;
     }
 }

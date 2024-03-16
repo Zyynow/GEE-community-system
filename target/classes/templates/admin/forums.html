@@ -35,7 +35,7 @@
 <br>
 
 <!--中间内容-->
-<div class="m-container m-padded-tb-big">
+<div class="m-container m-padded-tb-big" id="contentDiv">
     <br>
     <div class="ui container">
         <div class="ui success large message" style="height: 200px">
@@ -45,7 +45,6 @@
     <br>
     <br>
 </div>
-<br>
 
 <!--底部footer-->
 <footer class="ui inverted vertical segment m-padded-tb-massive"> <!-- vertical:垂直的 segment:条横 inverted:倒置的 -->
@@ -103,9 +102,28 @@
     $('.menu.toggle').click(function () {
         $('.m-item').toggleClass('m-mobile-hide');
     });
+
     $('.ui.dropdown').dropdown({
         on: 'hover'
     });
+
+    window.addEventListener('resize', function(){
+        let myDiv = document.getElementById('contentDiv');
+        if(myDiv.clientHeight < 550) {
+            myDiv.style.height = '550px';
+        } else {
+            // 如果之前已经设置了固定的550px高度，这里可以取消设置以恢复原始高度
+            myDiv.style.height = '';
+        }
+    });
+
+    // 页面加载完成后执行一次检查
+    (function() {
+        let myDiv = document.getElementById('contentDiv');
+        if(myDiv.clientHeight < 550) {
+            myDiv.style.height = '550px';
+        }
+    })();
 </script>
 </body>
 </html>

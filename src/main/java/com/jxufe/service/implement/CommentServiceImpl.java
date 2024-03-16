@@ -32,6 +32,11 @@ public class CommentServiceImpl implements CommentService {
 
     @Override
     public List<Comment> findListByBlogId(Long id) {
-        return commentRepository.findAllById(Collections.singleton(id));
+        return commentRepository.findCommentsById(id);
+    }
+
+    @Override
+    public List<Comment> findSubListByParentId(Long id) {
+        return commentRepository.findSubCommentsById(id);
     }
 }

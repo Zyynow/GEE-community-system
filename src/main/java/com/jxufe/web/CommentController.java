@@ -33,9 +33,11 @@ public class CommentController {
     @PostMapping("/comments/save")
     public void doPost(Comment comment, HttpSession session, HttpServletResponse response) throws IOException {
         response.setContentType("text/html; charset=UTF-8");
+
+        System.out.println(comment);
         Long blogId = comment.getId();
+        comment.setBlogId(blogId);
         Blog blog = blogService.getBlog(blogId);
-        comment.setBlog(blog);
         User user = (User) session.getAttribute("user"); //获取当前登录用户
         if (user == null) {
             response.getWriter().print("<script language='javascript'>alert('请登录后再评论');" +

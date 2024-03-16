@@ -1,10 +1,7 @@
 package com.jxufe.service.implement;
 
 import com.jxufe.dao.BlogRepository;
-import com.jxufe.entity.ArchiveBlog;
-import com.jxufe.entity.Blog;
-import com.jxufe.entity.Type;
-import com.jxufe.entity.User;
+import com.jxufe.entity.*;
 import com.jxufe.exception.NotFoundException;
 import com.jxufe.service.BlogService;
 import com.jxufe.util.MarkdownUtils;
@@ -28,6 +25,9 @@ public class BlogServiceImpl implements BlogService {
 
     @Autowired
     private BlogRepository blogRepository;
+
+    @Autowired
+    private CommentServiceImpl commentService;
 
     @Override
     public Blog getBlog(Long id) {
@@ -128,6 +128,14 @@ public class BlogServiceImpl implements BlogService {
         BeanUtils.copyProperties(blog, b);
         String content = b.getContent();
         b.setContent(MarkdownUtils.markdownToHtmlExtensions(content));
+
+        // 获取所有的一级评论
+        List<Comment> commentList = commentService.findListByBlogId(id);
+        b.setComments(commentList);
+        // 获取所有的二级评论
+        for (Comment comment : commentList) {
+            comment.setChildComment(commentService.findSubListByParentId(comment.getId()));
+        }
         return b;
     }
 
