@@ -42,14 +42,15 @@ public class IndexController {
         model.addAttribute("page", resourceService.listResource(pageable)); //拿到分页查询的数据
         model.addAttribute("types", typeService.listTypeTop(6));
         model.addAttribute("recommendResources", resourceService.listRecommendResourceTop(2));
+        if (request.getSession().getAttribute("user") != null) {
+            return "user_index";
+        }
         return "index";
     }
 
     @GetMapping("/user_index")
     public String doUserIndex(@PageableDefault(size = 6, sort = {"updateTime"}, direction = Sort.Direction.DESC)
-                                      Pageable pageable, Model model, HttpServletRequest request) {
-        request.getSession().setAttribute("lastPath", request.getServletPath());
-
+                                      Pageable pageable, Model model) {
         model.addAttribute("page", resourceService.listResource(pageable)); //拿到分页查询的数据
         model.addAttribute("types", typeService.listTypeTop(6));
         model.addAttribute("recommendResources", resourceService.listRecommendResourceTop(2));
@@ -59,16 +60,16 @@ public class IndexController {
     @GetMapping("/blog/{id}")
     public String doBlogPage(@PathVariable Long id, Model model, HttpServletRequest request){
         request.getSession().setAttribute("lastPath", request.getServletPath());
-
         blogService.updateViews(id);
         model.addAttribute("blog", blogService.getAndConvert(id));
+        if (request.getSession().getAttribute("user") != null) {
+            return "user_blog";
+        }
         return "blog";
     }
 
     @GetMapping("/user_blog/{id}")
     public String doUserBlogPage(@PathVariable Long id, Model model, HttpServletRequest request){
-        request.getSession().setAttribute("lastPath", request.getServletPath());
-
         blogService.updateViews(id);
         model.addAttribute("blog", blogService.getAndConvert(id));
         return "user_blog";
@@ -88,13 +89,15 @@ public class IndexController {
 
         model.addAttribute("page", resourceService.listResource(pageable, "%" + query + "%"));
         model.addAttribute("query", query);
+        if (request.getSession().getAttribute("user") != null) {
+            return "user_search";
+        }
         return "search";
     }
 
     @GetMapping("/user_search")
     public String doUserSearch(@PageableDefault(size = 6, sort = {"updateTime"}, direction = Sort.Direction.DESC)
                                    Pageable pageable, @RequestParam String query, Model model, HttpServletRequest request) {
-        request.getSession().setAttribute("lastPath", request.getServletPath());
 
         model.addAttribute("page", resourceService.listResource(pageable, "%" + query + "%"));
         model.addAttribute("query", query);
@@ -105,16 +108,19 @@ public class IndexController {
     public String doResource(@PathVariable Long id, Model model, HttpServletRequest request) {
         request.getSession().setAttribute("lastPath", request.getServletPath());
 
-        Resource resource = resourceService.getAndConvert(id);
         resourceService.updateViews(id);
+        Resource resource = resourceService.getAndConvert(id);
         model.addAttribute("resource", resource);
+        if (request.getSession().getAttribute("user") != null) {
+            return "user_resource";
+        }
         return "resource";
     }
 
     @GetMapping("/user_resource/{id}")
     public String doUserResource(@PathVariable Long id, Model model) {
-        Resource resource = resourceService.getAndConvert(id);
         resourceService.updateViews(id);
+        Resource resource = resourceService.getAndConvert(id);
         model.addAttribute("resource", resource);
         return "user_resource";
     }

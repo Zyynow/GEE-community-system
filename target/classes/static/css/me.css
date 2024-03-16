@@ -2,6 +2,16 @@ body {
     background: url("../images/double-bubble-outline.png");
 }
 
+.archiveBody{
+    background-image: url("../images/archiveImg_2.jpg");
+    background-attachment:fixed;
+    background-size: 100%;
+    no-repeat: center top;
+    font: 14px/1.5 Tahoma,Helvetica,Arial,'宋体',sans-serif;
+    height: 100%;
+    width: 100%;
+}
+
 /*上下左右边距设置*/
 .m-padded-mini {
     padding: 0.2em !important;
@@ -18,7 +28,6 @@ body {
 .m-padded {
     padding: 1em !important;
 }
-
 
 /*设置很小的mapping*/
 .m-padded-tb-mini {
@@ -119,6 +128,11 @@ body {
 
 .m-container {
     max-width: 70em !important;
+    margin: auto !important;
+}
+
+.m-container-mm {
+    max-width: 66em !important;
     margin: auto !important;
 }
 
@@ -281,4 +295,35 @@ legend {
 
 #makeWizard:hover {
     background-color: #000;
+}
+
+.m-padded-tb-massivex {
+    padding-top: 3em !important;
+    padding-bottom: 6em !important;
+}
+
+/*-----opacity------*/
+.m-opacity {
+    /*最新推荐下面整体的不透明度*/
+    opacity: 0.9!important;
+    /*opacity: 0.9 !important;*/
+}
+.m-opacityFriendImg {
+    /*最新推荐下面整体的不透明度*/
+    opacity: 1!important;
+    /*opacity: 0.9 !important;*/
+}
+.m-opacityImg {
+
+    opacity: 1!important;
+    /*opacity: 0.9 !important;*/
+}
+.m-opacity-mini {
+    opacity: 0.8 !important;
+}
+.m-opacity-tiny {
+    opacity: 0.6 !important;
+}
+.m-opacity-small {
+    opacity: 0.4 !important;
 }

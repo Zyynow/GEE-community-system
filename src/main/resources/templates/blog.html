@@ -518,6 +518,7 @@ h5,h6{font-size:1em;}
                 </div>
             </div>
         </div>
+
         <div class="ui bottom attached segment">
             <!--留言区域-->
             <div id="comment-container" class="ui segment">
@@ -528,13 +529,13 @@ h5,h6{font-size:1em;}
                         <div class="comments">
                             <div class="comment" th:each="comment : ${blog.comments}">
                                 <a class="avatar">
-                                    <img src="https://unsplash.it/100/100?image=1005" th:src="@{${comment.avatar}}">
+                                    <img src="../static/images/IMG_2562.JPG" th:src="@{${comment.avatar}}">
                                 </a>
                                 <div class="content">
                                     <a class="author">
                                         <span th:text="${comment.nickname}">Matt</span>
                                         <div class="ui mini basic blue left pointing label m-padded-mini"
-                                             th:if="${comment.adminComment}">BolgHost
+                                             th:if="${comment.adminComment}">作者
                                         </div>
                                     </a>
                                     <div class="metadata">
@@ -549,11 +550,38 @@ h5,h6{font-size:1em;}
                                     data-commentNickname=${comment.nickname}" onclick="reply(this)">回复</a>
                                     </div>
                                 </div>
+                                <!-- 子集评论 -->
+                                <div cLass="comments">
+                                    <div class=" comment">
+                                        <a class="avatar">
+                                            <img src="../static/images/IMG_6230.JPG" th:src="@{${comment.avatar}}">
+                                        </a>
+                                        <div class="content">
+                                            <a class="author">
+                                                <span th:text="${comment.nickname}">Matt</span>
+                                                <div class="ui mini basic blue left pointing label m-padded-mini"
+                                                     th:if="${comment.adminComment}">作者
+                                                </div>
+                                            </a>
+                                            <div class="metadata">
+                                        <span class="date"
+                                              th:text="${#dates.format(comment.createTime, 'yyyy-MM-dd  HH:mm')}">Today at 5:42PM</span>
+                                            </div>
+                                            <div class="text" th:text="${comment.content}">
+                                                How artistic!
+                                            </div>
+                                            <div class="actions">
+                                                <a class="reply" data-commentId="1" data-commentNickname="Matt" th:attr="data-commentId=${comment.id},
+                                    data-commentNickname=${comment.nickname}" onclick="reply(this)">回复</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <!--/*-->
-                            <div class="comment">
+                            <div class="comment" th:each="comment : ${blog.comments}">
                                 <a class="avatar">
-                                    <img src="../static/images/IMG_2562.JPG" th:src="@{/images/IMG_2562.JPG}">
+                                    <img src="https://unsplash.it/100/100?image=1005" th:src="@{${comment.avatar}}">
                                 </a>
                                 <div class="content">
                                     <a class="author">Elliot Fu</a>
@@ -567,30 +595,10 @@ h5,h6{font-size:1em;}
                                         <a class="reply">回复</a>
                                     </div>
                                 </div>
-                                <div cLass="comments">
-                                    <div class=" comment">
-                                        <a class="avatar">
-                                            <img src="../static/images/IMG_6230.JPG" th:src="@{/images/IMG_6230.JPG}">
-                                        </a>
-                                        <div class="content">
-                                            <a cLass=" author">Jenny Hess</a>
-                                            <div class="metadata">
-                                                <span class="date'">Just now</span>
-                                            </div>
-                                            <div class="text">
-                                                Elliot you are always so right :)
-                                            </div>
-                                            <div class="actions">
-                                                <a class="reply">回复</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                             <div class="comment">
                                 <a class="avatar">
-                                    <img src="../static/images/2020-09-29%20132316%20-%20副本.jpg"
-                                         th:src="@{/images/2020-09-29%20132316%20-%20副本.jpg}">
+                                    <img src="https://unsplash.it/100/100?image=1005" th:src="@{${comment.avatar}}">
                                 </a>
                                 <div class="content">
                                     <a class="author">Joe Henderson</a>

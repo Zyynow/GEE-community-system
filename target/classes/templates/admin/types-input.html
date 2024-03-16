@@ -49,8 +49,8 @@
 
 
 <!--中间内容-->
-<div class="m-container m-padded-tb-big animate__fadeIn">
-    <div class="ui container">
+<div class="m-container m-padded-tb-big animate__fadeIn" id="contentDiv">
+    <div class="ui container" style="padding-top: 80px;">
         <!--th:object="${type}": 从后端拿到一个type对象-->
         <form action="#" th:action="*{id}==null ? @{/admin/types} : @{/admin/types/{id}(id=*{id})}" method="post" th:object="${type}" class="ui form">
             <input type="hidden" name="id" th:value="*{id}">
@@ -77,11 +77,6 @@
         </form>
     </div>
 </div>
-<br>
-<br>
-<br>
-<br>
-<br>
 
 <!--底部footer-->
 <footer th:replace="admin/_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive">
@@ -161,6 +156,24 @@
     $('.message .close').on('click', function () {
         $(this).closest('.message').transition('fade');
     });
+
+    window.addEventListener('resize', function(){
+        let myDiv = document.getElementById('contentDiv');
+        if(myDiv.clientHeight < 550) {
+            myDiv.style.height = '550px';
+        } else {
+            // 如果之前已经设置了固定的550px高度，这里可以取消设置以恢复原始高度
+            myDiv.style.height = '';
+        }
+    });
+
+    // 页面加载完成后执行一次检查
+    (function() {
+        let myDiv = document.getElementById('contentDiv');
+        if(myDiv.clientHeight < 550) {
+            myDiv.style.height = '550px';
+        }
+    })();
 </script>
 </body>
 </html>

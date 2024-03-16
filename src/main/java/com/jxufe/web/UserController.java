@@ -54,12 +54,16 @@ public class UserController {
             response.addCookie(passwordCookie);
             session.setAttribute("user", user);
 
-            if (session.getAttribute("lastPath").equals("/")) {
+            if (session.getAttribute("lastPath") != null) {
+                if (session.getAttribute("lastPath").equals("/")) {
+                    return "redirect:/user_index";
+                } else if (session.getAttribute("lastPath").toString().substring(0, 6).equals("/user_")) {
+                    return "redirect:" + session.getAttribute("lastPath");
+                }
+                return "redirect:" + "/user_" + ((String) session.getAttribute("lastPath")).substring(1);
+            } else {
                 return "redirect:/user_index";
-            } else if (session.getAttribute("lastPath").toString().substring(0, 6).equals("/user_")) {
-                return "redirect:" + session.getAttribute("lastPath");
             }
-            return "redirect:" + "/user_" + ((String) session.getAttribute("lastPath")).substring(1);
         } else {
             //给前端页面一个message
             attributes.addFlashAttribute("message", "用户名或密码错误");
@@ -89,11 +93,12 @@ public class UserController {
     /**
      * 去除日志
      * @param session
-     * @return 重定向到/admin
+     * @return 重定向到/index
      */
     @GetMapping("/login/exit")
     public String doExit(HttpSession session) {
         session.removeAttribute("user");
+        session.removeAttribute("lastPath");
         return "redirect:/index";
     }
 
@@ -102,6 +107,7 @@ public class UserController {
         User user = (User) session.getAttribute("user");
         userService.removeUser(user.getUsername());
         session.removeAttribute("user");
+        session.removeAttribute("lastPath");
         return "redirect:/index";
     }
 
@@ -124,6 +130,7 @@ public class UserController {
                         "window.location.href='/dev/edit/password';</script>");
             } else {
                 userService.editPassword(((User)session.getAttribute("user")).getUsername(), newPwd, oldPwd);
+                session.removeAttribute("lastPath");
                 response.getWriter().print("<script language='javascript'>alert('修改成功，请重新登录');" +
                         "window.location.href='/dev/login';</script>");
             }

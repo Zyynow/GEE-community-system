@@ -35,7 +35,7 @@
 </nav>
 
 <!--中间内容-->
-<div class="m-container-small m-padded-tb-big">
+<div class="m-container-muddle m-padded-tb-big" id="contentDiv">
     <div class="ui container">
         <!--header-->
         <div class="ui top attached segment">
@@ -80,7 +80,7 @@
                         <h3 class="ui header"><a th:href="@{/resource/{id}(id=${resource.id})}" href="#" class="m-black"
                                                  th:text="${resource.title}">哔哩哔哩
                             (゜-゜)つロ 干杯~-bilibili</a></h3>
-                        <p class="m-text" th:text="|${resource.description}......|">
+                        <p class="m-text" th:text="|${resource.description}...|">
                             bilibili是国内知名的视频弹幕网站,这里有及时的动漫新番,活跃的ACG氛围,有创意的Up主。大家可以在这里找到许多欢乐。</p>
                         <div class="ui grid">
                             <div class="eleven wide column">

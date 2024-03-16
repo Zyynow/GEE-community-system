@@ -46,7 +46,7 @@
 </nav>
 
 <!--中间内容-->
-<div class="m-container m-padded-tb-big">
+<div class="m-container m-padded-tb-big" id="contentDiv">
     <div class="ui container">
         <div class="ui stackable grid">
             <!-- 左边博客列表 -->
@@ -58,6 +58,7 @@
                             <!--mobile reversed:手机移动端时反序-->
                             <div class="eleven wide column">
                                 <h3 class="ui header"><a th:href="@{/user_resource/{id}(id=${resource.id})}" href="#" class="m-black"
+                                                         target="_blank"
                                                          th:text="${resource.title}">哔哩哔哩
                                     (゜-゜)つロ 干杯~-bilibili</a></h3>
                                 <p class="m-text" th:text="|${resource.description}......|">
@@ -83,7 +84,7 @@
                             </div>
 
                             <div class="right aligned five wide column">
-                                <a href="#" th:href="@{/user_resource/{id}(id=${resource.id})}" class="_blank">
+                                <a href="#" th:href="@{/user_resource/{id}(id=${resource.id})}" class="_blank" target="_blank">
                                     <img src="../static/images/IMG_6361.JPG" th:src="@{${resource.firstPicture}}" alt=""
                                          class="ui rounded image" width="220"
                                          height="130" style="margin-top: 5px">
