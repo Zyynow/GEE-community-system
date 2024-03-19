@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
     <title>用户注册</title>
 </head>
-<body>
+<body class="loginBody">
 
-<div class="m-container-small m-padded-tb-massive" style="max-width: 30em !important">
-    <div class="ur container">
+<div class="m-container-small m-padded-tb-massive" style="max-width: 43em !important">
+    <div class="ur container" style="width: 600px; margin: auto">
         <div class="ui middle aligned center aligned grid">
             <div class="column">
                 <h2 class="ui image header">
@@ -78,10 +78,16 @@
 
             email: {
                 identifier: 'email',
-                rules: [{
-                    type: 'empty',
-                    prompt: '邮箱不能为空'
-                }]
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: '邮箱不能为空'
+                    },
+                    {
+                        type   : 'email',
+                        prompt : '请输入一个合理的邮箱'
+                    }
+                ]
             }
         }
     });

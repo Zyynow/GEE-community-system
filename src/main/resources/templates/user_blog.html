@@ -526,67 +526,116 @@ h5,h6{font-size:1em;}
         <div class="ui bottom attached segment">
             <!--留言区域-->
             <div id="comment-container" class="ui segment">
-                <div>
+                <div th:fragment="commentList">
                     <div cLass="ui threaded comments">
                         <h3 class="ui dividing header">评论区</h3>
                         <!--循环每一条评论-->
                         <div class="comments">
-                            <div class="comment" th:each="comment : ${blog.comments}"
-                                 th:if="${comment.parentCommentId == null}">
+                            <div class="comment" th:each="comment : ${blog?.comments}"
+                                 th:if="${comment?.parentCommentId == null}">
                                 <a class="avatar">
                                     <img src="../static/images/IMG_2562.JPG" th:src="@{${comment?.avatar}}">
                                 </a>
                                 <div class="content">
-                                    <a class="author" th:href="@{/userOtherAbout/{id}(id = ${comment.hostId})}"
-                                       target="_blank">
-                                        <span th:text="${comment.nickname}">Kafka</span>
-                                        <div class="ui mini basic blue left pointing label m-padded-mini"
-                                             th:if="${comment.adminComment}">作者
-                                        </div>
-                                    </a>
+                                    <th:block
+                                            th:with="targetUrl = ${comment.hostId == session.user?.id ? '/about' : '/userOtherAbout/' + comment.hostId}">
+                                        <a class="author" th:href="@{__${targetUrl}__}"
+                                           target="_blank">
+                                            <span th:text="${comment?.nickname}">Kafka</span>
+                                            <div class="ui mini basic blue left pointing label m-padded-mini"
+                                                 th:if="${comment?.adminComment}">作者
+                                            </div>
+                                        </a>
+                                    </th:block>
                                     <div class="metadata">
                                         <span class="date"
-                                              th:text="${#dates.format(comment.createTime, 'yyyy-MM-dd  HH:mm')}">Today at 5:42PM</span>
+                                              th:text="${#dates.format(comment?.createTime, 'yyyy-MM-dd  HH:mm')}">Today at 5:42PM</span>
                                     </div>
-                                    <div class="text" th:text="${comment.content}">
+                                    <div class="text" th:text="${comment?.content}">
                                         How artistic!
                                     </div>
                                     <div class="actions">
-                                        <a class="reply" data-commentid="1" data-commentnickname="Kafka" th:attr="data-commentid=${comment.id},
-                                    data-commentnickname=${comment.nickname}" onclick="reply(this)">回复</a>
-
+                                        <a class="reply" data-commentid="1" data-commentnickname="Kafka"
+                                           th:attr="data-commentid=${comment?.id},
+                                           data-commentnickname=${comment?.nickname}" onclick="reply(this)">回复</a>
+                                        <a type="button" class="delete"
+                                           th:data-url="@{/comment/{blogId}/{id}/delete(blogId=${comment?.blogId},id=${comment?.id})}"
+                                           onclick="confirmAndDelete(this, '确定要删除该评论吗？回复下的评论也会被删除哦！')"
+                                           th:if="${session.user?.id == comment?.hostId}">
+                                            删除
+                                        </a>
                                     </div>
                                 </div>
                                 <!-- 子集评论 -->
                                 <div cLass="comments">
-                                    <div class="comment" th:each="sub : ${comment.childComment}">
+                                    <div class="comment" th:each="sub : ${comment?.childComment}">
                                         <a class="avatar">
                                             <img src="../static/images/IMG_6230.JPG" th:src="@{${sub?.avatar}}">
                                         </a>
                                         <div class="content">
-                                            <a class="author" th:href="@{/userOtherAbout/{id}(id = ${sub.hostId})}"
-                                               target="_blank">
-                                                <span th:text="${sub.nickname}">Matt</span>
-                                                <div class="ui mini basic blue left pointing label m-padded-small"
-                                                     th:if="${sub.adminComment}" style="align-content: center">作者
-                                                </div>
-                                            </a>
-                                            <span th:text="|@ ${sub.parentNickname}|"
+                                            <th:block
+                                                    th:with="targetUrl = ${sub.hostId == session.user?.id ? '/about' : '/userOtherAbout/' + sub.hostId}">
+                                                <a class="author" th:href="@{__${targetUrl}__}"
+                                                   target="_blank">
+                                                    <span th:text="${sub?.nickname}">Matt</span>
+                                                    <div class="ui mini basic blue left pointing label m-padded-small"
+                                                         th:if="${sub?.adminComment}" style="align-content: center">作者
+                                                    </div>
+                                                </a>
+                                            </th:block>
+                                            <span th:text="|@ ${sub?.parentNickname}|"
                                                   class="ui mini basic label m-padded-small"
                                                   style="align-content: center; color: #0c5460">@ 小白</span>
                                             <div class="metadata">
                                                 <span class="date"
-                                                      th:text="${#dates.format(sub.createTime, 'yyyy-MM-dd  HH:mm')}">Today at 5:42PM</span>
+                                                      th:text="${#dates.format(sub?.createTime, 'yyyy-MM-dd  HH:mm')}">Today at 5:42PM</span>
                                             </div>
-                                            <div class="text" th:text="${sub.content}">
+                                            <div class="text" th:text="${sub?.content}">
                                                 How artistic!
                                             </div>
                                             <div class="actions">
-                                                <a class="reply" data-commentId="1" data-commentNickname="Matt"
-                                                   th:attr="data-commentId=${sub.id},
-                                    data-commentNickname=${sub.nickname}" onclick="reply(this)">回复</a>
+                                                <a class="reply" data-commentid="1" data-commentnickname="Matt"
+                                                   th:attr="data-commentid=${sub?.parentCommentId},
+                                                   data-commentnickname=${sub?.nickname}" onclick="reply(this)">回复</a>
+                                                <a type="button" class="delete"
+                                                   th:data-url="@{/comment/{blogId}/{id}/delete(blogId=${sub?.blogId},id=${sub?.id})}"
+                                                   onclick="confirmAndDelete(this, '确定要删除该评论吗？')"
+                                                   th:if="${session.user?.id == sub?.hostId}">
+                                                    删除
+                                                </a>
                                             </div>
                                         </div>
+                                        <!-- 孙评论 -->
+                                        <!--<div class="comment" th:each="grand : ${sub?.grandSonComment}">
+                                            <a class="avatar">
+                                                <img src="../static/images/IMG_6230.JPG" th:src="@{${grand?.avatar}}">
+                                            </a>
+                                            <div class="content">
+                                                <a class="author"
+                                                   th:href="@{/userOtherAbout/{id}(id = ${grand?.hostId})}"
+                                                   target="_blank">
+                                                    <span th:text="${grand?.nickname}">Matt</span>
+                                                    <div class="ui mini basic blue left pointing label m-padded-small"
+                                                         th:if="${grand?.adminComment}" style="align-content: center">作者
+                                                    </div>
+                                                </a>
+                                                <span th:text="|@ ${grand?.parentNickname}|"
+                                                      class="ui mini basic label m-padded-small"
+                                                      style="align-content: center; color: #0c5460">@ 小白</span>
+                                                <div class="metadata">
+                                                <span class="date"
+                                                      th:text="${#dates.format(grand?.createTime, 'yyyy-MM-dd  HH:mm')}">Today at 5:42PM</span>
+                                                </div>
+                                                <div class="text" th:text="${grand?.content}">
+                                                    How artistic!
+                                                </div>
+                                                <div class="actions">
+                                                    <a class="reply" data-commentid="1" data-commentnickname="Matt"
+                                                       th:attr="data-commentid=${grand?.id},
+                                                   data-commentnickname=${grand?.nickname}" onclick="reply(this)">回复</a>
+                                                </div>
+                                            </div>
+                                        </div>-->
                                     </div>
                                 </div>
                             </div>
@@ -632,21 +681,23 @@ h5,h6{font-size:1em;}
                 </div>
             </div>
             <div id="comment-form" class="ui form">
-                <form action="/dev/comments/save" method="post">
-                    <!--在博客里面加入条隐含域-->
-                    <input type="hidden" name="id" th:value="${blog.id}">
-                    <input type="hidden" name="parentCommentId">
-                    <input type="hidden" name="parentNickname">
-                    <input type="hidden" name="hostId" value="1">
-                    <div class="field">
-                        <textarea name="content" placeholder="请输入评论..."></textarea>
-                    </div>
-                    <div class="field m-margin-buttom-mini m-mobile-wide m-right-bottom">
-                        <button type="submit" id="myButton"
-                                class="ui teal basic button m-margin-buttom-mini m-mobile-wide">发布
-                        </button>
-                    </div>
-                </form>
+                <!--<form action="/dev/comments/save" method="post">-->
+                <!--在博客里面加入条隐含域-->
+                <input type="hidden" name="id" th:value="${blog?.id}">
+                <input type="hidden" name="parentCommentId">
+                <input type="hidden" name="parentNickname">
+                <input type="hidden" name="hostId" th:value="${session?.user?.id}">
+                <!--<input type="hidden" name="haveGrand">-->
+                <div class="field">
+                    <textarea name="content" placeholder="请输入评论..."></textarea>
+                </div>
+                <div class="field m-margin-buttom-mini m-mobile-wide m-right-bottom">
+                    <button type="button" id="myButton" onclick="confirmSubmit(this)"
+                            th:data-url="@{/comments/save}"
+                            class="ui teal basic button m-margin-buttom-mini m-mobile-wide">发布
+                    </button>
+                </div>
+                <!--</form>-->
             </div>
         </div>
     </div>
@@ -656,7 +707,7 @@ h5,h6{font-size:1em;}
     <div class="ui vertical icon buttons">
         <button type="button" class="ui toc blue button">目录</button>
         <a href="#" th:href="@{/feedback}" class="ui blue button">反馈</a>
-        <a href="#comment-container" class="ui button"><i class="edit icon"></i></a>
+        <a href="#comment-form" class="ui button"><i class="edit icon"></i></a>
         <a class="ui icon button"><i class="heart icon"></i></a>
         <a id="toTop-button" class="ui button"><i class="chevron up icon"></i></a>
     </div>
@@ -669,6 +720,26 @@ h5,h6{font-size:1em;}
 
 <br>
 <br>
+
+<div class="ui tiny modal">
+    <i class="close icon"></i>
+    <div class="header">
+        评论删除
+    </div>
+    <div class="content">
+        <div class="description" name="descriptionDel">
+            确定要删除该评论嘛？所有回复也都会被删除哦~
+        </div>
+    </div>
+    <div class="actions">
+        <button class="ui secondary button" id="confirmDel">
+            Okay
+        </button>
+        <button class="ui cancel button" >
+            Cancel
+        </button>
+    </div>
+</div>
 
 <!--底部footer-->
 <footer th:replace="_fragments_login :: footer" class="ui inverted vertical segment m-padded-tb-massive">
@@ -765,11 +836,49 @@ h5,h6{font-size:1em;}
         $(window).scrollTo(0, 500);
     });
 
-    $('#myButton').submit((event) => {
-        event.preventDefault(); // 阻止默认提交行为
-        this.submit();
-        clearContent();
-    })
+    function confirmAndDelete(button, str) {
+        $('.tiny.modal').modal('show');
+        $("[name='descriptionDel']").text(str);
+
+        $('#confirmDel').click(() => {
+            const url = button.dataset.url;
+            /*if (!confirm(str)) {
+                return;
+            }*/
+
+            fetch(url, {
+                method: 'GET',
+                credentials: 'same-origin', // 或者其他适合你的请求认证方式
+            }).then(response => {
+                // 处理响应
+                console.log("响应成功");
+                location.reload(); // 刷新页面
+                $(window).scrollTo($('#comment-container'), 500);
+            });
+        })
+    }
+
+    function confirmSubmit(button) {
+        const url = button.dataset.url;
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json' // 添加这一行以指定Content-Type
+            },
+            body: JSON.stringify({
+                "id": $("[name='id']").val(),
+                "parentNickname": $("[name='parentNickname']").val(),
+                "parentCommentId": $("[name='parentCommentId']").val(),
+                "hostId": $("[name='hostId']").val(),
+                "content": $("[name='content']").val()
+            })
+        }).then(response => {
+            // 处理响应
+            console.log("响应成功");
+            location.reload(); // 刷新页面
+            $(window).scrollTo($('#comment-container'), 500);
+        });
+    }
 
     function clearContent() {
         $("[name='content']").val('');
@@ -785,6 +894,18 @@ h5,h6{font-size:1em;}
         $("[name='parentNickname']").val(commentNickname);
         $(window).scrollTo($('#comment-form'), 500);
     }
+
+    /*function replySub(obj) {
+        var commentId = $(obj).data('commentid');
+        var commentNickname = $(obj).data('commentnickname');
+        var hostId = $(obj).data('hostid');
+        $("[name='content']").attr("placeholder", "@" + commentNickname).focus();
+        $("[name='parentCommentId']").val(commentId);
+        $("[name='parentNickname']").val(commentNickname);
+        $("[name='hostId']").val(hostId);
+        $("[name='haveGrand']").val(true);
+        $(window).scrollTo($('#comment-form'), 500);
+    }*/
 
     $('.ui.form').form({
         fields: {

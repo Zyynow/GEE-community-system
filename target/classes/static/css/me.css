@@ -12,6 +12,16 @@ body {
     width: 100%;
 }
 
+.loginBody{
+    background-image: url("../images/loginImg.jpg");
+    background-attachment:fixed;
+    background-size: 100%;
+    no-repeat: center top;
+    font: 14px/1.5 Tahoma,Helvetica,Arial,'宋体',sans-serif;
+    height: 100%;
+    width: 100%;
+}
+
 /*上下左右边距设置*/
 .m-padded-mini {
     padding: 0.2em !important;

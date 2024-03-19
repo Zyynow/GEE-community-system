@@ -18,7 +18,9 @@ public class Comment {
     private String content;
     private String avatar;
     private String parentNickname;
-    private String hostId;
+    private Long hostId;
+
+//    private boolean haveGrand;
 
     private boolean adminComment; //管理员标记
 
@@ -31,6 +33,10 @@ public class Comment {
     // 子评论
     @Transient // 不会尝试为这个字段创建数据库列映射，而是需要在应用层通过业务逻辑或者其他方式维护
     private List<Comment> childComment;
+
+    // 孙评论
+    @Transient
+    private List<Comment> grandSonComment;
 
     private Long blogId;
 
@@ -99,10 +105,12 @@ public class Comment {
                 ", avatar='" + avatar + '\'' +
                 ", parentNickname='" + parentNickname + '\'' +
                 ", hostId='" + hostId + '\'' +
+//                ", haveGrand=" + haveGrand +
                 ", adminComment=" + adminComment +
                 ", createTime=" + createTime +
                 ", parentCommentId=" + parentCommentId +
                 ", childComment=" + childComment +
+                ", grandSonComment=" + grandSonComment +
                 ", blogId=" + blogId +
                 '}';
     }
@@ -131,11 +139,27 @@ public class Comment {
         this.parentNickname = parentNickname;
     }
 
-    public String getHostId() {
+    public Long getHostId() {
         return hostId;
     }
 
-    public void setHostId(String hostId) {
+    public void setHostId(Long hostId) {
         this.hostId = hostId;
     }
+
+    public List<Comment> getGrandSonComment() {
+        return grandSonComment;
+    }
+
+    public void setGrandSonComment(List<Comment> grandSonComment) {
+        this.grandSonComment = grandSonComment;
+    }
+
+    /*public boolean isHaveGrand() {
+        return haveGrand;
+    }*/
+
+    /*public void setHaveGrand(boolean haveGrand) {
+        this.haveGrand = haveGrand;
+    }*/
 }

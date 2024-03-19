@@ -39,4 +39,16 @@ public class CommentServiceImpl implements CommentService {
     public List<Comment> findSubListByParentId(Long id) {
         return commentRepository.findSubCommentsById(id);
     }
+
+    @Override
+    public List<Comment> findGrandListBySonId(Long id) {
+        return commentRepository.findGrandCommentsById(id);
+    }
+
+    @Override
+    public void deleteComment(Comment comment, Long id) {
+        commentRepository.deleteById(id);
+        // 删除所有子评论
+        commentRepository.deleteSub(id);
+    }
 }

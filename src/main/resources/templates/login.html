@@ -9,11 +9,11 @@
     <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
     <title>登录</title>
 </head>
-<body>
-<br><br>
+<body class="loginBody">
+<br><br><br>
 
 <div style="max-width: 66em !important; margin: auto !important; padding-top: 3em !important; padding-bottom: 3em !important;">
-    <div class="ur container">
+    <div class="ur container" style="width: 700px; margin: auto">
         <div class="ui middle aligned center aligned grid">
             <div class="column">
                 <h2 class="ui black image header">
@@ -36,7 +36,7 @@
                             </div>
                         </div>
                         <div class="field">
-                            <div class="ui grid">
+                            <div class="ui grid" style="margin-right: 6px !important;">
                                 <div class="thirteen wide column">
                                     <div class="ui left icon input">
                                         <i class="code icon"></i>
@@ -74,12 +74,18 @@
                     prompt: '账号不能为空'
                 }]
             },
-
             content: {
                 identifier: 'password',
                 rules: [{
                     type: 'empty',
                     prompt: '密码不能为空'
+                }]
+            },
+            code: {
+                identifier: 'vCode',
+                rules: [{
+                    type: 'empty',
+                    prompt: '验证码不能为空'
                 }]
             }
         }
