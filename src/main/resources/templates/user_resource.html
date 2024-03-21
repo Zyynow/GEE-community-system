@@ -38,7 +38,7 @@
 </nav>
 
 <!--中间内容-->
-<div class="m-container-small m-padded-tb-big animate__fadeIn" id="contentDiv">
+<div class="m-container m-margin-top-large animate__fadeIn" id="contentDiv">
     <div class="ui container">
         <!--头部-->
         <div class="ui top attached segment">
@@ -509,7 +509,7 @@ h5,h6{font-size:1em;}
     <div class="ui vertical icon buttons">
         <button type="button" class="ui toc blue button">目录</button>
         <a href="#" th:href="@{/feedback}" class="ui blue button">反馈</a>
-        <a class="ui icon button"><i class="heart icon"></i></a>
+        <a class="ui icon like-button button"><i class="heart outline icon"></i></a>
         <a href="#" id="toTop-button" class="ui button"><i class="chevron up icon"></i></a>
     </div>
 </div>
@@ -579,41 +579,54 @@ h5,h6{font-size:1em;}
 
 <!--点击执行操作-->
 <script>
-    $('.menu.toggle').click(function () {
-        $('.m-item').toggleClass('m-mobile-hide');
-    });
+    /*
+        $(document).ready() 是 jQuery 中的一个重要函数，确保在文档结构完全加载完成（DOM Ready）后执行里面的代码，
+        这样可以保证当绑定事件的元素已经在页面上存在时才尝试为其添加事件监听器，避免因为元素未加载而导致事件绑定失效的问题。
+        如果不加 $(document).ready():
+            如果这段代码是在 HTML 文档中的 <script> 标签内，且位于文档末尾（或者有其他机制确保在 DOM 加载完毕后执行，那么它的功能与加了 $(document).ready() 一致。
+            但如果这段代码放在文档头部或没有等待 DOM 加载就执行，可能会因为在绑定事件时目标元素还未加载到 DOM 中而无法正确绑定。
+     */
+    $(document).ready(function() {
+        $('.menu.toggle').click(function () {
+            $('.m-item').toggleClass('m-mobile-hide');
+        });
 
-    $('.ui.dropdown').dropdown({
-        on: 'hover'
-    });
+        $('.ui.dropdown').dropdown({
+            on: 'hover'
+        });
 
-    $('.menu.toggle').click(function () {
-        $('.m-item').toggleClass('m-mobile-hide');
-    });
+        $('.menu.toggle').click(function () {
+            $('.m-item').toggleClass('m-mobile-hide');
+        });
 
-    $('#payButton').popup({
-        popup: $('.pay.popup'),
-        on: 'click',
-        position: 'bottom center'
-    });
+        $('#payButton').popup({
+            popup: $('.pay.popup'),
+            on: 'click',
+            position: 'bottom center'
+        });
 
-    tocbot.init({
-        // Where to render the table of contents.
-        tocSelector: '.js-toc',
-        // Where to grab the headings to build the table of contents.
-        contentSelector: '.js-toc-content',
-        // Which headings to grab inside of the contentSelector element.
-        headingSelector: 'h1, h2, h3',
-    });
+        tocbot.init({
+            // Where to render the table of contents.
+            tocSelector: '.js-toc',
+            // Where to grab the headings to build the table of contents.
+            contentSelector: '.js-toc-content',
+            // Which headings to grab inside of the contentSelector element.
+            headingSelector: 'h1, h2, h3',
+        });
 
-    $('.toc.button').popup({
-        popup : $('.toc-container.popup'),
-        on : 'click',
-        position: 'left center'
-    });
+        $('.toc.button').popup({
+            popup : $('.toc-container.popup'),
+            on : 'click',
+            position: 'left center'
+        });
 
-    $('#toTop-button').click(function () {
-        $(window).scrollTo(0,500);
+        $('#toTop-button').click(function () {
+            $(window).scrollTo(0,500);
+        });
+
+        $('.like-button').on('click', function() {
+            $(this).toggleClass('Red');
+        });
     });
 
     var waypoint = new Waypoint({

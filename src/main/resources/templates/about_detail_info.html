@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head th:replace="_fragments_login :: head(~{::title})">
     <meta charset="UTF-8">
-    <title>我的</title>
+    <title>我的-详细信息</title>
     <link rel="stylesheet" href="../static/css/other.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
     <link rel="stylesheet" href="../static/css/me.css">
@@ -44,40 +44,83 @@
                     <ul>
                         <li><h4>我的订单</h4></li>
                         <li class="m-padded-tb-tiny">
-                            <a href="#" style="color: #0a0a0a"><span>全部订单</span></a><i style="margin-left: 54px" class="ui angle double right icon m-inline-block"></i>
+                            <a href="#" target="_blank" style="color: #0a0a0a">
+                                <span>全部订单</span>
+                                <i style="margin-left: 54px" class="ui angle double right icon m-inline-block"></i>
+                            </a>
                         </li>
                         <li class="m-padded-tb-tiny">
-                            <a href="#" style="color: #0a0a0a"><span>待支付</span></a><i style="margin-left: 68px" class="ui angle double right icon m-inline-block"></i>
+                            <a href="#" target="_blank" style="color: #0a0a0a"><span>待支付</span>
+                                <i style="margin-left: 68px" class="ui angle double right icon m-inline-block"></i>
+                            </a>
                         </li>
                         <li class="m-padded-tb-tiny">
-                            <a href="#" style="color: #0a0a0a"><span>待评价</span></a><i style="margin-left: 68px" class="ui angle double right icon m-inline-block"></i>
+                            <a href="#" target="_blank" style="color: #0a0a0a">
+                                <span>待评价</span>
+                                <i style="margin-left: 68px" class="ui angle double right icon m-inline-block"></i>
+                            </a>
                         </li>
                         <li class="m-padded-tb-tiny">
-                            <a href="#" style="color: #0a0a0a"><span>消费记录</span></a><i style="margin-left: 54px" class="ui angle double right icon m-inline-block"></i>
+                            <a href="#" target="_blank" style="color: #0a0a0a">
+                                <span>退款订单</span>
+                                <i style="margin-left: 54px" class="ui angle double right icon m-inline-block"></i>
+                            </a>
                         </li>
                         <br>
                         <li><h4>我的收藏</h4></li>
                         <li class="m-padded-tb-tiny">
-                            <a href="#" style="color: #0a0a0a"><span>收藏的资料</span></a><i style="margin-left: 40px" class="ui angle double right icon m-inline-block"></i>
+                            <a href="#" target="_blank" style="color: #0a0a0a">
+                                <span>收藏的资料</span>
+                                <i style="margin-left: 40px" class="ui angle double right icon m-inline-block"></i>
+                            </a>
                         </li>
                         <li class="m-padded-tb-tiny">
-                            <a href="#" style="color: #0a0a0a"><span>收藏的帖子</span></a><i style="margin-left: 40px" class="ui angle double right icon m-inline-block"></i>
+                            <a href="#" target="_blank" style="color: #0a0a0a">
+                                <span>收藏的帖子</span>
+                                <i style="margin-left: 40px" class="ui angle double right icon m-inline-block"></i>
+                            </a>
+                        </li>
+                        <br>
+                        <li><h4>我的动态</h4></li>
+                        <li class="m-padded-tb-tiny">
+                            <a href="#" target="_blank" style="color: #0a0a0a">
+                                <span>个人空间</span>
+                                <i style="margin-left: 54px" class="ui angle double right icon m-inline-block"></i>
+                            </a>
+                        </li>
+                        <li class="m-padded-tb-tiny">
+                            <a href="#" th:href="@{/archives}" target="_blank" style="color: #0a0a0a">
+                                <span>发帖记录</span>
+                                <i style="margin-left: 54px" class="ui angle double right icon m-inline-block"></i>
+                            </a>
                         </li>
                         <br>
                         <li><h4>我的钱包</h4></li>
                         <li class="m-padded-tb-tiny">
-                            <a href="#" style="color: #0a0a0a"><span>余额</span></a><i style="margin-left: 82px" class="ui angle double right icon m-inline-block"></i>
+                            <a href="#" target="_blank" style="color: #0a0a0a">
+                                <span>余额</span>
+                                <i style="margin-left: 82px" class="ui angle double right icon m-inline-block"></i>
+                            </a>
                         </li>
                         <li class="m-padded-tb-tiny">
-                            <a href="#" style="color: #0a0a0a"><span>优惠卷</span></a><i style="margin-left: 68px" class="ui angle double right icon m-inline-block"></i>
+                            <a href="#" target="_blank" style="color: #0a0a0a">
+                                <span>优惠卷</span>
+                                <i style="margin-left: 68px" class="ui angle double right icon m-inline-block"></i>
+                            </a>
                         </li>
                         <br>
                         <li><h4>个人信息</h4></li>
                         <li class="m-padded-tb-tiny">
-                            <a href="about/detail" th:href="@{/about/detail}" style="color: #0a0a0a"><span>详细信息</span></a><i style="margin-left: 54px" class="ui angle double right icon m-inline-block"></i>
+                            <a href="about/detail" target="_blank" th:href="@{/about/detail}" style="color: #0a0a0a">
+                                <span>详细信息</span>
+                                <i style="margin-left: 54px" class="ui angle double right icon m-inline-block"></i>
+                            </a>
                         </li>
                         <li class="m-padded-tb-tiny">
-                            <a href="about/edit" th:href="@{/about/edit}" style="color: #0a0a0a"><span>账户设置</span></a><i style="margin-left: 54px" class="ui angle double right icon m-inline-block"></i>
+                            <a href="about/edit" target="_blank" th:href="@{/about/edit}" style="color: #0a0a0a">
+                                <span>账户设置</span>
+                                <i style="margin-left: 54px" class="ui angle double right icon m-inline-block"></i>
+                            </a>
                         </li>
                     </ul>
                 </div>

@@ -151,10 +151,39 @@ body {
     margin: auto !important;
 }
 
+.m-container-large {
+    max-width: 76em !important;
+    margin: auto !important;
+}
 
 .m-margin-tb-tiny {
     margin-top: 0.3em !important;
     margin-bottom: 0.3em !important;
+}
+
+.m-margin-tb {
+    margin-top: 1em !important;
+    margin-bottom: 1em !important;
+}
+
+.m-margin-tb-large {
+    margin-top: 2em !important;
+    margin-bottom: 2em !important;
+}
+
+.m-margin-lr-tiny {
+    margin-left: 0.3em !important;
+    margin-right: 0.3em !important;
+}
+
+.m-margin-lr {
+    margin-left: 1em !important;
+    margin-right: 1em !important;
+}
+
+.m-margin-lr-large {
+    margin-left: 2em !important;
+    margin-right: 2em !important;
 }
 
 .m-margin-top-small {
@@ -201,6 +230,14 @@ body {
 
 .m-margin-buttom-mini {
     margin-bottom: 0.5em !important;
+}
+
+.m-margin-buttom-middle {
+    margin-bottom: 1em !important;
+}
+
+.m-margin-buttom-large {
+    margin-bottom: 2em !important;
 }
 
 .m-margin-top-mini {
@@ -336,4 +373,24 @@ legend {
 }
 .m-opacity-small {
     opacity: 0.4 !important;
+}
+
+.ui.container.transparent-segment.segment {
+    background-color: rgba(255, 255, 255, 0.8); /* 这里的0.5表示50%的透明度 */
+}
+
+/* 默认状态下，爱心图标 */
+.ui.icon.like-button .heart.outline.icon {
+    color: initial; /* 使用Semantic UI的默认颜色 */
+}
+
+/* 点击后爱心变红 */
+.ui.icon.like-button.Red .heart.outline.icon {
+    color: red !important;
+}
+
+.error-message-container {
+    display: inline-block;
+    margin-left: 10px;
+    color: red;
 }

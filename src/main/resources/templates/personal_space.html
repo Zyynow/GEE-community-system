@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>个人空间</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
+  <link rel="stylesheet" href="../static/css/animate.css" th:href="@{/css/animate.css}">
+  <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
+</head>
+<body class="archiveBody">
+
+<!--导航-->
+<nav th:replace="_fragments_login :: menu(4)" class="ui inverted attached segment m-padded-tb-mini">
+  <div class="ui container"> <!-- 加一个容器 -->
+    <div class="ui inverted secondary stackable menu"> <!-- 菜单 stackable:可堆叠的,表示屏幕小时自动堆叠-->
+      <h2 class="ui white header item">GuideSystem</h2> <!-- 蓝绿色标题 -->
+      <a href="#" class="m-item m-mobile-hide item"><i class="home icon"></i>首页</a> <!-- icon表示图表 -->
+      <a href="#" class="m-item m-mobile-hide item"><i class="edit outline icon"></i>记录</a>
+      <a href="#" class="m-item m-mobile-hide item"><i class="info icon"></i>我的</a>
+      <div class="m-top-right m-mobile-hide item m-item" style="margin-top: 5px"> <!-- 靠右 -->
+        <div class="ui icon input">
+          <input type="text" placeholder="Search...">
+          <i class="search link icon"></i>
+        </div>
+        <div class="ui dropdown item">
+          <div class="text">
+            <img src="../static/images/店铺1.jpg" th:src="@{/images/IMG_6361.JPG}"
+                 alt="" class="ui avatar image">
+          </div>
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <a href="#" th:href="@{/login/exit}" class="item">足迹</a>
+            <a href="#" th:href="@{/login}" class="item">我的</a>
+            <a href="#" th:href="@{/edit/password}" class="item">修改密码</a>
+            <a href="#" th:href="@{/login/exit}" class="item">退出</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a href="#" class="ui menu toggle black button icon m-top-right m-mobile-show">
+    <i class="sidebar icon"></i>
+  </a>
+</nav>
+
+<div class="ui container transparent-segment segment">
+  <div class="ui search m-top-right" style="margin-right: 20px; margin-top: 20px">
+    <div class="ui icon input">
+      <input class="prompt" type="text" placeholder="搜索好友...">
+      <i class="search icon"></i>
+    </div>
+    <div class="results"></div>
+  </div>
+  <div class="ui feed">
+    <div class="event">
+      <div class="label">
+        <img src="../static/images/avatar/elliot.jpg">
+      </div>
+      <div class="content">
+        <div class="summary">
+          <a class="user">
+            Elliot Fu
+          </a> 将你加为好友
+          <div class="date">1 小时前</div>
+        </div>
+      </div>
+    </div>
+    <div class="event">
+      <div class="label">
+        <img src="../static/images/avatar/helen.jpg">
+      </div>
+      <div class="content">
+        <div class="summary"><a>Helen Troy</a> 上传 <a>2 张新的图片</a>
+          <div class="date">4 天前</div>
+        </div>
+        <div class="extra images">
+          <a><img src="../static/images/photoWall/defaultImage.png"></a>
+          <a><img src="../static/images/photoWall/defaultImage.png"></a>
+        </div>
+        <div class="meta">
+          <a class="like">
+            <i class="like icon"></i> 1 Like
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="event">
+      <div class="label">
+        <img src="../static/images/avatar/jenny.jpg">
+      </div>
+      <div class="content">
+        <div class="summary"><a class="user"> Jenny Hess </a> 评论了你的帖子 <a>My Blog</a>
+          <div class="date">2 天前</div>
+        </div>
+        <div class="extra text">
+          写得真不错！
+        </div>
+      </div>
+    </div>
+    <div class="event">
+      <div class="label">
+        <img src="../static/images/avatar/joe.jpg">
+      </div>
+      <div class="content">
+        <div class="summary">
+          <a>Joe Henderson</a> 更新了他的个性签名
+          <div class="date">3 天前</div>
+        </div>
+        <div class="extra text">
+          风吹开哪页读哪页，哪页读不懂撕哪页。
+        </div>
+        <div class="meta">
+          <a class="like">
+            <i class="like icon"></i> 5 Likes
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="event">
+      <div class="label">
+        <img src="../static/images/avatar/justen.jpg">
+      </div>
+      <div class="content">
+        <div class="summary"><a>Justen Kitsune</a> 上传 <a>2 张关于你的图片</a>
+          <div class="date">4 天前</div>
+        </div>
+        <div class="extra images">
+          <a><img src="../static/images/photoWall/defaultImage.png"></a>
+          <a><img src="../static/images/photoWall/defaultImage.png"></a>
+        </div>
+        <div class="meta">
+          <a class="like">
+            <i class="like icon"></i> 41 Likes
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="event">
+      <div class="label">
+        <img src="../static/images/avatar/jenny.jpg">
+      </div>
+      <div class="content">
+        <div class="summary">
+          <a>PanChina</a> 更新了他的个人描述
+          <div class="date">6 天前</div>
+        </div>
+        <div class="extra text">
+          生命中最美丽的一天。
+        </div>
+        <div class="meta">
+          <a class="like">
+            <i class="like icon"></i> 5 Likes
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="event">
+      <div class="label">
+        <img src="../static/images/avatar/joe.jpg">
+      </div>
+      <div class="content">
+        <div class="summary">
+          <a>Kafka</a> 发布了一条新的帖子
+          <div class="date">8 天前</div>
+        </div>
+        <div class="ui extra items">
+          <div class="item">
+            <a class="ui small image">
+              <img src="../static/images/photoWall/defaultImage.png">
+            </a>
+            <div class="content">
+              <a class="header">可爱的小狗</a>
+              <div class="description">
+                <p>
+                  萌萌狗有各种形状和大小。有的小狗因为呆萌的表情惹人疼爱，有的则因为五短身材令人怜惜。甚至还有一些会因为巨大的体型也会显得傻缺。</p>
+                <p>Many people also have their own barometers for what makes a cute dog.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="meta">
+          <a class="like">
+            <i class="like icon"></i> 5 Likes
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="event">
+      <div class="label">
+        <img src="../static/images/avatar/justen.jpg">
+      </div>
+      <div class="content">
+        <div class="summary"><a class="user"> Jenny Hess </a> 收藏了你的帖子
+          <div class="date">12 天前</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br><br>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+<script src="../static/lib/waypoints/jquery.waypoints.min.js"
+        th:src="@{/lib/waypoints/jquery.waypoints.min.js}"></script>
+
+<!--第一种多人物的看板娘，缓存慢-->
+<script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
+
+<script>
+    var content = [
+        { title: 'Andorra' },
+        { title: 'United Arab Emirates' },
+        { title: 'Afghanistan' },
+        { title: 'Antigua' },
+        { title: 'Anguilla' },
+        { title: 'Albania' },
+        { title: 'Armenia' },
+        { title: 'Netherlands Antilles' },
+        { title: 'Angola' },
+        { title: 'Argentina' },
+        { title: 'American Samoa' },
+        { title: 'Austria' },
+        { title: 'Australia' },
+        { title: 'Aruba' },
+        { title: 'Aland Islands' },
+        { title: 'Azerbaijan' },
+        { title: 'Bosnia' },
+        { title: 'Barbados' },
+        { title: 'Bangladesh' },
+        { title: 'Belgium' },
+        { title: 'Burkina Faso' },
+        { title: 'Bulgaria' },
+        { title: 'Bahrain' },
+        { title: 'Burundi' }
+        // etc
+    ];
+    $('.ui.search').search({
+        source: content
+    });
+</script>
+</body>
+</html>

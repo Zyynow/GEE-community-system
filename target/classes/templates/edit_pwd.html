@@ -44,20 +44,30 @@
         <div class="container-fluid">
             <div class="card">
                 <div class="card-body">
-                    <form method="post" action="#" th:action="@{/edit/password/success}" class="site-form">
-                        <div class="form-group">
-                            <label class="text-black">&nbsp;旧密码</label><br><br>
-                            <input type="password" class="form-control" name="oldPwd" placeholder="输入账号的原登录密码">
+                    <form method="post" action="#" th:action="@{/edit/password/success}" class="ui small form">
+                        <div class="field">
+                            <div class="form-group">
+                                <label class="text-black" style="font-weight: bold">&nbsp;旧密码</label><br><br>
+                                <input type="password" class="form-control" name="oldPwd"
+                                       placeholder="输入账号的原登录密码">
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label class="text-black">&nbsp;新密码</label><br><br>
-                            <input type="password" class="form-control" name="newPwd" placeholder="输入新的密码">
+                        <div class="field">
+                            <div class="form-group">
+                                <label class="text-black" style="font-weight: bold">&nbsp;新密码</label><br><br>
+                                <input type="password" class="form-control" name="newPwd" placeholder="输入新的密码">
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label class="text-black">&nbsp;确认新密码</label><br><br>
-                            <input type="password" class="form-control" name="confirmPwd" placeholder="再次输入新密码">
+                        <div class="field">
+                            <div class="form-group">
+                                <label class="text-black" style="font-weight: bold">&nbsp;确认新密码</label><br><br>
+                                <input type="password" class="form-control" name="confirmPwd"
+                                       placeholder="再次输入新密码">
+                            </div>
                         </div>
                         <button type="submit" class="ui blue basic button">确认修改</button>
+                        <div class="ui clear button">Clear</div>
+                        <div class="ui error message"></div>
                     </form>
                 </div>
             </div>
@@ -116,6 +126,64 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
 </th:block>
+
+<script>
+    $('.clear.button').click(() => {
+        $('.ui.error.message').css('display', 'none');
+    });
+
+    $('.basic.button').click(() => {
+        $('.ui.error.message').css('display', 'block');
+        newPwd = $("[name='newPwd']").val();
+        confirmPwd = $("[name='confirmPwd']").val();
+        if (newPwd !== confirmPwd) {
+            $('.ui.error.message').text('两次输入的密码不一致');
+            return false;
+        }
+        this.submit();
+    });
+
+    let newPwd = $("[name='newPwd']").val();
+    let confirmPwd = $("[name='confirmPwd']").val();
+
+    $('.ui.form').form({
+        fields: {
+            oldPwd: {
+                rules: [{
+                    type: 'empty',
+                    prompt: '旧密码不能为空'
+                }]
+            },
+            newPwd: {
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: '新密码不能为空'
+                    },
+                    {
+                        type: 'minLength[6]',
+                        prompt: '新密码至少为 {ruleValue} 字符'
+                    }
+                ]
+            }
+        },
+    });
+
+    /*$(document).ready(function() {
+        $('.ui.form').on('submit', function(event) {
+            event.preventDefault(); // 阻止表单默认提交行为
+
+            var newPwd = $('[name="newPwd"]').val();
+            var confirmPwd = $('[name="confirmPwd"]').val();
+
+            if (newPwd !== confirmPwd) {
+                $('.ui.error.message').text('两次输入的密码不一致');
+                return false;
+            }
+
+        });
+    });*/
+</script>
 
 </body>
 </html>
