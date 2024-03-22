@@ -8,6 +8,7 @@
     <file url="file://$PROJECT_DIR$/src/main/resources/static/css/app.css" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/static/css/other.css" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/static/css/timeline.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/static/images/friendsbg.jpg" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/static/images/店铺1.jpg" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/static/images/店铺2.jpg" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/static/images/店铺3.jpg" charset="UTF-8" />
@@ -16,6 +17,7 @@
     <file url="file://$PROJECT_DIR$/src/main/resources/static/js/bootstrap-notify.min.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/static/js/lightyear.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/static/js/perfect-scrollbar.min.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/static/lib/picture" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/static/lib/timeline" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/static/lib/waypoints" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/templates/about.html" charset="UTF-8" />
@@ -28,7 +30,9 @@
     <file url="file://$PROJECT_DIR$/src/main/resources/templates/fblog-input.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/templates/fblog.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/templates/forum.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/templates/friends_record.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/templates/other_about.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/templates/picture.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/templates/user_fblog.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/templates/user_forum.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/templates/user_other_about.html" charset="UTF-8" />

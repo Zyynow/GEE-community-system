@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title th:replace="${title}">模板</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+  <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
   <link href="../static/css/me.css" rel="stylesheet" th:href="@{/css/me.css}">
   <link rel="stylesheet" href="../static/css/animate.css" th:href="@{/css/animate.css}">
   <link rel="stylesheet" href="../static/css/other.css" th:href="@{/css/other.css}">
@@ -15,49 +16,51 @@
 </head>
 <body>
 
-<nav th:fragment="menu(n)" class="ui inverted attached segment m-padded-tb-mini">
-  <div class="ui container"> <!-- 加一个容器 -->
-    <div class="ui inverted secondary stackable menu"> <!-- 菜单 stackable:可堆叠的,表示屏幕小时自动堆叠-->
-      <h2 class="ui white header item">GuideSystem</h2> <!-- 蓝绿色标题 -->
-      <a href="#" th:href="@{/user_index}" class="m-item m-mobile-hide item" th:classappend="${n==1} ? 'active' "><i
-          class="home icon"></i>首页</a> <!-- icon表示图表 -->
-      <a href="#" th:href="@{/user_forum}" class="m-item m-mobile-hide item" th:classappend="${n==2} ? 'active' "><i
-          class="comments icon"></i>论坛</a>
-      <a href="#" th:href="@{/user_types/-1}" class="m-item m-mobile-hide item" th:classappend="${n==3} ? 'active' "><i
-          class="idea icon"></i>分类</a>
-      <a href="#" th:href="@{/about}" class="m-item m-mobile-hide item" th:classappend="${n==4} ? 'active' "><i
-          class="info icon"></i>我的</a>
-      <div class="m-top-right m-mobile-hide item m-item" style="margin-top: 5px"> <!-- 靠右 -->
-        <form name="search" method="get" action="#" th:action="@{/user_search}" target="_blank">
-          <div class="ui icon input">
-            <input type="text" name="query" placeholder="Search..." th:value="${query}">
-            <i onclick="document.forms['search'].submit()" class="search link icon"></i>
-          </div>
-        </form>
-        <div class="ui dropdown item">
-          <div class="text">
-            <img src="../static/images/店铺1.jpg" th:src="@{${session.user?.avatar}}"
-                 alt="" class="ui avatar image">
-          </div>
-          <i class="dropdown icon"></i>
-          <div class="menu">
-            <a href="#" th:href="@{/about}" class="item">我的</a>
-            <a href="#" th:href="@{/edit/password}" class="item">修改密码</a>
-            <a href="#" th:href="@{/login/exit}" class="item">退出</a>
-            <a href="#" th:href="@{/login/delete}" class="item">注销</a> <!--得更新-->
+<nav th:fragment="menu(n)">
+  <div class="gird-header" style="opacity: 0.85 !important;">
+    <div class="ui container"> <!-- 加一个容器 -->
+      <div class="ui inverted secondary stackable menu"> <!-- 菜单 stackable:可堆叠的,表示屏幕小时自动堆叠-->
+        <h2 class="ui white header item">GuideSystem</h2> <!-- 蓝绿色标题 -->
+        <a href="#" th:href="@{/user_index}" class="m-item m-mobile-hide item" th:classappend="${n==1} ? 'active' "><i
+            class="home icon"></i>首页</a> <!-- icon表示图表 -->
+        <a href="#" th:href="@{/user_forum}" class="m-item m-mobile-hide item" th:classappend="${n==2} ? 'active' "><i
+            class="comments icon"></i>论坛</a>
+        <a href="#" th:href="@{/user_types/-1}" class="m-item m-mobile-hide item" th:classappend="${n==3} ? 'active' "><i
+            class="idea icon"></i>分类</a>
+        <a href="#" th:href="@{/about}" class="m-item m-mobile-hide item" th:classappend="${n==4} ? 'active' "><i
+            class="info icon"></i>我的</a>
+        <div class="m-top-right m-mobile-hide item m-item" style="margin-top: 5px"> <!-- 靠右 -->
+          <form name="search" method="get" action="#" th:action="@{/user_search}" target="_blank">
+            <div class="ui icon input">
+              <input type="text" name="query" placeholder="Search..." th:value="${query}">
+              <i onclick="document.forms['search'].submit()" class="search link icon"></i>
+            </div>
+          </form>
+          <div class="ui dropdown item">
+            <div class="text">
+              <img src="../static/images/店铺1.jpg" th:src="@{${session.user?.avatar}}"
+                   alt="" class="ui avatar image">
+            </div>
+            <i class="dropdown icon"></i>
+            <div class="menu">
+              <a href="#" th:href="@{/about}" class="item">我的</a>
+              <a href="#" th:href="@{/edit/password}" class="item">修改密码</a>
+              <a href="#" th:href="@{/login/exit}" class="item">退出</a>
+              <a href="#" th:href="@{/login/delete}" class="item">注销</a> <!--得更新-->
+            </div>
           </div>
         </div>
       </div>
     </div>
+    <a href="#" class="ui menu toggle black button icon m-top-right m-mobile-show">
+      <i class="sidebar icon"></i>
+    </a>
   </div>
-  <a href="#" class="ui menu toggle black button icon m-top-right m-mobile-show">
-    <i class="sidebar icon"></i>
-  </a>
 </nav>
 
 <!--页面脚注-->
 <footer class="ui inverted vertical segment m-padded-tb-massive footer-class"
-        style="position: relative; width: 100%; height: 328px;"> <!-- vertical:垂直的 segment:条横 inverted:倒置的 -->
+        style="position: relative; width: 100%; height: 310px; opacity: 0.85; background-color: rgba(0, 0, 0, 1);"> <!-- vertical:垂直的 segment:条横 inverted:倒置的 -->
   <div class="ui center aligned container"> <!-- center aligned:居中 aligned:使成为一条线-->
     <div class="ui inverted divided stackable grid"> <!-- inverted divided grid:格线分成16份 -->
       <div class="three wide column">
@@ -126,8 +129,8 @@
 
     window.addEventListener('resize', function () {
         let myDiv = document.getElementById('contentDiv');
-        if (myDiv.clientHeight < 550) {
-            myDiv.style.height = '550px';
+        if (myDiv.clientHeight < 635) {
+            myDiv.style.height = '635px';
         } else {
             // 如果之前已经设置了固定的550px高度，这里可以取消设置以恢复原始高度
             myDiv.style.height = '';
@@ -137,8 +140,8 @@
     // 页面加载完成后执行一次检查
     (function () {
         let myDiv = document.getElementById('contentDiv');
-        if (myDiv.clientHeight < 550) {
-            myDiv.style.height = '550px';
+        if (myDiv.clientHeight < 635) {
+            myDiv.style.height = '635px';
         }
     })();
 </script>

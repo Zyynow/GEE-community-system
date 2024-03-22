@@ -2,222 +2,245 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head th:replace="_fragments :: head(~{::title})">
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>论坛</title>
-	<link href="../static/css/app.css" rel="stylesheet">
-	<link rel="stylesheet" href="../static/css/me.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>论坛</title>
+  <link href="../static/css/app.css" rel="stylesheet">
+  <link rel="stylesheet" href="../static/css/me.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
-
 <body>
-	<nav th:replace="_fragments :: menu(2)" class="ui inverted attached segment m-padded-tb-mini">
-		<div class="ui container"> <!-- 加一个容器 -->
-			<div class="ui inverted secondary stackable menu"> <!-- 菜单 stackable:可堆叠的,表示屏幕小时自动堆叠-->
-				<h2 class="ui white header item">GuideSystem</h2> <!-- 蓝绿色标题 -->
-				<a href="#" th:href="@{/index}" class="m-item m-mobile-hide item" th:classappend="${n==1} ? 'active' "><i class="home icon"></i>首页</a> <!-- icon表示图表 -->
-				<a href="#" th:href="@{/comment}" class="m-item m-mobile-hide item" th:classappend="${n==2} ? 'active' "><i class="comments icon"></i>论坛</a>
-				<a href="#" th:href="@{/types/-1}" class="m-item m-mobile-hide item" th:classappend="${n==3} ? 'active' "><i class="idea icon"></i>分类</a>
-				<a href="#" th:href="@{/about}" class="m-item m-mobile-hide item" th:classappend="${n==4} ? 'active' "><i class="info icon"></i>我的</a>
-				<div class="right item" style="margin-right: -10px;"> <!-- 靠右 -->
-					<a href="#" th:href="@{/login}" style="font-size: 16px; color: #1ab7ea">登录</a> &nbsp;
-					&nbsp;<a href="#" th:href="@{/register}" style="font-size: 16px; color: #1ab7ea">注册</a>
-				</div>
-			</div>
-		</div>
-		<a href="#" class="ui menu toggle black button icon m-top-right m-mobile-show">
-			<i class="sidebar icon"></i>
-		</a>
-	</nav>
 
-	<div class="wrapper" id="contentDiv">
-		<div class="main">
-			<main class="content" style="max-width: 90vw; margin: auto">
-				<div class="container-fluid p-0">
-					<div class="mb-3">
-						<h1 class="h2 d-inline align-middle">论坛</h1>
-					</div>
+<nav th:replace="_fragments :: menu(2)" class="ui inverted attached segment m-padded-tb-mini">
+  <div class="ui container"> <!-- 加一个容器 -->
+    <div class="ui inverted secondary stackable menu"> <!-- 菜单 stackable:可堆叠的,表示屏幕小时自动堆叠-->
+      <h2 class="ui white header item">GuideSystem</h2> <!-- 蓝绿色标题 -->
+      <a href="#" th:href="@{/index}" class="m-item m-mobile-hide item" th:classappend="${n==1} ? 'active' "><i
+          class="home icon"></i>首页</a> <!-- icon表示图表 -->
+      <a href="#" th:href="@{/comment}" class="m-item m-mobile-hide item" th:classappend="${n==2} ? 'active' "><i
+          class="comments icon"></i>论坛</a>
+      <a href="#" th:href="@{/types/-1}" class="m-item m-mobile-hide item" th:classappend="${n==3} ? 'active' "><i
+          class="idea icon"></i>分类</a>
+      <a href="#" th:href="@{/about}" class="m-item m-mobile-hide item" th:classappend="${n==4} ? 'active' "><i
+          class="info icon"></i>我的</a>
+      <div class="right item" style="margin-right: -10px;"> <!-- 靠右 -->
+        <a href="#" th:href="@{/login}" style="font-size: 16px; color: #1ab7ea">登录</a> &nbsp;
+        &nbsp;<a href="#" th:href="@{/register}" style="font-size: 16px; color: #1ab7ea">注册</a>
+      </div>
+    </div>
+  </div>
+  <a href="#" class="ui menu toggle black button icon m-top-right m-mobile-show">
+    <i class="sidebar icon"></i>
+  </a>
+</nav>
 
-					<div class="row">
-						<div class="col-md-3" th:each="forum : ${forums}">
-							<div class="card">
-								<img class="card-img-top" src="../static/images/IMG_6360.JPG" th:src="@{/images/IMG_6360.JPG}" alt="Unsplash">
-								<div class="card-header">
-									<h5 class="card-title mb-0" th:text="${forum.forumName}">GuideSystem学习</h5>
-								</div>
-								<div class="card-body">
-									<p class="card-text">最新一届计划的指南已经出版，内容包括内地升学概况、文凭试收生计划详情及策略、各参与高校的介绍及招生课程一览</p>
-									<a href="#" th:href="@{/forum/fblog/{id}(id = ${forum.id})}" class="card-link" style="color: #01a0e4">进入社区</a>
-									<a href="#" th:href="@{/forum/join}" class="card-link" style="color: #01a0e4">加入社区</a>
-								</div>
-							</div>
-						</div>
-						<!--/*-->
-						<div class="col-md-3">
-							<div class="card">
-								<img class="card-img-top" src="../static/images/IMG_6360.JPG" th:src="@{/images/IMG_6360.JPG}" alt="Unsplash">
-								<div class="card-header">
-									<h5 class="card-title mb-0">活动专区</h5>
-								</div>
-								<div class="card-body">
-									<p class="card-text">最新一届计划的指南已经出版，内容包括内地升学概况、文凭试收生计划详情及策略、各参与高校的介绍及招生课程一览</p>
-									<a href="#" class="card-link">进入社区</a>
-									<a href="#" class="card-link">加入社区</a>
-								</div>
-							</div>
-						</div>
+<div style="padding-top: 4em !important;">
+  <div class="wrapper" id="contentDiv">
+    <div class="main">
+      <main class="content" style="max-width: 90vw; margin: auto">
+        <div class="container-fluid p-0">
+          <div class="mb-3">
+            <h1 class="h1 d-inline align-middle" style="font-weight: bold">论坛</h1>
+          </div>
 
-						<div class="col-md-3">
-							<div class="card">
-								<img class="card-img-top" src="../static/images/IMG_6360.JPG" th:src="@{/images/IMG_6360.JPG}" alt="Unsplash">
-								<div class="card-header">
-									<h5 class="card-title mb-0">公开课专区</h5>
-								</div>
-								<div class="card-body">
-									<p class="card-text">最新一届计划的指南已经出版，内容包括内地升学概况、文凭试收生计划详情及策略、各参与高校的介绍及招生课程一览</p>
-									<a href="#" class="card-link">进入社区</a>
-									<a href="#" class="card-link">加入社区</a>
-								</div>
-							</div>
-						</div>
+          <div class="row">
+            <div class="col-md-3" th:each="forum : ${forums}">
+              <div class="card">
+                <img class="card-img-top" src="../static/images/IMG_6360.JPG" th:src="@{/images/IMG_6360.JPG}"
+                     alt="Unsplash">
+                <div class="card-header">
+                  <h5 class="card-title mb-0" th:text="${forum.forumName}">GuideSystem学习</h5>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">
+                    最新一届计划的指南已经出版，内容包括内地升学概况、文凭试收生计划详情及策略、各参与高校的介绍及招生课程一览</p>
+                  <a href="#" th:href="@{/forum/fblog/{id}(id = ${forum.id})}" class="card-link" style="color: #01a0e4">进入社区</a>
+                  <a href="#" th:href="@{/forum/join}" class="card-link" style="color: #01a0e4">加入社区</a>
+                </div>
+              </div>
+            </div>
+            <!--/*-->
+            <div class="col-md-3">
+              <div class="card">
+                <img class="card-img-top" src="../static/images/IMG_6360.JPG" th:src="@{/images/IMG_6360.JPG}"
+                     alt="Unsplash">
+                <div class="card-header">
+                  <h5 class="card-title mb-0">活动专区</h5>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">
+                    最新一届计划的指南已经出版，内容包括内地升学概况、文凭试收生计划详情及策略、各参与高校的介绍及招生课程一览</p>
+                  <a href="#" class="card-link">进入社区</a>
+                  <a href="#" class="card-link">加入社区</a>
+                </div>
+              </div>
+            </div>
 
-						<div class="col-md-3">
-							<div class="card">
-								<img class="card-img-top" src="../static/images/IMG_6360.JPG" th:src="@{/images/IMG_6360.JPG}" alt="Unsplash">
-								<div class="card-header">
-									<h5 class="card-title mb-0">讨论专区</h5>
-								</div>
-								<div class="card-body">
-									<p class="card-text">最新一届计划的指南已经出版，内容包括内地升学概况、文凭试收生计划详情及策略、各参与高校的介绍及招生课程一览</p>
-									<a href="#" class="card-link">进入社区</a>
-									<a href="#" class="card-link">加入社区</a>
-								</div>
-							</div>
-						</div>
+            <div class="col-md-3">
+              <div class="card">
+                <img class="card-img-top" src="../static/images/IMG_6360.JPG" th:src="@{/images/IMG_6360.JPG}"
+                     alt="Unsplash">
+                <div class="card-header">
+                  <h5 class="card-title mb-0">公开课专区</h5>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">
+                    最新一届计划的指南已经出版，内容包括内地升学概况、文凭试收生计划详情及策略、各参与高校的介绍及招生课程一览</p>
+                  <a href="#" class="card-link">进入社区</a>
+                  <a href="#" class="card-link">加入社区</a>
+                </div>
+              </div>
+            </div>
 
-						<div class="col-md-3">
-							<div class="card">
-								<img class="card-img-top" src="../static/images/IMG_6360.JPG" th:src="@{/images/IMG_6360.JPG}" alt="Unsplash">
-								<div class="card-header">
-									<h5 class="card-title mb-0">升学指南</h5>
-								</div>
-								<div class="card-body">
-									<p class="card-text">最新一届计划的指南已经出版，内容包括内地升学概况、文凭试收生计划详情及策略、各参与高校的介绍及招生课程一览</p>
-									<a href="#" class="card-link">进入社区</a>
-									<a href="#" class="card-link">加入社区</a>
-								</div>
-							</div>
-						</div>
+            <div class="col-md-3">
+              <div class="card">
+                <img class="card-img-top" src="../static/images/IMG_6360.JPG" th:src="@{/images/IMG_6360.JPG}"
+                     alt="Unsplash">
+                <div class="card-header">
+                  <h5 class="card-title mb-0">讨论专区</h5>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">
+                    最新一届计划的指南已经出版，内容包括内地升学概况、文凭试收生计划详情及策略、各参与高校的介绍及招生课程一览</p>
+                  <a href="#" class="card-link">进入社区</a>
+                  <a href="#" class="card-link">加入社区</a>
+                </div>
+              </div>
+            </div>
 
-						<div class="col-md-3">
-							<div class="card">
-								<img class="card-img-top" src="../static/images/IMG_6360.JPG" th:src="@{/images/IMG_6360.JPG}" alt="Unsplash">
-								<div class="card-header">
-									<h5 class="card-title mb-0">高校俱乐部</h5>
-								</div>
-								<div class="card-body">
-									<p class="card-text">最新一届计划的指南已经出版，内容包括内地升学概况、文凭试收生计划详情及策略、各参与高校的介绍及招生课程一览</p>
-									<a href="#" class="card-link">进入社区</a>
-									<a href="#" class="card-link">加入社区</a>
-								</div>
-							</div>
-						</div>
+            <div class="col-md-3">
+              <div class="card">
+                <img class="card-img-top" src="../static/images/IMG_6360.JPG" th:src="@{/images/IMG_6360.JPG}"
+                     alt="Unsplash">
+                <div class="card-header">
+                  <h5 class="card-title mb-0">升学指南</h5>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">
+                    最新一届计划的指南已经出版，内容包括内地升学概况、文凭试收生计划详情及策略、各参与高校的介绍及招生课程一览</p>
+                  <a href="#" class="card-link">进入社区</a>
+                  <a href="#" class="card-link">加入社区</a>
+                </div>
+              </div>
+            </div>
 
-						<div class="col-md-3">
-							<div class="card">
-								<img class="card-img-top" src="../static/images/IMG_6360.JPG" th:src="@{/images/IMG_6360.JPG}" alt="Unsplash">
-								<div class="card-header">
-									<h5 class="card-title mb-0">专业问答</h5>
-								</div>
-								<div class="card-body">
-									<p class="card-text">最新一届计划的指南已经出版，内容包括内地升学概况、文凭试收生计划详情及策略、各参与高校的介绍及招生课程一览</p>
-									<a href="#" class="card-link">进入社区</a>
-									<a href="#" class="card-link">加入社区</a>
-								</div>
-							</div>
-						</div>
+            <div class="col-md-3">
+              <div class="card">
+                <img class="card-img-top" src="../static/images/IMG_6360.JPG" th:src="@{/images/IMG_6360.JPG}"
+                     alt="Unsplash">
+                <div class="card-header">
+                  <h5 class="card-title mb-0">高校俱乐部</h5>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">
+                    最新一届计划的指南已经出版，内容包括内地升学概况、文凭试收生计划详情及策略、各参与高校的介绍及招生课程一览</p>
+                  <a href="#" class="card-link">进入社区</a>
+                  <a href="#" class="card-link">加入社区</a>
+                </div>
+              </div>
+            </div>
 
-						<div class="col-md-3">
-							<div class="card">
-								<img class="card-img-top" src="../static/images/IMG_6360.JPG" th:src="@{/images/IMG_6360.JPG}" alt="Unsplash">
-								<div class="card-header">
-									<h5 class="card-title mb-0">奇思妙想</h5>
-								</div>
-								<div class="card-body">
-									<p class="card-text">最新一届计划的指南已经出版，内容包括内地升学概况、文凭试收生计划详情及策略、各参与高校的介绍及招生课程一览</p>
-									<a href="#" class="card-link">进入社区</a>
-									<a href="#" class="card-link">加入社区</a>
-								</div>
-							</div>
-						</div>
-						<!--*/-->
-					</div>
-				</div>
-			</main>
-		</div>
-	</div>
+            <div class="col-md-3">
+              <div class="card">
+                <img class="card-img-top" src="../static/images/IMG_6360.JPG" th:src="@{/images/IMG_6360.JPG}"
+                     alt="Unsplash">
+                <div class="card-header">
+                  <h5 class="card-title mb-0">专业问答</h5>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">
+                    最新一届计划的指南已经出版，内容包括内地升学概况、文凭试收生计划详情及策略、各参与高校的介绍及招生课程一览</p>
+                  <a href="#" class="card-link">进入社区</a>
+                  <a href="#" class="card-link">加入社区</a>
+                </div>
+              </div>
+            </div>
 
-	<div class="m-padded m-right-bottom m-fixed">
-		<div class="ui vertical icon buttons">
-			<a href="feedback.html" th:href="@{/feedback}" type="button" class="ui blue button">反馈</a>
-			<a href="#" th:href="@{/fblog/input}" class="ui blue button">写贴</a>
-			<button class="ui icon button"><i class="headphones icon"></i></button>
-			<a href="#" class="ui button"><i class="chevron up icon"></i></a>
-		</div>
-	</div>
+            <div class="col-md-3">
+              <div class="card">
+                <img class="card-img-top" src="../static/images/IMG_6360.JPG" th:src="@{/images/IMG_6360.JPG}"
+                     alt="Unsplash">
+                <div class="card-header">
+                  <h5 class="card-title mb-0">奇思妙想</h5>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">
+                    最新一届计划的指南已经出版，内容包括内地升学概况、文凭试收生计划详情及策略、各参与高校的介绍及招生课程一览</p>
+                  <a href="#" class="card-link">进入社区</a>
+                  <a href="#" class="card-link">加入社区</a>
+                </div>
+              </div>
+            </div>
+            <!--*/-->
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+</div>
 
-	<footer th:replace="_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive"> <!-- vertical:垂直的 segment:条横 inverted:倒置的 -->
-		<div class="ui center aligned container"> <!-- center aligned:居中 aligned:使成为一条线-->
-			<div class="ui inverted divided stackable grid"> <!-- inverted divided grid:格线分成16份 -->
-				<div class="three wide column">
-					<h4 class="ui inverted header m-text-thin">消费者权益</h4>
-					<div class="ui inverted link list">
-						<span class="item m-text-thin">消费者热线：3838438</span>
-						<span class="item m-text-thin">外卖热线：5201314</span>
-						<span class="item m-text-thin">已获得食品安全局认证</span>
-					</div>
-				</div>
+<div class="m-padded m-right-bottom m-fixed">
+  <div class="ui vertical icon buttons">
+    <a href="feedback.html" th:href="@{/feedback}" type="button" class="ui blue button">反馈</a>
+    <a href="#" th:href="@{/fblog/input}" class="ui blue button">写贴</a>
+    <button class="ui icon button"><i class="headphones icon"></i></button>
+    <a href="#" class="ui button"><i class="chevron up icon"></i></a>
+  </div>
+</div>
 
-				<!-- 分成三列 -->
-				<div class="three wide column">
-					<h4 class="ui inverted header m-text-thin">商家加盟</h4>
-					<div class="ui inverted link list">
-						<a href="#" class="item m-text-thin">食品外卖开店申请</a>
-						<a href="#" class="item m-text-thin">美食商家入驻(非外卖)</a>
-						<a href="#" class="item m-text-thin">合作/招聘</a>
-					</div>
-				</div>
+<footer th:replace="_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive">
+  <!-- vertical:垂直的 segment:条横 inverted:倒置的 -->
+  <div class="ui center aligned container"> <!-- center aligned:居中 aligned:使成为一条线-->
+    <div class="ui inverted divided stackable grid"> <!-- inverted divided grid:格线分成16份 -->
+      <div class="three wide column">
+        <h4 class="ui inverted header m-text-thin">消费者权益</h4>
+        <div class="ui inverted link list">
+          <span class="item m-text-thin">消费者热线：3838438</span>
+          <span class="item m-text-thin">外卖热线：5201314</span>
+          <span class="item m-text-thin">已获得食品安全局认证</span>
+        </div>
+      </div>
 
-				<!-- 分成三列 -->
-				<div class="three wide column">
-					<h4 class="ui inverted header m-text-thin">联系我</h4>
-					<div class="ui inverted link list">
-						<span class="item m-text-thin" style="height: 28px">邮箱: 1923326384@qq.com</span>
-						<span class="item m-text-thin">QQ: 1923326384</span>
-					</div>
-				</div>
+      <!-- 分成三列 -->
+      <div class="three wide column">
+        <h4 class="ui inverted header m-text-thin">商家加盟</h4>
+        <div class="ui inverted link list">
+          <a href="#" class="item m-text-thin">食品外卖开店申请</a>
+          <a href="#" class="item m-text-thin">美食商家入驻(非外卖)</a>
+          <a href="#" class="item m-text-thin">合作/招聘</a>
+        </div>
+      </div>
 
-				<!-- 分成七列 -->
-				<div class="seven wide column">
-					<h4 class="ui inverted header m-text-thin">企业文化</h4>
-					<p class="m-text-thin m-text-spaced m-opacity-mini m-text-lined">
-						消费者第一，商家第二 | 诚信诚实正直，言出必践言行一致 | 以“吃”为核心，建设生活服务业从需求侧到供给侧的多层次科技服务平台。
-					</p>
-				</div>
+      <!-- 分成三列 -->
+      <div class="three wide column">
+        <h4 class="ui inverted header m-text-thin">联系我</h4>
+        <div class="ui inverted link list">
+          <span class="item m-text-thin" style="height: 28px">邮箱: 1923326384@qq.com</span>
+          <span class="item m-text-thin">QQ: 1923326384</span>
+        </div>
+      </div>
 
-			</div>
-			<div class="ui inverted section divider"></div>
-			<p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright @ 2022-05-29 HanYuFan Designed by HanYuFan</p>
-		</div>
-	</footer>
+      <!-- 分成七列 -->
+      <div class="seven wide column">
+        <h4 class="ui inverted header m-text-thin">企业文化</h4>
+        <p class="m-text-thin m-text-spaced m-opacity-mini m-text-lined">
+          消费者第一，商家第二 | 诚信诚实正直，言出必践言行一致 | 以“吃”为核心，建设生活服务业从需求侧到供给侧的多层次科技服务平台。
+        </p>
+      </div>
 
-	<th:block th:replace="_fragments :: script">
-		<script src="../static/js/app.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
-	</th:block>
+    </div>
+    <div class="ui inverted section divider"></div>
+    <p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright @ 2022-05-29 HanYuFan Designed by HanYuFan</p>
+  </div>
+</footer>
+
+<th:block th:replace="_fragments :: script">
+  <script src="../static/js/app.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+</th:block>
 </body>
 
 </html>

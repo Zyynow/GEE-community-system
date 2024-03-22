@@ -2,24 +2,48 @@ body {
     background: url("../images/double-bubble-outline.png");
 }
 
-.archiveBody{
+.archiveBody {
     background-image: url("../images/archiveImg_2.jpg");
-    background-attachment:fixed;
+    background-attachment: fixed;
     background-size: 100%;
     no-repeat: center top;
-    font: 14px/1.5 Tahoma,Helvetica,Arial,'宋体',sans-serif;
+    font: 14px/1.5 Tahoma, Helvetica, Arial, '宋体', sans-serif;
     height: 100%;
     width: 100%;
 }
 
-.loginBody{
+.loginBody {
     background-image: url("../images/loginImg.jpg");
-    background-attachment:fixed;
+    background-attachment: fixed;
     background-size: 100%;
     no-repeat: center top;
-    font: 14px/1.5 Tahoma,Helvetica,Arial,'宋体',sans-serif;
+    font: 14px/1.5 Tahoma, Helvetica, Arial, '宋体', sans-serif;
     height: 100%;
     width: 100%;
+}
+
+.friendBody {
+    background-image: url("../images/friendImg.jpg");
+    background-attachment: fixed;
+    background-size: 100%;
+    no-repeat: center top;
+    font: 14px/1.5 Tahoma, Helvetica, Arial, '宋体', sans-serif;
+    height: 100%;
+    width: 100%;
+}
+
+/*导航栏样式*/
+.gird-header {
+    width: 100%;
+    min-height: 60px;
+    opacity: 0.6;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 1);
+    z-index: 11002;
+    top: 0;
+    left: 0;
+    /*border-bottom: 1px solid #e8e9e7;*/
+    font-size: 15px;
 }
 
 /*上下左右边距设置*/
@@ -68,14 +92,14 @@ body {
 
 /*设置第三大的mapping*/
 .m-padded-tb-big {
-    padding-top: 3em !important;
-    padding-bottom: 3em !important;
+    padding-top: 6em !important;
+    padding-bottom: 4.2em !important;
 }
 
 /*设置第二大的mapping*/
 .m-padded-tb-huge {
-    padding-top: 4em !important;
-    padding-bottom: 4em !important;
+    padding-top: 4.5em !important;
+    padding-bottom: 4.5em !important;
 }
 
 /*设置很大的mapping*/
@@ -89,8 +113,28 @@ body {
     padding-right: 4em !important;
 }
 
+.m-padded-tb-large {
+    padding-top: 3em !important;
+    padding-bottom: 2em !important;
+}
 
-/*设置字粗细*/
+.m-padded-tb-hugex {
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+}
+
+.m-padded-tb-massivex {
+    padding-top: 3em !important;
+    padding-bottom: 6em !important;
+}
+
+.m-padded-lr-responsive {
+    padding-left: 4em !important;
+    padding-right: 4em !important;
+}
+
+
+/*----------设置字粗细-----------*/
 .m-text {
     font-weight: 300 !important;
     letter-spacing: 1px !important;
@@ -151,6 +195,16 @@ body {
     margin: auto !important;
 }
 
+.m-container-alter {
+    max-width: 86em !important;
+    margin: auto !important;
+}
+
+.m-container-plus {
+    max-width: 82em !important;
+    margin: auto !important;
+}
+
 .m-container-large {
     max-width: 76em !important;
     margin: auto !important;
@@ -169,6 +223,14 @@ body {
 .m-margin-tb-large {
     margin-top: 2em !important;
     margin-bottom: 2em !important;
+}
+
+.m-margin-left-mini {
+    margin-left: 4em !important;
+}
+
+.m-margin-left-big {
+    margin-left: 8em !important;
 }
 
 .m-margin-lr-tiny {
@@ -198,6 +260,14 @@ body {
     margin-top: 2em !important;
 }
 
+.m-margin- {
+    margin-top: -4em !important;
+}
+
+.m-margin-- {
+    margin-top: -89px !important;
+}
+
 
 .m-black {
     color: #333 !important;
@@ -221,6 +291,16 @@ body {
 
     .m-mobile-show { /*这个在下面*/
         display: block !important;
+    }
+
+    .m-padded-lr-responsive {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .m-mobile-lr-clear {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
     }
 
     .m-mobile-wide {
@@ -344,38 +424,53 @@ legend {
     background-color: #000;
 }
 
-.m-padded-tb-massivex {
-    padding-top: 3em !important;
-    padding-bottom: 6em !important;
+/*------position---*/
+
+.m-right-top {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.m-left-top {
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 /*-----opacity------*/
+
 .m-opacity {
     /*最新推荐下面整体的不透明度*/
-    opacity: 0.9!important;
+    opacity: 0.9 !important;
     /*opacity: 0.9 !important;*/
 }
+
 .m-opacityFriendImg {
     /*最新推荐下面整体的不透明度*/
-    opacity: 1!important;
+    opacity: 1 !important;
     /*opacity: 0.9 !important;*/
 }
+
 .m-opacityImg {
 
-    opacity: 1!important;
+    opacity: 1 !important;
     /*opacity: 0.9 !important;*/
 }
+
 .m-opacity-mini {
     opacity: 0.8 !important;
 }
+
 .m-opacity-tiny {
     opacity: 0.6 !important;
 }
+
 .m-opacity-small {
     opacity: 0.4 !important;
 }
 
-.ui.container.transparent-segment.segment {
+.transparent-segment.segment {
     background-color: rgba(255, 255, 255, 0.8); /* 这里的0.5表示50%的透明度 */
 }
 
@@ -393,4 +488,193 @@ legend {
     display: inline-block;
     margin-left: 10px;
     color: red;
+}
+
+/*----------友人帐---------*/
+
+.friends-link-image {
+    width: 160px;
+    height: 170px;
+    border-radius: 8px 8px 0px 0px;
+
+}
+
+.box-shadow-max {
+    margin-bottom: 15px;
+    border-radius: 2px;
+    background-color: #fff;
+    box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, .05);
+    -webkit-box-shadow: #000000 0px 0px 10px;
+    -moz-box-shadow: #000000 0px 0px 10px;
+}
+
+/*-------picture-----*/
+
+.thumb {
+    margin-bottom: 0.2em !important;
+    margin-top: 0.2em !important;
+}
+
+/* 对于最后一个.thumb元素，取消右边的空白 */
+.thumb:last-child {
+    margin-right: 0 !important;
+}
+
+/*-------font-----*/
+
+.m-font-size-title-large {
+    font-size: 45px;
+    color: #ffffff;
+    font-family: STSong;
+}
+
+.m-font-size-title-mediul {
+    font-size: 30px;
+    color: #ffffff;
+    font-family: STSong;
+}
+
+.m-font-size-title {
+    font-size: 450%;
+    color: #ffffff;
+}
+
+.m-font-size-text {
+    font-size: 30px;
+    color: #ffffff;
+    /*font-family: STXihei;*/
+}
+
+.m-font-size-blog-text {
+    font-size: 18px;
+    color: #ffffff;
+    font-family: STSong;
+}
+
+.m-font-size-text-friends {
+    font-size: 16px;
+    color: #000000;
+    font-family: STSong;
+}
+
+.m-font-size-text-mini {
+    font-size: 16px;
+    color: #ffffff;
+}
+
+.m-font-size-text-init-title {
+    font-size: 24px;
+    color: #fffffc;
+    align-content: center;
+    font-family: 'STXingkai';
+}
+
+
+/*-----------遮罩层----------*/
+
+.class_outer {
+    display: block;
+    /*width: 550px;*/
+    /*height: 276px;*/
+    margin: 10px auto 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.class_cover {
+    width: 100%;
+    height: 40px;
+    line-height: 50px;
+    padding-left: 6px;
+    background-color: rgba(0, 0, 0, .60);
+    /*color: #FFFFFF;*/
+    /*font-size: 26px;*/
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+}
+
+.m-bg-class_outer {
+    display: block;
+    /*width: 550px;*/
+    /*height: 276px;*/
+    /*margin: 10px auto 0 0;*/
+    position: relative;
+    overflow: hidden;
+}
+
+.m-bg-type_outer {
+    display: block;
+    /*margin: 10px auto 0 0;*/
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+
+.m-bg-class_coverIndex {
+    width: 100%;
+    height: 800px;
+    line-height: 50px;
+    padding-left: 6px;
+    /*这里是阴影设置的颜色做后一个0是阴影不透明度*/
+    background-color: rgba(0, 0, 0, 0);
+    /*background-color: rgba(0, 0, 0, .60);*/
+    /*color: #FFFFFF;*/
+    /*font-size: 26px;*/
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+}
+
+
+.m-bg-class_cover {
+    width: 100%;
+    height: 800px;
+    line-height: 50px;
+    padding-left: 6px;
+    /*这里是阴影设置的颜色做后一个0是阴影不透明度*/
+    /*background-color: rgba(0, 0, 0, 0);*/
+    background-color: rgba(0, 0, 0, .30);
+    /*color: #FFFFFF;*/
+    /*font-size: 26px;*/
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+}
+
+.m-bg-class_coverPicture {
+    width: 100%;
+    height: 200px;
+    /*这里是阴影设置的颜色做后一个0是阴影不透明度*/
+    /*background-color: rgba(0, 0, 0, 0);*/
+    background-color: rgba(0, 0, 0, .25);
+    /*color: #FFFFFF;*/
+    /*font-size: 26px;*/
+    left: 0px;
+    bottom: 0px;
+}
+
+.m-bg-class_coverBlog {
+    width: 100%;
+    height: 800px;
+    line-height: 50px;
+    padding-left: 6px;
+    /*这里是阴影设置的颜色做后一个0是阴影不透明度*/
+    /*background-color: rgba(0, 0, 0, 0);*/
+    background-color: rgba(0, 0, 0, .50);
+    /*color: #FFFFFF;*/
+    /*font-size: 26px;*/
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+}
+
+.m-picture-text {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+    font-size: x-large;
+    font-weight: bold;
+    /*font-family: '_GB2312 FangSong_GB2312';*/
 }

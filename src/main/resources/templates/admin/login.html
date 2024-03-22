@@ -2,57 +2,57 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head th:replace="admin/_fragments :: head(~{::title})">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--    引入semantic.min.css-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
-    <!--    引入me.css-->
-    <link rel="stylesheet" href="../../static/css/me.css">
-    <title>后台登录</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--    引入semantic.min.css-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+  <!--    引入me.css-->
+  <link rel="stylesheet" href="../../static/css/me.css">
+  <title>后台登录</title>
 </head>
 <body>
 
 <div class="m-container-small m-padded-tb-massive" style="max-width: 30em !important">
-    <div class="ur container">
-        <div class="ui middle aligned center aligned grid">
-            <div class="column">
-                <h2 class="ui image header">
-<!--                    <img src="assets/images/logo.png" class="image">-->
-                    <div class="content">
-                        GuideSystem
-                    </div>
-                </h2>
-                <form class="ui large form" method="post" action="#" th:action="@{/admin/login/success}">
-                    <div class="ui segment">
-                        <div class="field">
-                            <div class="ui left icon input">
-                                <i class="user icon"></i>
-                                <input type="text" name="username" th:value="${username_admin}" placeholder="用户名">
-                            </div>
-                        </div>
-                        <div class="field">
-                            <div class="ui left icon input">
-                                <i class="ui lock icon"></i>
-                                <input type="password" name="password" th:value="${password_admin}" placeholder="密码">
-                            </div>
-                        </div>
-                        <button class="ui fluid large yellow submit button" style="margin-bottom: 5px">登  录</button>
-                        <a href="admin/register" style="padding-top: 5px">没有账号？注册一个！</a>
-                    </div>
-
-                    <div class="ui mini error message"></div>
-                    <div class="ui message negative mini" th:unless="${#strings.isEmpty(message)}" th:text="${message}">
-                        用户名或密码错误
-                    </div>
-                </form>
+  <div class="ur container">
+    <div class="ui middle aligned center aligned grid">
+      <div class="column">
+        <h2 class="ui image header">
+          <!--                    <img src="assets/images/logo.png" class="image">-->
+          <div class="content">
+            GuideSystem
+          </div>
+        </h2>
+        <form class="ui large form" method="post" action="#" th:action="@{/admin/login/success}">
+          <div class="ui segment">
+            <div class="field">
+              <div class="ui left icon input">
+                <i class="user icon"></i>
+                <input type="text" name="username" th:value="${username_admin}" placeholder="用户名">
+              </div>
             </div>
-        </div>
+            <div class="field">
+              <div class="ui left icon input">
+                <i class="ui lock icon"></i>
+                <input type="password" name="password" th:value="${password_admin}" placeholder="密码">
+              </div>
+            </div>
+            <button class="ui fluid large yellow submit button" style="margin-bottom: 5px">登 录</button>
+            <a href="admin/register" style="padding-top: 5px">没有账号？注册一个！</a>
+          </div>
+
+          <div class="ui mini error message"></div>
+          <div class="ui message negative mini" th:unless="${#strings.isEmpty(message)}" th:text="${message}">
+            用户名或密码错误
+          </div>
+        </form>
+      </div>
     </div>
+  </div>
 </div>
 
 <th:block th:replace="admin/_fragments :: script">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
 </th:block>
 
 <script>

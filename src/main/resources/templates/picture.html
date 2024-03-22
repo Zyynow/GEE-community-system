@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>照片墙</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+  <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
+  <link rel="stylesheet" href="../static/css/animate.css" th:href="@{/css/animate.css}">
+  <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
+  <link rel="stylesheet" href="../static/lib/picture/css/jkresponsivegallery.css"
+        th:href="@{/lib/picture/css/jkresponsivegallery.css}">
+</head>
+<body class="archiveBody">
+
+<!--导航-->
+<nav class="gird-header">
+  <div class="ui container"> <!-- 加一个容器 -->
+    <div class="ui inverted secondary stackable menu"> <!-- 菜单 stackable:可堆叠的,表示屏幕小时自动堆叠-->
+      <h2 class="ui white header item">GuideSystem</h2> <!-- 蓝绿色标题 -->
+      <a href="#" th:href="@{/user_index}" class="m-item m-mobile-hide item" th:classappend="${n==1} ? 'active' "><i
+          class="home icon"></i>首页</a> <!-- icon表示图表 -->
+      <a href="#" th:href="@{/user_forum}" class="m-item m-mobile-hide item" th:classappend="${n==2} ? 'active' "><i
+          class="comments icon"></i>论坛</a>
+      <a href="#" th:href="@{/user_types/-1}" class="m-item m-mobile-hide item" th:classappend="${n==3} ? 'active' "><i
+          class="idea icon"></i>分类</a>
+      <a href="#" th:href="@{/about}" class="m-item m-mobile-hide item" th:classappend="${n==4} ? 'active' "><i
+          class="info icon"></i>我的</a>
+      <div class="m-top-right m-mobile-hide item m-item" style="margin-top: 5px"> <!-- 靠右 -->
+        <form name="search" method="get" action="#" th:action="@{/user_search}" target="_blank">
+          <div class="ui icon input">
+            <input type="text" name="query" placeholder="Search..." th:value="${query}">
+            <i onclick="document.forms['search'].submit()" class="search link icon"></i>
+          </div>
+        </form>
+        <div class="ui dropdown item">
+          <div class="text">
+            <img src="../static/images/店铺1.jpg" th:src="@{${session.user?.avatar}}"
+                 alt="" class="ui avatar image">
+          </div>
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <a href="#" th:href="@{/about}" class="item">我的</a>
+            <a href="#" th:href="@{/edit/password}" class="item">修改密码</a>
+            <a href="#" th:href="@{/login/exit}" class="item">退出</a>
+            <a href="#" th:href="@{/login/delete}" class="item">注销</a> <!--得更新-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a href="#" class="ui menu toggle black button icon m-top-right m-mobile-show">
+    <i class="sidebar icon"></i>
+  </a>
+</nav>
+
+<!--顶部图片-->
+<div class="m-bg-type_outer" style="width: 100%; margin-top: 4.4em !important;">
+  <div class="m-bg-class_coverPicture">
+    <div class="ui container" style="margin: auto; padding-top: 10px">
+      <div class="m-font-size-title m-right-bottom" align="center" style="font-family:'STXingkai'">照片墙</div>
+      <div class="m-font-size-text-init-title m-margin-top" align="center">愿你走出半生，归来仍是少年</div>
+    </div>
+  </div>
+</div>
+
+<!--照片墙-->
+<div class="ui m-container-alter transparent-segment segment m-margin-tb-large">
+  <div id="picture-main" style="margin-left: 12px">
+    <article class="thumb" th:each="picture : ${pictures}">
+      <div class="ma5-gallery">
+        <div class="rthumbnail">
+          <a href="../static/images/archiveImg_2.jpg" th:href="@{${picture.pictureaddress}}">
+            <img class="picture-zmki_px" src="../static/images/archiveImg_2.jpg" style="border-radius: .6rem !important"
+                 th:src="@{${picture.pictureaddress}}">
+          </a>
+          <div class="m-picture-text" th:text="${picture.picturename}">起风了</div>
+          <div class="rcaption">
+            <div style="font-size: large;" th:text="${picture.picturename}">起风了</div>
+            <div style="font-size: 16px" class="m-margin-top" th:text="${picture.picturetime}">2024-03-21 &nbsp;南昌
+            </div>
+            <p style="font-size: 16px" th:text="${picture.picturedescription}">
+              我曾难自拔于世界之大，也沉迷于其中梦话</p>
+          </div>
+        </div>
+      </div>
+    </article>
+    <!--/*-->
+    <article class="thumb">
+      <div class="ma5-gallery">
+        <div class="rthumbnail">
+          <a href="../static/images/archiveImg_1.jpg" th:href="@{${picture.pictureaddress}}">
+            <img class="picture-zmki_px" src="../static/images/archiveImg_1.jpg" style="border-radius: .6rem !important"
+                 th:src="@{${picture.pictureaddress}}">
+          </a>
+          <div class="m-picture-text" th:text="${picture.picturename}">起风了</div>
+          <div class="rcaption">
+            <div style="font-size: large;" th:text="${picture.picturename}">起风了</div>
+            <div style="font-size: 16px" class="m-margin-top" th:text="${picture.picturetime}">2024-03-21 &nbsp;南昌
+            </div>
+            <p style="font-size: 16px" th:text="${picture.picturedescription}">
+              我曾难自拔于世界之大，也沉迷于其中梦话</p>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article class="thumb">
+      <div class="ma5-gallery">
+        <div class="rthumbnail">
+          <a href="../static/images/archiveImg_1.jpg" th:href="@{${picture.pictureaddress}}">
+            <img class="picture-zmki_px" src="../static/images/archiveImg_1.jpg" style="border-radius: .6rem !important"
+                 th:src="@{${picture.pictureaddress}}">
+          </a>
+          <div class="m-picture-text" th:text="${picture.picturename}">起风了</div>
+          <div class="rcaption">
+            <div style="font-size: large;" th:text="${picture.picturename}">起风了</div>
+            <div style="font-size: 16px" class="m-margin-top" th:text="${picture.picturetime}">2024-03-21 &nbsp;南昌
+            </div>
+            <p style="font-size: 16px" th:text="${picture.picturedescription}">
+              我曾难自拔于世界之大，也沉迷于其中梦话</p>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article class="thumb">
+      <div class="ma5-gallery">
+        <div class="rthumbnail">
+          <a href="../static/images/archiveImg.jpg" th:href="@{${picture.pictureaddress}}">
+            <img class="picture-zmki_px" src="../static/images/archiveImg.jpg" style="border-radius: .6rem !important"
+                 th:src="@{${picture.pictureaddress}}">
+          </a>
+          <div class="m-picture-text" th:text="${picture.picturename}">起风了</div>
+          <div class="rcaption">
+            <div style="font-size: large;" th:text="${picture.picturename}">起风了</div>
+            <div style="font-size: 16px" class="m-margin-top" th:text="${picture.picturetime}">2024-03-21 &nbsp;南昌
+            </div>
+            <p style="font-size: 16px" th:text="${picture.picturedescription}">
+              我曾难自拔于世界之大，也沉迷于其中梦话</p>
+          </div>
+        </div>
+      </div>
+    </article>
+    <!--*/-->
+  </div>
+</div>
+<br>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+<script src="../static/lib/picture/js/jquery.min.js" th:src="@{/lib/picture/js/jquery.min.js}"></script>
+<script src="../static/lib/picture/js/jkresponsivegallery.js" th:src="@{/lib/picture/js/jkresponsivegallery.js}"></script>
+<script src="../static/lib/waypoints/jquery.waypoints.min.js" th:src="@{/lib/waypoints/jquery.waypoints.min.js}"></script>
+<script src="https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
+
+<script>
+
+    $(function () {
+        $('.rthumbnail').responsivegallery();
+    });
+
+    $('.menu.toggle').click(function () {
+        $('.m-item').toggleClass('m-mobile-hide');
+    });
+
+</script>
+
+
+</body>
+</html>
