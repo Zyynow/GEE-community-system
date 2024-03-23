@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.jxufe.dao.PictureMapper">
+    <!--查询所有图片-->
+    <select id="listPictures" resultType="com.jxufe.entity.Picture">
+        select *
+        from t_picture
+        where user_id = #{userId}
+        order by create_time desc
+    </select>
+
+    <!--根据id查询图片信息-->
+    <select id="getPictureById" resultType="com.jxufe.entity.Picture">
+        select *
+        from t_picture
+        where id = #{id};
+    </select>
+
+    <!--保存图片-->
+    <insert id="savePicture" parameterType="com.jxufe.entity.Picture">
+        insert into t_picture (picture_name, picture_address, picture_description, picture_time, create_time)
+        values (#{pictureName}, #{pictureAddress}, #{pictureDescription}, #{pictureTime}, #{createTime});
+    </insert>
+
+    <!--更新图片信息-->
+    <update id="updatePicture" parameterType="com.jxufe.entity.Picture">
+        update t_picture
+        set picture_name        = #{pictureName},
+            picture_address     = #{pictureAddress},
+            picture_description = #{pictureDescription},
+            picture_time        = #{pictureTime}
+            create_time        = #{createTime}
+            update_time        = #{updateTime}
+        where id = #{id};
+    </update>
+
+    <!--删除图片信息-->
+    <delete id="deletePicture">
+        delete
+        from t_picture
+        where id = #{id}
+    </delete>
+</mapper>
+

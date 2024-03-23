@@ -84,7 +84,7 @@ public class ForumShowController {
         return "user_fblog";
     }
 
-    @GetMapping({"/user_forum/join"})
+    @GetMapping({"/user_forum/join", "/forum/join"})
     public void doForumJoin(Integer userId, Integer forumId, HttpServletResponse response) throws IOException {
         response.setContentType("text/html; charset=UTF-8");
         Integer res = forumService.joinForum(userId, forumId);

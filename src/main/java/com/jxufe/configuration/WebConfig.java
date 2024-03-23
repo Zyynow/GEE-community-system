@@ -16,8 +16,8 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new LoginInterceptor()).addPathPatterns("/admin/**") //拦截所有/admin/...的请求
-        .excludePathPatterns("/admin", "/admin/login", "/admin/register",
-                "/admin/login/success", "/admin/register/success");
+                .excludePathPatterns("/admin", "/admin/login", "/admin/register",
+                        "/admin/login/success", "/admin/register/success");
 
         registry.addInterceptor(new MyInterceptor()).addPathPatterns(
                 "/about/**",
@@ -33,8 +33,9 @@ public class WebConfig implements WebMvcConfigurer {
                 "/forum/join/**",
                 "/fblog/input/**",
                 "/archives/**",
-                "/consumption_record/**"
-                );
+                "/consumption_record/**",
+                "/picture/me/**"
+        );
 
 //        registry.addInterceptor(new OtherInterceptor())
 //                .addPathPatterns("/index", "/forum", "/types", "/search", "/resource");

@@ -9,168 +9,169 @@
 </head>
 <body>
 
-  <!--导航-->
-  <nav th:replace="admin/_fragments :: menu(3)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small" >
+<!--导航-->
+<nav th:replace="admin/_fragments :: menu(3)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
 
-    <div class="ui container">
-      <div class="ui inverted secondary stackable menu">
-        <h2 class="ui white header item">GuideSystem</h2> <!-- 蓝绿色标题 -->
-        <a href="#" class="active m-item item m-mobile-hide"><i class="mini home icon"></i>博客</a>
-        <a href="#" class=" m-item item m-mobile-hide"><i class="mini idea icon"></i>分类</a>
-        <a href="#" class="m-item item m-mobile-hide"><i class="mini tags icon"></i>标签</a>
-        <div class="right m-item m-mobile-hide menu">
-          <div class="ui dropdown  item">
-            <div class="text">
-              <img class="ui avatar image" src="https://unsplash.it/100/100?image=1005">
-              李仁密
-            </div>
-            <i class="dropdown icon"></i>
-            <div class="menu">
-              <a href="#" class="item">注销</a>
-            </div>
+  <div class="ui container">
+    <div class="ui inverted secondary stackable menu">
+      <h2 class="ui white header item">GuideSystem</h2> <!-- 蓝绿色标题 -->
+      <a href="#" class="active m-item item m-mobile-hide"><i class="mini home icon"></i>博客</a>
+      <a href="#" class=" m-item item m-mobile-hide"><i class="mini idea icon"></i>分类</a>
+      <a href="#" class="m-item item m-mobile-hide"><i class="mini tags icon"></i>标签</a>
+      <div class="right m-item m-mobile-hide menu">
+        <div class="ui dropdown  item">
+          <div class="text">
+            <img class="ui avatar image" src="https://unsplash.it/100/100?image=1005">
+            李仁密
+          </div>
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <a href="#" class="item">注销</a>
           </div>
         </div>
       </div>
     </div>
-    <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
-      <i class="sidebar icon"></i>
-    </a>
-  </nav>
-  <!--切换列表和添加页面-->
-  <div class="ui attached pointing menu">
-    <div class="ui container">
-      <div class="right menu">
-        <a href="#" th:href="@{/admin/tags/input}" class="item">新增</a>
-        <a href="#" th:href="@{/admin/tags}" class="blue active item">列表</a>
+  </div>
+  <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
+    <i class="sidebar icon"></i>
+  </a>
+</nav>
+<!--切换列表和添加页面-->
+<div class="ui attached pointing menu">
+  <div class="ui container">
+    <div class="right menu">
+      <a href="#" th:href="@{/admin/tags/input}" class="item">新增</a>
+      <a href="#" th:href="@{/admin/tags}" class="blue active item">列表</a>
+    </div>
+  </div>
+</div>
+
+<!--中间内容-->
+<div class="m-container m-padded-tb-big" id="contentDiv">
+  <div class="ui container">
+    <div class="ui success message" th:unless="${#strings.isEmpty(message)}">
+      <i class="close icon"></i>
+      <div class="header">提示：</div>
+      <p th:text="${message}">操作成功。</p>
+    </div>
+    <!--        表格-->
+    <table class="ui celled table">
+      <!--            表头-->
+      <thead>
+      <tr>
+        <th></th>
+        <th>名称</th>
+        <th>操作</th>
+      </tr>
+      </thead>
+      <!--表体-->
+      <tbody>
+      <tr th:each="tag, iterStat : ${page.content}">
+        <td th:text="${iterStat.count}">1</td>
+        <td th:text="${tag.name}">刻意练习清单</td> <!--从type对象中拿到对象的name属性-->
+        <td>
+          <a href="#" th:href="@{/admin/tags/{id}/input(id=${tag.id})}"
+             class="ui mini blue basic button">编辑</a>
+          <a href="#" th:href="@{/admin/tags/{id}/delete(id=${tag.id})}"
+             class="ui mini gray basic button">删除</a>
+        </td>
+      </tr>
+      </tbody>
+      <!--            表尾-->
+      <tfoot>
+      <tr>
+        <th colspan="6">
+          <div class="ui pagination menu" th:if="${page.totalPages}>1">
+            <!--th:unless="${page.first}"表示如果不是第一页，这个item才会显示-->
+            <a th:href="@{/admin/tags(page=${page.number}-1)}" class="item" th:unless="${page.first}">上一页</a>
+            <a th:href="@{/admin/tags(page=${page.number}+1)}" class="item" th:unless="${page.last}">下一页</a>
+          </div>
+          <a href="#" th:href="@{/admin/tags/input}"
+             class="ui mini right floated blue basic button m-padded-tb m-padded-lr m-margin-top-small">新增</a>
+        </th>
+      </tr>
+      </tfoot>
+    </table>
+    <!--      <div class="ui mini floated red basic button m-padded-tb m-padded-lr m-margin-top-small">-->
+    <!--        共计分类：<p class="ui m-inline-block">6</p>个-->
+    <!--      </div>-->
+  </div>
+</div>
+
+<!--底部footer-->
+<footer th:replace="admin/_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive">
+  <div class="ui center aligned container">
+    <div class="ui inverted divided stackable grid">
+      <div class="three wide column">
+        <div class="ui inverted link list">
+          <div class="item">
+            <img src="../../static/images/wechat.jpg" class="ui rounded image" alt="" style="width: 110px">
+          </div>
+        </div>
+      </div>
+      <div class="three wide column">
+        <h4 class="ui inverted header m-text-thin m-text-spaced ">最新博客</h4>
+        <div class="ui inverted link list">
+          <a href="#" class="item m-text-thin">Springboot</a>
+          <a href="#" class="item m-text-thin">Mybatis</a>
+          <a href="#" class="item m-text-thin">数据结构</a>
+        </div>
+      </div>
+      <div class="three wide column">
+        <h4 class="ui inverted header m-text-thin m-text-spaced ">联系我</h4>
+        <div class="ui inverted link list">
+          <a href="#" class="item m-text-thin">WeChat：sshdg140135</a>
+          <a href="#" class="item m-text-thin">QQ：972409718</a>
+        </div>
+      </div>
+      <div class="seven wide column">
+        <h4 class="ui inverted header m-text-thin m-text-spaced ">Blog</h4>
+        <p class="m-text-thin m-text-spaced m-opacity-mini">
+          这是我的个人博客、会分享关于编程、写作、思考相关的任何内容，希望可以给来到这儿的人有所帮助...</p>
       </div>
     </div>
   </div>
 
-  <!--中间内容-->
-  <div class="m-container m-padded-tb-big" id="contentDiv">
-    <div class="ui container">
-      <div class="ui success message" th:unless="${#strings.isEmpty(message)}">
-        <i class="close icon"></i>
-        <div class="header">提示：</div>
-        <p th:text="${message}">操作成功。</p>
-      </div>
-      <!--        表格-->
-      <table class="ui celled table">
-        <!--            表头-->
-        <thead>
-        <tr>
-          <th></th>
-          <th>名称</th>
-          <th>操作</th>
-        </tr>
-        </thead>
-        <!--表体-->
-        <tbody>
-        <tr th:each="tag, iterStat : ${page.content}">
-          <td th:text="${iterStat.count}">1</td>
-          <td th:text="${tag.name}">刻意练习清单</td> <!--从type对象中拿到对象的name属性-->
-          <td>
-            <a href="#" th:href="@{/admin/tags/{id}/input(id=${tag.id})}"
-               class="ui mini blue basic button">编辑</a>
-            <a href="#" th:href="@{/admin/tags/{id}/delete(id=${tag.id})}"
-               class="ui mini gray basic button">删除</a>
-          </td>
-        </tr>
-        </tbody>
-        <!--            表尾-->
-        <tfoot>
-        <tr>
-          <th colspan="6">
-            <div class="ui pagination menu" th:if="${page.totalPages}>1">
-              <!--th:unless="${page.first}"表示如果不是第一页，这个item才会显示-->
-              <a th:href="@{/admin/tags(page=${page.number}-1)}" class="item" th:unless="${page.first}">上一页</a>
-              <a th:href="@{/admin/tags(page=${page.number}+1)}" class="item" th:unless="${page.last}">下一页</a>
-            </div>
-            <a href="#" th:href="@{/admin/tags/input}"
-               class="ui mini right floated blue basic button m-padded-tb m-padded-lr m-margin-top-small">新增</a>
-          </th>
-        </tr>
-        </tfoot>
-      </table>
-<!--      <div class="ui mini floated red basic button m-padded-tb m-padded-lr m-margin-top-small">-->
-<!--        共计分类：<p class="ui m-inline-block">6</p>个-->
-<!--      </div>-->
-    </div>
-  </div>
+</footer>
 
-  <!--底部footer-->
-  <footer th:replace="admin/_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive">
-    <div class="ui center aligned container">
-      <div class="ui inverted divided stackable grid">
-        <div class="three wide column">
-          <div class="ui inverted link list">
-            <div class="item">
-              <img src="../../static/images/wechat.jpg" class="ui rounded image" alt="" style="width: 110px">
-            </div>
-          </div>
-        </div>
-        <div class="three wide column">
-          <h4 class="ui inverted header m-text-thin m-text-spaced " >最新博客</h4>
-          <div class="ui inverted link list">
-            <a href="#" class="item m-text-thin">Springboot</a>
-            <a href="#" class="item m-text-thin">Mybatis</a>
-            <a href="#" class="item m-text-thin">数据结构</a>
-          </div>
-        </div>
-        <div class="three wide column">
-          <h4 class="ui inverted header m-text-thin m-text-spaced ">联系我</h4>
-          <div class="ui inverted link list">
-            <a href="#" class="item m-text-thin">WeChat：sshdg140135</a>
-            <a href="#" class="item m-text-thin">QQ：972409718</a>
-          </div>
-        </div>
-        <div class="seven wide column">
-          <h4 class="ui inverted header m-text-thin m-text-spaced ">Blog</h4>
-          <p class="m-text-thin m-text-spaced m-opacity-mini">这是我的个人博客、会分享关于编程、写作、思考相关的任何内容，希望可以给来到这儿的人有所帮助...</p>
-        </div>
-      </div>
-    </div>
-
-  </footer>
-
-  <!--/*/<th:block th:replace="_fragments :: script">/*/-->
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
-  <!--/*/</th:block>/*/-->
-  <script>
+<!--/*/<th:block th:replace="_fragments :: script">/*/-->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+<!--/*/</th:block>/*/-->
+<script>
     $('.menu.toggle').click(function () {
-      $('.m-item').toggleClass('m-mobile-hide');
+        $('.m-item').toggleClass('m-mobile-hide');
     });
 
     $('.ui.dropdown').dropdown({
-      on : 'hover'
+        on: 'hover'
     });
 
     //消息提示关闭初始化
     $('.message .close')
-      .on('click', function () {
-        $(this)
-          .closest('.message')
-          .transition('fade');
-      });
+        .on('click', function () {
+            $(this)
+                .closest('.message')
+                .transition('fade');
+        });
 
-    window.addEventListener('resize', function(){
-      let myDiv = document.getElementById('contentDiv');
-      if(myDiv.clientHeight < 550) {
-        myDiv.style.height = '550px';
-      } else {
-        // 如果之前已经设置了固定的550px高度，这里可以取消设置以恢复原始高度
-        myDiv.style.height = '';
-      }
+    window.addEventListener('resize', function () {
+        let myDiv = document.getElementById('contentDiv');
+        if (myDiv.clientHeight < 550) {
+            myDiv.style.height = '550px';
+        } else {
+            // 如果之前已经设置了固定的550px高度，这里可以取消设置以恢复原始高度
+            myDiv.style.height = '';
+        }
     });
 
     // 页面加载完成后执行一次检查
-    (function() {
-      let myDiv = document.getElementById('contentDiv');
-      if(myDiv.clientHeight < 550) {
-        myDiv.style.height = '550px';
-      }
+    (function () {
+        let myDiv = document.getElementById('contentDiv');
+        if (myDiv.clientHeight < 550) {
+            myDiv.style.height = '550px';
+        }
     })();
-  </script>
+</script>
 </body>
 </html>

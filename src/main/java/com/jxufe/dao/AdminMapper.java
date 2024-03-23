@@ -1,11 +1,10 @@
 package com.jxufe.dao;
 
 import com.jxufe.entity.Admin;
-import com.jxufe.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
-public interface AdminDao {
+public interface AdminMapper {
 
     Admin findByUsernameAndPassword(String username, String password);
 

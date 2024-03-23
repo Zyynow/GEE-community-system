@@ -596,37 +596,6 @@ h5,h6{font-size:1em;}
                                                    data-commentnickname=${sub?.nickname}" onclick="reply(this)">回复</a>
                       </div>
                     </div>
-                    <!-- 孙评论 -->
-                    <!--<div class="comment" th:each="grand : ${sub?.grandSonComment}">
-                        <a class="avatar">
-                            <img src="../static/images/IMG_6230.JPG" th:src="@{${grand?.avatar}}">
-                        </a>
-                        <div class="content">
-                            <a class="author"
-                               th:href="@{/userOtherAbout/{id}(id = ${grand?.hostId})}"
-                               target="_blank">
-                                <span th:text="${grand?.nickname}">Matt</span>
-                                <div class="ui mini basic blue left pointing label m-padded-small"
-                                     th:if="${grand?.adminComment}" style="align-content: center">作者
-                                </div>
-                            </a>
-                            <span th:text="|@ ${grand?.parentNickname}|"
-                                  class="ui mini basic label m-padded-small"
-                                  style="align-content: center; color: #0c5460">@ 小白</span>
-                            <div class="metadata">
-                            <span class="date"
-                                  th:text="${#dates.format(grand?.createTime, 'yyyy-MM-dd  HH:mm')}">Today at 5:42PM</span>
-                            </div>
-                            <div class="text" th:text="${grand?.content}">
-                                How artistic!
-                            </div>
-                            <div class="actions">
-                                <a class="reply" data-commentid="1" data-commentnickname="Matt"
-                                   th:attr="data-commentid=${grand?.id},
-                               data-commentnickname=${grand?.nickname}" onclick="reply(this)">回复</a>
-                            </div>
-                        </div>
-                    </div>-->
                   </div>
                 </div>
               </div>

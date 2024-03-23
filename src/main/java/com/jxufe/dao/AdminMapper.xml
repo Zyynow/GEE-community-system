@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.jxufe.dao.AdminDao">
+<mapper namespace="com.jxufe.dao.AdminMapper">
     <select id="findByUsernameAndPassword" resultType="com.jxufe.entity.Admin">
         select * from t_admin where username = #{username} and password = #{password}
     </select>

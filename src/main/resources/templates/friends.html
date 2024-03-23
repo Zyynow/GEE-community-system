@@ -345,58 +345,15 @@
   </div>
 </div>
 
-<!--<footer class="ui inverted vertical segment m-padded-tb-massive footer-class"
-        style="position: relative; width: 100%; height: 328px;"> &lt;!&ndash; vertical:垂直的 segment:条横 inverted:倒置的 &ndash;&gt;
-  <div class="ui center aligned container"> &lt;!&ndash; center aligned:居中 aligned:使成为一条线&ndash;&gt;
-    <div class="ui inverted divided stackable grid"> &lt;!&ndash; inverted divided grid:格线分成16份 &ndash;&gt;
-      <div class="three wide column">
-        <h4 class="ui inverted header m-text-thin">消费者维权</h4>
-        <div class="ui inverted link list">
-          <a href="https://www.12377.cn/" class="item m-text-thin" target="_blank">中国互联网举报中心</a>
-          <a href="https://www.12389.gov.cn/" class="item m-text-thin" target="_blank">公安部举报中心</a>
-          <a href="https://www.beian.gov.cn/portal/index.do" class="item m-text-thin"
-             target="_blank">全国互联网安全服务平台</a>
-        </div>
-      </div>
-
-      &lt;!&ndash; 分成三列 &ndash;&gt;
-      <div class="three wide column">
-        <h4 class="ui inverted header m-text-thin">服务</h4>
-        <div class="ui inverted link list">
-          <a href="#" class="item m-text-thin">广告推广</a>
-          <a href="#" class="item m-text-thin">技术支持</a>
-          <a href="#" class="item m-text-thin">合作/招聘</a>
-        </div>
-      </div>
-
-      &lt;!&ndash; 分成三列 &ndash;&gt;
-      <div class="three wide column">
-        <h4 class="ui inverted header m-text-thin">联系我</h4>
-        <div class="ui inverted link list">
-          <span class="item m-text-thin" style="height: 28px">邮箱: 1923326384@qq.com</span>
-          <span class="item m-text-thin">QQ: 1923326384</span>
-        </div>
-      </div>
-
-      &lt;!&ndash; 分成七列 &ndash;&gt;
-      <div class="seven wide column">
-        <h4 class="ui inverted header m-text-thin">关于我们</h4>
-        <p class="m-text-thin m-text-spaced m-opacity-tiny">
-          此系统旨在联合全国各大高校、教育考试院、教育厅等，将研究生录取相关信息全面化、公开化、透明化，减少考生在搜寻资料上遇到的麻烦，
-          切实提高信息捕获效率，使考生能树立可行的目标，明确方向，提高上岸成功率！
-        </p>
-      </div>
-
-    </div>
-    <div class="ui inverted section divider"></div>
-    <p class="m-text-thin m-text-spaced m-opacity-tiny">版权 @ 2023-07-04 设计 软件214项目组</p>
-  </div>
-</footer>-->
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="../static/lib/semantic/semantic.min.js"></script>
 
 <script>
+
+    $('.ui.dropdown').dropdown({
+        on: 'hover'
+    });
+
     $('#hottest').click(() => {
         $('.ui.hottest.modal').modal('show');
     })
@@ -453,6 +410,7 @@
         // 将填充好数据的卡片添加到容器内
         cardContainer.appendChild(cardElement);
     });
+
 </script>
 
 </body>

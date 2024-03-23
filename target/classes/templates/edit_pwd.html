@@ -1,130 +1,131 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head th:replace="_fragments_login :: head(~{::title})">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
-    <title>修改密码</title>
-    <!--    引入semantic.min.css-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
-    <!--    引入me.css-->
-    <link rel="stylesheet" href="../static/css/me.css">
-    <link href="../static/css/app.css" rel="stylesheet">
-    <link href="../static/css/style.min.css" rel="stylesheet">
-    <link href="../static/css/materialdesignicons.min.css" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+  <title>修改密码</title>
+  <!--    引入semantic.min.css-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+  <!--    引入me.css-->
+  <link rel="stylesheet" href="../static/css/me.css">
+  <link href="../static/css/app.css" rel="stylesheet">
+  <link href="../static/css/style.min.css" rel="stylesheet">
+  <link href="../static/css/materialdesignicons.min.css" rel="stylesheet">
 </head>
 
 <nav th:replace="_fragments_login :: menu(4)" class="ui inverted attached segment m-padded-tb-mini">
-    <div class="ui container"> <!-- 加一个容器 -->
-        <div class="ui inverted secondary stackable menu"> <!-- 菜单 stackable:可堆叠的,表示屏幕小时自动堆叠-->
-            <h2 class="ui white header item">GuideSystem</h2> <!-- 蓝绿色标题 -->
-            <a href="#" th:href="@{/index}" class="m-item m-mobile-hide item" th:classappend="${n==1} ? 'active' "><i
-                    class="home icon"></i>首页</a> <!-- icon表示图表 -->
-            <a href="#" th:href="@{/comment}" class="m-item m-mobile-hide item" th:classappend="${n==2} ? 'active' "><i
-                    class="edit outline icon"></i>论坛</a>
-            <a href="#" th:href="@{/types/-1}" class="m-item m-mobile-hide item" th:classappend="${n==3} ? 'active' "><i
-                    class="edit outline icon"></i>分类</a>
-            <a href="#" th:href="@{/about}" class="m-item m-mobile-hide item" th:classappend="${n==4} ? 'active' "><i
-                    class="info icon"></i>我的</a>
-            <div class="right item" style="margin-right: -10px;"> <!-- 靠右 -->
-                <a href="#" th:href="@{/login}" style="font-size: 16px; color: #1ab7ea">登录</a> &nbsp;
-                &nbsp;<a href="#" th:href="@{/register}" style="font-size: 16px; color: #1ab7ea">注册</a>
-            </div>
-        </div>
+  <div class="ui container"> <!-- 加一个容器 -->
+    <div class="ui inverted secondary stackable menu"> <!-- 菜单 stackable:可堆叠的,表示屏幕小时自动堆叠-->
+      <h2 class="ui white header item">GuideSystem</h2> <!-- 蓝绿色标题 -->
+      <a href="#" th:href="@{/index}" class="m-item m-mobile-hide item" th:classappend="${n==1} ? 'active' "><i
+          class="home icon"></i>首页</a> <!-- icon表示图表 -->
+      <a href="#" th:href="@{/comment}" class="m-item m-mobile-hide item" th:classappend="${n==2} ? 'active' "><i
+          class="edit outline icon"></i>论坛</a>
+      <a href="#" th:href="@{/types/-1}" class="m-item m-mobile-hide item" th:classappend="${n==3} ? 'active' "><i
+          class="edit outline icon"></i>分类</a>
+      <a href="#" th:href="@{/about}" class="m-item m-mobile-hide item" th:classappend="${n==4} ? 'active' "><i
+          class="info icon"></i>我的</a>
+      <div class="right item" style="margin-right: -10px;"> <!-- 靠右 -->
+        <a href="#" th:href="@{/login}" style="font-size: 16px; color: #1ab7ea">登录</a> &nbsp;
+        &nbsp;<a href="#" th:href="@{/register}" style="font-size: 16px; color: #1ab7ea">注册</a>
+      </div>
     </div>
-    <a href="#" class="ui menu toggle black button icon m-top-right m-mobile-show">
-        <i class="sidebar icon"></i>
-    </a>
+  </div>
+  <a href="#" class="ui menu toggle black button icon m-top-right m-mobile-show">
+    <i class="sidebar icon"></i>
+  </a>
 </nav>
 
 
 <body>
 <div class="m-container m-padded-tb-big" id="contentDiv">
-    <div class="ui container">
-        <!--页面主要内容-->
-        <div class="container-fluid">
-            <div class="card">
-                <div class="card-body">
-                    <form method="post" action="#" th:action="@{/edit/password/success}" class="ui small form">
-                        <div class="field">
-                            <div class="form-group">
-                                <label class="text-black" style="font-weight: bold">&nbsp;旧密码</label><br><br>
-                                <input type="password" class="form-control" name="oldPwd"
-                                       placeholder="输入账号的原登录密码">
-                            </div>
-                        </div>
-                        <div class="field">
-                            <div class="form-group">
-                                <label class="text-black" style="font-weight: bold">&nbsp;新密码</label><br><br>
-                                <input type="password" class="form-control" name="newPwd" placeholder="输入新的密码">
-                            </div>
-                        </div>
-                        <div class="field">
-                            <div class="form-group">
-                                <label class="text-black" style="font-weight: bold">&nbsp;确认新密码</label><br><br>
-                                <input type="password" class="form-control" name="confirmPwd"
-                                       placeholder="再次输入新密码">
-                            </div>
-                        </div>
-                        <button type="submit" class="ui blue basic button">确认修改</button>
-                        <div class="ui clear button">Clear</div>
-                        <div class="ui error message"></div>
-                    </form>
-                </div>
+  <div class="ui container">
+    <!--页面主要内容-->
+    <div class="container-fluid">
+      <div class="card">
+        <div class="card-body">
+          <form method="post" action="#" th:action="@{/edit/password/success}" class="ui small form">
+            <div class="field">
+              <div class="form-group">
+                <label class="text-black" style="font-weight: bold">&nbsp;旧密码</label><br><br>
+                <input type="password" class="form-control" name="oldPwd"
+                       placeholder="输入账号的原登录密码">
+              </div>
             </div>
+            <div class="field">
+              <div class="form-group">
+                <label class="text-black" style="font-weight: bold">&nbsp;新密码</label><br><br>
+                <input type="password" class="form-control" name="newPwd" placeholder="输入新的密码">
+              </div>
+            </div>
+            <div class="field">
+              <div class="form-group">
+                <label class="text-black" style="font-weight: bold">&nbsp;确认新密码</label><br><br>
+                <input type="password" class="form-control" name="confirmPwd"
+                       placeholder="再次输入新密码">
+              </div>
+            </div>
+            <button type="submit" class="ui blue basic button">确认修改</button>
+            <div class="ui clear button">Clear</div>
+            <div class="ui error message"></div>
+          </form>
         </div>
-        <!--End 页面主要内容-->
+      </div>
     </div>
+    <!--End 页面主要内容-->
+  </div>
 </div>
 
 <footer th:replace="_fragments_login :: footer" class="ui inverted vertical segment m-padded-tb-massive">
-    <!-- vertical:垂直的 segment:条横 inverted:倒置的 -->
-    <div class="ui center aligned container"> <!-- center aligned:居中 aligned:使成为一条线-->
-        <div class="ui inverted divided stackable grid"> <!-- inverted divided grid:格线分成16份 -->
-            <div class="three wide column">
-                <h4 class="ui inverted header m-text-thin">消费者维权</h4>
-                <div class="ui inverted link list">
-                    <a href="https://www.12377.cn/" class="item m-text-thin" target="_blank">中国互联网举报中心</a>
-                    <a href="https://www.12389.gov.cn/" class="item m-text-thin" target="_blank">公安部举报中心</a>
-                    <a href="https://www.beian.gov.cn/portal/index.do" class="item m-text-thin" target="_blank">全国互联网安全服务平台</a>
-                </div>
-            </div>
-
-            <!-- 分成三列 -->
-            <div class="three wide column">
-                <h4 class="ui inverted header m-text-thin">商家加盟</h4>
-                <div class="ui inverted link list">
-                    <a href="#" class="item m-text-thin">食品外卖开店申请</a>
-                    <a href="#" class="item m-text-thin">美食商家入驻(非外卖)</a>
-                    <a href="#" class="item m-text-thin">合作/招聘</a>
-                </div>
-            </div>
-
-            <!-- 分成三列 -->
-            <div class="three wide column">
-                <h4 class="ui inverted header m-text-thin">联系我</h4>
-                <div class="ui inverted link list">
-                    <span class="item m-text-thin" style="height: 28px">邮箱: 1923326384@qq.com</span>
-                    <span class="item m-text-thin">QQ: 1923326384</span>
-                </div>
-            </div>
-
-            <!-- 分成七列 -->
-            <div class="seven wide column">
-                <h4 class="ui inverted header m-text-thin">企业文化</h4>
-                <p class="m-text-thin m-text-spaced m-opacity-mini m-text-lined">
-                    消费者第一，商家第二 | 诚信诚实正直，言出必践言行一致 | 以“吃”为核心，建设生活服务业从需求侧到供给侧的多层次科技服务平台。
-                </p>
-            </div>
-
+  <!-- vertical:垂直的 segment:条横 inverted:倒置的 -->
+  <div class="ui center aligned container"> <!-- center aligned:居中 aligned:使成为一条线-->
+    <div class="ui inverted divided stackable grid"> <!-- inverted divided grid:格线分成16份 -->
+      <div class="three wide column">
+        <h4 class="ui inverted header m-text-thin">消费者维权</h4>
+        <div class="ui inverted link list">
+          <a href="https://www.12377.cn/" class="item m-text-thin" target="_blank">中国互联网举报中心</a>
+          <a href="https://www.12389.gov.cn/" class="item m-text-thin" target="_blank">公安部举报中心</a>
+          <a href="https://www.beian.gov.cn/portal/index.do" class="item m-text-thin"
+             target="_blank">全国互联网安全服务平台</a>
         </div>
-        <div class="ui inverted section divider"></div>
-        <p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright @ 2022-05-29 HanYuFan Designed by HanYuFan</p>
+      </div>
+
+      <!-- 分成三列 -->
+      <div class="three wide column">
+        <h4 class="ui inverted header m-text-thin">商家加盟</h4>
+        <div class="ui inverted link list">
+          <a href="#" class="item m-text-thin">食品外卖开店申请</a>
+          <a href="#" class="item m-text-thin">美食商家入驻(非外卖)</a>
+          <a href="#" class="item m-text-thin">合作/招聘</a>
+        </div>
+      </div>
+
+      <!-- 分成三列 -->
+      <div class="three wide column">
+        <h4 class="ui inverted header m-text-thin">联系我</h4>
+        <div class="ui inverted link list">
+          <span class="item m-text-thin" style="height: 28px">邮箱: 1923326384@qq.com</span>
+          <span class="item m-text-thin">QQ: 1923326384</span>
+        </div>
+      </div>
+
+      <!-- 分成七列 -->
+      <div class="seven wide column">
+        <h4 class="ui inverted header m-text-thin">企业文化</h4>
+        <p class="m-text-thin m-text-spaced m-opacity-mini m-text-lined">
+          消费者第一，商家第二 | 诚信诚实正直，言出必践言行一致 | 以“吃”为核心，建设生活服务业从需求侧到供给侧的多层次科技服务平台。
+        </p>
+      </div>
+
     </div>
+    <div class="ui inverted section divider"></div>
+    <p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright @ 2022-05-29 HanYuFan Designed by HanYuFan</p>
+  </div>
 </footer>
 
 <th:block th:replace="_fragments_login :: script">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
 </th:block>
 
 <script>
@@ -183,6 +184,7 @@
 
         });
     });*/
+
 </script>
 
 </body>

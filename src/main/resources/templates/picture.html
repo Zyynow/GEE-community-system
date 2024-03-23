@@ -70,16 +70,16 @@
     <article class="thumb" th:each="picture : ${pictures}">
       <div class="ma5-gallery">
         <div class="rthumbnail">
-          <a href="../static/images/archiveImg_2.jpg" th:href="@{${picture.pictureaddress}}">
+          <a href="../static/images/archiveImg_2.jpg" th:href="@{${picture.pictureAddress}}">
             <img class="picture-zmki_px" src="../static/images/archiveImg_2.jpg" style="border-radius: .6rem !important"
-                 th:src="@{${picture.pictureaddress}}">
+                 th:src="@{${picture.pictureAddress}}">
           </a>
-          <div class="m-picture-text" th:text="${picture.picturename}">起风了</div>
+          <div class="m-picture-text" th:text="${picture.pictureName}">起风了</div>
           <div class="rcaption">
-            <div style="font-size: large;" th:text="${picture.picturename}">起风了</div>
-            <div style="font-size: 16px" class="m-margin-top" th:text="${picture.picturetime}">2024-03-21 &nbsp;南昌
+            <div style="font-size: x-large;" th:text="${picture.pictureName}">起风了</div>
+            <div style="font-size: 16px" class="m-margin-top" th:text="${picture.pictureTime}">2024-03-21 &nbsp;南昌
             </div>
-            <p style="font-size: 16px" th:text="${picture.picturedescription}">
+            <p style="font-size: 16px" th:text="${picture.pictureDescription}">
               我曾难自拔于世界之大，也沉迷于其中梦话</p>
           </div>
         </div>
@@ -147,12 +147,15 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
-<script src="../static/lib/picture/js/jquery.min.js" th:src="@{/lib/picture/js/jquery.min.js}"></script>
 <script src="../static/lib/picture/js/jkresponsivegallery.js" th:src="@{/lib/picture/js/jkresponsivegallery.js}"></script>
 <script src="../static/lib/waypoints/jquery.waypoints.min.js" th:src="@{/lib/waypoints/jquery.waypoints.min.js}"></script>
 <script src="https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
 
 <script>
+
+    $('.ui.dropdown').dropdown({
+        on: 'hover'
+    });
 
     $(function () {
         $('.rthumbnail').responsivegallery();
