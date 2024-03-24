@@ -586,3 +586,1169 @@ org.springframework.expression.spel.SpelEvaluationException: EL1008E: Property o
 2024-03-24 16:08:15.589  INFO 19528 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-03-24 16:08:15.591  INFO 19528 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2024-03-24 16:08:15.600  INFO 19528 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-03-24 20:38:30.756  INFO 11476 --- [restartedMain] com.jxufe.GuideSystemApplication         : Starting GuideSystemApplication using Java 11.0.19 on Kafka with PID 11476 (D:\MyFiles\JAVA\myProjects\learn-community-system\target\classes started by 19233 in D:\MyFiles\JAVA\myProjects\learn-community-system)
+2024-03-24 20:38:30.757 DEBUG 11476 --- [restartedMain] com.jxufe.GuideSystemApplication         : Running with Spring Boot v2.6.4, Spring v5.3.16
+2024-03-24 20:38:30.758  INFO 11476 --- [restartedMain] com.jxufe.GuideSystemApplication         : The following 1 profile is active: "dev"
+2024-03-24 20:38:30.789  INFO 11476 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-03-24 20:38:30.789  INFO 11476 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-03-24 20:38:31.293  INFO 11476 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-24 20:38:31.356  INFO 11476 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 56 ms. Found 5 JPA repository interfaces.
+2024-03-24 20:38:31.839  INFO 11476 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2024-03-24 20:38:31.846  INFO 11476 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-03-24 20:38:31.846  INFO 11476 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2024-03-24 20:38:31.896  INFO 11476 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/dev]    : Initializing Spring embedded WebApplicationContext
+2024-03-24 20:38:31.897  INFO 11476 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1107 ms
+2024-03-24 20:38:31.997  INFO 11476 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-24 20:38:32.023  INFO 11476 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.5.Final
+2024-03-24 20:38:32.103  INFO 11476 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-03-24 20:38:32.167  INFO 11476 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-03-24 20:38:32.453  INFO 11476 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-03-24 20:38:32.469  INFO 11476 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2024-03-24 20:38:33.161  INFO 11476 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-03-24 20:38:33.167  INFO 11476 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-24 20:38:33.861  WARN 11476 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-03-24 20:38:34.035  INFO 11476 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-03-24 20:38:34.305  INFO 11476 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-03-24 20:38:34.330  INFO 11476 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/dev'
+2024-03-24 20:38:34.338  INFO 11476 --- [restartedMain] com.jxufe.GuideSystemApplication         : Started GuideSystemApplication in 3.945 seconds (JVM running for 4.765)
+2024-03-24 20:39:07.002  INFO 11476 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/dev]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-24 20:39:07.003  INFO 11476 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-03-24 20:39:07.004  INFO 11476 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-03-24 20:39:07.042  INFO 11476 --- [http-nio-8080-exec-1] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.IndexController.doIndex', args=[Page request [number: 0, size 6, sort: updateTime: DESC], {}, org.apache.catalina.connector.RequestFacade@52c4f3fb]}
+2024-03-24 20:39:07.357  WARN 11476 --- [http-nio-8080-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [299] milliseconds.
+2024-03-24 20:39:07.442  WARN 11476 --- [http-nio-8080-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.resources.size]; use collection function syntax instead [size(t.resources)].
+2024-03-24 20:39:07.453  INFO 11476 --- [http-nio-8080-exec-1] com.jxufe.aspect.LogAspect               : method : index
+2024-03-24 20:39:07.453  INFO 11476 --- [http-nio-8080-exec-1] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 20:39:38.480  INFO 11476 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/login', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.UserController.doLoginPage', args=[]}
+2024-03-24 20:39:38.484  INFO 11476 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : method : login
+2024-03-24 20:39:38.485  INFO 11476 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 20:39:38.540  INFO 11476 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/codeImage', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.VerificationController.doGet', args=[org.apache.catalina.connector.RequestFacade@b7ced61, org.apache.catalina.connector.ResponseFacade@4793918f]}
+2024-03-24 20:39:38.844  INFO 11476 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : method : null
+2024-03-24 20:39:38.844  INFO 11476 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 20:39:45.224  INFO 11476 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/login/success', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.UserController.doLogin', args=[org.apache.catalina.connector.ResponseFacade@4793918f, hyf, hyfhsy, ae1f, org.apache.catalina.session.StandardSessionFacade@4e272daa, {}]}
+2024-03-24 20:39:45.225  INFO 11476 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : method : redirect:/login
+2024-03-24 20:39:45.225  INFO 11476 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 20:39:45.248  INFO 11476 --- [http-nio-8080-exec-10] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/login', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.UserController.doLoginPage', args=[]}
+2024-03-24 20:39:45.249  INFO 11476 --- [http-nio-8080-exec-10] com.jxufe.aspect.LogAspect               : method : login
+2024-03-24 20:39:45.249  INFO 11476 --- [http-nio-8080-exec-10] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 20:39:45.284  INFO 11476 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/codeImage', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.VerificationController.doGet', args=[org.apache.catalina.connector.RequestFacade@aca6720, org.apache.catalina.connector.ResponseFacade@f5edf9b]}
+2024-03-24 20:39:45.291  INFO 11476 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : method : null
+2024-03-24 20:39:45.291  INFO 11476 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 20:39:49.689  INFO 11476 --- [http-nio-8080-exec-3] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/login/success', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.UserController.doLogin', args=[org.apache.catalina.connector.ResponseFacade@f5edf9b, hyf, hyfhsy, zycn, org.apache.catalina.session.StandardSessionFacade@4e272daa, {}]}
+2024-03-24 20:39:49.690  INFO 11476 --- [http-nio-8080-exec-3] com.jxufe.aspect.LogAspect               : method : redirect:/login
+2024-03-24 20:39:49.690  INFO 11476 --- [http-nio-8080-exec-3] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 20:39:49.699  INFO 11476 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/login', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.UserController.doLoginPage', args=[]}
+2024-03-24 20:39:49.700  INFO 11476 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : method : login
+2024-03-24 20:39:49.700  INFO 11476 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 20:39:49.753  INFO 11476 --- [http-nio-8080-exec-8] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/codeImage', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.VerificationController.doGet', args=[org.apache.catalina.connector.RequestFacade@b7ced61, org.apache.catalina.connector.ResponseFacade@4793918f]}
+2024-03-24 20:39:49.760  INFO 11476 --- [http-nio-8080-exec-8] com.jxufe.aspect.LogAspect               : method : null
+2024-03-24 20:39:49.760  INFO 11476 --- [http-nio-8080-exec-8] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 20:39:54.423  INFO 11476 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/login/success', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.UserController.doLogin', args=[org.apache.catalina.connector.ResponseFacade@4793918f, hyf, hyfhsy, 5d72, org.apache.catalina.session.StandardSessionFacade@4e272daa, {}]}
+2024-03-24 20:39:54.443 DEBUG 11476 --- [http-nio-8080-exec-6] c.j.d.UserDao.findByUsernameAndPassword  : ==>  Preparing: select * from t_user where username = ? and password = ?
+2024-03-24 20:39:54.450 DEBUG 11476 --- [http-nio-8080-exec-6] c.j.d.UserDao.findByUsernameAndPassword  : ==> Parameters: hyf(String), f3b53cbd7fe408bb281efaf5d94f05c2(String)
+2024-03-24 20:39:54.458 DEBUG 11476 --- [http-nio-8080-exec-6] c.j.d.UserDao.findByUsernameAndPassword  : <==      Total: 1
+2024-03-24 20:39:54.461  INFO 11476 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : method : redirect:/user_index
+2024-03-24 20:39:54.461  INFO 11476 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 20:39:54.473  INFO 11476 --- [http-nio-8080-exec-10] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/user_index', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.IndexController.doUserIndex', args=[Page request [number: 0, size 6, sort: updateTime: DESC], {}]}
+2024-03-24 20:39:54.489  INFO 11476 --- [http-nio-8080-exec-10] com.jxufe.aspect.LogAspect               : method : user_index
+2024-03-24 20:39:54.489  INFO 11476 --- [http-nio-8080-exec-10] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 20:40:07.499  INFO 11476 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/picture/me/list', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.PictureController.pictures', args=[1, {}, org.apache.catalina.session.StandardSessionFacade@4e272daa]}
+2024-03-24 20:40:07.503 DEBUG 11476 --- [http-nio-8080-exec-2] c.jxufe.dao.PictureMapper.listPictures   : ==>  Preparing: select * from t_picture where user_id = ? order by create_time desc
+2024-03-24 20:40:07.504 DEBUG 11476 --- [http-nio-8080-exec-2] c.jxufe.dao.PictureMapper.listPictures   : ==> Parameters: 1(Long)
+2024-03-24 20:40:07.507 DEBUG 11476 --- [http-nio-8080-exec-2] c.jxufe.dao.PictureMapper.listPictures   : <==      Total: 5
+2024-03-24 20:40:07.519  INFO 11476 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : method : picture
+2024-03-24 20:40:07.519  INFO 11476 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 20:40:20.701  INFO 11476 --- [http-nio-8080-exec-10] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/picture/list/2', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.PictureController.listPictureByUser', args=[1, 2, {}, org.apache.catalina.session.StandardSessionFacade@4e272daa]}
+2024-03-24 20:40:20.702 DEBUG 11476 --- [http-nio-8080-exec-10] c.jxufe.dao.PictureMapper.listPictures   : ==>  Preparing: select * from t_picture where user_id = ? order by create_time desc
+2024-03-24 20:40:20.702 DEBUG 11476 --- [http-nio-8080-exec-10] c.jxufe.dao.PictureMapper.listPictures   : ==> Parameters: 2(Long)
+2024-03-24 20:40:20.705 DEBUG 11476 --- [http-nio-8080-exec-10] c.jxufe.dao.PictureMapper.listPictures   : <==      Total: 1
+2024-03-24 20:40:20.706 DEBUG 11476 --- [http-nio-8080-exec-10] com.jxufe.dao.UserDao.findUserById       : ==>  Preparing: select * from t_user where id = ?
+2024-03-24 20:40:20.707 DEBUG 11476 --- [http-nio-8080-exec-10] com.jxufe.dao.UserDao.findUserById       : ==> Parameters: 2(Long)
+2024-03-24 20:40:20.708 DEBUG 11476 --- [http-nio-8080-exec-10] com.jxufe.dao.UserDao.findUserById       : <==      Total: 1
+2024-03-24 20:40:20.708  INFO 11476 --- [http-nio-8080-exec-10] com.jxufe.aspect.LogAspect               : method : picture
+2024-03-24 20:40:20.708  INFO 11476 --- [http-nio-8080-exec-10] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 20:51:20.510  INFO 11476 --- [http-nio-8080-exec-10] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/picture/me/list', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.PictureController.pictures', args=[1, {}, org.apache.catalina.session.StandardSessionFacade@4e272daa]}
+2024-03-24 20:51:20.511 DEBUG 11476 --- [http-nio-8080-exec-10] c.jxufe.dao.PictureMapper.listPictures   : ==>  Preparing: select * from t_picture where user_id = ? order by create_time desc
+2024-03-24 20:51:20.511 DEBUG 11476 --- [http-nio-8080-exec-10] c.jxufe.dao.PictureMapper.listPictures   : ==> Parameters: 1(Long)
+2024-03-24 20:51:20.513 DEBUG 11476 --- [http-nio-8080-exec-10] c.jxufe.dao.PictureMapper.listPictures   : <==      Total: 5
+2024-03-24 20:51:20.514  INFO 11476 --- [http-nio-8080-exec-10] com.jxufe.aspect.LogAspect               : method : picture
+2024-03-24 20:51:20.514  INFO 11476 --- [http-nio-8080-exec-10] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 21:03:26.392  INFO 11476 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-24 21:03:26.395  INFO 11476 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-03-24 21:03:26.406  INFO 11476 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-03-24 21:03:30.582  INFO 26816 --- [restartedMain] com.jxufe.GuideSystemApplication         : Starting GuideSystemApplication using Java 11.0.19 on Kafka with PID 26816 (D:\MyFiles\JAVA\myProjects\learn-community-system\target\classes started by 19233 in D:\MyFiles\JAVA\myProjects\learn-community-system)
+2024-03-24 21:03:30.583 DEBUG 26816 --- [restartedMain] com.jxufe.GuideSystemApplication         : Running with Spring Boot v2.6.4, Spring v5.3.16
+2024-03-24 21:03:30.583  INFO 26816 --- [restartedMain] com.jxufe.GuideSystemApplication         : The following 1 profile is active: "dev"
+2024-03-24 21:03:30.610  INFO 26816 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-03-24 21:03:30.610  INFO 26816 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-03-24 21:03:31.021  INFO 26816 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-24 21:03:31.077  INFO 26816 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 51 ms. Found 5 JPA repository interfaces.
+2024-03-24 21:03:31.486  INFO 26816 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2024-03-24 21:03:31.492  INFO 26816 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-03-24 21:03:31.492  INFO 26816 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2024-03-24 21:03:31.549  INFO 26816 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/dev]    : Initializing Spring embedded WebApplicationContext
+2024-03-24 21:03:31.549  INFO 26816 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 938 ms
+2024-03-24 21:03:31.659  INFO 26816 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-24 21:03:31.681  INFO 26816 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.5.Final
+2024-03-24 21:03:31.756  INFO 26816 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-03-24 21:03:31.811  INFO 26816 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-03-24 21:03:31.996  INFO 26816 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-03-24 21:03:32.007  INFO 26816 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2024-03-24 21:03:32.491  INFO 26816 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-03-24 21:03:32.496  INFO 26816 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-24 21:03:33.149  WARN 26816 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-03-24 21:03:33.324  INFO 26816 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-03-24 21:03:33.589  INFO 26816 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-03-24 21:03:33.612  INFO 26816 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/dev'
+2024-03-24 21:03:33.618  INFO 26816 --- [restartedMain] com.jxufe.GuideSystemApplication         : Started GuideSystemApplication in 3.335 seconds (JVM running for 4.069)
+2024-03-24 21:03:51.344  INFO 26816 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/dev]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-24 21:03:51.345  INFO 26816 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-03-24 21:03:51.346  INFO 26816 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-03-24 21:03:52.815  INFO 26816 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/login', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.UserController.doLoginPage', args=[]}
+2024-03-24 21:03:52.828  INFO 26816 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : method : login
+2024-03-24 21:03:52.828  INFO 26816 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 21:03:53.142  INFO 26816 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/codeImage', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.VerificationController.doGet', args=[org.apache.catalina.connector.RequestFacade@1ebe4582, org.apache.catalina.connector.ResponseFacade@b25d05e]}
+2024-03-24 21:03:53.431  INFO 26816 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : method : null
+2024-03-24 21:03:53.431  INFO 26816 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 21:04:05.987  INFO 26816 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/login/success', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.UserController.doLogin', args=[org.apache.catalina.connector.ResponseFacade@b25d05e, hyf, hyfhsy, kq9y, org.apache.catalina.session.StandardSessionFacade@43ba60b1, {}]}
+2024-03-24 21:04:06.013 DEBUG 26816 --- [http-nio-8080-exec-5] c.j.d.UserDao.findByUsernameAndPassword  : ==>  Preparing: select * from t_user where username = ? and password = ?
+2024-03-24 21:04:06.019 DEBUG 26816 --- [http-nio-8080-exec-5] c.j.d.UserDao.findByUsernameAndPassword  : ==> Parameters: hyf(String), f3b53cbd7fe408bb281efaf5d94f05c2(String)
+2024-03-24 21:04:06.030 DEBUG 26816 --- [http-nio-8080-exec-5] c.j.d.UserDao.findByUsernameAndPassword  : <==      Total: 1
+2024-03-24 21:04:06.038  INFO 26816 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : method : redirect:/user_index
+2024-03-24 21:04:06.038  INFO 26816 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 21:04:06.060  INFO 26816 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/user_index', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.IndexController.doUserIndex', args=[Page request [number: 0, size 6, sort: updateTime: DESC], {}]}
+2024-03-24 21:04:06.141  WARN 26816 --- [http-nio-8080-exec-7] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.resources.size]; use collection function syntax instead [size(t.resources)].
+2024-03-24 21:04:06.154  INFO 26816 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : method : user_index
+2024-03-24 21:04:06.154  INFO 26816 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 21:04:14.598  INFO 26816 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/picture/me/list', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.PictureController.pictures', args=[1, {}, org.apache.catalina.session.StandardSessionFacade@43ba60b1]}
+2024-03-24 21:04:14.602 DEBUG 26816 --- [http-nio-8080-exec-2] c.jxufe.dao.PictureMapper.listPictures   : ==>  Preparing: select * from t_picture where user_id = ? order by create_time desc
+2024-03-24 21:04:14.603 DEBUG 26816 --- [http-nio-8080-exec-2] c.jxufe.dao.PictureMapper.listPictures   : ==> Parameters: 1(Long)
+2024-03-24 21:04:14.607 DEBUG 26816 --- [http-nio-8080-exec-2] c.jxufe.dao.PictureMapper.listPictures   : <==      Total: 5
+2024-03-24 21:04:14.621  INFO 26816 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : method : picture
+2024-03-24 21:04:14.621  INFO 26816 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 21:25:31.876  INFO 26816 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-24 21:25:31.879  INFO 26816 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-03-24 21:25:31.888  INFO 26816 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-03-24 21:25:34.666  INFO 4104 --- [restartedMain] com.jxufe.GuideSystemApplication         : Starting GuideSystemApplication using Java 11.0.19 on Kafka with PID 4104 (D:\MyFiles\JAVA\myProjects\learn-community-system\target\classes started by 19233 in D:\MyFiles\JAVA\myProjects\learn-community-system)
+2024-03-24 21:25:34.666 DEBUG 4104 --- [restartedMain] com.jxufe.GuideSystemApplication         : Running with Spring Boot v2.6.4, Spring v5.3.16
+2024-03-24 21:25:34.667  INFO 4104 --- [restartedMain] com.jxufe.GuideSystemApplication         : The following 1 profile is active: "dev"
+2024-03-24 21:25:34.695  INFO 4104 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-03-24 21:25:34.695  INFO 4104 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-03-24 21:25:35.141  INFO 4104 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-24 21:25:35.198  INFO 4104 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 52 ms. Found 5 JPA repository interfaces.
+2024-03-24 21:25:35.600  INFO 4104 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2024-03-24 21:25:35.605  INFO 4104 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-03-24 21:25:35.605  INFO 4104 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2024-03-24 21:25:35.669  INFO 4104 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/dev]    : Initializing Spring embedded WebApplicationContext
+2024-03-24 21:25:35.670  INFO 4104 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 974 ms
+2024-03-24 21:25:35.767  INFO 4104 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-24 21:25:35.786  INFO 4104 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.5.Final
+2024-03-24 21:25:35.859  INFO 4104 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-03-24 21:25:35.916  INFO 4104 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-03-24 21:25:36.110  INFO 4104 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-03-24 21:25:36.121  INFO 4104 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2024-03-24 21:25:36.584  INFO 4104 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-03-24 21:25:36.590  INFO 4104 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-24 21:25:37.286  WARN 4104 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-03-24 21:25:37.476  INFO 4104 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-03-24 21:25:37.764  INFO 4104 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-03-24 21:25:37.790  INFO 4104 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/dev'
+2024-03-24 21:25:37.797  INFO 4104 --- [restartedMain] com.jxufe.GuideSystemApplication         : Started GuideSystemApplication in 3.469 seconds (JVM running for 4.305)
+2024-03-24 21:25:41.929  INFO 4104 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/dev]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-24 21:25:41.929  INFO 4104 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-03-24 21:25:41.930  INFO 4104 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-03-24 21:25:42.994  INFO 4104 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/login', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.UserController.doLoginPage', args=[]}
+2024-03-24 21:25:43.001  INFO 4104 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : method : login
+2024-03-24 21:25:43.001  INFO 4104 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 21:25:43.217  INFO 4104 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/codeImage', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.VerificationController.doGet', args=[org.apache.catalina.connector.RequestFacade@231d39ab, org.apache.catalina.connector.ResponseFacade@54035c6a]}
+2024-03-24 21:25:43.409  INFO 4104 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : method : null
+2024-03-24 21:25:43.409  INFO 4104 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 21:25:51.119  INFO 4104 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/login/success', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.UserController.doLogin', args=[org.apache.catalina.connector.ResponseFacade@54035c6a, hyf, hyfhsy, d1ob, org.apache.catalina.session.StandardSessionFacade@613de771, {}]}
+2024-03-24 21:25:51.120  INFO 4104 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : method : redirect:/login
+2024-03-24 21:25:51.121  INFO 4104 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 21:25:51.145  INFO 4104 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/login', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.UserController.doLoginPage', args=[]}
+2024-03-24 21:25:51.145  INFO 4104 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : method : login
+2024-03-24 21:25:51.145  INFO 4104 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 21:25:51.195  INFO 4104 --- [http-nio-8080-exec-9] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/codeImage', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.VerificationController.doGet', args=[org.apache.catalina.connector.RequestFacade@37b9971b, org.apache.catalina.connector.ResponseFacade@397e7f9c]}
+2024-03-24 21:25:51.202  INFO 4104 --- [http-nio-8080-exec-9] com.jxufe.aspect.LogAspect               : method : null
+2024-03-24 21:25:51.202  INFO 4104 --- [http-nio-8080-exec-9] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 21:25:55.693  INFO 4104 --- [http-nio-8080-exec-1] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/login/success', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.UserController.doLogin', args=[org.apache.catalina.connector.ResponseFacade@397e7f9c, hyf, hyfhsy, nirx, org.apache.catalina.session.StandardSessionFacade@613de771, {}]}
+2024-03-24 21:25:55.722 DEBUG 4104 --- [http-nio-8080-exec-1] c.j.d.UserDao.findByUsernameAndPassword  : ==>  Preparing: select * from t_user where username = ? and password = ?
+2024-03-24 21:25:55.727 DEBUG 4104 --- [http-nio-8080-exec-1] c.j.d.UserDao.findByUsernameAndPassword  : ==> Parameters: hyf(String), f3b53cbd7fe408bb281efaf5d94f05c2(String)
+2024-03-24 21:25:55.741 DEBUG 4104 --- [http-nio-8080-exec-1] c.j.d.UserDao.findByUsernameAndPassword  : <==      Total: 1
+2024-03-24 21:25:55.747  INFO 4104 --- [http-nio-8080-exec-1] com.jxufe.aspect.LogAspect               : method : redirect:/user_index
+2024-03-24 21:25:55.747  INFO 4104 --- [http-nio-8080-exec-1] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 21:25:55.762  INFO 4104 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/user_index', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.IndexController.doUserIndex', args=[Page request [number: 0, size 6, sort: updateTime: DESC], {}]}
+2024-03-24 21:25:55.848  WARN 4104 --- [http-nio-8080-exec-2] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.resources.size]; use collection function syntax instead [size(t.resources)].
+2024-03-24 21:25:55.859  INFO 4104 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : method : user_index
+2024-03-24 21:25:55.859  INFO 4104 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 21:26:58.017  INFO 4104 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/user_index', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.IndexController.doUserIndex', args=[Page request [number: 0, size 6, sort: updateTime: DESC], {}]}
+2024-03-24 21:26:58.031  INFO 4104 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : method : user_index
+2024-03-24 21:26:58.032  INFO 4104 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 21:27:15.273  INFO 4104 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/picture/me/list', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.PictureController.pictures', args=[1, {}, org.apache.catalina.session.StandardSessionFacade@613de771]}
+2024-03-24 21:27:15.278 DEBUG 4104 --- [http-nio-8080-exec-4] c.jxufe.dao.PictureMapper.listPictures   : ==>  Preparing: select * from t_picture where user_id = ? order by create_time desc
+2024-03-24 21:27:15.279 DEBUG 4104 --- [http-nio-8080-exec-4] c.jxufe.dao.PictureMapper.listPictures   : ==> Parameters: 1(Long)
+2024-03-24 21:27:15.281 DEBUG 4104 --- [http-nio-8080-exec-4] c.jxufe.dao.PictureMapper.listPictures   : <==      Total: 5
+2024-03-24 21:27:15.294  INFO 4104 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : method : picture
+2024-03-24 21:27:15.295  INFO 4104 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 21:29:25.732  INFO 4104 --- [http-nio-8080-exec-1] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/picture/list/2', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.PictureController.listPictureByUser', args=[1, 2, {}, org.apache.catalina.session.StandardSessionFacade@613de771]}
+2024-03-24 21:29:25.734 DEBUG 4104 --- [http-nio-8080-exec-1] c.jxufe.dao.PictureMapper.listPictures   : ==>  Preparing: select * from t_picture where user_id = ? order by create_time desc
+2024-03-24 21:29:25.734 DEBUG 4104 --- [http-nio-8080-exec-1] c.jxufe.dao.PictureMapper.listPictures   : ==> Parameters: 2(Long)
+2024-03-24 21:29:25.736 DEBUG 4104 --- [http-nio-8080-exec-1] c.jxufe.dao.PictureMapper.listPictures   : <==      Total: 1
+2024-03-24 21:29:25.737 DEBUG 4104 --- [http-nio-8080-exec-1] com.jxufe.dao.UserDao.findUserById       : ==>  Preparing: select * from t_user where id = ?
+2024-03-24 21:29:25.737 DEBUG 4104 --- [http-nio-8080-exec-1] com.jxufe.dao.UserDao.findUserById       : ==> Parameters: 2(Long)
+2024-03-24 21:29:25.739 DEBUG 4104 --- [http-nio-8080-exec-1] com.jxufe.dao.UserDao.findUserById       : <==      Total: 1
+2024-03-24 21:29:25.739  INFO 4104 --- [http-nio-8080-exec-1] com.jxufe.aspect.LogAspect               : method : picture
+2024-03-24 21:29:25.740  INFO 4104 --- [http-nio-8080-exec-1] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 21:52:45.419  INFO 4104 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-24 21:52:45.422  INFO 4104 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-03-24 21:52:45.431  INFO 4104 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-03-24 21:52:49.003  INFO 18376 --- [restartedMain] com.jxufe.GuideSystemApplication         : Starting GuideSystemApplication using Java 11.0.19 on Kafka with PID 18376 (D:\MyFiles\JAVA\myProjects\learn-community-system\target\classes started by 19233 in D:\MyFiles\JAVA\myProjects\learn-community-system)
+2024-03-24 21:52:49.003 DEBUG 18376 --- [restartedMain] com.jxufe.GuideSystemApplication         : Running with Spring Boot v2.6.4, Spring v5.3.16
+2024-03-24 21:52:49.004  INFO 18376 --- [restartedMain] com.jxufe.GuideSystemApplication         : The following 1 profile is active: "dev"
+2024-03-24 21:52:49.028  INFO 18376 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-03-24 21:52:49.029  INFO 18376 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-03-24 21:52:49.422  INFO 18376 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-24 21:52:49.477  INFO 18376 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 50 ms. Found 5 JPA repository interfaces.
+2024-03-24 21:52:49.916  INFO 18376 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2024-03-24 21:52:49.922  INFO 18376 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-03-24 21:52:49.923  INFO 18376 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2024-03-24 21:52:49.985  INFO 18376 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/dev]    : Initializing Spring embedded WebApplicationContext
+2024-03-24 21:52:49.985  INFO 18376 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 956 ms
+2024-03-24 21:52:50.103  INFO 18376 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-24 21:52:50.126  INFO 18376 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.5.Final
+2024-03-24 21:52:50.198  INFO 18376 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-03-24 21:52:50.248  INFO 18376 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-03-24 21:52:50.448  INFO 18376 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-03-24 21:52:50.461  INFO 18376 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2024-03-24 21:52:50.995  INFO 18376 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-03-24 21:52:51.005  INFO 18376 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-24 21:52:52.087  WARN 18376 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-03-24 21:52:52.273  INFO 18376 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-03-24 21:52:52.530  INFO 18376 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-03-24 21:52:52.555  INFO 18376 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/dev'
+2024-03-24 21:52:52.562  INFO 18376 --- [restartedMain] com.jxufe.GuideSystemApplication         : Started GuideSystemApplication in 3.868 seconds (JVM running for 4.573)
+2024-03-24 21:53:22.754  INFO 18376 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/dev]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-24 21:53:22.754  INFO 18376 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-03-24 21:53:22.756  INFO 18376 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-03-24 21:53:24.191  INFO 18376 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/login', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.UserController.doLoginPage', args=[]}
+2024-03-24 21:53:24.200  INFO 18376 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : method : login
+2024-03-24 21:53:24.200  INFO 18376 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 21:53:24.427  INFO 18376 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/codeImage', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.VerificationController.doGet', args=[org.apache.catalina.connector.RequestFacade@7bd42226, org.apache.catalina.connector.ResponseFacade@66d4437e]}
+2024-03-24 21:53:24.678  INFO 18376 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : method : null
+2024-03-24 21:53:24.678  INFO 18376 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 21:53:30.502  INFO 18376 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/login/success', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.UserController.doLogin', args=[org.apache.catalina.connector.ResponseFacade@66d4437e, hyf, hyfhsy, 8d62, org.apache.catalina.session.StandardSessionFacade@2be1fba8, {}]}
+2024-03-24 21:53:30.522 DEBUG 18376 --- [http-nio-8080-exec-6] c.j.d.UserDao.findByUsernameAndPassword  : ==>  Preparing: select * from t_user where username = ? and password = ?
+2024-03-24 21:53:30.526 DEBUG 18376 --- [http-nio-8080-exec-6] c.j.d.UserDao.findByUsernameAndPassword  : ==> Parameters: hyf(String), f3b53cbd7fe408bb281efaf5d94f05c2(String)
+2024-03-24 21:53:30.534 DEBUG 18376 --- [http-nio-8080-exec-6] c.j.d.UserDao.findByUsernameAndPassword  : <==      Total: 1
+2024-03-24 21:53:30.539  INFO 18376 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : method : redirect:/user_index
+2024-03-24 21:53:30.539  INFO 18376 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 21:53:30.563  INFO 18376 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/user_index', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.IndexController.doUserIndex', args=[Page request [number: 0, size 6, sort: updateTime: DESC], {}]}
+2024-03-24 21:53:30.620  WARN 18376 --- [http-nio-8080-exec-7] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.resources.size]; use collection function syntax instead [size(t.resources)].
+2024-03-24 21:53:30.627  INFO 18376 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : method : user_index
+2024-03-24 21:53:30.627  INFO 18376 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 21:53:46.599  INFO 18376 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/picture/me/list', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.PictureController.pictures', args=[1, {}, org.apache.catalina.session.StandardSessionFacade@2be1fba8]}
+2024-03-24 21:53:46.603 DEBUG 18376 --- [http-nio-8080-exec-5] c.jxufe.dao.PictureMapper.listPictures   : ==>  Preparing: select * from t_picture where user_id = ? order by create_time desc
+2024-03-24 21:53:46.603 DEBUG 18376 --- [http-nio-8080-exec-5] c.jxufe.dao.PictureMapper.listPictures   : ==> Parameters: 1(Long)
+2024-03-24 21:53:46.605 DEBUG 18376 --- [http-nio-8080-exec-5] c.jxufe.dao.PictureMapper.listPictures   : <==      Total: 5
+2024-03-24 21:53:46.617  INFO 18376 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : method : picture
+2024-03-24 21:53:46.617  INFO 18376 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 21:53:46.629 ERROR 18376 --- [http-nio-8080-exec-5] org.thymeleaf.TemplateEngine             : [THYMELEAF][http-nio-8080-exec-5] Exception processing template "picture": An error happened during template parsing (template: "class path resource [templates/picture.html]")
+
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/picture.html]")
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1401)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1145)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1084)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:359)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:889)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1735)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: org.attoparser.ParseException: Exception evaluating SpringEL expression: "pageInfo.isFirstPage" (template: "picture" - line 132, col 14)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	... 48 common frames omitted
+Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Exception evaluating SpringEL expression: "pageInfo.isFirstPage" (template: "picture" - line 132, col 14)
+	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:292)
+	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166)
+	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:109)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:138)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:125)
+	at org.thymeleaf.standard.processor.StandardUnlessTagProcessor.isVisible(StandardUnlessTagProcessor.java:58)
+	at org.thymeleaf.standard.processor.AbstractStandardConditionalVisibilityTagProcessor.doProcess(AbstractStandardConditionalVisibilityTagProcessor.java:61)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314)
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278)
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124)
+	at org.attoparser.HtmlElement.handleOpenElementEnd(HtmlElement.java:109)
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297)
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	... 50 common frames omitted
+Caused by: org.springframework.expression.spel.SpelEvaluationException: EL1007E: Property or field 'isFirstPage' cannot be found on null
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.readProperty(PropertyOrFieldReference.java:213)
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.getValueInternal(PropertyOrFieldReference.java:104)
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.access$000(PropertyOrFieldReference.java:51)
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference$AccessorLValue.getValue(PropertyOrFieldReference.java:406)
+	at org.springframework.expression.spel.ast.CompoundExpression.getValueInternal(CompoundExpression.java:92)
+	at org.springframework.expression.spel.ast.SpelNodeImpl.getValue(SpelNodeImpl.java:112)
+	at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:337)
+	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:265)
+	... 71 common frames omitted
+
+2024-03-24 21:53:46.632 ERROR 18376 --- [http-nio-8080-exec-5] o.a.c.c.C.[.[.[.[dispatcherServlet]      : Servlet.service() for servlet [dispatcherServlet] in context with path [/dev] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/picture.html]")] with root cause
+
+org.springframework.expression.spel.SpelEvaluationException: EL1007E: Property or field 'isFirstPage' cannot be found on null
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.readProperty(PropertyOrFieldReference.java:213)
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.getValueInternal(PropertyOrFieldReference.java:104)
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.access$000(PropertyOrFieldReference.java:51)
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference$AccessorLValue.getValue(PropertyOrFieldReference.java:406)
+	at org.springframework.expression.spel.ast.CompoundExpression.getValueInternal(CompoundExpression.java:92)
+	at org.springframework.expression.spel.ast.SpelNodeImpl.getValue(SpelNodeImpl.java:112)
+	at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:337)
+	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:265)
+	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166)
+	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:109)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:138)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:125)
+	at org.thymeleaf.standard.processor.StandardUnlessTagProcessor.isVisible(StandardUnlessTagProcessor.java:58)
+	at org.thymeleaf.standard.processor.AbstractStandardConditionalVisibilityTagProcessor.doProcess(AbstractStandardConditionalVisibilityTagProcessor.java:61)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314)
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278)
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124)
+	at org.attoparser.HtmlElement.handleOpenElementEnd(HtmlElement.java:109)
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297)
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1401)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1145)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1084)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:359)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:889)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1735)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+2024-03-24 21:53:46.643 ERROR 18376 --- [http-nio-8080-exec-5] s.e.ErrorMvcAutoConfiguration$StaticView : Cannot render error page for request [/dev/picture/me/list] and exception [An error happened during template parsing (template: "class path resource [templates/picture.html]")] as the response has already been committed. As a result, the response may have the wrong status code.
+2024-03-24 21:55:40.313  INFO 18376 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-24 21:55:40.315  INFO 18376 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-03-24 21:55:40.323  INFO 18376 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-03-24 21:55:42.944  INFO 10892 --- [restartedMain] com.jxufe.GuideSystemApplication         : Starting GuideSystemApplication using Java 11.0.19 on Kafka with PID 10892 (D:\MyFiles\JAVA\myProjects\learn-community-system\target\classes started by 19233 in D:\MyFiles\JAVA\myProjects\learn-community-system)
+2024-03-24 21:55:42.945 DEBUG 10892 --- [restartedMain] com.jxufe.GuideSystemApplication         : Running with Spring Boot v2.6.4, Spring v5.3.16
+2024-03-24 21:55:42.945  INFO 10892 --- [restartedMain] com.jxufe.GuideSystemApplication         : The following 1 profile is active: "dev"
+2024-03-24 21:55:42.969  INFO 10892 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-03-24 21:55:42.970  INFO 10892 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-03-24 21:55:43.462  INFO 10892 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-24 21:55:43.524  INFO 10892 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 57 ms. Found 5 JPA repository interfaces.
+2024-03-24 21:55:43.956  INFO 10892 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2024-03-24 21:55:43.963  INFO 10892 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-03-24 21:55:43.963  INFO 10892 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2024-03-24 21:55:44.023  INFO 10892 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/dev]    : Initializing Spring embedded WebApplicationContext
+2024-03-24 21:55:44.024  INFO 10892 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1054 ms
+2024-03-24 21:55:44.141  INFO 10892 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-24 21:55:44.167  INFO 10892 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.5.Final
+2024-03-24 21:55:44.242  INFO 10892 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-03-24 21:55:44.294  INFO 10892 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-03-24 21:55:44.503  INFO 10892 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-03-24 21:55:44.515  INFO 10892 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2024-03-24 21:55:45.044  INFO 10892 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-03-24 21:55:45.049  INFO 10892 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-24 21:55:45.692  WARN 10892 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-03-24 21:55:45.852  INFO 10892 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-03-24 21:55:46.104  INFO 10892 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-03-24 21:55:46.128  INFO 10892 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/dev'
+2024-03-24 21:55:46.135  INFO 10892 --- [restartedMain] com.jxufe.GuideSystemApplication         : Started GuideSystemApplication in 3.513 seconds (JVM running for 4.269)
+2024-03-24 21:55:52.385  INFO 10892 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/dev]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-24 21:55:52.385  INFO 10892 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-03-24 21:55:52.386  INFO 10892 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-03-24 21:55:53.459  INFO 10892 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/login', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.UserController.doLoginPage', args=[]}
+2024-03-24 21:55:53.466  INFO 10892 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : method : login
+2024-03-24 21:55:53.467  INFO 10892 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 21:55:53.693  INFO 10892 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/codeImage', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.VerificationController.doGet', args=[org.apache.catalina.connector.RequestFacade@6e7fa6fa, org.apache.catalina.connector.ResponseFacade@44d3d133]}
+2024-03-24 21:55:53.883  INFO 10892 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : method : null
+2024-03-24 21:55:53.883  INFO 10892 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 21:55:59.097  INFO 10892 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/login/success', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.UserController.doLogin', args=[org.apache.catalina.connector.ResponseFacade@44d3d133, hyf, hyfhsy, 808s, org.apache.catalina.session.StandardSessionFacade@f2a13a5, {}]}
+2024-03-24 21:55:59.122 DEBUG 10892 --- [http-nio-8080-exec-6] c.j.d.UserDao.findByUsernameAndPassword  : ==>  Preparing: select * from t_user where username = ? and password = ?
+2024-03-24 21:55:59.128 DEBUG 10892 --- [http-nio-8080-exec-6] c.j.d.UserDao.findByUsernameAndPassword  : ==> Parameters: hyf(String), f3b53cbd7fe408bb281efaf5d94f05c2(String)
+2024-03-24 21:55:59.139 DEBUG 10892 --- [http-nio-8080-exec-6] c.j.d.UserDao.findByUsernameAndPassword  : <==      Total: 1
+2024-03-24 21:55:59.145  INFO 10892 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : method : redirect:/user_index
+2024-03-24 21:55:59.146  INFO 10892 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 21:55:59.166  INFO 10892 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/user_index', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.IndexController.doUserIndex', args=[Page request [number: 0, size 6, sort: updateTime: DESC], {}]}
+2024-03-24 21:55:59.245  WARN 10892 --- [http-nio-8080-exec-7] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.resources.size]; use collection function syntax instead [size(t.resources)].
+2024-03-24 21:55:59.260  INFO 10892 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : method : user_index
+2024-03-24 21:55:59.260  INFO 10892 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 21:56:06.638  INFO 10892 --- [http-nio-8080-exec-1] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/picture/me/list', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.PictureController.pictures', args=[1, {}, org.apache.catalina.session.StandardSessionFacade@f2a13a5]}
+2024-03-24 21:56:06.642 DEBUG 10892 --- [http-nio-8080-exec-1] c.jxufe.dao.PictureMapper.listPictures   : ==>  Preparing: select * from t_picture where user_id = ? order by create_time desc
+2024-03-24 21:56:06.643 DEBUG 10892 --- [http-nio-8080-exec-1] c.jxufe.dao.PictureMapper.listPictures   : ==> Parameters: 1(Long)
+2024-03-24 21:56:06.645 DEBUG 10892 --- [http-nio-8080-exec-1] c.jxufe.dao.PictureMapper.listPictures   : <==      Total: 5
+2024-03-24 21:56:06.658  INFO 10892 --- [http-nio-8080-exec-1] com.jxufe.aspect.LogAspect               : method : picture
+2024-03-24 21:56:06.659  INFO 10892 --- [http-nio-8080-exec-1] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 21:57:13.846  INFO 10892 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/picture/me/list', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.PictureController.pictures', args=[1, {}, org.apache.catalina.session.StandardSessionFacade@f2a13a5]}
+2024-03-24 21:57:13.847 DEBUG 10892 --- [http-nio-8080-exec-4] c.jxufe.dao.PictureMapper.listPictures   : ==>  Preparing: select * from t_picture where user_id = ? order by create_time desc
+2024-03-24 21:57:13.848 DEBUG 10892 --- [http-nio-8080-exec-4] c.jxufe.dao.PictureMapper.listPictures   : ==> Parameters: 1(Long)
+2024-03-24 21:57:13.849 DEBUG 10892 --- [http-nio-8080-exec-4] c.jxufe.dao.PictureMapper.listPictures   : <==      Total: 5
+2024-03-24 21:57:13.850  INFO 10892 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : method : picture
+2024-03-24 21:57:13.850  INFO 10892 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 22:20:49.641  INFO 10892 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-24 22:20:49.643  INFO 10892 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-03-24 22:20:49.652  INFO 10892 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-03-24 22:20:54.610  INFO 27036 --- [restartedMain] com.jxufe.GuideSystemApplication         : Starting GuideSystemApplication using Java 11.0.19 on Kafka with PID 27036 (D:\MyFiles\JAVA\myProjects\learn-community-system\target\classes started by 19233 in D:\MyFiles\JAVA\myProjects\learn-community-system)
+2024-03-24 22:20:54.610 DEBUG 27036 --- [restartedMain] com.jxufe.GuideSystemApplication         : Running with Spring Boot v2.6.4, Spring v5.3.16
+2024-03-24 22:20:54.610  INFO 27036 --- [restartedMain] com.jxufe.GuideSystemApplication         : The following 1 profile is active: "dev"
+2024-03-24 22:20:54.631  INFO 27036 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-03-24 22:20:54.631  INFO 27036 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-03-24 22:20:55.033  INFO 27036 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-24 22:20:55.076  INFO 27036 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 39 ms. Found 5 JPA repository interfaces.
+2024-03-24 22:20:55.472  INFO 27036 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2024-03-24 22:20:55.479  INFO 27036 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-03-24 22:20:55.479  INFO 27036 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2024-03-24 22:20:55.527  INFO 27036 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/dev]    : Initializing Spring embedded WebApplicationContext
+2024-03-24 22:20:55.528  INFO 27036 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 896 ms
+2024-03-24 22:20:55.620  INFO 27036 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-24 22:20:55.641  INFO 27036 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.5.Final
+2024-03-24 22:20:55.711  INFO 27036 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-03-24 22:20:55.767  INFO 27036 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-03-24 22:20:55.970  INFO 27036 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-03-24 22:20:55.981  INFO 27036 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2024-03-24 22:20:56.452  INFO 27036 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-03-24 22:20:56.457  INFO 27036 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-24 22:20:57.163  WARN 27036 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-03-24 22:20:57.377  INFO 27036 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-03-24 22:20:57.636  INFO 27036 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-03-24 22:20:57.659  INFO 27036 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/dev'
+2024-03-24 22:20:57.667  INFO 27036 --- [restartedMain] com.jxufe.GuideSystemApplication         : Started GuideSystemApplication in 3.329 seconds (JVM running for 3.975)
+2024-03-24 22:21:01.888  INFO 27036 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/dev]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-24 22:21:01.888  INFO 27036 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-03-24 22:21:01.889  INFO 27036 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-03-24 22:21:02.407  INFO 27036 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/login', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.UserController.doLoginPage', args=[]}
+2024-03-24 22:21:02.416  INFO 27036 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : method : login
+2024-03-24 22:21:02.416  INFO 27036 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 22:21:02.660  INFO 27036 --- [http-nio-8080-exec-8] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/codeImage', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.VerificationController.doGet', args=[org.apache.catalina.connector.RequestFacade@5bcd04d5, org.apache.catalina.connector.ResponseFacade@11ebce1f]}
+2024-03-24 22:21:02.857  INFO 27036 --- [http-nio-8080-exec-8] com.jxufe.aspect.LogAspect               : method : null
+2024-03-24 22:21:02.858  INFO 27036 --- [http-nio-8080-exec-8] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 22:21:07.778  INFO 27036 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/login/success', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.UserController.doLogin', args=[org.apache.catalina.connector.ResponseFacade@11ebce1f, hyf, hyfhsy, rava, org.apache.catalina.session.StandardSessionFacade@3fa13ab2, {}]}
+2024-03-24 22:21:07.804 DEBUG 27036 --- [http-nio-8080-exec-6] c.j.d.UserDao.findByUsernameAndPassword  : ==>  Preparing: select * from t_user where username = ? and password = ?
+2024-03-24 22:21:07.809 DEBUG 27036 --- [http-nio-8080-exec-6] c.j.d.UserDao.findByUsernameAndPassword  : ==> Parameters: hyf(String), f3b53cbd7fe408bb281efaf5d94f05c2(String)
+2024-03-24 22:21:07.819 DEBUG 27036 --- [http-nio-8080-exec-6] c.j.d.UserDao.findByUsernameAndPassword  : <==      Total: 1
+2024-03-24 22:21:07.827  INFO 27036 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : method : redirect:/user_index
+2024-03-24 22:21:07.828  INFO 27036 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 22:21:07.850  INFO 27036 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/user_index', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.IndexController.doUserIndex', args=[Page request [number: 0, size 6, sort: updateTime: DESC], {}]}
+2024-03-24 22:21:07.924  WARN 27036 --- [http-nio-8080-exec-7] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.resources.size]; use collection function syntax instead [size(t.resources)].
+2024-03-24 22:21:07.936  INFO 27036 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : method : user_index
+2024-03-24 22:21:07.936  INFO 27036 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 22:21:11.711  INFO 27036 --- [http-nio-8080-exec-9] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/picture/me/list', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.PictureController.pictures', args=[1, {}, org.apache.catalina.session.StandardSessionFacade@3fa13ab2]}
+2024-03-24 22:21:11.716 DEBUG 27036 --- [http-nio-8080-exec-9] c.jxufe.dao.PictureMapper.listPictures   : ==>  Preparing: select * from t_picture where user_id = ? order by create_time desc
+2024-03-24 22:21:11.717 DEBUG 27036 --- [http-nio-8080-exec-9] c.jxufe.dao.PictureMapper.listPictures   : ==> Parameters: 1(Long)
+2024-03-24 22:21:11.720 DEBUG 27036 --- [http-nio-8080-exec-9] c.jxufe.dao.PictureMapper.listPictures   : <==      Total: 5
+2024-03-24 22:21:11.732  INFO 27036 --- [http-nio-8080-exec-9] com.jxufe.aspect.LogAspect               : method : picture
+2024-03-24 22:21:11.732  INFO 27036 --- [http-nio-8080-exec-9] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 22:21:11.747 ERROR 27036 --- [http-nio-8080-exec-9] org.thymeleaf.TemplateEngine             : [THYMELEAF][http-nio-8080-exec-9] Exception processing template "picture": An error happened during template parsing (template: "class path resource [templates/picture.html]")
+
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/picture.html]")
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1401)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1145)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1084)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:359)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:889)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1735)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: org.attoparser.ParseException: Exception evaluating SpringEL expression: "pagePicture.list" (template: "picture" - line 98, col 28)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	... 48 common frames omitted
+Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Exception evaluating SpringEL expression: "pagePicture.list" (template: "picture" - line 98, col 28)
+	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:292)
+	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166)
+	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:109)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:138)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:125)
+	at org.thymeleaf.standard.processor.StandardEachTagProcessor.doProcess(StandardEachTagProcessor.java:73)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314)
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278)
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124)
+	at org.attoparser.HtmlElement.handleOpenElementEnd(HtmlElement.java:109)
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297)
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	... 50 common frames omitted
+Caused by: org.springframework.expression.spel.SpelEvaluationException: EL1008E: Property or field 'list' cannot be found on object of type 'com.github.pagehelper.Page' - maybe not public or not valid?
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.readProperty(PropertyOrFieldReference.java:217)
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.getValueInternal(PropertyOrFieldReference.java:104)
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.access$000(PropertyOrFieldReference.java:51)
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference$AccessorLValue.getValue(PropertyOrFieldReference.java:406)
+	at org.springframework.expression.spel.ast.CompoundExpression.getValueInternal(CompoundExpression.java:92)
+	at org.springframework.expression.spel.ast.SpelNodeImpl.getValue(SpelNodeImpl.java:112)
+	at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:337)
+	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:265)
+	... 70 common frames omitted
+
+2024-03-24 22:21:11.749 ERROR 27036 --- [http-nio-8080-exec-9] o.a.c.c.C.[.[.[.[dispatcherServlet]      : Servlet.service() for servlet [dispatcherServlet] in context with path [/dev] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/picture.html]")] with root cause
+
+org.springframework.expression.spel.SpelEvaluationException: EL1008E: Property or field 'list' cannot be found on object of type 'com.github.pagehelper.Page' - maybe not public or not valid?
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.readProperty(PropertyOrFieldReference.java:217)
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.getValueInternal(PropertyOrFieldReference.java:104)
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.access$000(PropertyOrFieldReference.java:51)
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference$AccessorLValue.getValue(PropertyOrFieldReference.java:406)
+	at org.springframework.expression.spel.ast.CompoundExpression.getValueInternal(CompoundExpression.java:92)
+	at org.springframework.expression.spel.ast.SpelNodeImpl.getValue(SpelNodeImpl.java:112)
+	at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:337)
+	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:265)
+	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166)
+	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:109)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:138)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:125)
+	at org.thymeleaf.standard.processor.StandardEachTagProcessor.doProcess(StandardEachTagProcessor.java:73)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314)
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278)
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124)
+	at org.attoparser.HtmlElement.handleOpenElementEnd(HtmlElement.java:109)
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297)
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1401)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1145)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1084)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:359)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:889)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1735)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+2024-03-24 22:22:00.674  INFO 27036 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-24 22:22:00.677  INFO 27036 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-03-24 22:22:00.686  INFO 27036 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-03-24 22:22:03.293  INFO 28844 --- [restartedMain] com.jxufe.GuideSystemApplication         : Starting GuideSystemApplication using Java 11.0.19 on Kafka with PID 28844 (D:\MyFiles\JAVA\myProjects\learn-community-system\target\classes started by 19233 in D:\MyFiles\JAVA\myProjects\learn-community-system)
+2024-03-24 22:22:03.294 DEBUG 28844 --- [restartedMain] com.jxufe.GuideSystemApplication         : Running with Spring Boot v2.6.4, Spring v5.3.16
+2024-03-24 22:22:03.295  INFO 28844 --- [restartedMain] com.jxufe.GuideSystemApplication         : The following 1 profile is active: "dev"
+2024-03-24 22:22:03.319  INFO 28844 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-03-24 22:22:03.319  INFO 28844 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-03-24 22:22:03.707  INFO 28844 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-24 22:22:03.773  INFO 28844 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 60 ms. Found 5 JPA repository interfaces.
+2024-03-24 22:22:04.223  INFO 28844 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2024-03-24 22:22:04.229  INFO 28844 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-03-24 22:22:04.229  INFO 28844 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2024-03-24 22:22:04.285  INFO 28844 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/dev]    : Initializing Spring embedded WebApplicationContext
+2024-03-24 22:22:04.285  INFO 28844 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 966 ms
+2024-03-24 22:22:04.383  INFO 28844 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-24 22:22:04.403  INFO 28844 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.5.Final
+2024-03-24 22:22:04.469  INFO 28844 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-03-24 22:22:04.522  INFO 28844 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-03-24 22:22:04.712  INFO 28844 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-03-24 22:22:04.723  INFO 28844 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2024-03-24 22:22:05.183  INFO 28844 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-03-24 22:22:05.188  INFO 28844 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-24 22:22:05.808  WARN 28844 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-03-24 22:22:05.989  INFO 28844 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-03-24 22:22:06.269  INFO 28844 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-03-24 22:22:06.296  INFO 28844 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/dev'
+2024-03-24 22:22:06.304  INFO 28844 --- [restartedMain] com.jxufe.GuideSystemApplication         : Started GuideSystemApplication in 3.327 seconds (JVM running for 4.064)
+2024-03-24 22:22:12.428  INFO 28844 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/dev]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-24 22:22:12.430  INFO 28844 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-03-24 22:22:12.431  INFO 28844 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-03-24 22:22:13.475  INFO 28844 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/login', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.UserController.doLoginPage', args=[]}
+2024-03-24 22:22:13.483  INFO 28844 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : method : login
+2024-03-24 22:22:13.484  INFO 28844 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 22:22:13.710  INFO 28844 --- [http-nio-8080-exec-3] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/codeImage', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.VerificationController.doGet', args=[org.apache.catalina.connector.RequestFacade@51a6cd6a, org.apache.catalina.connector.ResponseFacade@4d95ccfd]}
+2024-03-24 22:22:13.909  INFO 28844 --- [http-nio-8080-exec-3] com.jxufe.aspect.LogAspect               : method : null
+2024-03-24 22:22:13.909  INFO 28844 --- [http-nio-8080-exec-3] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 22:22:19.181  INFO 28844 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/login/success', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.UserController.doLogin', args=[org.apache.catalina.connector.ResponseFacade@4d95ccfd, hyf, hyfhsy, ciu0, org.apache.catalina.session.StandardSessionFacade@4781f80b, {}]}
+2024-03-24 22:22:19.207 DEBUG 28844 --- [http-nio-8080-exec-6] c.j.d.UserDao.findByUsernameAndPassword  : ==>  Preparing: select * from t_user where username = ? and password = ?
+2024-03-24 22:22:19.213 DEBUG 28844 --- [http-nio-8080-exec-6] c.j.d.UserDao.findByUsernameAndPassword  : ==> Parameters: hyf(String), f3b53cbd7fe408bb281efaf5d94f05c2(String)
+2024-03-24 22:22:19.222 DEBUG 28844 --- [http-nio-8080-exec-6] c.j.d.UserDao.findByUsernameAndPassword  : <==      Total: 1
+2024-03-24 22:22:19.228  INFO 28844 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : method : redirect:/user_index
+2024-03-24 22:22:19.228  INFO 28844 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 22:22:19.250  INFO 28844 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/user_index', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.IndexController.doUserIndex', args=[Page request [number: 0, size 6, sort: updateTime: DESC], {}]}
+2024-03-24 22:22:19.325  WARN 28844 --- [http-nio-8080-exec-7] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.resources.size]; use collection function syntax instead [size(t.resources)].
+2024-03-24 22:22:19.336  INFO 28844 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : method : user_index
+2024-03-24 22:22:19.336  INFO 28844 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 22:22:21.613  INFO 28844 --- [http-nio-8080-exec-10] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/picture/me/list', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.PictureController.pictures', args=[1, {}, org.apache.catalina.session.StandardSessionFacade@4781f80b]}
+2024-03-24 22:22:21.618 DEBUG 28844 --- [http-nio-8080-exec-10] c.jxufe.dao.PictureMapper.listPictures   : ==>  Preparing: select * from t_picture where user_id = ? order by create_time desc
+2024-03-24 22:22:21.619 DEBUG 28844 --- [http-nio-8080-exec-10] c.jxufe.dao.PictureMapper.listPictures   : ==> Parameters: 1(Long)
+2024-03-24 22:22:21.621 DEBUG 28844 --- [http-nio-8080-exec-10] c.jxufe.dao.PictureMapper.listPictures   : <==      Total: 5
+2024-03-24 22:22:21.634  INFO 28844 --- [http-nio-8080-exec-10] com.jxufe.aspect.LogAspect               : method : picture
+2024-03-24 22:22:21.634  INFO 28844 --- [http-nio-8080-exec-10] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 22:24:05.081  INFO 28844 --- [http-nio-8080-exec-3] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/picture/list/2', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.PictureController.listPictureByUser', args=[1, 2, {}, org.apache.catalina.session.StandardSessionFacade@4781f80b]}
+2024-03-24 22:24:05.082 DEBUG 28844 --- [http-nio-8080-exec-3] c.jxufe.dao.PictureMapper.listPictures   : ==>  Preparing: select * from t_picture where user_id = ? order by create_time desc
+2024-03-24 22:24:05.083 DEBUG 28844 --- [http-nio-8080-exec-3] c.jxufe.dao.PictureMapper.listPictures   : ==> Parameters: 2(Long)
+2024-03-24 22:24:05.084 DEBUG 28844 --- [http-nio-8080-exec-3] c.jxufe.dao.PictureMapper.listPictures   : <==      Total: 1
+2024-03-24 22:24:05.085 DEBUG 28844 --- [http-nio-8080-exec-3] c.jxufe.dao.PictureMapper.listPictures   : ==>  Preparing: select * from t_picture where user_id = ? order by create_time desc
+2024-03-24 22:24:05.085 DEBUG 28844 --- [http-nio-8080-exec-3] c.jxufe.dao.PictureMapper.listPictures   : ==> Parameters: 2(Long)
+2024-03-24 22:24:05.086 DEBUG 28844 --- [http-nio-8080-exec-3] c.jxufe.dao.PictureMapper.listPictures   : <==      Total: 1
+2024-03-24 22:24:05.087 DEBUG 28844 --- [http-nio-8080-exec-3] com.jxufe.dao.UserDao.findUserById       : ==>  Preparing: select * from t_user where id = ?
+2024-03-24 22:24:05.088 DEBUG 28844 --- [http-nio-8080-exec-3] com.jxufe.dao.UserDao.findUserById       : ==> Parameters: 2(Long)
+2024-03-24 22:24:05.090 DEBUG 28844 --- [http-nio-8080-exec-3] com.jxufe.dao.UserDao.findUserById       : <==      Total: 1
+2024-03-24 22:24:05.090  INFO 28844 --- [http-nio-8080-exec-3] com.jxufe.aspect.LogAspect               : method : picture
+2024-03-24 22:24:05.090  INFO 28844 --- [http-nio-8080-exec-3] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 22:24:44.549  INFO 28844 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/picture/me/list', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.PictureController.pictures', args=[1, {}, org.apache.catalina.session.StandardSessionFacade@4781f80b]}
+2024-03-24 22:24:44.550 DEBUG 28844 --- [http-nio-8080-exec-6] c.jxufe.dao.PictureMapper.listPictures   : ==>  Preparing: select * from t_picture where user_id = ? order by create_time desc
+2024-03-24 22:24:44.551 DEBUG 28844 --- [http-nio-8080-exec-6] c.jxufe.dao.PictureMapper.listPictures   : ==> Parameters: 1(Long)
+2024-03-24 22:24:44.553 DEBUG 28844 --- [http-nio-8080-exec-6] c.jxufe.dao.PictureMapper.listPictures   : <==      Total: 5
+2024-03-24 22:24:44.553  INFO 28844 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : method : picture
+2024-03-24 22:24:44.553  INFO 28844 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 22:32:32.273  INFO 28844 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-24 22:32:32.276  INFO 28844 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-03-24 22:32:32.284  INFO 28844 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-03-24 22:32:35.908  INFO 15684 --- [restartedMain] com.jxufe.GuideSystemApplication         : Starting GuideSystemApplication using Java 11.0.19 on Kafka with PID 15684 (D:\MyFiles\JAVA\myProjects\learn-community-system\target\classes started by 19233 in D:\MyFiles\JAVA\myProjects\learn-community-system)
+2024-03-24 22:32:35.909 DEBUG 15684 --- [restartedMain] com.jxufe.GuideSystemApplication         : Running with Spring Boot v2.6.4, Spring v5.3.16
+2024-03-24 22:32:35.909  INFO 15684 --- [restartedMain] com.jxufe.GuideSystemApplication         : The following 1 profile is active: "dev"
+2024-03-24 22:32:35.935  INFO 15684 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-03-24 22:32:35.935  INFO 15684 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-03-24 22:32:36.327  INFO 15684 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-24 22:32:36.383  INFO 15684 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 47 ms. Found 5 JPA repository interfaces.
+2024-03-24 22:32:36.783  INFO 15684 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2024-03-24 22:32:36.789  INFO 15684 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-03-24 22:32:36.789  INFO 15684 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2024-03-24 22:32:36.842  INFO 15684 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/dev]    : Initializing Spring embedded WebApplicationContext
+2024-03-24 22:32:36.842  INFO 15684 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 906 ms
+2024-03-24 22:32:36.943  INFO 15684 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-24 22:32:36.963  INFO 15684 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.5.Final
+2024-03-24 22:32:37.034  INFO 15684 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-03-24 22:32:37.088  INFO 15684 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-03-24 22:32:37.280  INFO 15684 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-03-24 22:32:37.290  INFO 15684 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2024-03-24 22:32:37.770  INFO 15684 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-03-24 22:32:37.775  INFO 15684 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-24 22:32:38.416  WARN 15684 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-03-24 22:32:38.580  INFO 15684 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-03-24 22:32:38.860  INFO 15684 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-03-24 22:32:38.885  INFO 15684 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/dev'
+2024-03-24 22:32:38.892  INFO 15684 --- [restartedMain] com.jxufe.GuideSystemApplication         : Started GuideSystemApplication in 3.288 seconds (JVM running for 4.057)
+2024-03-24 22:32:45.869  INFO 15684 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/dev]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-24 22:32:45.870  INFO 15684 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-03-24 22:32:45.870  INFO 15684 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-03-24 22:32:46.934  INFO 15684 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/login', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.UserController.doLoginPage', args=[]}
+2024-03-24 22:32:46.943  INFO 15684 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : method : login
+2024-03-24 22:32:46.943  INFO 15684 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 22:32:47.160  INFO 15684 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/codeImage', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.VerificationController.doGet', args=[org.apache.catalina.connector.RequestFacade@13bc76be, org.apache.catalina.connector.ResponseFacade@7045e7fe]}
+2024-03-24 22:32:47.350  INFO 15684 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : method : null
+2024-03-24 22:32:47.350  INFO 15684 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 22:32:53.483  INFO 15684 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/login/success', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.UserController.doLogin', args=[org.apache.catalina.connector.ResponseFacade@7045e7fe, hyf, hyfhsy, a8gt, org.apache.catalina.session.StandardSessionFacade@483bd04d, {}]}
+2024-03-24 22:32:53.512 DEBUG 15684 --- [http-nio-8080-exec-6] c.j.d.UserDao.findByUsernameAndPassword  : ==>  Preparing: select * from t_user where username = ? and password = ?
+2024-03-24 22:32:53.519 DEBUG 15684 --- [http-nio-8080-exec-6] c.j.d.UserDao.findByUsernameAndPassword  : ==> Parameters: hyf(String), f3b53cbd7fe408bb281efaf5d94f05c2(String)
+2024-03-24 22:32:53.531 DEBUG 15684 --- [http-nio-8080-exec-6] c.j.d.UserDao.findByUsernameAndPassword  : <==      Total: 1
+2024-03-24 22:32:53.536  INFO 15684 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : method : redirect:/user_index
+2024-03-24 22:32:53.537  INFO 15684 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 22:32:53.557  INFO 15684 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/user_index', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.IndexController.doUserIndex', args=[Page request [number: 0, size 6, sort: updateTime: DESC], {}]}
+2024-03-24 22:32:53.637  WARN 15684 --- [http-nio-8080-exec-2] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.resources.size]; use collection function syntax instead [size(t.resources)].
+2024-03-24 22:32:53.647  INFO 15684 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : method : user_index
+2024-03-24 22:32:53.647  INFO 15684 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 22:32:56.425  INFO 15684 --- [http-nio-8080-exec-10] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/picture/me/list', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.PictureController.pictures', args=[1, {}, org.apache.catalina.session.StandardSessionFacade@483bd04d]}
+2024-03-24 22:32:56.431 DEBUG 15684 --- [http-nio-8080-exec-10] c.jxufe.dao.PictureMapper.listPictures   : ==>  Preparing: select * from t_picture where user_id = ? order by create_time desc
+2024-03-24 22:32:56.431 DEBUG 15684 --- [http-nio-8080-exec-10] c.jxufe.dao.PictureMapper.listPictures   : ==> Parameters: 1(Long)
+2024-03-24 22:32:56.434 DEBUG 15684 --- [http-nio-8080-exec-10] c.jxufe.dao.PictureMapper.listPictures   : <==      Total: 5
+2024-03-24 22:32:56.446  INFO 15684 --- [http-nio-8080-exec-10] com.jxufe.aspect.LogAspect               : method : picture
+2024-03-24 22:32:56.446  INFO 15684 --- [http-nio-8080-exec-10] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 22:41:56.159  INFO 15684 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-24 22:41:56.162  INFO 15684 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-03-24 22:41:56.167  INFO 15684 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-03-24 22:42:03.468  INFO 10504 --- [restartedMain] com.jxufe.GuideSystemApplication         : Starting GuideSystemApplication using Java 11.0.19 on Kafka with PID 10504 (D:\MyFiles\JAVA\myProjects\learn-community-system\target\classes started by 19233 in D:\MyFiles\JAVA\myProjects\learn-community-system)
+2024-03-24 22:42:03.469 DEBUG 10504 --- [restartedMain] com.jxufe.GuideSystemApplication         : Running with Spring Boot v2.6.4, Spring v5.3.16
+2024-03-24 22:42:03.469  INFO 10504 --- [restartedMain] com.jxufe.GuideSystemApplication         : The following 1 profile is active: "dev"
+2024-03-24 22:42:03.494  INFO 10504 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-03-24 22:42:03.494  INFO 10504 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-03-24 22:42:03.941  INFO 10504 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-24 22:42:03.997  INFO 10504 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 50 ms. Found 5 JPA repository interfaces.
+2024-03-24 22:42:04.471  INFO 10504 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2024-03-24 22:42:04.477  INFO 10504 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-03-24 22:42:04.478  INFO 10504 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2024-03-24 22:42:04.548  INFO 10504 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/dev]    : Initializing Spring embedded WebApplicationContext
+2024-03-24 22:42:04.548  INFO 10504 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1054 ms
+2024-03-24 22:42:04.673  INFO 10504 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-24 22:42:04.703  INFO 10504 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.5.Final
+2024-03-24 22:42:04.781  INFO 10504 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-03-24 22:42:04.840  INFO 10504 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-03-24 22:42:05.073  INFO 10504 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-03-24 22:42:05.083  INFO 10504 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2024-03-24 22:42:05.659  INFO 10504 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-03-24 22:42:05.666  INFO 10504 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-24 22:42:06.443  WARN 10504 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-03-24 22:42:06.687  INFO 10504 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-03-24 22:42:06.767  WARN 10504 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'com.github.pagehelper.autoconfigure.PageHelperAutoConfiguration': Invocation of init method failed; nested exception is org.springframework.beans.factory.BeanCurrentlyInCreationException: Error creating bean with name 'com.github.pagehelper.autoconfigure.PageHelperAutoConfiguration': Requested bean is currently in creation: Is there an unresolvable circular reference?
+2024-03-24 22:42:06.768  INFO 10504 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-24 22:42:06.770  INFO 10504 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-03-24 22:42:06.781  INFO 10504 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-03-24 22:42:06.783  INFO 10504 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2024-03-24 22:42:06.791  INFO 10504 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2024-03-24 22:42:06.808 ERROR 10504 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The dependencies of some of the beans in the application context form a cycle:
+
+©°©¤©¤->©¤©¤©´
+|  com.github.pagehelper.autoconfigure.PageHelperAutoConfiguration
+©¸©¤©¤<-©¤©¤©¼
+
+
+Action:
+
+Relying upon circular references is discouraged and they are prohibited by default. Update your application to remove the dependency cycle between beans. As a last resort, it may be possible to break the cycle automatically by setting spring.main.allow-circular-references to true.
+
+2024-03-24 22:45:18.675  INFO 13460 --- [restartedMain] com.jxufe.GuideSystemApplication         : Starting GuideSystemApplication using Java 11.0.19 on Kafka with PID 13460 (D:\MyFiles\JAVA\myProjects\learn-community-system\target\classes started by 19233 in D:\MyFiles\JAVA\myProjects\learn-community-system)
+2024-03-24 22:45:18.675 DEBUG 13460 --- [restartedMain] com.jxufe.GuideSystemApplication         : Running with Spring Boot v2.6.4, Spring v5.3.16
+2024-03-24 22:45:18.675  INFO 13460 --- [restartedMain] com.jxufe.GuideSystemApplication         : The following 1 profile is active: "dev"
+2024-03-24 22:45:18.700  INFO 13460 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-03-24 22:45:18.700  INFO 13460 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-03-24 22:45:19.157  INFO 13460 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-24 22:45:19.212  INFO 13460 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 49 ms. Found 5 JPA repository interfaces.
+2024-03-24 22:45:19.688  INFO 13460 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2024-03-24 22:45:19.694  INFO 13460 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-03-24 22:45:19.694  INFO 13460 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2024-03-24 22:45:19.744  INFO 13460 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/dev]    : Initializing Spring embedded WebApplicationContext
+2024-03-24 22:45:19.744  INFO 13460 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1043 ms
+2024-03-24 22:45:19.838  INFO 13460 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-24 22:45:19.859  INFO 13460 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.5.Final
+2024-03-24 22:45:19.928  INFO 13460 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-03-24 22:45:19.981  INFO 13460 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-03-24 22:45:20.183  INFO 13460 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-03-24 22:45:20.194  INFO 13460 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2024-03-24 22:45:20.692  INFO 13460 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-03-24 22:45:20.697  INFO 13460 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-24 22:45:21.456  WARN 13460 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-03-24 22:45:21.675  INFO 13460 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-03-24 22:45:21.955  INFO 13460 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-03-24 22:45:21.977  INFO 13460 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/dev'
+2024-03-24 22:45:21.986  INFO 13460 --- [restartedMain] com.jxufe.GuideSystemApplication         : Started GuideSystemApplication in 3.625 seconds (JVM running for 4.361)
+2024-03-24 22:45:29.847  INFO 13460 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/dev]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-24 22:45:29.848  INFO 13460 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-03-24 22:45:29.849  INFO 13460 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-03-24 22:45:30.064  WARN 13460 --- [http-nio-8080-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [200] milliseconds.
+2024-03-24 22:45:31.072  INFO 13460 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/login', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.UserController.doLoginPage', args=[]}
+2024-03-24 22:45:31.080  INFO 13460 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : method : login
+2024-03-24 22:45:31.081  INFO 13460 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 22:45:31.314  INFO 13460 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/codeImage', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.VerificationController.doGet', args=[org.apache.catalina.connector.RequestFacade@14c96e7b, org.apache.catalina.connector.ResponseFacade@398e9170]}
+2024-03-24 22:45:31.553  INFO 13460 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : method : null
+2024-03-24 22:45:31.553  INFO 13460 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 22:45:37.130  INFO 13460 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/login/success', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.UserController.doLogin', args=[org.apache.catalina.connector.ResponseFacade@398e9170, hyf, hyfhsy, d9pt, org.apache.catalina.session.StandardSessionFacade@38b67111, {}]}
+2024-03-24 22:45:37.161 DEBUG 13460 --- [http-nio-8080-exec-2] c.j.d.UserDao.findByUsernameAndPassword  : ==>  Preparing: select * from t_user where username = ? and password = ?
+2024-03-24 22:45:37.168 DEBUG 13460 --- [http-nio-8080-exec-2] c.j.d.UserDao.findByUsernameAndPassword  : ==> Parameters: hyf(String), f3b53cbd7fe408bb281efaf5d94f05c2(String)
+2024-03-24 22:45:37.181 DEBUG 13460 --- [http-nio-8080-exec-2] c.j.d.UserDao.findByUsernameAndPassword  : <==      Total: 1
+2024-03-24 22:45:37.186  INFO 13460 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : method : redirect:/user_index
+2024-03-24 22:45:37.186  INFO 13460 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 22:45:37.208  INFO 13460 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/user_index', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.IndexController.doUserIndex', args=[Page request [number: 0, size 6, sort: updateTime: DESC], {}]}
+2024-03-24 22:45:37.289  WARN 13460 --- [http-nio-8080-exec-7] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.resources.size]; use collection function syntax instead [size(t.resources)].
+2024-03-24 22:45:37.299  INFO 13460 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : method : user_index
+2024-03-24 22:45:37.299  INFO 13460 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 22:45:39.476  INFO 13460 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/picture/me/list', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.PictureController.pictures', args=[1, {}, org.apache.catalina.session.StandardSessionFacade@38b67111]}
+2024-03-24 22:45:39.521 DEBUG 13460 --- [http-nio-8080-exec-5] c.j.d.PictureMapper.listPictures_COUNT   : ==>  Preparing: SELECT count(0) FROM t_picture WHERE user_id = ?
+2024-03-24 22:45:39.522 DEBUG 13460 --- [http-nio-8080-exec-5] c.j.d.PictureMapper.listPictures_COUNT   : ==> Parameters: 1(Long)
+2024-03-24 22:45:39.524 DEBUG 13460 --- [http-nio-8080-exec-5] c.j.d.PictureMapper.listPictures_COUNT   : <==      Total: 1
+2024-03-24 22:45:39.527 DEBUG 13460 --- [http-nio-8080-exec-5] c.jxufe.dao.PictureMapper.listPictures   : ==>  Preparing: select * from t_picture where user_id = ? order by create_time desc LIMIT ?
+2024-03-24 22:45:39.527 DEBUG 13460 --- [http-nio-8080-exec-5] c.jxufe.dao.PictureMapper.listPictures   : ==> Parameters: 1(Long), 4(Integer)
+2024-03-24 22:45:39.530 DEBUG 13460 --- [http-nio-8080-exec-5] c.jxufe.dao.PictureMapper.listPictures   : <==      Total: 4
+2024-03-24 22:45:39.544  INFO 13460 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : method : picture
+2024-03-24 22:45:39.544  INFO 13460 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 22:46:45.956  INFO 13460 --- [http-nio-8080-exec-1] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/picture/me/list', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.PictureController.pictures', args=[2, {}, org.apache.catalina.session.StandardSessionFacade@38b67111]}
+2024-03-24 22:46:45.958 DEBUG 13460 --- [http-nio-8080-exec-1] c.j.d.PictureMapper.listPictures_COUNT   : ==>  Preparing: SELECT count(0) FROM t_picture WHERE user_id = ?
+2024-03-24 22:46:45.958 DEBUG 13460 --- [http-nio-8080-exec-1] c.j.d.PictureMapper.listPictures_COUNT   : ==> Parameters: 1(Long)
+2024-03-24 22:46:45.959 DEBUG 13460 --- [http-nio-8080-exec-1] c.j.d.PictureMapper.listPictures_COUNT   : <==      Total: 1
+2024-03-24 22:46:45.959 DEBUG 13460 --- [http-nio-8080-exec-1] c.jxufe.dao.PictureMapper.listPictures   : ==>  Preparing: select * from t_picture where user_id = ? order by create_time desc LIMIT ?, ?
+2024-03-24 22:46:45.960 DEBUG 13460 --- [http-nio-8080-exec-1] c.jxufe.dao.PictureMapper.listPictures   : ==> Parameters: 1(Long), 4(Integer), 4(Integer)
+2024-03-24 22:46:45.961 DEBUG 13460 --- [http-nio-8080-exec-1] c.jxufe.dao.PictureMapper.listPictures   : <==      Total: 1
+2024-03-24 22:46:45.962  INFO 13460 --- [http-nio-8080-exec-1] com.jxufe.aspect.LogAspect               : method : picture
+2024-03-24 22:46:45.962  INFO 13460 --- [http-nio-8080-exec-1] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 22:46:51.456  INFO 13460 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/picture/me/list', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.PictureController.pictures', args=[1, {}, org.apache.catalina.session.StandardSessionFacade@38b67111]}
+2024-03-24 22:46:51.458 DEBUG 13460 --- [http-nio-8080-exec-2] c.j.d.PictureMapper.listPictures_COUNT   : ==>  Preparing: SELECT count(0) FROM t_picture WHERE user_id = ?
+2024-03-24 22:46:51.458 DEBUG 13460 --- [http-nio-8080-exec-2] c.j.d.PictureMapper.listPictures_COUNT   : ==> Parameters: 1(Long)
+2024-03-24 22:46:51.460 DEBUG 13460 --- [http-nio-8080-exec-2] c.j.d.PictureMapper.listPictures_COUNT   : <==      Total: 1
+2024-03-24 22:46:51.461 DEBUG 13460 --- [http-nio-8080-exec-2] c.jxufe.dao.PictureMapper.listPictures   : ==>  Preparing: select * from t_picture where user_id = ? order by create_time desc LIMIT ?
+2024-03-24 22:46:51.461 DEBUG 13460 --- [http-nio-8080-exec-2] c.jxufe.dao.PictureMapper.listPictures   : ==> Parameters: 1(Long), 4(Integer)
+2024-03-24 22:46:51.463 DEBUG 13460 --- [http-nio-8080-exec-2] c.jxufe.dao.PictureMapper.listPictures   : <==      Total: 4
+2024-03-24 22:46:51.464  INFO 13460 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : method : picture
+2024-03-24 22:46:51.464  INFO 13460 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 22:47:55.854  INFO 13460 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-24 22:47:55.858  INFO 13460 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-03-24 22:47:55.870  INFO 13460 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-03-24 22:48:00.258  INFO 14376 --- [restartedMain] com.jxufe.GuideSystemApplication         : Starting GuideSystemApplication using Java 11.0.19 on Kafka with PID 14376 (D:\MyFiles\JAVA\myProjects\learn-community-system\target\classes started by 19233 in D:\MyFiles\JAVA\myProjects\learn-community-system)
+2024-03-24 22:48:00.259 DEBUG 14376 --- [restartedMain] com.jxufe.GuideSystemApplication         : Running with Spring Boot v2.6.4, Spring v5.3.16
+2024-03-24 22:48:00.259  INFO 14376 --- [restartedMain] com.jxufe.GuideSystemApplication         : The following 1 profile is active: "dev"
+2024-03-24 22:48:00.284  INFO 14376 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-03-24 22:48:00.284  INFO 14376 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-03-24 22:48:00.719  INFO 14376 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-24 22:48:00.766  INFO 14376 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 42 ms. Found 5 JPA repository interfaces.
+2024-03-24 22:48:01.192  INFO 14376 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2024-03-24 22:48:01.196  INFO 14376 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-03-24 22:48:01.197  INFO 14376 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2024-03-24 22:48:01.245  INFO 14376 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/dev]    : Initializing Spring embedded WebApplicationContext
+2024-03-24 22:48:01.245  INFO 14376 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 960 ms
+2024-03-24 22:48:01.355  INFO 14376 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-24 22:48:01.376  INFO 14376 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.5.Final
+2024-03-24 22:48:01.451  INFO 14376 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-03-24 22:48:01.502  INFO 14376 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-03-24 22:48:01.689  INFO 14376 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-03-24 22:48:01.701  INFO 14376 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2024-03-24 22:48:02.159  INFO 14376 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-03-24 22:48:02.166  INFO 14376 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-24 22:48:02.776  WARN 14376 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-03-24 22:48:02.955  INFO 14376 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-03-24 22:48:03.241  INFO 14376 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-03-24 22:48:03.266  INFO 14376 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/dev'
+2024-03-24 22:48:03.273  INFO 14376 --- [restartedMain] com.jxufe.GuideSystemApplication         : Started GuideSystemApplication in 3.364 seconds (JVM running for 4.114)
+2024-03-24 22:48:07.469  INFO 14376 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/dev]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-24 22:48:07.470  INFO 14376 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-03-24 22:48:07.471  INFO 14376 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-03-24 22:48:08.957  INFO 14376 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/login', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.UserController.doLoginPage', args=[]}
+2024-03-24 22:48:08.963  INFO 14376 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : method : login
+2024-03-24 22:48:08.964  INFO 14376 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 22:48:09.193  INFO 14376 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/codeImage', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.VerificationController.doGet', args=[org.apache.catalina.connector.RequestFacade@396ca583, org.apache.catalina.connector.ResponseFacade@2c2e3c74]}
+2024-03-24 22:48:09.392  INFO 14376 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : method : null
+2024-03-24 22:48:09.393  INFO 14376 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 22:48:11.493  INFO 14376 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/codeImage', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.VerificationController.doGet', args=[org.apache.catalina.connector.RequestFacade@396ca583, org.apache.catalina.connector.ResponseFacade@2c2e3c74]}
+2024-03-24 22:48:11.501  INFO 14376 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : method : null
+2024-03-24 22:48:11.502  INFO 14376 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 22:48:15.609  INFO 14376 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/login/success', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.UserController.doLogin', args=[org.apache.catalina.connector.ResponseFacade@2c2e3c74, hyf, hyfhsy, rh2v, org.apache.catalina.session.StandardSessionFacade@2c528031, {}]}
+2024-03-24 22:48:15.641 DEBUG 14376 --- [http-nio-8080-exec-7] c.j.d.UserDao.findByUsernameAndPassword  : ==>  Preparing: select * from t_user where username = ? and password = ?
+2024-03-24 22:48:15.649 DEBUG 14376 --- [http-nio-8080-exec-7] c.j.d.UserDao.findByUsernameAndPassword  : ==> Parameters: hyf(String), f3b53cbd7fe408bb281efaf5d94f05c2(String)
+2024-03-24 22:48:15.661 DEBUG 14376 --- [http-nio-8080-exec-7] c.j.d.UserDao.findByUsernameAndPassword  : <==      Total: 1
+2024-03-24 22:48:15.667  INFO 14376 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : method : redirect:/user_index
+2024-03-24 22:48:15.667  INFO 14376 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 22:48:15.688  INFO 14376 --- [http-nio-8080-exec-8] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/user_index', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.IndexController.doUserIndex', args=[Page request [number: 0, size 6, sort: updateTime: DESC], {}]}
+2024-03-24 22:48:15.765  WARN 14376 --- [http-nio-8080-exec-8] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.resources.size]; use collection function syntax instead [size(t.resources)].
+2024-03-24 22:48:15.776  INFO 14376 --- [http-nio-8080-exec-8] com.jxufe.aspect.LogAspect               : method : user_index
+2024-03-24 22:48:15.776  INFO 14376 --- [http-nio-8080-exec-8] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 22:48:25.313  INFO 14376 --- [http-nio-8080-exec-3] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/picture/me/list', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.PictureController.pictures', args=[1, {}, org.apache.catalina.session.StandardSessionFacade@2c528031]}
+2024-03-24 22:48:25.341 DEBUG 14376 --- [http-nio-8080-exec-3] c.j.d.PictureMapper.listPictures_COUNT   : ==>  Preparing: SELECT count(0) FROM t_picture WHERE user_id = ?
+2024-03-24 22:48:25.342 DEBUG 14376 --- [http-nio-8080-exec-3] c.j.d.PictureMapper.listPictures_COUNT   : ==> Parameters: 1(Long)
+2024-03-24 22:48:25.343 DEBUG 14376 --- [http-nio-8080-exec-3] c.j.d.PictureMapper.listPictures_COUNT   : <==      Total: 1
+2024-03-24 22:48:25.345 DEBUG 14376 --- [http-nio-8080-exec-3] c.jxufe.dao.PictureMapper.listPictures   : ==>  Preparing: select * from t_picture where user_id = ? order by create_time desc LIMIT ?
+2024-03-24 22:48:25.346 DEBUG 14376 --- [http-nio-8080-exec-3] c.jxufe.dao.PictureMapper.listPictures   : ==> Parameters: 1(Long), 4(Integer)
+2024-03-24 22:48:25.348 DEBUG 14376 --- [http-nio-8080-exec-3] c.jxufe.dao.PictureMapper.listPictures   : <==      Total: 4
+2024-03-24 22:48:25.360  INFO 14376 --- [http-nio-8080-exec-3] com.jxufe.aspect.LogAspect               : method : picture
+2024-03-24 22:48:25.360  INFO 14376 --- [http-nio-8080-exec-3] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 22:48:34.814  INFO 14376 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/picture/me/list', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.PictureController.pictures', args=[2, {}, org.apache.catalina.session.StandardSessionFacade@2c528031]}
+2024-03-24 22:48:34.816 DEBUG 14376 --- [http-nio-8080-exec-6] c.j.d.PictureMapper.listPictures_COUNT   : ==>  Preparing: SELECT count(0) FROM t_picture WHERE user_id = ?
+2024-03-24 22:48:34.817 DEBUG 14376 --- [http-nio-8080-exec-6] c.j.d.PictureMapper.listPictures_COUNT   : ==> Parameters: 1(Long)
+2024-03-24 22:48:34.818 DEBUG 14376 --- [http-nio-8080-exec-6] c.j.d.PictureMapper.listPictures_COUNT   : <==      Total: 1
+2024-03-24 22:48:34.819 DEBUG 14376 --- [http-nio-8080-exec-6] c.jxufe.dao.PictureMapper.listPictures   : ==>  Preparing: select * from t_picture where user_id = ? order by create_time desc LIMIT ?, ?
+2024-03-24 22:48:34.819 DEBUG 14376 --- [http-nio-8080-exec-6] c.jxufe.dao.PictureMapper.listPictures   : ==> Parameters: 1(Long), 4(Integer), 4(Integer)
+2024-03-24 22:48:34.821 DEBUG 14376 --- [http-nio-8080-exec-6] c.jxufe.dao.PictureMapper.listPictures   : <==      Total: 1
+2024-03-24 22:48:34.822  INFO 14376 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : method : picture
+2024-03-24 22:48:34.822  INFO 14376 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 22:48:36.350  INFO 14376 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/picture/me/list', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.PictureController.pictures', args=[1, {}, org.apache.catalina.session.StandardSessionFacade@2c528031]}
+2024-03-24 22:48:36.352 DEBUG 14376 --- [http-nio-8080-exec-7] c.j.d.PictureMapper.listPictures_COUNT   : ==>  Preparing: SELECT count(0) FROM t_picture WHERE user_id = ?
+2024-03-24 22:48:36.352 DEBUG 14376 --- [http-nio-8080-exec-7] c.j.d.PictureMapper.listPictures_COUNT   : ==> Parameters: 1(Long)
+2024-03-24 22:48:36.353 DEBUG 14376 --- [http-nio-8080-exec-7] c.j.d.PictureMapper.listPictures_COUNT   : <==      Total: 1
+2024-03-24 22:48:36.354 DEBUG 14376 --- [http-nio-8080-exec-7] c.jxufe.dao.PictureMapper.listPictures   : ==>  Preparing: select * from t_picture where user_id = ? order by create_time desc LIMIT ?
+2024-03-24 22:48:36.354 DEBUG 14376 --- [http-nio-8080-exec-7] c.jxufe.dao.PictureMapper.listPictures   : ==> Parameters: 1(Long), 4(Integer)
+2024-03-24 22:48:36.356 DEBUG 14376 --- [http-nio-8080-exec-7] c.jxufe.dao.PictureMapper.listPictures   : <==      Total: 4
+2024-03-24 22:48:36.357  INFO 14376 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : method : picture
+2024-03-24 22:48:36.357  INFO 14376 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 22:49:01.320  INFO 14376 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/picture/me/list', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.PictureController.pictures', args=[2, {}, org.apache.catalina.session.StandardSessionFacade@2c528031]}
+2024-03-24 22:49:01.322 DEBUG 14376 --- [http-nio-8080-exec-7] c.j.d.PictureMapper.listPictures_COUNT   : ==>  Preparing: SELECT count(0) FROM t_picture WHERE user_id = ?
+2024-03-24 22:49:01.322 DEBUG 14376 --- [http-nio-8080-exec-7] c.j.d.PictureMapper.listPictures_COUNT   : ==> Parameters: 1(Long)
+2024-03-24 22:49:01.323 DEBUG 14376 --- [http-nio-8080-exec-7] c.j.d.PictureMapper.listPictures_COUNT   : <==      Total: 1
+2024-03-24 22:49:01.323 DEBUG 14376 --- [http-nio-8080-exec-7] c.jxufe.dao.PictureMapper.listPictures   : ==>  Preparing: select * from t_picture where user_id = ? order by create_time desc LIMIT ?, ?
+2024-03-24 22:49:01.324 DEBUG 14376 --- [http-nio-8080-exec-7] c.jxufe.dao.PictureMapper.listPictures   : ==> Parameters: 1(Long), 4(Integer), 4(Integer)
+2024-03-24 22:49:01.325 DEBUG 14376 --- [http-nio-8080-exec-7] c.jxufe.dao.PictureMapper.listPictures   : <==      Total: 1
+2024-03-24 22:49:01.325  INFO 14376 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : method : picture
+2024-03-24 22:49:01.325  INFO 14376 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 22:49:03.355  INFO 14376 --- [http-nio-8080-exec-8] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/picture/me/list', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.PictureController.pictures', args=[1, {}, org.apache.catalina.session.StandardSessionFacade@2c528031]}
+2024-03-24 22:49:03.356 DEBUG 14376 --- [http-nio-8080-exec-8] c.j.d.PictureMapper.listPictures_COUNT   : ==>  Preparing: SELECT count(0) FROM t_picture WHERE user_id = ?
+2024-03-24 22:49:03.358 DEBUG 14376 --- [http-nio-8080-exec-8] c.j.d.PictureMapper.listPictures_COUNT   : ==> Parameters: 1(Long)
+2024-03-24 22:49:03.359 DEBUG 14376 --- [http-nio-8080-exec-8] c.j.d.PictureMapper.listPictures_COUNT   : <==      Total: 1
+2024-03-24 22:49:03.359 DEBUG 14376 --- [http-nio-8080-exec-8] c.jxufe.dao.PictureMapper.listPictures   : ==>  Preparing: select * from t_picture where user_id = ? order by create_time desc LIMIT ?
+2024-03-24 22:49:03.359 DEBUG 14376 --- [http-nio-8080-exec-8] c.jxufe.dao.PictureMapper.listPictures   : ==> Parameters: 1(Long), 4(Integer)
+2024-03-24 22:49:03.361 DEBUG 14376 --- [http-nio-8080-exec-8] c.jxufe.dao.PictureMapper.listPictures   : <==      Total: 4
+2024-03-24 22:49:03.362  INFO 14376 --- [http-nio-8080-exec-8] com.jxufe.aspect.LogAspect               : method : picture
+2024-03-24 22:49:03.362  INFO 14376 --- [http-nio-8080-exec-8] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 22:50:26.210  INFO 14376 --- [http-nio-8080-exec-10] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/picture/me/list', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.PictureController.pictures', args=[2, {}, org.apache.catalina.session.StandardSessionFacade@2c528031]}
+2024-03-24 22:50:26.212 DEBUG 14376 --- [http-nio-8080-exec-10] c.j.d.PictureMapper.listPictures_COUNT   : ==>  Preparing: SELECT count(0) FROM t_picture WHERE user_id = ?
+2024-03-24 22:50:26.212 DEBUG 14376 --- [http-nio-8080-exec-10] c.j.d.PictureMapper.listPictures_COUNT   : ==> Parameters: 1(Long)
+2024-03-24 22:50:26.214 DEBUG 14376 --- [http-nio-8080-exec-10] c.j.d.PictureMapper.listPictures_COUNT   : <==      Total: 1
+2024-03-24 22:50:26.215 DEBUG 14376 --- [http-nio-8080-exec-10] c.jxufe.dao.PictureMapper.listPictures   : ==>  Preparing: select * from t_picture where user_id = ? order by create_time desc LIMIT ?, ?
+2024-03-24 22:50:26.215 DEBUG 14376 --- [http-nio-8080-exec-10] c.jxufe.dao.PictureMapper.listPictures   : ==> Parameters: 1(Long), 4(Integer), 4(Integer)
+2024-03-24 22:50:26.217 DEBUG 14376 --- [http-nio-8080-exec-10] c.jxufe.dao.PictureMapper.listPictures   : <==      Total: 1
+2024-03-24 22:50:26.218  INFO 14376 --- [http-nio-8080-exec-10] com.jxufe.aspect.LogAspect               : method : picture
+2024-03-24 22:50:26.218  INFO 14376 --- [http-nio-8080-exec-10] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 22:50:29.305  INFO 14376 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/picture/me/list', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.PictureController.pictures', args=[1, {}, org.apache.catalina.session.StandardSessionFacade@2c528031]}
+2024-03-24 22:50:29.307 DEBUG 14376 --- [http-nio-8080-exec-2] c.j.d.PictureMapper.listPictures_COUNT   : ==>  Preparing: SELECT count(0) FROM t_picture WHERE user_id = ?
+2024-03-24 22:50:29.308 DEBUG 14376 --- [http-nio-8080-exec-2] c.j.d.PictureMapper.listPictures_COUNT   : ==> Parameters: 1(Long)
+2024-03-24 22:50:29.309 DEBUG 14376 --- [http-nio-8080-exec-2] c.j.d.PictureMapper.listPictures_COUNT   : <==      Total: 1
+2024-03-24 22:50:29.310 DEBUG 14376 --- [http-nio-8080-exec-2] c.jxufe.dao.PictureMapper.listPictures   : ==>  Preparing: select * from t_picture where user_id = ? order by create_time desc LIMIT ?
+2024-03-24 22:50:29.310 DEBUG 14376 --- [http-nio-8080-exec-2] c.jxufe.dao.PictureMapper.listPictures   : ==> Parameters: 1(Long), 4(Integer)
+2024-03-24 22:50:29.312 DEBUG 14376 --- [http-nio-8080-exec-2] c.jxufe.dao.PictureMapper.listPictures   : <==      Total: 4
+2024-03-24 22:50:29.313  INFO 14376 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : method : picture
+2024-03-24 22:50:29.313  INFO 14376 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 22:50:55.152  INFO 14376 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-24 22:50:55.155  INFO 14376 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-03-24 22:50:55.164  INFO 14376 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-03-24 22:50:57.816  INFO 28908 --- [restartedMain] com.jxufe.GuideSystemApplication         : Starting GuideSystemApplication using Java 11.0.19 on Kafka with PID 28908 (D:\MyFiles\JAVA\myProjects\learn-community-system\target\classes started by 19233 in D:\MyFiles\JAVA\myProjects\learn-community-system)
+2024-03-24 22:50:57.816 DEBUG 28908 --- [restartedMain] com.jxufe.GuideSystemApplication         : Running with Spring Boot v2.6.4, Spring v5.3.16
+2024-03-24 22:50:57.817  INFO 28908 --- [restartedMain] com.jxufe.GuideSystemApplication         : The following 1 profile is active: "dev"
+2024-03-24 22:50:57.841  INFO 28908 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-03-24 22:50:57.841  INFO 28908 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-03-24 22:50:58.273  INFO 28908 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-24 22:50:58.329  INFO 28908 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 50 ms. Found 5 JPA repository interfaces.
+2024-03-24 22:50:58.739  INFO 28908 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2024-03-24 22:50:58.744  INFO 28908 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-03-24 22:50:58.745  INFO 28908 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2024-03-24 22:50:58.805  INFO 28908 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/dev]    : Initializing Spring embedded WebApplicationContext
+2024-03-24 22:50:58.805  INFO 28908 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 963 ms
+2024-03-24 22:50:58.915  INFO 28908 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-24 22:50:58.940  INFO 28908 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.5.Final
+2024-03-24 22:50:59.020  INFO 28908 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-03-24 22:50:59.080  INFO 28908 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-03-24 22:50:59.289  INFO 28908 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-03-24 22:50:59.301  INFO 28908 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2024-03-24 22:50:59.811  INFO 28908 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-03-24 22:50:59.816  INFO 28908 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-24 22:51:00.448  WARN 28908 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-03-24 22:51:00.616  INFO 28908 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-03-24 22:51:00.882  INFO 28908 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-03-24 22:51:00.905  INFO 28908 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/dev'
+2024-03-24 22:51:00.912  INFO 28908 --- [restartedMain] com.jxufe.GuideSystemApplication         : Started GuideSystemApplication in 3.414 seconds (JVM running for 4.206)
+2024-03-24 22:51:14.544  INFO 28908 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/dev]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-24 22:51:14.544  INFO 28908 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-03-24 22:51:14.545  INFO 28908 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-03-24 22:51:15.838  INFO 28908 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/login', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.UserController.doLoginPage', args=[]}
+2024-03-24 22:51:15.851  INFO 28908 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : method : login
+2024-03-24 22:51:15.852  INFO 28908 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 22:51:16.144  INFO 28908 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/codeImage', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.VerificationController.doGet', args=[org.apache.catalina.connector.RequestFacade@17e18f45, org.apache.catalina.connector.ResponseFacade@2d9e8523]}
+2024-03-24 22:51:16.447  INFO 28908 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : method : null
+2024-03-24 22:51:16.447  INFO 28908 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 22:51:20.963  INFO 28908 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/login/success', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.UserController.doLogin', args=[org.apache.catalina.connector.ResponseFacade@2d9e8523, hyf, hyfhsy, 6bxn, org.apache.catalina.session.StandardSessionFacade@4853c458, {}]}
+2024-03-24 22:51:20.990 DEBUG 28908 --- [http-nio-8080-exec-6] c.j.d.UserDao.findByUsernameAndPassword  : ==>  Preparing: select * from t_user where username = ? and password = ?
+2024-03-24 22:51:20.996 DEBUG 28908 --- [http-nio-8080-exec-6] c.j.d.UserDao.findByUsernameAndPassword  : ==> Parameters: hyf(String), f3b53cbd7fe408bb281efaf5d94f05c2(String)
+2024-03-24 22:51:21.005 DEBUG 28908 --- [http-nio-8080-exec-6] c.j.d.UserDao.findByUsernameAndPassword  : <==      Total: 1
+2024-03-24 22:51:21.011  INFO 28908 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : method : redirect:/user_index
+2024-03-24 22:51:21.011  INFO 28908 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 22:51:21.035  INFO 28908 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/user_index', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.IndexController.doUserIndex', args=[Page request [number: 0, size 6, sort: updateTime: DESC], {}]}
+2024-03-24 22:51:21.119  WARN 28908 --- [http-nio-8080-exec-7] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.resources.size]; use collection function syntax instead [size(t.resources)].
+2024-03-24 22:51:21.132  INFO 28908 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : method : user_index
+2024-03-24 22:51:21.133  INFO 28908 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 22:51:24.344  INFO 28908 --- [http-nio-8080-exec-8] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/picture/me/list', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.PictureController.pictures', args=[1, {}, org.apache.catalina.session.StandardSessionFacade@4853c458]}
+2024-03-24 22:51:24.369 DEBUG 28908 --- [http-nio-8080-exec-8] c.j.d.PictureMapper.listPictures_COUNT   : ==>  Preparing: SELECT count(0) FROM t_picture WHERE user_id = ?
+2024-03-24 22:51:24.370 DEBUG 28908 --- [http-nio-8080-exec-8] c.j.d.PictureMapper.listPictures_COUNT   : ==> Parameters: 1(Long)
+2024-03-24 22:51:24.371 DEBUG 28908 --- [http-nio-8080-exec-8] c.j.d.PictureMapper.listPictures_COUNT   : <==      Total: 1
+2024-03-24 22:51:24.373 DEBUG 28908 --- [http-nio-8080-exec-8] c.jxufe.dao.PictureMapper.listPictures   : ==>  Preparing: select * from t_picture where user_id = ? order by create_time desc LIMIT ?
+2024-03-24 22:51:24.373 DEBUG 28908 --- [http-nio-8080-exec-8] c.jxufe.dao.PictureMapper.listPictures   : ==> Parameters: 1(Long), 4(Integer)
+2024-03-24 22:51:24.375 DEBUG 28908 --- [http-nio-8080-exec-8] c.jxufe.dao.PictureMapper.listPictures   : <==      Total: 4
+2024-03-24 22:51:24.388  INFO 28908 --- [http-nio-8080-exec-8] com.jxufe.aspect.LogAspect               : method : picture
+2024-03-24 22:51:24.388  INFO 28908 --- [http-nio-8080-exec-8] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 22:52:02.635  INFO 28908 --- [http-nio-8080-exec-8] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/picture/me/list', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.PictureController.pictures', args=[2, {}, org.apache.catalina.session.StandardSessionFacade@4853c458]}
+2024-03-24 22:52:02.637 DEBUG 28908 --- [http-nio-8080-exec-8] c.j.d.PictureMapper.listPictures_COUNT   : ==>  Preparing: SELECT count(0) FROM t_picture WHERE user_id = ?
+2024-03-24 22:52:02.637 DEBUG 28908 --- [http-nio-8080-exec-8] c.j.d.PictureMapper.listPictures_COUNT   : ==> Parameters: 1(Long)
+2024-03-24 22:52:02.638 DEBUG 28908 --- [http-nio-8080-exec-8] c.j.d.PictureMapper.listPictures_COUNT   : <==      Total: 1
+2024-03-24 22:52:02.639 DEBUG 28908 --- [http-nio-8080-exec-8] c.jxufe.dao.PictureMapper.listPictures   : ==>  Preparing: select * from t_picture where user_id = ? order by create_time desc LIMIT ?, ?
+2024-03-24 22:52:02.639 DEBUG 28908 --- [http-nio-8080-exec-8] c.jxufe.dao.PictureMapper.listPictures   : ==> Parameters: 1(Long), 4(Integer), 4(Integer)
+2024-03-24 22:52:02.640 DEBUG 28908 --- [http-nio-8080-exec-8] c.jxufe.dao.PictureMapper.listPictures   : <==      Total: 1
+2024-03-24 22:52:02.641  INFO 28908 --- [http-nio-8080-exec-8] com.jxufe.aspect.LogAspect               : method : picture
+2024-03-24 22:52:02.641  INFO 28908 --- [http-nio-8080-exec-8] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 22:52:15.480  INFO 28908 --- [http-nio-8080-exec-10] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/picture/me/list', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.PictureController.pictures', args=[1, {}, org.apache.catalina.session.StandardSessionFacade@4853c458]}
+2024-03-24 22:52:15.482 DEBUG 28908 --- [http-nio-8080-exec-10] c.j.d.PictureMapper.listPictures_COUNT   : ==>  Preparing: SELECT count(0) FROM t_picture WHERE user_id = ?
+2024-03-24 22:52:15.483 DEBUG 28908 --- [http-nio-8080-exec-10] c.j.d.PictureMapper.listPictures_COUNT   : ==> Parameters: 1(Long)
+2024-03-24 22:52:15.484 DEBUG 28908 --- [http-nio-8080-exec-10] c.j.d.PictureMapper.listPictures_COUNT   : <==      Total: 1
+2024-03-24 22:52:15.484 DEBUG 28908 --- [http-nio-8080-exec-10] c.jxufe.dao.PictureMapper.listPictures   : ==>  Preparing: select * from t_picture where user_id = ? order by create_time desc LIMIT ?
+2024-03-24 22:52:15.484 DEBUG 28908 --- [http-nio-8080-exec-10] c.jxufe.dao.PictureMapper.listPictures   : ==> Parameters: 1(Long), 4(Integer)
+2024-03-24 22:52:15.486 DEBUG 28908 --- [http-nio-8080-exec-10] c.jxufe.dao.PictureMapper.listPictures   : <==      Total: 4
+2024-03-24 22:52:15.487  INFO 28908 --- [http-nio-8080-exec-10] com.jxufe.aspect.LogAspect               : method : picture
+2024-03-24 22:52:15.487  INFO 28908 --- [http-nio-8080-exec-10] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-03-24 22:52:35.818  INFO 28908 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-24 22:52:35.823  INFO 28908 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-03-24 22:52:35.835  INFO 28908 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

@@ -66,7 +66,7 @@
               </div>
             </div>
             <button type="submit" class="ui blue basic button">确认修改</button>
-            <div class="ui clear button">Clear</div>
+            <div class="ui clear button">重置</div>
             <div class="ui error message"></div>
           </form>
         </div>
@@ -129,6 +129,7 @@
 </th:block>
 
 <script>
+
     $('.clear.button').click(() => {
         $('.ui.error.message').css('display', 'none');
     });
@@ -166,24 +167,17 @@
                         prompt: '新密码至少为 {ruleValue} 字符'
                     }
                 ]
+            },
+            confirmPwd: {
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: '确认新密码不能为空'
+                    }
+                ]
             }
         },
     });
-
-    /*$(document).ready(function() {
-        $('.ui.form').on('submit', function(event) {
-            event.preventDefault(); // 阻止表单默认提交行为
-
-            var newPwd = $('[name="newPwd"]').val();
-            var confirmPwd = $('[name="confirmPwd"]').val();
-
-            if (newPwd !== confirmPwd) {
-                $('.ui.error.message').text('两次输入的密码不一致');
-                return false;
-            }
-
-        });
-    });*/
 
 </script>
 

@@ -1,5 +1,6 @@
 package com.jxufe.service.implement;
 
+import com.github.pagehelper.Page;
 import com.jxufe.dao.PictureMapper;
 import com.jxufe.entity.Picture;
 import com.jxufe.service.PictureService;
@@ -15,7 +16,7 @@ public class PictureServiceImpl implements PictureService {
     private PictureMapper pictureMapper;
 
     @Override
-    public List<Picture> listPictures(Long userId) {
+    public Page<Picture> listPictures(Long userId) {
         return pictureMapper.listPictures(userId);
     }
 

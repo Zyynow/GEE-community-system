@@ -2,6 +2,8 @@ spring:
   thymeleaf:
     mode: HTML
     cache: false
+  main:
+    allow-circular-references: true # 解决pagehelper依赖版本过低导致的"循环依赖"
 
   profiles:
     active: dev

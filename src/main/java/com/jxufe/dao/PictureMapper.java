@@ -1,5 +1,6 @@
 package com.jxufe.dao;
 
+import com.github.pagehelper.Page;
 import com.jxufe.entity.Picture;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
@@ -9,7 +10,7 @@ import java.util.List;
 @Mapper
 public interface PictureMapper {
 
-    List<Picture> listPictures(Long userId);
+    Page<Picture> listPictures(Long userId);
 
     int savePicture(Picture picture);
 

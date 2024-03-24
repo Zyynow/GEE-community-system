@@ -94,7 +94,7 @@
       </div>
     </div>
   </div>
-  <div id="picture-main" style="margin-left: 12px">
+  <div id="picture-main" style="margin-left: 12px; margin-right: -10px">
     <article class="thumb" th:each="picture, iterStat: ${pagePicture.list}">
       <div>
         <div class="rthumbnail">
@@ -193,17 +193,18 @@
     <div class="ui  aligned two column grid"> <!-- middle aligned:垂直方向居中 -->
       <!--左侧-->
       <th:block
-          th:with="targetUrl = ${session.user == null ? '/list/' + user.id : '/me/list'}">
+          th:with="targetUrl = ${session.user == null ? '/picture/list/' + user.id : '/picture/me/list'}">
         <div class="left aligned column" style="padding-left: 2em !important;">
-          <a href="#" th:href="@{__${targetUrl}__(pagePicture=${pagePicture.number}-1)}"
+          <a href="#" th:href="@{__${targetUrl}__(pageNum=${pagePicture.hasPreviousPage}?${pagePicture.prePage}:1)}"
              th:unless="${pagePicture.isFirstPage}" class="ui mini blue basic button">上一页</a> <!-- 小按钮 -->
         </div>
       </th:block>
       <!--右侧-->
       <th:block
-          th:with="targetUrl = ${session.user == null ? '/list/' + user.id : '/me/list'}">
-        <div class="right aligned column" style="padding-right: 2em !important;">
-          <a href="#" th:href="@{__${targetUrl}__(pagePicture=${pagePicture.number}+1)}"
+          th:with="targetUrl = ${session.user == null ? '/picture/list/' + user.id : '/picture/me/list'}">
+        <div class="right aligned column" style="padding-right: 2.2em !important;">
+          <a href="#"
+             th:href="@{__${targetUrl}__(pageNum=${pagePicture.hasNextPage}?${pagePicture.nextPage}:${pagePicture.pages})}"
              th:unless="${pagePicture.isLastPage}" class="ui mini blue basic button">下一页</a> <!-- 小按钮 -->
         </div>
       </th:block>
@@ -239,6 +240,7 @@
   </div>
 
 </div>
+<br>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>

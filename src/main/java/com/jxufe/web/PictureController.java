@@ -1,5 +1,6 @@
 package com.jxufe.web;
 
+import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.jxufe.entity.Picture;
@@ -30,10 +31,9 @@ public class PictureController {
     public String pictures(@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum,
                            Model model, HttpSession session) {
         User user = (User) session.getAttribute("user");
-        List<Picture> pictures = pictureService.listPictures(user.getId());
         PageHelper.startPage(pageNum, 4);
-        PageInfo<Picture> page = new PageInfo<>(pictures);
-        System.out.println(page.getTotal() + "" + page.getList());
+        PageInfo<Picture> page = pictureService.listPictures(user.getId()).toPageInfo();
+        System.out.println(page.getTotal() + " " + page.getPages() + " " + page.getList());
         model.addAttribute("user", user);
         model.addAttribute("pagePicture", page);
         return "picture";
@@ -44,7 +44,8 @@ public class PictureController {
                                     @PathVariable Long id, Model model, HttpSession session) {
         List<Picture> pictures = pictureService.listPictures(id);
         PageHelper.startPage(pageNum, 4);
-        PageInfo<Picture> page = new PageInfo<>(pictures);
+        PageInfo<Picture> page = pictureService.listPictures(id).toPageInfo();
+        System.out.println(page.getTotal() + " " + page.getPages() + " " + page.getList());
         model.addAttribute("user", userService.findUserById(id));
         model.addAttribute("pagePicture", page);
         return "picture";
