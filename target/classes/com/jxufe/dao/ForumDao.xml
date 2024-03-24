@@ -6,42 +6,45 @@
 <mapper namespace="com.jxufe.dao.ForumDao">
     <insert id="joinForum">
         insert into t_forum_users(forums_id, users_id)
-        values(#{forumId}, #{userId})
+        values (#{forumId}, #{userId})
     </insert>
 
     <delete id="exitForum">
-        delete from t_forum_users where forums_id = #{forumId} and users_id = #{userId}
+        delete
+        from t_forum_users
+        where forums_id = #{forumId}
+          and users_id = #{userId}
     </delete>
 
     <select id="findListForums" resultType="com.jxufe.entity.Forum">
-        select * from t_forum order by popular DESC
+        select *
+        from t_forum
+        order by popular DESC
     </select>
 
     <select id="findForumById" resultType="com.jxufe.entity.Forum">
-        select * from t_forum where id = #{id}
+        select *
+        from t_forum
+        where id = #{id}
     </select>
 
     <select id="findJoinForumsByUserId" resultType="com.jxufe.entity.Forum">
-        SELECT tt.* FROM (
-		SELECT
-			t_forum.*, IFNULL(t_forum_users.users_id, 0) as uid
-		FROM
-			t_forum
-		LEFT JOIN t_forum_users ON t_forum_users.users_id = #{id}
-		AND t_forum_users.forums_id = t_forum.id
-			) AS tt
-		WHERE uid = #{id}
+        SELECT tt.*
+        FROM (SELECT t_forum.*,
+                     IFNULL(t_forum_users.users_id, 0) as uid
+              FROM t_forum
+                       LEFT JOIN t_forum_users ON t_forum_users.users_id = #{id}
+                  AND t_forum_users.forums_id = t_forum.id) AS tt
+        WHERE uid = #{id}
     </select>
 
     <select id="findNotJoinForumsByUserId" resultType="com.jxufe.entity.Forum">
-        SELECT tt.* FROM (
-		SELECT
-			t_forum.*, IFNULL(t_forum_users.users_id, 0) as uid
-		FROM
-			t_forum
-		LEFT JOIN t_forum_users ON t_forum_users.users_id = #{id}
-		AND t_forum_users.forums_id = t_forum.id
-			) AS tt
-		WHERE uid = 0
+        SELECT tt.*
+        FROM (SELECT t_forum.*,
+                     IFNULL(t_forum_users.users_id, 0) as uid
+              FROM t_forum
+                       LEFT JOIN t_forum_users ON t_forum_users.users_id = #{id}
+                  AND t_forum_users.forums_id = t_forum.id) AS tt
+        WHERE uid = 0
     </select>
 </mapper>

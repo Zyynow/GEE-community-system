@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
   <link rel="stylesheet" href="../static/css/animate.css" th:href="@{/css/animate.css}">
   <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
+  <link rel="stylesheet" href="../static/css/friends_record.css" th:href="@{/css/me.css}">
 </head>
 <body class="friendBody">
 
@@ -67,7 +68,6 @@
     </div>
   </div>
 </div>
-
 
 <!--中间内容-->
 <div class="m-margin- animated animate__fadeIn">
@@ -183,76 +183,6 @@
   </div>
 </div>
 <br>
-
-<style>
-    /* 自定义样式 */
-    .chat-history {
-        height: calc(100% - 7em);
-        padding-bottom: 1em;
-    }
-
-    .avatar {
-        width: 40px;
-        height: 40px;
-        margin-right: 1em;
-    }
-
-    .bubble {
-        background-color: #F5F5F5;
-        border-radius: 10px;
-        padding: 10px;
-        max-width: 75%;
-    }
-
-    .bubble.ta {
-        float: left; /* 让消息气泡和头像浮动到右侧 */
-    }
-
-    .avatar.ta {
-        float: left !important;
-        margin-left: 0;
-    }
-
-    .meta .date {
-        color: #999;
-    }
-
-    textarea {
-        resize: none;
-        width: 100%;
-    }
-
-    .send-message-btn {
-        margin-top: 0.5em;
-    }
-
-    /* 添加新的CSS样式 */
-    .message-input-area {
-        position: sticky;
-        bottom: 0;
-        background-color: white;
-        border-top: 1px solid #ddd;
-        box-sizing: border-box;
-        padding: 1em;
-        z-index: 1;
-    }
-
-    /* 针对右侧消息进行定制 */
-    .image.avatar.me {
-        direction: rtl; /* 将内容反转以使头像显示在右侧 */
-    }
-
-    .item.reply .content .bubble.me,
-    .item.reply .content .avatar {
-        margin-right: 1em;
-        float: right; /* 让消息气泡和头像浮动到右侧 */
-    }
-
-    .item.reply .content .avatar {
-        margin-left: 0.5em; /* 调整头像与消息之间的间距 */
-        margin-right: 0;
-    }
-</style>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>

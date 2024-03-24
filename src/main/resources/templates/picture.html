@@ -10,6 +10,21 @@
   <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
   <link rel="stylesheet" href="../static/lib/picture/css/jkresponsivegallery.css"
         th:href="@{/lib/picture/css/jkresponsivegallery.css}">
+
+  <style>
+      .edit-delete-buttons {
+          position: relative;
+          float: right;
+          padding-right: 30px;
+      }
+
+      /* 根据需要调整按钮的垂直对齐方式 */
+      .edit-delete-buttons .ui.button {
+          color: #f17000;
+          opacity: 0.9;
+          border-radius: 0.6em;
+      }
+  </style>
 </head>
 <body class="archiveBody">
 
@@ -66,9 +81,22 @@
 
 <!--照片墙-->
 <div class="ui m-container-alter transparent-segment segment m-margin-tb-large">
+  <div class="m-margin-buttom-large" th:if="${session.user?.id == user?.id}"> <!--就不管啥安全不安全的了-->
+    <div class="ui form" style="float: right !important;">
+      <div class="inline field" style="padding-right: 18px;">
+        <div class="ui toggle checkbox">
+          <input type="checkbox" tabindex="0" class="hidden">
+          <label style="font-weight: bold">操作</label>
+        </div>
+        <button class="circle-button" style="border-radius: .9rem !important; color: #f17000" id="addPicture">
+          添加
+        </button>
+      </div>
+    </div>
+  </div>
   <div id="picture-main" style="margin-left: 12px">
-    <article class="thumb" th:each="picture : ${pictures}">
-      <div class="ma5-gallery">
+    <article class="thumb" th:each="picture, iterStat: ${pagePicture.list}">
+      <div>
         <div class="rthumbnail">
           <a href="../static/images/archiveImg_2.jpg" th:href="@{${picture.pictureAddress}}">
             <img class="picture-zmki_px" src="../static/images/archiveImg_2.jpg" style="border-radius: .6rem !important"
@@ -84,10 +112,14 @@
           </div>
         </div>
       </div>
+      <div class="edit-delete-buttons" style="position: relative; display: none;">
+        <div class="ui button" onclick="editPicture()">编辑</div>
+        <div class="ui button danger" onclick="deletePicture()">删除</div>
+      </div>
     </article>
     <!--/*-->
     <article class="thumb">
-      <div class="ma5-gallery">
+      <div>
         <div class="rthumbnail">
           <a href="../static/images/archiveImg_1.jpg" th:href="@{${picture.pictureaddress}}">
             <img class="picture-zmki_px" src="../static/images/archiveImg_1.jpg" style="border-radius: .6rem !important"
@@ -103,9 +135,13 @@
           </div>
         </div>
       </div>
+      <div class="edit-delete-buttons" style="position: relative; display: none;">
+        <div class="ui button" onclick="editPicture()">编辑</div>
+        <div class="ui button danger" onclick="deletePicture()">删除</div>
+      </div>
     </article>
     <article class="thumb">
-      <div class="ma5-gallery">
+      <div>
         <div class="rthumbnail">
           <a href="../static/images/archiveImg_1.jpg" th:href="@{${picture.pictureaddress}}">
             <img class="picture-zmki_px" src="../static/images/archiveImg_1.jpg" style="border-radius: .6rem !important"
@@ -121,9 +157,13 @@
           </div>
         </div>
       </div>
+      <div class="edit-delete-buttons" style="position: relative; display: none;">
+        <div class="ui button" onclick="editPicture()">编辑</div>
+        <div class="ui button danger" onclick="deletePicture()">删除</div>
+      </div>
     </article>
     <article class="thumb">
-      <div class="ma5-gallery">
+      <div>
         <div class="rthumbnail">
           <a href="../static/images/archiveImg.jpg" th:href="@{${picture.pictureaddress}}">
             <img class="picture-zmki_px" src="../static/images/archiveImg.jpg" style="border-radius: .6rem !important"
@@ -139,34 +179,145 @@
           </div>
         </div>
       </div>
+      <div class="edit-delete-buttons" style="position: relative; display: none;">
+        <div class="ui button" onclick="editPicture()">编辑</div>
+        <div class="ui button danger" onclick="deletePicture()">删除</div>
+      </div>
     </article>
     <!--*/-->
   </div>
+
+  <!--footer-->
+  <div class="ui attached segment" style="background-color: transparent !important; border-style: none"
+       th:if="${pagePicture.total}>1">
+    <div class="ui  aligned two column grid"> <!-- middle aligned:垂直方向居中 -->
+      <!--左侧-->
+      <th:block
+          th:with="targetUrl = ${session.user == null ? '/list/' + user.id : '/me/list'}">
+        <div class="left aligned column" style="padding-left: 2em !important;">
+          <a href="#" th:href="@{__${targetUrl}__(pagePicture=${pagePicture.number}-1)}"
+             th:unless="${pagePicture.isFirstPage}" class="ui mini blue basic button">上一页</a> <!-- 小按钮 -->
+        </div>
+      </th:block>
+      <!--右侧-->
+      <th:block
+          th:with="targetUrl = ${session.user == null ? '/list/' + user.id : '/me/list'}">
+        <div class="right aligned column" style="padding-right: 2em !important;">
+          <a href="#" th:href="@{__${targetUrl}__(pagePicture=${pagePicture.number}+1)}"
+             th:unless="${pagePicture.isLastPage}" class="ui mini blue basic button">下一页</a> <!-- 小按钮 -->
+        </div>
+      </th:block>
+    </div>
+  </div>
+
+  <!--添加图片模态框-->
+  <div class="ui addPicture modal">
+    <i class="close icon"></i>
+    <h3 style="padding-left: 1em !important; font-size: x-large !important; padding-bottom: 0.1em !important;">
+      添加图片</h3>
+    <form class="ui form segment">
+      <div class="two fields">
+        <div class="field" style="width: 30% !important;">
+          <label>名称</label>
+          <input placeholder="请输入名称..." name="pictureName" type="text">
+        </div>
+        <div class="field" style="width: 70% !important;">
+          <label>链接</label>
+          <input placeholder="请输入图片链接..." name="pictureLink" type="text">
+        </div>
+      </div>
+      <div class="field">
+        <label>描述</label>
+        <textarea placeholder="请输入描述..." name="description" type="text" style="height: 80px"></textarea>
+      </div>
+      <div class="actions">
+        <div class="ui primary submit button">提交</div>
+        <div class="ui clear button">重置</div>
+        <div class="ui error message"></div>
+      </div>
+    </form>
+  </div>
+
 </div>
-<br>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
-<script src="../static/lib/picture/js/jkresponsivegallery.js" th:src="@{/lib/picture/js/jkresponsivegallery.js}"></script>
-<script src="../static/lib/waypoints/jquery.waypoints.min.js" th:src="@{/lib/waypoints/jquery.waypoints.min.js}"></script>
+<script src="../static/lib/picture/js/jkresponsivegallery.js"
+        th:src="@{/lib/picture/js/jkresponsivegallery.js}"></script>
+<script src="../static/lib/waypoints/jquery.waypoints.min.js"
+        th:src="@{/lib/waypoints/jquery.waypoints.min.js}"></script>
 <script src="https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
-
 <script>
 
     $('.ui.dropdown').dropdown({
         on: 'hover'
     });
 
-    $(function () {
-        $('.rthumbnail').responsivegallery();
-    });
-
     $('.menu.toggle').click(function () {
         $('.m-item').toggleClass('m-mobile-hide');
     });
 
-</script>
+    // 初始化checkbox组件
+    $('.ui.checkbox').checkbox();
 
+    // 监听checkbox的状态改变
+    $('.ui.checkbox input[type="checkbox"]').on('change', function () {
+        const isChecked = $(this).is(':checked');
+
+        if (isChecked) {
+            // 当checkbox被选中时显示按钮
+            $('#picture-main .edit-delete-buttons').show();
+        } else {
+            // 当checkbox未被选中时隐藏按钮
+            $('#picture-main .edit-delete-buttons').hide();
+        }
+    });
+
+    // 定义编辑和删除图片的函数
+    function editPicture(pictureId) {
+        // 实现图片编辑功能的逻辑...
+        console.log("editPicture");
+    }
+
+    function deletePicture(pictureId) {
+        // 实现图片删除功能的逻辑...
+        console.log("deletePicture");
+    }
+
+    $(function () {
+        $('.rthumbnail').responsivegallery();
+    });
+
+    $('#addPicture').click(() => {
+        $('.ui.addPicture.modal').modal('show');
+    })
+
+    $('.clear.button').click(() => {
+        $('.ui.error.message').css('display', 'none');
+    });
+
+    $('.submit.button').on('click', function () {
+        $('.ui.error.message').css('display', 'block');
+    })
+
+    $('.ui.form').form({
+        fields: {
+            pictureName: {
+                rules: [{
+                    type: 'empty',
+                    prompt: '图片名称不能为空'
+                }]
+            },
+            pictureLink: {
+                rules: [{
+                    type: 'empty',
+                    prompt: '图片链接不能为空'
+                }]
+            }
+        },
+    });
+
+</script>
 
 </body>
 </html>

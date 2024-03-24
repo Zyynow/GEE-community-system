@@ -12,47 +12,69 @@
 -->
 <mapper namespace="com.jxufe.dao.UserDao">
     <select id="findByUsernameAndPassword" resultType="com.jxufe.entity.User">
-        select * from t_user where username = #{username} and password = #{password}
+        select *
+        from t_user
+        where username = #{username}
+          and password = #{password}
     </select>
 
     <insert id="saveUser" parameterType="com.jxufe.entity.User">
         insert into t_user(username, password, nickname, email, sex, create_time, avatar, blog_num)
-        values(#{username}, #{password}, #{nickname}, #{email}, #{sex}, #{createTime}, #{avatar}, #{blogNum});
+        values (#{username}, #{password}, #{nickname}, #{email}, #{sex}, #{createTime}, #{avatar}, #{blogNum});
     </insert>
 
     <select id="findByUsername" resultType="com.jxufe.entity.User">
-        select * from t_user where username = #{username}
+        select *
+        from t_user
+        where username = #{username}
     </select>
 
     <update id="updateUserInfo" parameterType="com.jxufe.entity.User">
-        update t_user set
-        nickname = #{nickname}, email = #{email}, sex = #{sex}, dream_college = #{dreamCollege},
-        avatar = #{avatar}, description = #{description}, signature = #{signature},
-        academic = #{academic}, school = #{school}, enrollment_time = #{enrollmentTime},
-        filed = #{filed}, address = #{address}, update_time = #{updateTime}
+        update t_user
+        set nickname        = #{nickname},
+            email           = #{email},
+            sex             = #{sex},
+            dream_college   = #{dreamCollege},
+            avatar          = #{avatar},
+            description     = #{description},
+            signature       = #{signature},
+            academic        = #{academic},
+            school          = #{school},
+            enrollment_time = #{enrollmentTime},
+            filed           = #{filed},
+            address         = #{address},
+            update_time     = #{updateTime}
         where id = #{id}
     </update>
 
     <insert id="addFeedback" parameterType="com.jxufe.entity.Feedback">
         insert into t_feedback(title, content, create_time)
-        values(#{title}, #{content}, #{createTime})
+        values (#{title}, #{content}, #{createTime})
     </insert>
 
     <update id="checkAndUpdatePassword">
-        update t_user set
-        password = #{newPassword} where password = #{oldPassword} and username = #{username}
+        update t_user
+        set password = #{newPassword}
+        where password = #{oldPassword}
+          and username = #{username}
     </update>
 
     <select id="findUserById" resultType="com.jxufe.entity.User" parameterType="java.lang.Long">
-        select * from t_user where id = #{id}
+        select *
+        from t_user
+        where id = #{id}
     </select>
 
     <select id="checkPassword" resultType="com.jxufe.entity.User">
-        select * from t_user where username = #{username} and password = #{oldPwd}
+        select *
+        from t_user
+        where username = #{username}
+          and password = #{oldPwd}
     </select>
 
     <update id="updateBlogNum">
-        update t_user set
-        blog_num = blog_num + 1 where id = #{id}
+        update t_user
+        set blog_num = blog_num + 1
+        where id = #{id}
     </update>
 </mapper>

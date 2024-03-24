@@ -39,7 +39,7 @@ public class IndexController {
                                       Pageable pageable, Model model, HttpServletRequest request) {
         request.getSession().setAttribute("lastPath", request.getServletPath());
 
-        model.addAttribute("page", resourceService.listResource(pageable)); //拿到分页查询的数据
+        model.addAttribute("page", resourceService.listResource(pageable)); // 拿到分页查询的数据
         model.addAttribute("types", typeService.listTypeTop(6));
         model.addAttribute("recommendResources", resourceService.listRecommendResourceTop(2));
         if (request.getSession().getAttribute("user") != null) {
@@ -51,7 +51,7 @@ public class IndexController {
     @GetMapping("/user_index")
     public String doUserIndex(@PageableDefault(size = 6, sort = {"updateTime"}, direction = Sort.Direction.DESC)
                                       Pageable pageable, Model model) {
-        model.addAttribute("page", resourceService.listResource(pageable)); //拿到分页查询的数据
+        model.addAttribute("page", resourceService.listResource(pageable)); // 拿到分页查询的数据
         model.addAttribute("types", typeService.listTypeTop(6));
         model.addAttribute("recommendResources", resourceService.listRecommendResourceTop(2));
         return "user_index";
