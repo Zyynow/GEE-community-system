@@ -36,14 +36,15 @@ public class ResourceController {
 
     /**
      * 执行分页查询，以时间倒叙排序
-     * @param model 模型
+     *
+     * @param model    模型
      * @param resource 指南
      * @param pageable 页面
      * @return
      */
     @GetMapping("/resources")
     public String doResources(@PageableDefault(size = 6, sort = {"updateTime"}, direction = Sort.Direction.DESC)
-                                      Pageable pageable, Model model, ResourceQuery resource) {
+                              Pageable pageable, Model model, ResourceQuery resource) {
         model.addAttribute("types", typeService.listType());
         model.addAttribute("pages", resourceService.listResource(pageable, resource));
         return "/admin/resources";
@@ -51,7 +52,7 @@ public class ResourceController {
 
     @GetMapping("/resources/search")
     public String doSearch(@PageableDefault(size = 6, sort = {"updateTime"}, direction = Sort.Direction.DESC)
-                                       Pageable pageable, Model model, ResourceQuery resource) {
+                           Pageable pageable, Model model, ResourceQuery resource) {
         model.addAttribute("pages", resourceService.listResource(pageable, resource));
         return "/admin/resources";
     }

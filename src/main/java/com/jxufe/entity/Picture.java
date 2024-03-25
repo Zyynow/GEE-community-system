@@ -35,6 +35,5 @@ public class Picture implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date updateTime;
 
-    @ManyToOne
-    private User user;
+    private Long userId;
 }

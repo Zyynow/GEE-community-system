@@ -33,7 +33,7 @@ public class PictureController {
         User user = (User) session.getAttribute("user");
         PageHelper.startPage(pageNum, 4);
         PageInfo<Picture> page = pictureService.listPictures(user.getId()).toPageInfo();
-        System.out.println(page.getTotal() + " " + page.getPages() + " " + page.getList());
+//        System.out.println(page.getTotal() + " " + page.getPages() + " " + page.getList());
         model.addAttribute("user", user);
         model.addAttribute("pagePicture", page);
         return "picture";
@@ -41,55 +41,47 @@ public class PictureController {
 
     @GetMapping("/list/{id}")
     public String listPictureByUser(@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum,
-                                    @PathVariable Long id, Model model, HttpSession session) {
-        List<Picture> pictures = pictureService.listPictures(id);
+                                    @PathVariable Long id, Model model) {
         PageHelper.startPage(pageNum, 4);
         PageInfo<Picture> page = pictureService.listPictures(id).toPageInfo();
-        System.out.println(page.getTotal() + " " + page.getPages() + " " + page.getList());
+//        System.out.println(page.getTotal() + " " + page.getPages() + " " + page.getList());
         model.addAttribute("user", userService.findUserById(id));
         model.addAttribute("pagePicture", page);
         return "picture";
     }
 
-    @GetMapping("/me/input")
-    public String input(Model model) {
-        model.addAttribute("picture", new Picture());
-        return "输入返回路径";
-    }
-
     @PostMapping("/me/save")
-    public String post(@Valid Picture picture, RedirectAttributes attributes) {
-        int p = pictureService.savePicture(picture);
+    public String savePost(@Valid Picture picture, RedirectAttributes attributes, HttpSession session) {
+        int p = pictureService.savePicture(picture, session);
         if (p == 0) {
-            attributes.addFlashAttribute("message", "新增失败");
-            return "redirect:输入转发路径";
+            attributes.addFlashAttribute("messageFailed", "添加失败了哦，找找是什么原因吧");
         } else {
-            attributes.addFlashAttribute("message", "新增成功");
+            attributes.addFlashAttribute("messageSuccessful", "添加成功啦！");
         }
-        return "redirect:输入转发路径";
+        return "redirect:/picture/me/list";
     }
 
-    @GetMapping("/me/{id}/input")
-    public String editInput(@PathVariable Long id, Model model) {
-        model.addAttribute("picture", pictureService.getPictureById(id));
-        return "输入返回路径";
+    @GetMapping("/me/{id}")
+    @ResponseBody
+    public Picture doEdit(@PathVariable Long id, Model model) {
+        return pictureService.getPictureById(id);
     }
 
-    @PostMapping("/me/{id}")
+    @PostMapping("/me/edit")
     public String editPost(@Valid Picture picture, RedirectAttributes attributes) {
         int p = pictureService.updatePicture(picture);
         if (p == 0) {
-            attributes.addFlashAttribute("message", "修改失败");
+            attributes.addFlashAttribute("messageFailed", "修改失败了哦，找找是什么原因吧");
         } else {
-            attributes.addFlashAttribute("message", "修改成功");
+            attributes.addFlashAttribute("messageSuccessful", "修改成功啦！");
         }
-        return "redirect:输入转发路径";
+        return "redirect:/picture/me/list";
     }
 
-    @GetMapping("/me/{id}/delete")
+    @GetMapping("/me/delete/{id}")
     public String deletePicture(@PathVariable Long id, RedirectAttributes attributes) {
         pictureService.deletePicture(id);
-        attributes.addFlashAttribute("message", "删除成功");
-        return "redirect:输入转发路径";
+        attributes.addFlashAttribute("messageSuccessful", "删除成功啦！");
+        return "redirect:/picture/me/list";
     }
 }

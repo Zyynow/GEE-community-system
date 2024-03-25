@@ -98,23 +98,23 @@
     <article class="thumb" th:each="picture, iterStat: ${pagePicture.list}">
       <div>
         <div class="rthumbnail">
-          <a href="../static/images/archiveImg_2.jpg" th:href="@{${picture.pictureAddress}}">
+          <a href="../static/images/archiveImg_2.jpg" th:href="@{${picture?.pictureAddress}}">
             <img class="picture-zmki_px" src="../static/images/archiveImg_2.jpg" style="border-radius: .6rem !important"
-                 th:src="@{${picture.pictureAddress}}">
+                 th:src="@{${picture?.pictureAddress}}">
           </a>
-          <div class="m-picture-text" th:text="${picture.pictureName}">起风了</div>
+          <div class="m-picture-text" th:text="${picture?.pictureName}">起风了</div>
           <div class="rcaption">
-            <div style="font-size: x-large;" th:text="${picture.pictureName}">起风了</div>
-            <div style="font-size: 16px" class="m-margin-top" th:text="${picture.pictureTime}">2024-03-21 &nbsp;南昌
+            <div style="font-size: x-large;" th:text="${picture?.pictureName}">起风了</div>
+            <div style="font-size: 16px" class="m-margin-top" th:text="${picture?.pictureTime}">2024-03-21 &nbsp;南昌
             </div>
-            <p style="font-size: 16px" th:text="${picture.pictureDescription}">
+            <p style="font-size: 16px" th:text="${picture?.pictureDescription}">
               我曾难自拔于世界之大，也沉迷于其中梦话</p>
           </div>
         </div>
       </div>
       <div class="edit-delete-buttons" style="position: relative; display: none;">
-        <div class="ui button" onclick="editPicture()">编辑</div>
-        <div class="ui button danger" onclick="deletePicture()">删除</div>
+        <div class="ui button" th:onclick="editPicture([[${picture.id}]])">编辑</div>
+        <div class="ui button danger" th:onclick="deletePicture([[${picture.id}]])">删除</div>
       </div>
     </article>
     <!--/*-->
@@ -187,13 +187,13 @@
     <!--*/-->
   </div>
 
-  <!--footer-->
-  <div class="ui attached segment" style="background-color: transparent !important; border-style: none"
+  <!--分页footer-->
+  <div class="ui attached segment" style="background-color: transparent !important; border-style: none; height: 45px;"
        th:if="${pagePicture.total}>1">
     <div class="ui  aligned two column grid"> <!-- middle aligned:垂直方向居中 -->
       <!--左侧-->
       <th:block
-          th:with="targetUrl = ${session.user == null ? '/picture/list/' + user.id : '/picture/me/list'}">
+          th:with="targetUrl = ${session.user == null ? '/picture/list/' + user?.id : '/picture/me/list'}">
         <div class="left aligned column" style="padding-left: 2em !important;">
           <a href="#" th:href="@{__${targetUrl}__(pageNum=${pagePicture.hasPreviousPage}?${pagePicture.prePage}:1)}"
              th:unless="${pagePicture.isFirstPage}" class="ui mini blue basic button">上一页</a> <!-- 小按钮 -->
@@ -201,7 +201,7 @@
       </th:block>
       <!--右侧-->
       <th:block
-          th:with="targetUrl = ${session.user == null ? '/picture/list/' + user.id : '/picture/me/list'}">
+          th:with="targetUrl = ${session.user == null ? '/picture/list/' + user?.id : '/picture/me/list'}">
         <div class="right aligned column" style="padding-right: 2.2em !important;">
           <a href="#"
              th:href="@{__${targetUrl}__(pageNum=${pagePicture.hasNextPage}?${pagePicture.nextPage}:${pagePicture.pages})}"
@@ -216,7 +216,8 @@
     <i class="close icon"></i>
     <h3 style="padding-left: 1em !important; font-size: x-large !important; padding-bottom: 0.1em !important;">
       添加图片</h3>
-    <form class="ui form segment">
+    <form class="ui form segment" method="post" action="#" th:action="@{/picture/me/save}">
+      <input type="hidden" name="userId" th:value="${session.user?.id}">
       <div class="two fields">
         <div class="field" style="width: 30% !important;">
           <label>名称</label>
@@ -224,23 +225,83 @@
         </div>
         <div class="field" style="width: 70% !important;">
           <label>链接</label>
-          <input placeholder="请输入图片链接..." name="pictureLink" type="text">
+          <input placeholder="请输入图片链接..." name="pictureAddress" type="text">
         </div>
       </div>
       <div class="field">
         <label>描述</label>
-        <textarea placeholder="请输入描述..." name="description" type="text" style="height: 80px"></textarea>
+        <textarea placeholder="请输入描述..." name="pictureDescription" type="text" style="height: 80px"></textarea>
       </div>
       <div class="actions">
         <div class="ui primary submit button">提交</div>
         <div class="ui clear button">重置</div>
-        <div class="ui error message"></div>
+      </div>
+    </form>
+  </div>
+
+  <!--编辑图片模态框-->
+  <div class="ui editPicture modal">
+    <i class="close icon"></i>
+    <h3 style="padding-left: 1em !important; font-size: x-large !important; padding-bottom: 0.1em !important;">
+      编辑图片</h3>
+    <form class="ui form segment" method="post" action="#" th:action="@{/picture/me/edit}">
+      <input type="hidden" name="userId">
+      <input type="hidden" name="id">
+      <div class="two fields">
+        <div class="field" style="width: 30% !important;">
+          <label>名称</label>
+          <input placeholder="请输入名称..." name="pictureName" type="text">
+        </div>
+        <div class="field" style="width: 70% !important;">
+          <label>链接</label>
+          <input placeholder="请输入图片链接..." name="pictureAddress" type="text">
+        </div>
+      </div>
+      <div class="field">
+        <label>描述</label>
+        <textarea placeholder="请输入描述..." name="pictureDescription" type="text" style="height: 80px"></textarea>
+      </div>
+      <div class="actions">
+        <div class="ui primary submit button">提交</div>
+        <div class="ui clear button">重置</div>
       </div>
     </form>
   </div>
 
 </div>
+<div class="ui m-container-alter" th:unless="${#strings.isEmpty(messageFailed)}">
+  <div class="ui negative message">
+    <i class="close icon"></i>
+    <div class="header">非常抱歉</div>
+    <p th:text="${messageFailed}">Failed</p></div>
+</div>
+<div class="ui m-container-alter" th:unless="${#strings.isEmpty(messageSuccessful)}">
+  <div class="ui success message">
+    <i class="close icon"></i>
+    <div class="header">成功</div>
+    <p th:text="${messageSuccessful}">Successful</p></div>
+</div>
 <br>
+
+<div class="ui tiny modal">
+  <i class="close icon"></i>
+  <div class="header">
+    评论删除
+  </div>
+  <div class="content">
+    <div class="description" name="descriptionDel">
+      确定要删除该评论嘛？所有回复也都会被删除哦~
+    </div>
+  </div>
+  <div class="actions">
+    <button class="ui secondary button" id="confirmDel">
+      确认
+    </button>
+    <button class="ui cancel button">
+      取消
+    </button>
+  </div>
+</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
@@ -275,15 +336,60 @@
         }
     });
 
-    // 定义编辑和删除图片的函数
+    // 使用fetch或XMLHttpRequest等进行Ajax请求
     function editPicture(pictureId) {
-        // 实现图片编辑功能的逻辑...
-        console.log("editPicture");
+        const url = '/dev/picture/me/' + pictureId;
+        // 发起GET请求
+        fetch(url, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        }).then(data => {
+            console.log(data);
+            $('.ui.editPicture.modal').modal('show');
+
+            // 填充form表单(不用转json格式)
+            const form = $('.ui.editPicture.modal form');
+            form.find('input[name="id"]').val(data.id);
+            form.find('input[name="userId"]').val(data.userId);
+            form.find('input[name="pictureName"]').val(data.pictureName);
+            form.find('input[name="pictureAddress"]').val(data.pictureAddress);
+            form.find('textarea[name="pictureDescription"]').val(data.pictureDescription);
+        }).catch(error => console.error('Error:', error));
     }
 
     function deletePicture(pictureId) {
-        // 实现图片删除功能的逻辑...
-        console.log("deletePicture");
+        $('.tiny.modal').modal('show');
+
+        $('#confirmDel').click(() => {
+            const url = '/dev/picture/me/delete/' + pictureId;
+            // 发起GET请求
+            fetch(url, {
+                method: 'GET',
+                redirect: 'follow', // 允许fetch跟随重定向
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to delete picture');
+                }
+                // 如果服务器返回了Location头部，可以手动处理重定向
+                const myLocation = response.headers.get('Location');
+                console.log(location);
+                if (myLocation) {
+                    window.location.href = myLocation;
+                } else {
+                    location.reload();
+                }
+            }).catch(error => console.error('Error:', error));
+        });
     }
 
     $(function () {
@@ -310,13 +416,17 @@
                     prompt: '图片名称不能为空'
                 }]
             },
-            pictureLink: {
+            pictureAddress: {
                 rules: [{
                     type: 'empty',
                     prompt: '图片链接不能为空'
                 }]
             }
         },
+    });
+
+    $('.message .close').on('click', function () {
+        $(this).closest('.message').transition('fade');
     });
 
 </script>

@@ -28,7 +28,7 @@ public class TypeShowController {
     private TypeService typeService;
 
     @GetMapping("/types/{id}")
-    public String doTypes(@PageableDefault(size = 4, sort = {"updateTime"}, direction = Sort.Direction.DESC)
+    public String doTypes(@PageableDefault(size = 6, sort = {"updateTime"}, direction = Sort.Direction.DESC)
                                 Pageable pageable, @PathVariable Long id, Model model, HttpServletRequest request) {
         request.getSession().setAttribute("lastPath", request.getServletPath());
 
@@ -46,7 +46,7 @@ public class TypeShowController {
     }
 
     @GetMapping("/user_types/{id}")
-    public String doUserTypes(@PageableDefault(size = 4, sort = {"updateTime"}, direction = Sort.Direction.DESC)
+    public String doUserTypes(@PageableDefault(size = 6, sort = {"updateTime"}, direction = Sort.Direction.DESC)
                                   Pageable pageable, @PathVariable Long id, Model model, HttpServletRequest request) {
         request.getSession().setAttribute("lastPath", request.getServletPath());
 

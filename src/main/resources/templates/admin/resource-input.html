@@ -55,7 +55,7 @@
   <div class="ui container">
     <form id="resource-form" action="#" th:object="${resource}" method="post" th:action="@{/admin/resources/post}"
           class="ui form">
-      <input type="hidden" name="published">
+      <input type="hidden" name="published"> <!--待优化-->
       <input type="hidden" name="id" th:value="*{id}">
       <div class="required field">
         <div class="ui left labeled input">

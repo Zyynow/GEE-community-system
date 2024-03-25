@@ -35,12 +35,12 @@ public class IndexController {
     private BlogService blogService;
 
     @GetMapping({"/", "/index"})
-    public String doIndex(@PageableDefault(size = 6, sort = {"updateTime"}, direction = Sort.Direction.DESC)
+    public String doIndex(@PageableDefault(size = 10, sort = {"updateTime"}, direction = Sort.Direction.DESC)
                                       Pageable pageable, Model model, HttpServletRequest request) {
         request.getSession().setAttribute("lastPath", request.getServletPath());
 
         model.addAttribute("page", resourceService.listResource(pageable)); // 拿到分页查询的数据
-        model.addAttribute("types", typeService.listTypeTop(6));
+        model.addAttribute("types", typeService.listTypeTop(8));
         model.addAttribute("recommendResources", resourceService.listRecommendResourceTop(2));
         if (request.getSession().getAttribute("user") != null) {
             return "user_index";
@@ -49,10 +49,10 @@ public class IndexController {
     }
 
     @GetMapping("/user_index")
-    public String doUserIndex(@PageableDefault(size = 6, sort = {"updateTime"}, direction = Sort.Direction.DESC)
+    public String doUserIndex(@PageableDefault(size = 10, sort = {"updateTime"}, direction = Sort.Direction.DESC)
                                       Pageable pageable, Model model) {
         model.addAttribute("page", resourceService.listResource(pageable)); // 拿到分页查询的数据
-        model.addAttribute("types", typeService.listTypeTop(6));
+        model.addAttribute("types", typeService.listTypeTop(8));
         model.addAttribute("recommendResources", resourceService.listRecommendResourceTop(2));
         return "user_index";
     }
@@ -83,7 +83,7 @@ public class IndexController {
      * @return 返回search.html页面
      */
     @GetMapping("/search")
-    public String doSearch(@PageableDefault(size = 6, sort = {"updateTime"}, direction = Sort.Direction.DESC)
+    public String doSearch(@PageableDefault(size = 10, sort = {"updateTime"}, direction = Sort.Direction.DESC)
                                    Pageable pageable, @RequestParam String query, Model model, HttpServletRequest request) {
         request.getSession().setAttribute("lastPath", request.getServletPath());
 
@@ -96,7 +96,7 @@ public class IndexController {
     }
 
     @GetMapping("/user_search")
-    public String doUserSearch(@PageableDefault(size = 6, sort = {"updateTime"}, direction = Sort.Direction.DESC)
+    public String doUserSearch(@PageableDefault(size = 10, sort = {"updateTime"}, direction = Sort.Direction.DESC)
                                    Pageable pageable, @RequestParam String query, Model model, HttpServletRequest request) {
 
         model.addAttribute("page", resourceService.listResource(pageable, "%" + query + "%"));

@@ -19,8 +19,9 @@
 
     <!--保存图片-->
     <insert id="savePicture" parameterType="com.jxufe.entity.Picture">
-        insert into t_picture (picture_name, picture_address, picture_description, picture_time, create_time)
-        values (#{pictureName}, #{pictureAddress}, #{pictureDescription}, #{pictureTime}, #{createTime});
+        insert into t_picture (picture_name, picture_address, picture_description, picture_time, create_time, user_id)
+        values (#{pictureName}, #{pictureAddress}, #{pictureDescription},
+                #{pictureTime}, #{createTime}, #{userId});
     </insert>
 
     <!--更新图片信息-->
@@ -29,9 +30,7 @@
         set picture_name        = #{pictureName},
             picture_address     = #{pictureAddress},
             picture_description = #{pictureDescription},
-            picture_time        = #{pictureTime}
-            create_time        = #{createTime}
-            update_time        = #{updateTime}
+            update_time         = #{updateTime}
         where id = #{id};
     </update>
 

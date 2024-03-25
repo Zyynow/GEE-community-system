@@ -38,9 +38,6 @@ public class User {
     @ManyToMany(mappedBy = "users")
     private List<Forum> forums = new ArrayList<>();
 
-    @OneToMany(mappedBy = "user")
-    private List<Picture> pictures = new ArrayList<>();
-
     public User() {
     }
 
@@ -226,13 +223,5 @@ public class User {
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +
                 '}';
-    }
-
-    public List<Picture> getPictures() {
-        return pictures;
-    }
-
-    public void setPictures(List<Picture> pictures) {
-        this.pictures = pictures;
     }
 }
