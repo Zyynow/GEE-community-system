@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
   <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
   <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
-  <link rel="stylesheet" href="../static/css/friends_record.css" th:href="@{/css/me.css}">
+  <link rel="stylesheet" href="../static/css/friends_record.css" th:href="@{/css/friends_record.css}">
 </head>
 <body class="friendBody">
 
@@ -43,6 +43,7 @@
             <a href="#" th:href="@{/login/exit}" class="item">退出</a>
             <a href="#" th:href="@{/login/delete}" class="item">注销</a> <!--得更新-->
           </div>
+          <input type="hidden" name="concurrentUsername" th:value="${session.user?.username}"/>
         </div>
       </div>
     </div>
@@ -69,39 +70,45 @@
 </div>
 
 <!--中间内容-->
-<div class="m-margin- animated animate__fadeIn">
+<div class="m-margin- animated animate__fadeIn" id="app">
   <div class="ui m-opacity container">
     <div class="box-shadow-max">
+      <div class="" style="font-size: 35px;font-weight: bold" align="center">
+        好友：{{toName}}
+        <span style="font-size: 28px; font-weight: lighter" v-if="isOnline">(在线)</span>
+        <span style="font-size: 28px; font-weight: lighter" v-else>(离线)</span>
+      </div>
       <div class="ui m-container-mm segment m-padded-tb-large m-opacity"
            style="position: relative; height: 56em !important; overflow-y: scroll;">
-        <div class="" style="font-size: 35px;font-weight: bold" align="center">好友：Kafka</div>
 
         <!-- 聊天记录区域 -->
-        <div class="ui m-container m-margin-top-large">
-          <div class="ui divided items chat-history" style="min-height: 494px !important;">
-            <div class="item left aligned">
-              <img class="ui circular image avatar ta" src="../static/images/friend_record_1.jpg" alt="Kafka's Avatar">
-              <div class="content">
-                <div class="bubble ta">
-                  <p>你好，这是我的第一条消息。</p>
-                  <div class="meta">
-                    <span>昨天 20:30</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+        <div class="ui m-container m-margin-top-large" style="min-height: 545px !important;">
+          <div class="ui divided items chat-history" v-for="message in historyMessage">
             <!-- 我的消息 -->
-            <div class="item right aligned reply">
+            <div class="item right aligned reply" v-if="message.toName">
               <div class="content">
                 <img class="ui circular image avatar me" src="../static/images/friend_record_3.jpg" alt="My Avatar">
                 <div class="bubble me">
-                  <p>你好，Kafka！这是你的回复。</p>
+                  <p>{{message.message}}</p>
                   <div class="meta">
                     <span class="date">今天 10:00</span>
                   </div>
                 </div>
               </div>
             </div>
+            <!--对面消息-->
+            <div class="item left aligned" v-else>
+              <img class="ui circular image avatar ta" src="../static/images/friend_record_1.jpg" alt="Kafka's Avatar">
+              <div class="content">
+                <div class="bubble ta">
+                  <p>{{message.message}}</p>
+                  <div class="meta">
+                    <span>昨天 20:30</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--/*-->
             <div class="item right aligned reply">
               <div class="content">
                 <a><img class="ui circular image avatar me" src="../static/images/friend_record_3.jpg" alt="My Avatar"></a>
@@ -124,6 +131,7 @@
                 </div>
               </div>
             </div>
+            <!--*/-->
             <!-- 更多聊天记录... -->
           </div>
         </div>
@@ -132,9 +140,10 @@
         <!-- 输入与发送消息区域 -->
         <div class="ui form message-input-area">
           <div class="field">
-            <textarea rows="2" placeholder="在此输入您的消息"></textarea>
+            <textarea rows="2" placeholder="在此输入您的消息..." @keyup.enter="submit" wrap="hard"
+                      v-model="sendMessage.message"></textarea>
           </div>
-          <div class="ui fluid labeled icon button send-message-btn">
+          <div class="ui fluid labeled icon button send-message-btn" id="submit" @click="submit">
             <i class="paper plane outline icon"></i>
             发送
           </div>
@@ -149,19 +158,20 @@
         <div class="ui m-padded-tb-large m-container-mm">
           <div class="ui stackable m-container-mini m-opacityFriendImg grid">
             <!--友人帐显示区域-->
-            <div class="m-margin-tb-tiny four wide column" th:each="friendlink : ${friendlinks}">
-              <a href="#" class="class_outer" th:href="@{${friendlink.blogaddress}}">
+            <div class="m-margin-tb-tiny four wide column" v-for="friend in friendsList">
+              <a href="#" class="class_outer" @click='showChat(friend)'>
                 <div align="center">
                   <div class="friends-link">
-                    <img src="../static/images/friend_record_1.jpg" th:src="@{${friendlink.pictureaddress}}" alt=""
+                    <img src="../static/images/friend_record_1.jpg" alt=""
                          class="friends-link-image" style="opacity: 1">
                     <div class="m-margin-top">
-                      <h4 class="m-font-size-text-friends m-margin-tb-tiny" th:text="${friendlink.blogname}">Kafka</h4>
+                      <h4 class="m-font-size-text-friends m-margin-tb-tiny">{{friend}}</h4>
                     </div>
                   </div>
                 </div>
               </a>
             </div>
+            <!--/*-->
             <div class="m-margin-tb-tiny four wide column" th:each="friendlink : ${friendlinks}">
               <a href="#" class="class_outer" th:href="@{${friendlink.blogaddress}}">
                 <div align="center">
@@ -175,6 +185,7 @@
                 </div>
               </a>
             </div>
+            <!--*/-->
           </div>
         </div>
       </div>
@@ -183,6 +194,8 @@
 </div>
 <br>
 
+<script src="../static/js/vue.js" th:src="@{/js/vue.js}"></script>
+<script src="../static/js/axios-0.18.0.js" th:src="@{/js/axios-0.18.0.js}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
 <!--第一种多人物的看板娘，缓存慢-->
@@ -196,6 +209,133 @@
 
     $('.menu.toggle').click(function () {
         $('.m-item').toggleClass('m-mobile-hide');
+    });
+
+    // const cUser = '<%= session.getAttribute("user") %>'; // 在JSP中才有用
+    const cUsername = $("[name='concurrentUsername']").val();
+
+    let ws;
+    new Vue({
+        el: "#app",
+        data() {
+            return {
+                // isShowChat: false,
+                chatMes: false,
+                isOnline: true,
+                username: cUsername,
+                toName: "",
+                toId: "",
+                sendMessage: { // fromName、fromId和sendTime在服务端获取
+                    toName: "",
+                    toId: "",
+                    message: ""
+                },
+                inputMessage: "",
+                historyMessage: [
+                    /*{toName: "李四", message: "你好,张三"},
+                    {toName: "李四", message: "在吗"},
+                    {toName: "李四", message: "怎么不说话"},
+                    {fromName: "张三", message: "你好,李四"}*/
+                ],
+                friendsList: [
+                    /* "李四",
+                     "王五"*/
+                ],
+                systemMessages: [
+                    /*"张三",
+                    "李四"*/
+                ]
+            }
+        },
+        created() {
+            this.init();
+        },
+        methods: {
+            async init() {
+                // 拿到当前登录用户的用户名
+                /*await axios.get("user/getUsername").then(res => {
+                    this.username = res.data;
+                });*/
+
+                // 创建webSocket对象
+                ws = new WebSocket("ws://localhost:8080/dev/chat");
+
+                // 给ws绑定事件
+                ws.onopen = this.onopen;
+                // 接收到服务端推送的消息后触发
+                ws.onmessage = this.onMessage;
+
+                ws.onclose = this.onClose;
+            },
+            showChat(friendName) {
+                this.toName = friendName;
+                // 清除聊天区的数据
+                let history = sessionStorage.getItem(this.toName);
+                if (!history) {
+                    this.historyMessage = [];
+                } else {
+                    this.historyMessage = JSON.parse(history);
+                }
+                // 展示聊天对话框
+                // this.isShowChat = true;
+                // 显示“正在和谁聊天”
+                this.chatMes = true;
+            },
+            submit() {
+                this.sendMessage.toName = this.toName;
+                // stringify将对象转为Json字符串格式
+                this.historyMessage.push(JSON.parse(JSON.stringify(this.sendMessage)));
+                sessionStorage.setItem(this.toName, JSON.stringify(this.historyMessage));
+                // 发送消息(发送到服务端，服务到再传回客户端，客户端回调onMessage)
+                ws.send(JSON.stringify(this.sendMessage));
+                // 发完置空
+                this.sendMessage.message = "";
+            },
+            // 连接成功建立的回调方法
+            onOpen() {
+                console.log("进入open");
+                this.username = '${sessionScope.user.username}';
+                this.isOnline = true;
+            },
+            // 连接关闭的回调方法
+            onClose() {
+                console.log("进入close");
+                sessionStorage.clear(); // 退出就置空，下次从数据库读出来
+                this.isOnline = false;
+            },
+            // 接收到消息的回调方法
+            onMessage(evt) {
+                // 获取服务端推送过来的消息
+                var dataStr = evt.data;
+                // 将dataStr 转换为json对象
+                var res = JSON.parse(dataStr);
+                console.log(res);
+
+                // 判断是否是系统消息
+                if (res.system) {
+                    // 系统消息  好友列表展示
+                    var names = res.message;
+                    this.friendsList = [];
+                    this.systemMessages = [];
+                    console.log("当前对象：" + this.username);
+                    for (let i = 0; i < names.length; i++) {
+                        if (names[i] != this.username) {
+                            this.friendsList.push(names[i]);
+                            this.systemMessages.push(names[i]);
+                        }
+                    }
+                } else {
+                    // 非系统消息
+                    var history = sessionStorage.getItem(res.fromName);
+                    if (!history) {
+                        this.historyMessage = [res];
+                    } else {
+                        this.historyMessage.push(res);
+                    }
+                    sessionStorage.setItem(res.fromName, JSON.stringify(this.historyMessage));
+                }
+            }
+        }
     });
 
 </script>

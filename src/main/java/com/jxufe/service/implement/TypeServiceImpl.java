@@ -1,17 +1,14 @@
 package com.jxufe.service.implement;
 
 import com.jxufe.dao.TypeRepository;
-import com.jxufe.entity.Blog;
 import com.jxufe.entity.Type;
 import com.jxufe.exception.NotFoundException;
 import com.jxufe.service.TypeService;
-import com.jxufe.util.MarkdownUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

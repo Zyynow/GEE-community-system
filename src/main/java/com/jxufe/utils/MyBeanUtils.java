@@ -1,6 +1,5 @@
-package com.jxufe.util;
+package com.jxufe.utils;
 
-import com.jxufe.entity.Blog;
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
 

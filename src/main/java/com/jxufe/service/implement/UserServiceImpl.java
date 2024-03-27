@@ -4,7 +4,7 @@ import com.jxufe.dao.UserDao;
 import com.jxufe.entity.Feedback;
 import com.jxufe.entity.User;
 import com.jxufe.service.UserService;
-import com.jxufe.util.MD5Utils;
+import com.jxufe.utils.MD5Utils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -36,7 +36,7 @@ public class UserServiceImpl implements UserService {
         if (user != null) {
             user.setCreateTime(new Date());
             user.setPassword(MD5Utils.code(user.getPassword()));
-            user.setNickname("默认");
+            user.setNickname(user.getUsername());
             user.setSex("默认");
             user.setAvatar("https://img0.baidu.com/it/u=1855725179,2561304587&fm=253&fmt=auto&app=138&f=JPEG?w=499&h=500");
             user.setBlogNum(0);

@@ -1,6 +1,4 @@
-package com.jxufe.util;
-
-import org.springframework.util.DigestUtils;
+package com.jxufe.utils;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

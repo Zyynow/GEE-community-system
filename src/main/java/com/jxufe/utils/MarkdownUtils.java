@@ -1,4 +1,4 @@
-package com.jxufe.util;
+package com.jxufe.utils;
 
 import org.commonmark.Extension;
 import org.commonmark.ext.gfm.tables.TableBlock;
