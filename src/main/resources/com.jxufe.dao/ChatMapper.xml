@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jxufe.dao.ChatMapper">
+    <select id="record" resultType="com.jxufe.entity.Chat">
+        SELECT *
+        FROM (SELECT *
+              FROM t_chat
+              WHERE send_time IN (SELECT MAX(send_time)
+                                  FROM t_chat
+                                  WHERE recipient_username = #{useername}
+                                     OR sender_username = #{useername}
+                                  GROUP BY CONCAT(
+                                                   IF(sender_username &gt; recipient_username, sender_username,
+                                                      recipient_username),
+                                                   IF(sender_username &lt; recipient_username, sender_username,
+                                                      recipient_username)
+                                               ))
+                AND (recipient_username = #{useername} OR sender_username = #{useername})) c
+        ORDER BY c.send_time DESC;
+    </select>
+
+    <insert id="saveChat" parameterType="com.jxufe.entity.Chat">
+        insert into t_chat(sender_username, recipient_username, content, send_time, type, is_read)
+        values (#{senderUsername}, #{recipientUsername}, #{content}, #{sendTime}, #{type}, #{isRead})
+    </insert>
+
+    <select id="findRecordByUsername" resultType="com.jxufe.entity.Chat">
+        (select *
+         from t_chat
+         WHERE sender_username = #{senderUsername}
+           AND recipient_username = #{recipientUsername}
+         UNION
+         select *
+         from t_chat
+         WHERE sender_username = #{recipientUsername}
+           AND recipient_username = #{senderUsername}) ORDER BY send_time ASC
+    </select>
+</mapper>

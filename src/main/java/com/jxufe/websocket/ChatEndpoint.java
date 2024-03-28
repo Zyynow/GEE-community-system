@@ -3,10 +3,14 @@ package com.jxufe.websocket;
 import com.alibaba.fastjson.JSON;
 import com.jxufe.configuration.GetHttpSessionConfig;
 import com.jxufe.entity.User;
+import com.jxufe.service.ChatService;
 import com.jxufe.utils.MessageUtils;
+import com.jxufe.utils.SpringContextHolder;
 import com.jxufe.websocket.pojo.Message;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.websocket.*;
 import javax.websocket.server.ServerEndpoint;
@@ -49,6 +53,10 @@ public class ChatEndpoint {
     // httpSession成员变量
     private HttpSession httpSession;
 
+    private HttpServletResponse response;
+
+    private static ChatService chatService =  SpringContextHolder.getBean(ChatService.class);
+
     /**
      * 跳转到聊天界面打开会话，建立websocket连接后，即会调用该被@OnOpen标记的方法
      *
@@ -64,9 +72,9 @@ public class ChatEndpoint {
         System.out.println("谁来了：" + username);
         // 将session进行保存
         onlineUsers.put(username, session); // 用户名来标识每个session
-        // 广播消息，需要将登陆的所有的用户推送给所有的用户，注意广播消息是系统发出的
-        String message = MessageUtils.getMessage(true, null, getFriends());
-        broadcastAllUsers(message);
+        // 广播消息，需要将登陆的所有的用户推送给所有的用户，注意广播消息是系统发出的(暂时用不到)
+//        String message = MessageUtils.getMessage(true, null, getFriends());
+//        broadcastAllUsers(message);
     }
 
     public Set getFriends() {
@@ -108,14 +116,20 @@ public class ChatEndpoint {
             System.out.println("消息：" + message);
             // 将json字符串转换为Message对象
             Message msg = JSON.parseObject(message, Message.class);
-            // 获取消息接收方的用户名和内容
-            String toName = msg.getToName();
-            String mess = msg.getMessage();
-            // 获取消息接收方用户对象的session对象(session对象被存在onlineUser这个ConcurrentHashMap(username-websocketSession)集合中)
-            Session session = onlineUsers.get(toName);
+
             String username = ((User) this.httpSession.getAttribute("user")).getUsername();
-            String msg1 = MessageUtils.getMessage(false, username, mess);
-            // 利用RemoteEndpoint的sendText方法发送消息
+            // 发送对象为空或发送对象是自己
+            if (msg.getToName().equals("") || msg.getToName().equals(username)) {
+                response.getWriter().print("<script language='javascript'>alert('出错啦，发送对象未知！');" +
+                        "window.location.href='/dev/chat/';</script>");
+            }
+            // 存入数据库
+            chatService.saveChat(msg, username);
+
+            // 获取消息接收方用户对象的session对象(session对象被存在onlineUser这个ConcurrentHashMap(username-websocketSession)集合中)
+            Session session = onlineUsers.get(msg.getToName());
+            String msg1 = MessageUtils.getMessage(false, username, msg);
+            // 利用RemoteEndpoint的sendText方法发送消息(json格式)
             session.getBasicRemote().sendText(msg1);
         } catch (Exception e) {
             // 记录日志
@@ -133,8 +147,8 @@ public class ChatEndpoint {
         String username = ((User) this.httpSession.getAttribute("user")).getUsername();
         System.out.println("谁走了：" + username);
         onlineUsers.remove(username);
-        // 广播消息，通知其他所有的用户当前用户下线了
-        String message = MessageUtils.getMessage(true, null, getFriends());
-        broadcastAllUsers(message);
+        // 广播消息，通知其他所有的用户当前用户下线了(暂时用不到)
+//        String message = MessageUtils.getMessage(true, null, getFriends());
+//        broadcastAllUsers(message);
     }
 }

@@ -10,7 +10,7 @@
     mapper接口中的方法入参类型，要和mapper.xml中SQL语句的入参类型一致
     mapper接口中的方法出参类型，要和mapper.xml中SQL语句的返回值类型一致
 -->
-<mapper namespace="com.jxufe.dao.UserDao">
+<mapper namespace="com.jxufe.dao.UserMapper">
     <select id="findByUsernameAndPassword" resultType="com.jxufe.entity.User">
         select *
         from t_user

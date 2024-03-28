@@ -3,7 +3,6 @@ package com.jxufe.dao;
 import com.jxufe.entity.Feedback;
 import com.jxufe.entity.User;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
 
 /**
  * 告诉Mybatis这是我们的dao接口，创建此接口的代理对象(然后放入容器中)
@@ -11,7 +10,7 @@ import org.apache.ibatis.annotations.Param;
  * MyBatis数据库查询是返回一个对象还是List或者数组，会根据返回类型来判断，类型是数组则返回数组、List则返回List
  */
 @Mapper
-public interface UserDao {
+public interface UserMapper {
 
     User findByUsernameAndPassword(String username, String password);
 

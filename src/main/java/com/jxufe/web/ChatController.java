@@ -1,8 +1,17 @@
 package com.jxufe.web;
 
+import com.jxufe.entity.Chat;
+import com.jxufe.entity.User;
+import com.jxufe.service.ChatService;
+import com.jxufe.vo.ChatVO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.List;
 
 /*
  * @RestController 注解相当于 @ResponseBody + @Controller 合在一起的作用
@@ -18,9 +27,40 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("chat")
 public class ChatController {
 
+    @Autowired
+    ChatService chatService;
+
+    @GetMapping("/")
+    public String doRecord() {
+        return "friends_record";
+    }
+
     @GetMapping("/record")
-    public String record(Model model) {
-        // 读取最近记录
+    @ResponseBody
+    public List<ChatVO> doRecord(HttpSession session) {
+        // 读取当前用户的最近记录(只显示对方名字/头像)
+        User user = (User) session.getAttribute("user");
+        List<ChatVO> chatList = chatService.record(user.getUsername());
+        System.out.println(chatList);
+        return chatList;
+    }
+
+    /**
+     * 返回chatList
+     * @param username 对方用户名
+     * @return
+     */
+    @GetMapping("/record/{username}")
+    @ResponseBody
+    public List<Object> recordByUsername(@PathVariable String username, HttpSession session) {
+        User user = (User) session.getAttribute("user");
+        List<Object> chatList = chatService.record(username, user.getUsername());
+        System.out.println(chatList);
+        return chatList;
+    }
+
+    @GetMapping("/friend/{id}")
+    public String recordByUserId(@PathVariable Long id) {
         return "friends_record";
     }
 

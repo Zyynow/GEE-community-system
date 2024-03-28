@@ -493,10 +493,13 @@ legend {
 /*----------友人帐---------*/
 
 .friends-link-image {
-    width: 160px;
+    width: 158px;
     height: 170px;
     border-radius: 8px 8px 0px 0px;
-
+    object-fit: cover;
+    cursor: pointer;
+    outline: 0px;
+    background-size: 100% 100%;
 }
 
 .box-shadow-max {
@@ -552,7 +555,7 @@ legend {
 }
 
 .m-font-size-text-friends {
-    font-size: 16px;
+    font-size: 14px;
     color: #000000;
     font-family: STSong;
 }
@@ -577,12 +580,6 @@ legend {
     border: 1px solid #999;
     box-shadow: 5px 5px 5px #999;
     border-radius:8px;
-}
-
-.friends-link-image{
-    width: 158px;
-    height: 170px;
-    border-radius: 8px 8px 0px 0px;
 }
 
 /*-----------遮罩层----------*/

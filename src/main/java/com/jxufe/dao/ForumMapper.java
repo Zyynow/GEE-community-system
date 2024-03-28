@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 import java.util.List;
 
 @Mapper
-public interface ForumDao {
+public interface ForumMapper {
 
     Integer joinForum(Integer userId, Integer forumId);
 

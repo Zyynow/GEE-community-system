@@ -1,6 +1,6 @@
 package com.jxufe.service.implement;
 
-import com.jxufe.dao.UserDao;
+import com.jxufe.dao.UserMapper;
 import com.jxufe.entity.Feedback;
 import com.jxufe.entity.User;
 import com.jxufe.service.UserService;
@@ -15,7 +15,7 @@ import java.util.Date;
 public class UserServiceImpl implements UserService {
 
     @Resource //Autowired也可以的
-    private UserDao dao;
+    private UserMapper dao;
 
     @Transactional
     @Override

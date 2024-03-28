@@ -10,9 +10,9 @@
 2022-09-07 00:00:11.621  INFO 38584 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : method : resource
 2022-09-07 00:00:11.621  INFO 38584 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
 2022-09-07 00:00:25.747  INFO 38584 --- [http-nio-8080-exec-3] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/forum', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.ForumShowController.doForum', args=[org.apache.catalina.connector.RequestFacade@dccf2b, {}]}
-2022-09-07 00:00:25.766 DEBUG 38584 --- [http-nio-8080-exec-3] com.jxufe.dao.ForumDao.findListForums    : ==>  Preparing: select * from t_forum order by popular DESC
-2022-09-07 00:00:25.772 DEBUG 38584 --- [http-nio-8080-exec-3] com.jxufe.dao.ForumDao.findListForums    : ==> Parameters: 
-2022-09-07 00:00:25.781 DEBUG 38584 --- [http-nio-8080-exec-3] com.jxufe.dao.ForumDao.findListForums    : <==      Total: 6
+2022-09-07 00:00:25.766 DEBUG 38584 --- [http-nio-8080-exec-3] com.jxufe.dao.ForumMapper.findListForums    : ==>  Preparing: select * from t_forum order by popular DESC
+2022-09-07 00:00:25.772 DEBUG 38584 --- [http-nio-8080-exec-3] com.jxufe.dao.ForumMapper.findListForums    : ==> Parameters:
+2022-09-07 00:00:25.781 DEBUG 38584 --- [http-nio-8080-exec-3] com.jxufe.dao.ForumMapper.findListForums    : <==      Total: 6
 2022-09-07 00:00:25.789  INFO 38584 --- [http-nio-8080-exec-3] com.jxufe.aspect.LogAspect               : method : forum
 2022-09-07 00:00:25.789  INFO 38584 --- [http-nio-8080-exec-3] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
 2022-09-07 00:00:26.676  INFO 38584 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/index', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.IndexController.doIndex', args=[Page request [number: 0, size 6, sort: updateTime: DESC], {}, org.apache.catalina.connector.RequestFacade@32d3c66a]}
@@ -34,9 +34,9 @@
 2022-09-07 00:00:41.778  INFO 38584 --- [http-nio-8080-exec-10] com.jxufe.aspect.LogAspect               : method : types
 2022-09-07 00:00:41.778  INFO 38584 --- [http-nio-8080-exec-10] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
 2022-09-07 00:00:43.447  INFO 38584 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/forum', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.ForumShowController.doForum', args=[org.apache.catalina.connector.RequestFacade@205889a3, {}]}
-2022-09-07 00:00:43.448 DEBUG 38584 --- [http-nio-8080-exec-6] com.jxufe.dao.ForumDao.findListForums    : ==>  Preparing: select * from t_forum order by popular DESC
-2022-09-07 00:00:43.448 DEBUG 38584 --- [http-nio-8080-exec-6] com.jxufe.dao.ForumDao.findListForums    : ==> Parameters: 
-2022-09-07 00:00:43.450 DEBUG 38584 --- [http-nio-8080-exec-6] com.jxufe.dao.ForumDao.findListForums    : <==      Total: 6
+2022-09-07 00:00:43.448 DEBUG 38584 --- [http-nio-8080-exec-6] com.jxufe.dao.ForumMapper.findListForums    : ==>  Preparing: select * from t_forum order by popular DESC
+2022-09-07 00:00:43.448 DEBUG 38584 --- [http-nio-8080-exec-6] com.jxufe.dao.ForumMapper.findListForums    : ==> Parameters:
+2022-09-07 00:00:43.450 DEBUG 38584 --- [http-nio-8080-exec-6] com.jxufe.dao.ForumMapper.findListForums    : <==      Total: 6
 2022-09-07 00:00:43.452  INFO 38584 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : method : forum
 2022-09-07 00:00:43.452  INFO 38584 --- [http-nio-8080-exec-6] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
 2022-09-07 00:00:45.347  INFO 38584 --- [http-nio-8080-exec-2] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/login', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.UserController.doLoginPage', args=[]}
