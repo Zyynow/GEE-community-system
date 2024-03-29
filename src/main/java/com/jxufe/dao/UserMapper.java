@@ -3,6 +3,9 @@ package com.jxufe.dao;
 import com.jxufe.entity.Feedback;
 import com.jxufe.entity.User;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
  * 告诉Mybatis这是我们的dao接口，创建此接口的代理对象(然后放入容器中)
@@ -31,4 +34,6 @@ public interface UserMapper {
     User checkPassword(String username, String oldPwd);
 
     Integer updateBlogNum(Long id);
+
+    List<User> searchUser(@Param("name") String keyword);
 }

@@ -24,4 +24,6 @@ public interface UserService {
     User findUserById(Long id);
 
     Integer updateBlogNum(Long id);
+
+    User findUser(String username);
 }

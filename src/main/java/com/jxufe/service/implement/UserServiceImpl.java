@@ -89,4 +89,9 @@ public class UserServiceImpl implements UserService {
     public Integer updateBlogNum(Long id) {
         return dao.updateBlogNum(id);
     }
+
+    @Override
+    public User findUser(String username) {
+        return dao.findByUsername(username);
+    }
 }

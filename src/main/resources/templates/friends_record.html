@@ -74,7 +74,7 @@
   <div class="ui m-opacity container">
     <div class="box-shadow-max">
       <div class="" style="font-size: 35px;font-weight: bold" align="center" v-if="isShowChat">
-        好友：<a href="#">{{toNickname}}</a>
+        好友：<a v-bind:href="'/dev/userOtherAbout/' + toId" target="_blank">{{toNickname}}</a>
         <!--<span style="font-size: 28px; font-weight: lighter" v-if="isOnline">(在线)</span>
         <span style="font-size: 28px; font-weight: lighter" v-else>(离线)</span>-->
       </div>
@@ -242,6 +242,7 @@
                 toName: "",
                 toNickname: "",
                 toAvatar: "",
+                toId: 0,
                 sendMessage: { // fromName、sendTime等在服务端获取
                     toName: "",
                     message: "",
@@ -298,6 +299,11 @@
                 ws.onclose = this.onClose;
             },
             showChat(friendName, friendAvatar, friendNickname) { // 触发showChat时向后端发起请求, 将返回结果按需存入sessionStorage(请求当前登录用户和friendName的聊天记录)
+                // 拿到friendName用户的id
+                axios.get("friendId/" + friendName).then(res => {
+                    this.toId = res.data;
+                });
+
                 this.toName = friendName;
                 this.toAvatar = friendAvatar;
                 this.toNickname = friendNickname;

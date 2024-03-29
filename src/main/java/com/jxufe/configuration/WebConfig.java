@@ -35,7 +35,8 @@ public class WebConfig implements WebMvcConfigurer {
                 "/archives/**",
                 "/consumption_record/**",
                 "/picture/me/**",
-                "/chat/**"
+                "/chat/**",
+                "/friend/**"
         );
 
 //        registry.addInterceptor(new OtherInterceptor())

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.jxufe.dao.FriendMapper">
+
+    <!--将数据库查询结果和VO层作映射-->
+    <resultMap id="ResultFriendsVO" type="com.jxufe.vo.FriendVO">
+        <!--<id property="userId" column="userId"/>-->
+        <result property="userId" column="user_id"/>
+        <result property="username" column="username"/>
+        <result property="avatar" column="avatar"/>
+        <result property="description" column="description"/>
+        <result property="nickname" column="nickname"/>
+    </resultMap>
+
+    <select id="friendListByUser" resultMap="ResultFriendsVO" resultType="com.jxufe.vo.FriendVO">
+        SELECT IF(user1id = #{id}, user2id, user1id)                   AS user_id,
+               IF(user1id = #{id}, user2username, user1username)       AS username,
+               IF(user1id = #{id}, user2avatar, user1avatar)           AS avatar,
+               IF(user1id = #{id}, user2description, user1description) AS description,
+               IF(user1id = #{id}, user2nickname, user1nickname)       AS nickname
+        FROM t_friend
+        WHERE user1id = #{id}
+           OR user2id = #{id};
+    </select>
+
+    <select id="friendHottest" resultMap="ResultFriendsVO" resultType="com.jxufe.vo.FriendVO">
+        SELECT u.id user_id,
+               u.username,
+               u.nickname,
+               u.avatar,
+               u.description
+        FROM t_user AS u
+                 JOIN (SELECT LEAST(sender_username, recipient_username)    AS user1,
+                              GREATEST(sender_username, recipient_username) AS user2,
+                              COUNT(*)                                      AS chat_count
+                       FROM (SELECT *
+                             FROM t_chat
+                             UNION ALL
+                             SELECT *
+                             FROM t_chat
+                             WHERE sender_username = recipient_username) AS combined_chats
+                       WHERE sender_username = #{username}
+                          OR recipient_username = #{username}
+                       GROUP BY user1,
+                                user2
+                       ORDER BY chat_count DESC LIMIT 1) AS c
+        WHERE IF
+                  (c.user1 = #{username}, c.user2 = u.username, c.user1 = u.username)
+    </select>
+
+    <select id="friendsOften" resultType="com.jxufe.vo.FriendVO">
+        SELECT u.id user_id,
+               u.description,
+               u.username,
+               u.nickname,
+               u.avatar
+        FROM t_user u
+                 JOIN (SELECT sender_username,
+                              recipient_username,
+                              COUNT(*) AS recent_chat_count
+                       FROM t_chat
+                       WHERE sender_username = #{username}
+                         AND send_time >= CURDATE() - INTERVAL 30 DAY
+                       GROUP BY
+                           sender_username,
+                           recipient_username
+                       ORDER BY
+                           recent_chat_count DESC) c
+        WHERE c.recipient_username = u.username;
+    </select>
+
+    <insert id="saveFriend" parameterType="com.jxufe.entity.Friend">
+        insert into t_friend (user1username, user2username, user1id, user2id, user1description, user2description,
+                              user1avatar, user2avatar, user1nickname, user2nickname)
+        values (#{user1Username}, #{user2Username}, #{user1Id},
+                #{user2Id}, #{user1Description}, #{user2Description}, #{user1Avatar}, #{user2Avatar}, #{user1Nickname},
+                #{user2Nickname});
+    </insert>
+
+    <update id="updateFriend" parameterType="com.jxufe.entity.Friend">
+        update t_picture
+        set user1username    = #{user1Username},
+            user2username    = #{user2Username},
+            user1id          = #{user1Id},
+            user2id          = #{user2Id},
+            user1description = #{user1Description},
+            user2description = #{user2Description},
+            user1avatar      = #{user1Avatar},
+            user2avatar      = #{user2Avatar},
+            user1nickname    = #{user1Nickname},
+            user2nickname    = #{user2Nickname}
+        where id = #{id};
+    </update>
+
+    <insert id="addApply" parameterType="com.jxufe.entity.Apply">
+        insert into t_apply (sender_id, recipient_id, apply_time)
+        values (#{sender_id}, #{recipientId}, #{applyTime})
+    </insert>
+
+    <delete id="deleteFriendByName">
+        delete
+        from t_friend
+        where (user1username = #{meName} and user2username = #{heName})
+           OR (user1username = #{heName} and user2username = #{meName})
+    </delete>
+
+    <delete id="deleteFriendById">
+        delete
+        from t_friend
+        where (user1id = #{user1Id} and user2id = #{user2Id})
+           OR (user1id = #{user2Id} and user2id = #{user1Id})
+    </delete>
+
+    <delete id="deleteApplyById">
+        delete
+        from t_apply
+        where id = #{id}
+    </delete>
+
+</mapper>
+

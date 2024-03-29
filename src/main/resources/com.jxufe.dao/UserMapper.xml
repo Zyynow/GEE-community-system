@@ -77,4 +77,11 @@
         set blog_num = blog_num + 1
         where id = #{id}
     </update>
+
+    <select id="searchUser" resultType="com.jxufe.entity.User">
+        select *
+        from t_user
+        where username like "%" #{keyword} "%"
+          OR nickname LIKE "%" #{keyword} "%"
+    </select>
 </mapper>

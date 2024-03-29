@@ -3,6 +3,7 @@ package com.jxufe.web;
 import com.jxufe.entity.Chat;
 import com.jxufe.entity.User;
 import com.jxufe.service.ChatService;
+import com.jxufe.service.UserService;
 import com.jxufe.vo.ChatVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,6 +31,9 @@ public class ChatController {
     @Autowired
     ChatService chatService;
 
+    @Autowired
+    UserService userService;
+
     @GetMapping("/")
     public String doRecord() {
         return "friends_record";
@@ -41,7 +45,7 @@ public class ChatController {
         // 读取当前用户的最近记录(只显示对方名字/头像)
         User user = (User) session.getAttribute("user");
         List<ChatVO> chatList = chatService.record(user.getUsername());
-        System.out.println(chatList);
+        // System.out.println(chatList);
         return chatList;
     }
 
@@ -55,13 +59,19 @@ public class ChatController {
     public List<Object> recordByUsername(@PathVariable String username, HttpSession session) {
         User user = (User) session.getAttribute("user");
         List<Object> chatList = chatService.record(username, user.getUsername());
-        System.out.println(chatList);
+        // System.out.println(chatList);
         return chatList;
     }
 
-    @GetMapping("/friend/{id}")
+    /*@GetMapping("/friend/{id}")
     public String recordByUserId(@PathVariable Long id) {
         return "friends_record";
-    }
+    }*/
 
+    @GetMapping("/friendId/{username}")
+    @ResponseBody
+    public Long FriendIdByUsername(@PathVariable String username) {
+        User user = userService.findUser(username);
+        return user.getId();
+    }
 }
