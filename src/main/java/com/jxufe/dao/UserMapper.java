@@ -2,6 +2,7 @@ package com.jxufe.dao;
 
 import com.jxufe.entity.Feedback;
 import com.jxufe.entity.User;
+import com.jxufe.vo.SearchVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -35,5 +36,5 @@ public interface UserMapper {
 
     Integer updateBlogNum(Long id);
 
-    List<User> searchUser(@Param("name") String keyword);
+    List<SearchVO> searchUser(@Param("name") String keyword, @Param("meId") Long id);
 }

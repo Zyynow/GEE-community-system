@@ -4,10 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>我的好友</title>
-  <link rel="stylesheet" href="../static/lib/semantic/semantic.min.css">
+  <link rel="stylesheet" href="../static/lib/semantic/semantic.min.css" th:href="@{/lib/semantic/semantic.min.css}">
   <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
   <link rel="stylesheet" href="../static/css/animate.css" th:href="@{/css/animate.css}">
   <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
+  <style>
+      .ui.primary.button[aria-disabled="true"]:hover {
+          cursor: not-allowed;
+      }
+
+      /* 可选，添加一个禁用图标 */
+      .ui.primary.button[aria-disabled="true"] .icon:before {
+          content: "\f05e"; /* 这是 FontAwesome 的禁止图标Unicode码，需引入FontAwesome库 */
+          color: #c0c0c0; /* 更改图标的颜色以匹配禁用状态 */
+      }
+  </style>
 </head>
 <body class="archiveBody">
 
@@ -43,6 +54,11 @@
             <a href="#" th:href="@{/login/exit}" class="item">退出</a>
             <a href="#" th:href="@{/login/delete}" class="item">注销</a> <!--得更新-->
           </div>
+          <input type="hidden" name="concurrentId" th:value="${session.user?.id}"/>
+          <input type="hidden" name="concurrentUsername" th:value="${session.user?.username}"/>
+          <input type="hidden" name="concurrentAvatar" th:value="${session.user?.avatar}"/>
+          <input type="hidden" name="concurrentNickname" th:value="${session.user?.nickname}"/>
+          <input type="hidden" name="concurrentDescription" th:value="${session.user?.description}"/>
         </div>
       </div>
     </div>
@@ -52,7 +68,7 @@
   </a>
 </nav>
 
-<div class="ui m-container-plus m-margin-top-large animate__fadeIn"
+<div class="ui m-container-plus m-margin-top-large animate__fadeIn" id="appMain"
      style="padding-bottom: 2em !important; margin-top: 5em !important;">
   <div class="ui stackable grid">
     <div class="eleven wide column">
@@ -61,22 +77,24 @@
         <div class="ui three statistics" style="margin-top: 40px">
           <div class="statistic">
             <div class="value">
-              <a id="hottest">
-                <img src="../static/images/avatar/joe.jpg" class="ui circular inline image" style="cursor: pointer;">
+              <a id="hottest" v-if="friendHottest.userId != 0" @click="showHottest">
+                <img :src="friendHottest.avatar" class="ui circular inline image" style="cursor: pointer;">
               </a>
+              <img src="https://sky-take-out-kafka.oss-cn-beijing.aliyuncs.com/defaultAvatar.png"
+                   style="max-height: 4rem!important;" v-else>
             </div>
             <div class="label">聊得最热</div>
           </div>
           <div class="statistic">
             <div class="value">
-              <a id="chatOften">
+              <a @click="chatOften">
                 <i class="users inline icon" style="cursor: pointer;"></i>
               </a>
             </div>
             <div class="label">最近常聊</div>
           </div>
           <div class="statistic">
-            <div class="value">42</div>
+            <div class="value">{{friendsNumber}}</div>
             <div class="label">好友成员</div>
           </div>
         </div>
@@ -86,18 +104,37 @@
 
         <!-- 好友列表 -->
         <div class="ui items">
-          <div class="item">
-            <a class="ui tiny image">
-              <img src="../static/images/avatar/jenny.jpg">
+          <div class="item" v-for="friend in friendList" style="max-height: 80px">
+            <a class="ui tiny image" :href="'/dev/userOtherAbout/' + friend.userId" target="_blank">
+              <img :src="friend.avatar"
+                   style="object-fit: cover;
+                       cursor: pointer;
+                       outline: 0px;
+                       max-height: 80px;
+                       height: 80px;
+                       background-size: 100% 100%;">
             </a>
             <div class="content">
-              <a class="header">Stevie Feliciano</a>
+              <a class="header" :href="'/dev/userOtherAbout/' + friend.userId" target="_blank">{{friend.nickname}}</a>
               <div class="description">
-                <p>Stevie Feliciano is a <a>library scientist</a> living in New York City. She likes to spend her time
-                  reading, running, and writing.</p>
+                <!--<p>Stevie Feliciano is a <a>library scientist</a> living in New York City. She likes to spend her time
+                  reading, running, and writing.</p>-->
+                <p v-if="friend.description.length > 80">{{friend.description.slice(0, 80)}}...</p>
+                <p v-else>{{friend.description}}</p>
+              </div>
+              <div class="ui basic mini right floated button"
+                   style="font-weight: bold!important; margin-top: 5px!important;">
+                <i class="wechat icon"></i>
+                聊天
+              </div>
+              <div class="ui basic mini right floated button"
+                   style="font-weight: bold!important; margin-top: 5px!important;">
+                <i class="mouse pointer icon"></i>
+                主页
               </div>
             </div>
           </div>
+          <!--/*-->
           <div class="item">
             <a class="ui tiny image">
               <img src="../static/images/avatar/joe.jpg">
@@ -133,6 +170,7 @@
               </div>
             </div>
           </div>
+          <!--*/-->
         </div>
         <div class="ui search m-top-right" style="margin-right: 15px; margin-top: 10px">
           <div class="ui icon input">
@@ -145,16 +183,27 @@
     </div>
     <div class="five wide column">
       <!--申请列表-->
-      <div class="ui container transparent-segment segment">
+      <div class="ui container transparent-segment segment" v-if="applyList.length > 0">
         <div class="ui relaxed list">
-          <div class="item">
-            <img class="ui avatar image" src="../static/images/avatar/joe.jpg">
+          <div class="item" v-for="(apply, index) in applyList">
+            <img class="ui avatar image" :src="apply.senderAvatar"
+                 style="object-fit: cover;
+                       cursor: pointer;
+                       outline: 0px;
+                       background-size: 100% 100%;">
             <div class="content" style="padding: 6px">
-              <a class="header">丹尼尔 路易斯</a>
+              <a class="header" :href="'/dev/userOtherAbout/' + apply.senderId"
+                 target="_blank">{{apply.senderNickname}}</a>
             </div>
-            <button class="ui basic mini right floated button" style="font-weight: bold!important;" id="agreeApply">
-              <i class="icon user"></i>
+            <button class="ui basic mini right floated button" style="font-weight: bold; margin: 0em;"
+                    @click="agreeApply(apply)">
+              <i class="icon thumbs up"></i>
               同意
+            </button>
+            <button class="ui basic mini right floated button" style="font-weight: bold; margin-right: 0.2em"
+                    @click="rejectApply(apply.id)">
+              <i class="icon thumbs down"></i>
+              拒绝
             </button>
           </div>
           <!--/*-->
@@ -185,21 +234,21 @@
       <div class="ui container transparent-segment segment">
         <div class="ui relaxed list">
           <div class="item">
-            <img class="ui avatar image" src="../static/images/avatar/joe.jpg">
+            <img class="ui avatar image" src="https://sky-take-out-kafka.oss-cn-beijing.aliyuncs.com/joe.jpg">
             <div class="content">
               <a class="header">丹尼尔 路易斯</a>
               <div class="description">最近评论你的帖子最多。</div>
             </div>
           </div>
           <div class="item">
-            <img class="ui avatar image" src="../static/images/avatar/joe.jpg">
+            <img class="ui avatar image" src="https://sky-take-out-kafka.oss-cn-beijing.aliyuncs.com/joe.jpg">
             <div class="content">
               <a class="header">Stevie Feliciano</a>
               <div class="description">最近收藏你的帖子最多。</div>
             </div>
           </div>
           <div class="item">
-            <img class="ui avatar image" src="../static/images/avatar/joe.jpg">
+            <img class="ui avatar image" src="https://sky-take-out-kafka.oss-cn-beijing.aliyuncs.com/joe.jpg">
             <div class="content">
               <a class="header">Elliot Fu</a>
               <div class="description">一直以来访问你的 <a><b>主页</b></a> 最多。</div>
@@ -207,188 +256,225 @@
           </div>
         </div>
         <div class="ui horizontal divider">end</div>
-        <button class="ui primary button" id="addFriend">
+        <button class="ui primary button" @click="addFriend">
           添加好友
         </button>
-        <button class="ui right floated button" id="deleteFriend">
+        <button class="ui right floated button" @click="deleteFriend">
           删除好友
         </button>
       </div>
     </div>
   </div>
 
+  <!--聊得最热模态框-->
+  <div class="ui hottest modal">
+    <i class="close icon"></i>
+    <div class="header">
+      聊得最热
+    </div>
+    <div class="image content">
+      <div class="ui small image">
+        <img :src="friendHottest.avatar" style="width: 150px">
+      </div>
+      <div class="description">
+        <div class="ui header">{{friendHottest.nickname}}</div>
+        <p>{{friendHottest.description}}</p>
+      </div>
+    </div>
+    <div class="actions">
+      <a :href="'/dev/userOtherAbout/' + friendHottest.userId" target="_blank">
+        <div class="ui black deny icon button">
+          查看主页
+        </div>
+      </a>
+      <div class="ui positive right icon button">
+        找Ta聊天
+      </div>
+    </div>
+  </div>
+
+  <!--最近常聊模态框-->
+  <div class="ui chatOften modal">
+    <i class="close icon"></i>
+    <div class="header">
+      最近常聊
+    </div>
+    <div class="ui large aligned divided list" style="margin: 0px" v-if="friendListOften.length > 0">
+      <div class="item centering example" style="padding: 10px" v-for="friend in friendListOften">
+        <div class="right floated content">
+          <a :href="'/dev/userOtherAbout/' + friend.userId" target="_blank">
+            <div class="ui icon button">查看主页</div>
+          </a>
+          <div class="ui blue icon button">找Ta聊天</div>
+        </div>
+        <img class="ui avatar image example tip" :src="friend.avatar"
+             style="object-fit: cover;
+             cursor: pointer;
+             outline: 0px;
+             background-size: 100% 100%;">
+        <div class="content" style="padding: 6px !important;">
+          {{friend.nickname}}
+        </div>
+      </div>
+      <!--/*-->
+      <div class="item" style="padding: 10px">
+        <div class="right floated content">
+          <div class="ui icon button">查看主页</div>
+          <div class="ui blue icon button">找Ta聊天</div>
+        </div>
+        <img class="ui avatar image" src="../static/images/avatar/justen.jpg">
+        <div class="content">
+          Lindsay
+        </div>
+      </div>
+      <div class="item" style="padding: 10px">
+        <div class="right floated content">
+          <div class="ui icon button">查看主页</div>
+          <div class="ui blue icon button">找Ta聊天</div>
+        </div>
+        <img class="ui avatar image" src="../static/images/avatar/joe.jpg">
+        <div class="content">
+          Mark
+        </div>
+      </div>
+      <div class="item" style="padding: 10px">
+        <div class="right floated content">
+          <div class="ui icon button">查看主页</div>
+          <div class="ui blue icon button">找Ta聊天</div>
+        </div>
+        <img class="ui avatar image" src="../static/images/avatar/joe.jpg">
+        <div class="content">
+          Molly
+        </div>
+      </div>
+      <!--*/-->
+    </div>
+    <div class="ui icon message" style="background-color: #f1f1f1; margin: auto" v-else>
+      <i class="info circle icon"></i>
+      <div class="content">
+        <div class="header">你的常聊列表为空</div>
+        <p>最近一个月，你还没有和朋友聊过天，快去畅聊吧(*´▽｀)ノノ</p>
+      </div>
+    </div>
+  </div>
+
+  <!--添加好友模态框-->
+  <div class="ui addFriend modal">
+    <i class="close icon"></i>
+    <div class="header">
+      添加好友
+    </div>
+    <div class="ui search m-top-right" style="margin-right: 15px; margin-top: 12px">
+      <!-- 添加Semantic UI的错误消息 -->
+      <transition name="fade">
+        <div class="ui right pointing red basic label transition visible" v-if="showErrorMessage">
+          {{ errorMessage }}
+        </div>
+      </transition>
+      <div class="ui icon input">
+        <input class="prompt" type="text" v-model="searchText" placeholder="搜索好友...">
+        <button class="ui button" style="background-color: transparent"><i class="search icon" @click="doSearch"></i>
+        </button>
+      </div>
+    </div>
+    <div class="ui m-container m-margin-tb-large m-margin-lr-large">
+      <div class="ui four doubling stackable cards" id="card-container">
+        <!-- 动态卡片模板 -->
+        <template id="card-template" v-if="searchFriends.length > 0">
+          <div class="ui card" v-for="friend in searchFriends">
+            <div class="image">
+              <img :src="friend.avatar" alt="Card Image"
+                   style="object-fit: cover;
+                   outline: 0px;
+                   height: 135px;
+                   background-size: 100% 100%;">
+            </div>
+            <div class="content">
+              <div class="header">{{friend.nickname}}</div>
+              <div class="description">{{friend.signature}}</div>
+            </div>
+            <div class="extra content">
+              <div class="ui primary button" v-if="friend.me == true" aria-disabled="true" disabled>本人</div>
+              <div class="ui primary button" v-else-if="friend.friend == true" aria-disabled="true" disabled>
+                已添加
+              </div>
+              <div class="ui primary button" @click="doAdd(friend)" v-else>添加</div>
+              <a :href="'/dev/userOtherAbout/' + friend.userId" target="_blank">
+                <div class="ui button">主页</div>
+              </a>
+            </div>
+          </div>
+        </template>
+        <div class="ui icon message" v-else>
+          <i class="notched circle loading icon"></i>
+          <div class="content">
+            <div class="header">等待搜索中</div>
+            <p>请在搜索框输入要查找的关键字，我们将为您获取内容。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--删除好友模态框-->
+  <div class="ui deleteFriend modal">
+    <i class="close icon"></i>
+    <div class="header">
+      删除好友
+    </div>
+    <div class="ui large aligned divided list" style="margin: 0px" v-if="friendList.length > 0">
+      <div class="item centering example" style="padding: 10px" v-for="friend in friendList">
+        <div class="right floated content">
+          <a :href="'/dev/userOtherAbout/' + friend.userId" target="_blank">
+            <div class="ui icon button">查看主页</div>
+          </a>
+          <div class="ui yellow icon button" @click="doDelete(friend.userId)">删除Ta</div>
+        </div>
+        <img class="ui avatar image" :src="friend.avatar"
+             style="object-fit: cover;
+             outline: 0px;
+             background-size: 100% 100%;">
+        <div class="content" style="padding: 6px !important;">
+          {{friend.nickname}}
+        </div>
+      </div>
+    </div>
+    <div class="ui icon message" style="background-color: #f1f1f1; margin: auto" v-else>
+      <i class="info circle icon"></i>
+      <div class="content">
+        <div class="header">你的好友列表为空</div>
+        <p>你还没有好友哦，尝试添加好友吧(*´▽｀)ノノ</p>
+      </div>
+    </div>
+  </div>
+
 </div>
 
-<!--聊得最热模态框-->
-<div class="ui hottest modal">
+<!--确认删除-->
+<div class="ui tiny modal">
   <i class="close icon"></i>
   <div class="header">
-    聊得最热
+    好友删除
   </div>
-  <div class="image content">
-    <div class="ui small image">
-      <img src="../static/images/avatar/joe.jpg" style="width: 150px">
-    </div>
-    <div class="description">
-      <div class="ui header">We've auto-chosen a profile image for you.</div>
-      <p>We've grabbed the following image from the <a href="https://www.gravatar.com" target="_blank">gravatar</a>
-        image associated with your registered e-mail address.</p>
-      <p>Is it okay to use this photo?</p>
+  <div class="content">
+    <div class="description" name="descriptionDel">
+      确定要删除该好友嘛？关于Ta的所有记录也都会被删除哦~
     </div>
   </div>
   <div class="actions">
-    <div class="ui black deny icon button">
-      查看主页
-    </div>
-    <div class="ui positive right icon button">
-      找Ta聊天
-    </div>
+    <button class="ui secondary button" id="confirmDel">
+      确认
+    </button>
+    <button class="ui cancel button" id="cancelDel">
+      取消
+    </button>
   </div>
 </div>
 
-<!--最近常聊模态框-->
-<div class="ui chatOften modal">
-  <i class="close icon"></i>
-  <div class="header">
-    最近常聊
-  </div>
-  <div class="ui large aligned divided list" style="margin: 0px">
-    <div class="item centering example" style="padding: 10px">
-      <div class="right floated content">
-        <div class="ui icon button">查看主页</div>
-        <div class="ui blue icon button">找Ta聊天</div>
-      </div>
-      <img class="ui avatar image" src="../static/images/avatar/justen.jpg">
-      <div class="content">
-        Lena
-      </div>
-    </div>
-    <!--/*-->
-    <div class="item" style="padding: 10px">
-      <div class="right floated content">
-        <div class="ui icon button">查看主页</div>
-        <div class="ui blue icon button">找Ta聊天</div>
-      </div>
-      <img class="ui avatar image" src="../static/images/avatar/justen.jpg">
-      <div class="content">
-        Lindsay
-      </div>
-    </div>
-    <div class="item" style="padding: 10px">
-      <div class="right floated content">
-        <div class="ui icon button">查看主页</div>
-        <div class="ui blue icon button">找Ta聊天</div>
-      </div>
-      <img class="ui avatar image" src="../static/images/avatar/joe.jpg">
-      <div class="content">
-        Mark
-      </div>
-    </div>
-    <div class="item" style="padding: 10px">
-      <div class="right floated content">
-        <div class="ui icon button">查看主页</div>
-        <div class="ui blue icon button">找Ta聊天</div>
-      </div>
-      <img class="ui avatar image" src="../static/images/avatar/joe.jpg">
-      <div class="content">
-        Molly
-      </div>
-    </div>
-    <!--*/-->
-  </div>
-</div>
-
-<!--添加好友模态框-->
-<div class="ui addFriend modal">
-  <i class="close icon"></i>
-  <div class="header">
-    添加好友
-  </div>
-  <div class="ui search m-top-right" style="margin-right: 15px; margin-top: 12px">
-    <div class="ui icon input">
-      <input class="prompt" type="text" placeholder="搜索好友...">
-      <i class="search icon"></i>
-    </div>
-    <div class="results"></div>
-  </div>
-  <div class="ui m-container m-margin-tb-large m-margin-lr-large">
-    <div class="ui four doubling stackable cards" id="card-container">
-      <!-- 动态卡片模板 -->
-      <template id="card-template">
-        <div class="ui card" data-card-index="{{index}}">
-          <div class="image">
-            <img src="{{image}}" alt="Card Image">
-          </div>
-          <div class="content">
-            <div class="header">{{title}}</div>
-            <div class="description">{{description}}</div>
-          </div>
-          <div class="extra content">
-            <div class="ui primary button">添加</div>
-            <div class="ui button">主页</div>
-          </div>
-        </div>
-      </template>
-    </div>
-  </div>
-</div>
-
-<!--删除好友模态框-->
-<div class="ui deleteFriend modal">
-  <i class="close icon"></i>
-  <div class="header">
-    删除好友
-  </div>
-  <div class="ui large aligned divided list" style="margin: 0px">
-    <div class="item centering example" style="padding: 10px">
-      <div class="right floated content">
-        <a href="http://www.baidu.com" target="_blank">
-          <div class="ui icon button">查看主页</div>
-        </a>
-        <div class="ui yellow icon button">删除Ta</div>
-      </div>
-      <img class="ui avatar image" src="../static/images/avatar/justen.jpg">
-      <div class="content">
-        Lena
-      </div>
-    </div>
-    <!--/*-->
-    <div class="item" style="padding: 10px">
-      <div class="right floated content">
-        <div class="ui icon button">查看主页</div>
-        <div class="ui yellow icon button">删除Ta</div>
-      </div>
-      <img class="ui avatar image" src="../static/images/avatar/justen.jpg">
-      <div class="content">
-        Lindsay
-      </div>
-    </div>
-    <div class="item" style="padding: 10px">
-      <div class="right floated content">
-        <div class="ui icon button">查看主页</div>
-        <div class="ui yellow icon button">删除Ta</div>
-      </div>
-      <img class="ui avatar image" src="../static/images/avatar/joe.jpg">
-      <div class="content">
-        Mark
-      </div>
-    </div>
-    <div class="item" style="padding: 10px">
-      <div class="right floated content">
-        <div class="ui icon button">查看主页</div>
-        <div class="ui yellow icon button">删除Ta</div>
-      </div>
-      <img class="ui avatar image" src="../static/images/avatar/joe.jpg">
-      <div class="content">
-        Molly
-      </div>
-    </div>
-    <!--*/-->
-  </div>
-</div>
-
+<script src="../static/js/vue.js" th:src="@{/js/vue.js}"></script>
+<script src="../static/js/axios-0.18.0.js" th:src="@{/js/axios-0.18.0.js}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="../static/lib/semantic/semantic.min.js"></script>
+<script src="../static/lib/semantic/semantic.min.js" th:src="@{/lib/semantic/semantic.min.js}"></script>
 <script src="https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
 <script>
 
@@ -396,7 +482,7 @@
         on: 'hover'
     });
 
-    $('#hottest').click(() => {
+    /*$('#hottest').click(() => {
         $('.ui.hottest.modal').modal('show');
     })
 
@@ -410,10 +496,10 @@
 
     $('#deleteFriend').on('click', function () {
         $('.ui.deleteFriend.modal').modal('show');
-    })
+    })*/
 
-    // 静态数据
-    const data = [
+    // 静态数据(测试)
+    const staticData = [
         {
             image: '../static/images/avatar/joe.jpg',
             title: 'Card Title 1',
@@ -432,25 +518,201 @@
         {
             image: '../static/images/avatar/joe.jpg',
             title: 'Card Title 4',
-            description: 'This is a short description for the four card.'
+            description: 'This is a short description for the three card.'
         }
         // 更多卡片数据...
     ];
 
-    const cardTemplate = document.getElementById('card-template');
-    const cardContainer = document.getElementById('card-container');
+    const cId = $("[name='concurrentId']").val();
+    const cUsername = $("[name='concurrentUsername']").val();
+    const cAvatar = $("[name='concurrentAvatar']").val();
+    const cDescription = $("[name='concurrentDescription']").val();
+    const cNickname = $("[name='concurrentNickname']").val();
 
-    // 动态生成卡片
-    data.forEach((item, index) => {
-        let cardElement = cardTemplate.content.cloneNode(true);
+    // Axios 是异步发送 HTTP 请求的, 那么我们应该将请求方法标记为异步，并使用 await 关键字等待 Axios 请求完成。
+    new Vue({
+        el: "#appMain",
+        data() {
+            return {
+                userUsername: cUsername,
+                userId: cId,
+                userAvatar: cAvatar,
+                userDescription: cDescription,
+                userNickname: cNickname,
+                friendsNumber: 0,
+                searchText: "",
+                showErrorMessage: false,
+                errorMessage: '输入内容不能为空',
+                searchFriends: [],
+                friendHottest: { // fromName、sendTime等在服务端获取
+                    userId: 0,
+                    username: "",
+                    avatar: "",
+                    description: "",
+                    nickname: ""
+                },
+                friendListOften: [],
+                friendList: [],
+                applyList: [{}],
+            }
+        },
+        created() { // new这个Vue对象时会自动执行
+            this.init();
+            console.log("初始化Vue.");
+        },
+        methods: {
+            // 初始化方法
+            async init() {
+                await this.getFriendList();
+                await this.getApplys();
+                await this.getFriendsNumber();
+                await this.hottest();
+            },
+            // 获取好友列表
+            async getFriendList() {
+                await axios.get("list").then(res => {
+                    this.friendList = res.data;
+                });
+            },
+            // 最热好友
+            async hottest() { // 写法一
+                await axios.get("hottest").then(res => {
+                    this.friendHottest = res.data;
+                });
+            },
+            showHottest() {
+                $('.ui.hottest.modal').modal('show');
+            },
+            // 常聊好友
+            /*chatOften: () => { // 写法二(匿名回调函数写法，第一次请求得到的数据无法传给friendListOften，这种写法不行)
+                $('.ui.chatOften.modal').modal('show');
+                axios.get("often").then(res => {
+                    this.friendListOften = res.data;
+                });
+            },*/
+            async chatOften() {
+                await axios.get("often").then(res => {
+                    this.friendListOften = res.data;
+                });
+                $('.ui.chatOften.modal').modal('show');
+            },
+            // 展示添加模态框
+            addFriend: function () { // 写法三
+                $('.ui.addFriend.modal').modal('show');
+            },
+            // 搜索好友
+            async doSearch() {
+                if (this.searchText.trimEnd() == "") {
+                    this.showErrorMessage = true;
+                    setTimeout(() => {
+                        this.showErrorMessage = false;
+                    }, 2000);
+                    this.searchText = "";
+                    return;
+                }
+                await axios.get("search?keyword=" + this.searchText).then(res => {
+                    this.searchFriends = res.data;
+                });
+                console.log(this.searchFriends);
+                this.searchText = "";
+            },
+            // 添加好友(发起好友申请)
+            async doAdd(friend) {
+                let apply = {
+                    id: null,
+                    senderId: this.userId,
+                    recipientId: friend.userId,
+                    senderNickname: this.userNickname,
+                    senderAvatar: this.userAvatar,
+                    applyTime: new Date()
+                };
+                await axios.post("apply/add", apply, {
+                    // 请求体apply对象为JSON格式
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                });
+                await this.getApplys();
+                $('.ui.addFriend.modal').modal('hide');
+                this.searchFriends = [];
+            },
+            // 展示删除模态框
+            deleteFriend() {
+                $('.ui.deleteFriend.modal').modal('show');
+            },
+            // 删除好友
+            async doDelete(id) {
+                $('.tiny.modal').modal('show');
 
-        // 替换模板中的占位符
-        cardElement.querySelector('.image img').src = item.image;
-        cardElement.querySelector('.header').textContent = item.title;
-        cardElement.querySelector('.description').textContent = item.description;
+                let confirmed = new Promise((resolve, reject) => {
+                    const confirmButton = $('#confirmDel');
+                    const cancelButton = $('#cancelDel');
+                    confirmButton.one('click', () => {
+                        resolve();
+                    });
+                    cancelButton.one('click', () => {
+                        // 取消删除逻辑
+                    });
+                });
 
-        // 将填充好数据的卡片添加到容器内
-        cardContainer.appendChild(cardElement);
+                try {
+                    await confirmed;
+                    await axios.delete("delete/" + id);
+                    await this.getFriendList();
+                    await this.getFriendsNumber();
+                    await this.hottest();
+                    $('.tiny.modal').modal('hide');
+                    $('.ui.deleteFriend.modal').modal('hide');
+                } finally {
+                    // 其他逻辑
+                }
+
+            },
+            // 用户足迹展示
+            showFootprint() {
+
+            },
+            // 获取好友申请
+            async getApplys() {
+                await axios.get("apply/list").then(res => {
+                    this.applyList = res.data;
+                });
+            },
+            async getFriendsNumber() {
+                await axios.get("count").then(res => {
+                    this.friendsNumber = res.data;
+                });
+            },
+            // 同意好友申请(添加到通讯录)
+            async agreeApply(apply) {
+                let friend = {
+                    id: null,
+                    user1Id: apply.recipientId, // user1是当前用户
+                    user2Id: apply.senderId, // user2是好友申请者
+                    user1Nickname: this.userNickname,
+                    user2Nickname: "",
+                    user1Username: this.userUsername,
+                    user2Username: "",
+                    user1Avatar: this.userAvatar,
+                    user2Avatar: "",
+                    user1Description: this.userDescription,
+                    user2Description: ""
+                };
+                await axios.post("add?applyId=" + apply.id, friend, {
+                    // 请求体对象为JSON格式
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                });
+                await this.getApplys();
+                await this.getFriendList();
+                await this.getFriendsNumber();
+            },
+            async rejectApply(id) {
+                await axios.delete("apply/delete/" + id);
+                await this.getApplys();
+            }
+        }
     });
 
 </script>

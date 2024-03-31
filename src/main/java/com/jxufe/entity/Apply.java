@@ -21,9 +21,13 @@ public class Apply {
     @GeneratedValue
     private Long id;
 
-    private String senderId;
+    private Long senderId;
 
-    private String recipientId;
+    private Long recipientId;
+
+    private String senderNickname;
+
+    private String senderAvatar;
 
     private Date applyTime;
 }

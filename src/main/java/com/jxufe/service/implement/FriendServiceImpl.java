@@ -7,6 +7,7 @@ import com.jxufe.entity.Friend;
 import com.jxufe.entity.User;
 import com.jxufe.service.FriendService;
 import com.jxufe.vo.FriendVO;
+import com.jxufe.vo.SearchVO;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -39,35 +40,64 @@ public class FriendServiceImpl implements FriendService {
         return friendVOList;
     }
 
-
-
     @Override
     public int deleteFriend(String meName, String heName) {
         int flag = friendMapper.deleteFriendByName(meName, heName);
-        return 0;
+        return flag;
     }
 
     @Override
     public int deleteFriendById(Long user1Id, Long user2Id) {
         int flag = friendMapper.deleteFriendById(user1Id, user2Id);
-        return 0;
+        return flag;
     }
 
     @Override
     public int saveFriend(Friend friend) {
+        User user = userMapper.findUserById(friend.getUser2Id());
+        if (user != null) {
+            friend.setUser2Avatar(user.getAvatar());
+            friend.setUser2Description(user.getDescription());
+            friend.setUser2Nickname(user.getNickname());
+            friend.setUser2Username(user.getUsername());
+        }
+        System.out.println(friend);
         int flag = friendMapper.saveFriend(friend);
-        return 0;
+        return flag;
     }
 
     @Override
     public int addApply(Apply apply) {
-        friendMapper.addApply(apply);
-        return 0;
+
+        int flag = friendMapper.addApply(apply);
+        return flag;
     }
 
     @Override
-    public List<User> searchUser(String keyword) {
-        List<User> users = userMapper.searchUser(keyword);
+    public int deleteApply(Long id) {
+        int flag = friendMapper.deleteApplyById(id);
+        return flag;
+    }
+
+    @Override
+    public List<SearchVO> searchUser(String keyword, Long id) {
+        List<SearchVO> users = userMapper.searchUser(keyword, id);
         return users;
+    }
+
+    @Override
+    public int updateFriend(Friend friend) {
+        int flag = friendMapper.updateFriend(friend);
+        return flag;
+    }
+
+    @Override
+    public List<Apply> applyList(Long id) {
+        return friendMapper.applyList(id);
+    }
+
+    @Override
+    public int friendsCount(Long id) {
+        return friendMapper.getCount(id);
     }
 }

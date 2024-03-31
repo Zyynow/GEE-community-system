@@ -298,9 +298,9 @@
 
                 ws.onclose = this.onClose;
             },
-            showChat(friendName, friendAvatar, friendNickname) { // 触发showChat时向后端发起请求, 将返回结果按需存入sessionStorage(请求当前登录用户和friendName的聊天记录)
+            async showChat(friendName, friendAvatar, friendNickname) { // 触发showChat时向后端发起请求, 将返回结果按需存入sessionStorage(请求当前登录用户和friendName的聊天记录)
                 // 拿到friendName用户的id
-                axios.get("friendId/" + friendName).then(res => {
+                await axios.get("friendId/" + friendName).then(res => {
                     this.toId = res.data;
                 });
 
@@ -311,7 +311,7 @@
                 // 根据toName获取聊天历史记录(sessionStorage以键值对存储数据于浏览器)
                 let history = sessionStorage.getItem(this.toName);
                 if (!history) {
-                    axios.get("record/" + this.toName).then(res => {
+                    await axios.get("record/" + this.toName).then(res => {
                         this.historyMessage = res.data;
                     });
                 } else {
@@ -358,9 +358,9 @@
                 // 发完置空
                 this.sendMessage.message = "";
             },
-            fetchFriendList() {
+            async fetchFriendList() {
                 // 拿到当前登录用户的最近记录列表
-                axios.get("record").then(res => {
+                await axios.get("record").then(res => {
                     this.friendList = res.data;
                     this.$nextTick(() => {
                         // 视图现在应该已经更新了

@@ -15,6 +15,8 @@ public interface FriendMapper {
 
     int addApply(Apply apply);
 
+    List<Apply> applyList(Long id);
+
     int deleteFriendByName(String meName, String heName);
 
     List<FriendVO> friendsOften(String username);
@@ -28,4 +30,6 @@ public interface FriendMapper {
     int deleteApplyById(Long id);
 
     int updateFriend(Friend friend);
+
+    Integer getCount(Long id);
 }

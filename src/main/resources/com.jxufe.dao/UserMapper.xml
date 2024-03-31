@@ -11,6 +11,7 @@
     mapper接口中的方法出参类型，要和mapper.xml中SQL语句的返回值类型一致
 -->
 <mapper namespace="com.jxufe.dao.UserMapper">
+
     <select id="findByUsernameAndPassword" resultType="com.jxufe.entity.User">
         select *
         from t_user
@@ -78,10 +79,45 @@
         where id = #{id}
     </update>
 
-    <select id="searchUser" resultType="com.jxufe.entity.User">
-        select *
-        from t_user
-        where username like "%" #{keyword} "%"
-          OR nickname LIKE "%" #{keyword} "%"
+    <resultMap id="ResultSearchVO" type="com.jxufe.vo.SearchVO">
+        <result property="userId" column="user_id"/>
+        <result property="username" column="username"/>
+        <result property="avatar" column="avatar"/>
+        <result property="nickname" column="nickname"/>
+        <result property="signature" column="signature"/>
+        <result property="isFriend" column="is_friend"/>
+        <result property="isMe" column="is_me"/>
+    </resultMap>
+
+    <select id="searchUser" resultMap="ResultSearchVO" resultType="com.jxufe.vo.SearchVO">
+        SELECT DISTINCT u.id    AS user_id,
+                        u.username,
+                        u.avatar,
+                        u.nickname,
+                        u.signature,
+                        CASE
+
+                            WHEN u.id IN (f.user1id, f.user2id) THEN
+                                1
+                            ELSE 0
+                            END AS is_friend,
+                        CASE
+
+                            WHEN u.id = #{meId} THEN
+                                1
+                            ELSE 0
+                            END AS is_me
+
+        FROM t_user AS u
+                 LEFT JOIN (SELECT DISTINCT user1id,
+                                            user2id
+                            FROM t_friend
+                            WHERE user1id IN (SELECT id FROM t_user WHERE username LIKE "%" #{name} "%"
+                               OR nickname LIKE "%" #{name} "%") OR user2id IN
+                                  (SELECT id FROM t_user WHERE username LIKE "%" #{name} "%" OR nickname LIKE "%" #{name} "%")) AS f
+        ON u.id IN (f.user1id, f.user2id)
+        WHERE u.username LIKE "%" #{name} "%"
+           OR u.nickname LIKE "%" #{name} "%"
     </select>
+
 </mapper>

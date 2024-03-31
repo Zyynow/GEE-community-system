@@ -21,7 +21,8 @@
                IF(user1id = #{id}, user2nickname, user1nickname)       AS nickname
         FROM t_friend
         WHERE user1id = #{id}
-           OR user2id = #{id};
+           OR user2id = #{id}
+        order by nickname ASC
     </select>
 
     <select id="friendHottest" resultMap="ResultFriendsVO" resultType="com.jxufe.vo.FriendVO">
@@ -49,7 +50,7 @@
                   (c.user1 = #{username}, c.user2 = u.username, c.user1 = u.username)
     </select>
 
-    <select id="friendsOften" resultType="com.jxufe.vo.FriendVO">
+    <select id="friendsOften" resultMap="ResultFriendsVO" resultType="com.jxufe.vo.FriendVO">
         SELECT u.id user_id,
                u.description,
                u.username,
@@ -94,9 +95,16 @@
     </update>
 
     <insert id="addApply" parameterType="com.jxufe.entity.Apply">
-        insert into t_apply (sender_id, recipient_id, apply_time)
-        values (#{sender_id}, #{recipientId}, #{applyTime})
+        insert into t_apply (sender_id, recipient_id, sender_nickname, sender_avatar, apply_time)
+        values (#{senderId}, #{recipientId}, #{senderNickname}, #{senderAvatar}, #{applyTime})
     </insert>
+
+    <select id="applyList" resultType="com.jxufe.entity.Apply">
+        select *
+        from t_apply
+        where recipient_id = #{id}
+        ORDER BY apply_time DESC
+    </select>
 
     <delete id="deleteFriendByName">
         delete
@@ -117,6 +125,13 @@
         from t_apply
         where id = #{id}
     </delete>
+
+    <select id="getCount" resultType="java.lang.Integer">
+        select count(*)
+        from t_friend
+        where user1id = #{id}
+           or user2id = #{id};
+    </select>
 
 </mapper>
 
