@@ -38,7 +38,8 @@ public class UserServiceImpl implements UserService {
             user.setPassword(MD5Utils.code(user.getPassword()));
             user.setNickname(user.getUsername());
             user.setSex("默认");
-            user.setAvatar("https://img0.baidu.com/it/u=1855725179,2561304587&fm=253&fmt=auto&app=138&f=JPEG?w=499&h=500");
+            user.setDreamCollege("未知");
+            user.setAvatar("https://sky-take-out-kafka.oss-cn-beijing.aliyuncs.com/defaultAvatar.png");
             user.setBlogNum(0);
             res = dao.saveUser(user);
         }

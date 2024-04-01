@@ -4,6 +4,7 @@ import com.jxufe.entity.Apply;
 import com.jxufe.entity.Friend;
 import com.jxufe.entity.User;
 import com.jxufe.service.FriendService;
+import com.jxufe.vo.FootprintVO;
 import com.jxufe.vo.FriendVO;
 import com.jxufe.vo.SearchVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -131,4 +132,26 @@ public class FriendController {
         User user = (User) session.getAttribute("user");
         return friendService.friendsCount(user.getId());
     }
+
+    @GetMapping("/about/viewMax")
+    @ResponseBody
+    public FootprintVO getViewNumberMax(HttpSession session) {
+        User user = (User) session.getAttribute("user");
+        return friendService.getViewNumMax(user.getId());
+    }
+
+    @GetMapping("/blog/collectionMax")
+    @ResponseBody
+    public FootprintVO getCollectionNumberMax(HttpSession session) {
+        User user = (User) session.getAttribute("user");
+        return friendService.getCollectionNumMax(user.getId());
+    }
+
+    @GetMapping("/blog/commentMax")
+    @ResponseBody
+    public FootprintVO getCommentNumberMax(HttpSession session) {
+        User user = (User) session.getAttribute("user");
+        return friendService.getCommentNumMax(user.getId());
+    }
+
 }

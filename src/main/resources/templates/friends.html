@@ -241,25 +241,30 @@
       <div class="ui container transparent-segment segment">
         <div class="ui relaxed list">
           <div class="item">
-            <img class="ui avatar image" src="https://sky-take-out-kafka.oss-cn-beijing.aliyuncs.com/joe.jpg">
+            <img class="ui avatar image" :src="commentMax.avatar">
             <div class="content">
-              <a class="header">丹尼尔 路易斯</a>
+              <a class="header" :href="'/dev/userOtherAbout/' + commentMax.userId"
+                 target="_blank">{{commentMax.nickname}}</a>
               <div class="description">最近评论你的帖子最多。</div>
+              <p>达到 <span style="color: #d27b53; font-weight: bold">{{commentMax.count}}</span> 条</p>
             </div>
           </div>
           <div class="item">
-            <img class="ui avatar image" src="https://sky-take-out-kafka.oss-cn-beijing.aliyuncs.com/joe.jpg">
+            <img class="ui avatar image" :src="collectionMax.avatar">
             <div class="content">
-              <a class="header">Stevie Feliciano</a>
+              <a class="header" :href="'/dev/userOtherAbout/' + collectionMax.userId"
+                 target="_blank">{{collectionMax.nickname}}</a>
               <div class="description">最近收藏你的帖子最多。</div>
+              <p>达到 <span style="color: #d27b53; font-weight: bold">{{collectionMax.count}}</span> 篇</p>
             </div>
           </div>
           <div class="item">
-            <img class="ui avatar image" src="https://sky-take-out-kafka.oss-cn-beijing.aliyuncs.com/joe.jpg">
+            <img class="ui avatar image" :src="viewMax.avatar">
             <div class="content">
-              <a class="header">Elliot Fu</a>
+              <a class="header" :href="'/dev/userOtherAbout/' + viewMax.userId" target="_blank">{{viewMax.nickname}}</a>
               <div class="description">一直以来访问你的
                 <a :href="'/dev/about'" target="_blank"><b>主页</b></a> 最多。
+                <p>达到 <span style="color: #d27b53; font-weight: bold">{{viewMax.count}}</span> 次</p>
               </div>
             </div>
           </div>
@@ -474,7 +479,7 @@
   </div>
   <div class="content">
     <div class="description" name="descriptionDel">
-      确定要删除该好友嘛？关于Ta的所有记录也都会被删除哦~
+      确定要删除该好友嘛？关于Ta的所有记录将会保留30天哦~
     </div>
   </div>
   <div class="actions">
@@ -515,6 +520,9 @@
                 userDescription: cDescription,
                 userNickname: cNickname,
                 friendsNumber: 0,
+                viewMax: {},
+                collectionMax: {},
+                commentMax: {},
                 searchText: "",
                 showErrorMessage: false,
                 errorMessage: '输入内容不能为空',
@@ -551,14 +559,15 @@
             async init() {
                 await this.getFriendList();
                 await this.getApplys();
+                await this.showFootprint();
                 await this.getFriendsNumber();
                 await this.hottest();
             },
             // 获取好友列表
             async getFriendList() {
                 await axios.get("list").then(res => {
+                    this.filteredFriends = res.data;
                     this.friendList = res.data;
-                    this.filteredFriends = this.friendList;
                 });
             },
             // 最热好友
@@ -657,8 +666,16 @@
 
             },
             // 用户足迹展示
-            showFootprint() {
-
+            async showFootprint() {
+                await axios.get("about/viewMax").then(res => {
+                    this.viewMax = res.data;
+                });
+                await axios.get("blog/collectionMax").then(res => {
+                    this.collectionMax = res.data;
+                });
+                await axios.get("blog/commentMax").then(res => {
+                    this.commentMax = res.data;
+                });
             },
             // 获取好友申请
             async getApplys() {

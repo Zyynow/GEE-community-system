@@ -147,5 +147,56 @@
            or (user1username = #{user2Name} and user2username = #{user1Name})
     </select>
 
+    <select id="getUserViewMax" resultType="com.jxufe.vo.FootprintVO">
+        SELECT u.id as user_id, u.username, u.nickname, u.avatar, v.count
+        FROM t_user AS u
+                 JOIN
+             (SELECT t_view.viewer_id,
+                     t_view.count
+              FROM t_view
+              WHERE viewed_id = #{id}
+              ORDER BY t_view.count DESC LIMIT 1) AS v
+        on v.viewer_id = u.id
+    </select>
+
+    <select id="getCollectionMax" resultType="com.jxufe.vo.FootprintVO">
+        SELECT c.user_id, u.username, u.nickname, u.avatar, c.count
+        FROM t_user AS u
+                 JOIN
+             (SELECT c.user_id,
+                     COUNT(c.id) AS count
+              FROM
+                  t_collection c
+              WHERE
+                  c.type = 0
+                AND c.blog_user_id = #{id}
+              GROUP BY
+                  c.user_id
+              ORDER BY
+                  count DESC
+                  LIMIT 1) AS c
+        ON u.id = c.user_id;
+    </select>
+
+    <select id="getCommentMax" resultType="com.jxufe.vo.FootprintVO">
+        SELECT a.user_id,
+               u.username,
+               u.nickname,
+               u.avatar,
+               a.comment_count as count
+        FROM t_user u
+                 JOIN (SELECT c.host_id   AS user_id,
+                              COUNT(c.id) AS comment_count
+                       FROM t_comment c
+                                JOIN t_blog b ON c.blog_id = b.id
+                       WHERE b.user_id = #{id}
+                         AND c.host_id != #{id}
+                       GROUP BY
+                           c.host_id
+                       ORDER BY
+                           comment_count DESC
+                           LIMIT 1) AS a ON a.user_id = u.id;
+    </select>
+    
 </mapper>
 

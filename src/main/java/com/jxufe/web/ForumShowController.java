@@ -64,7 +64,7 @@ public class ForumShowController {
 
     @GetMapping("/forum/fblog/{id}")
     public String doFblog(@PageableDefault(size = 999, sort = {"updateTime"}, direction = Sort.Direction.DESC)
-                                  Pageable pageable, @PathVariable Integer id, HttpServletRequest request, Model model) {
+                          Pageable pageable, @PathVariable Integer id, HttpServletRequest request, Model model) {
         request.getSession().setAttribute("lastPath", request.getServletPath());
 
         model.addAttribute("forum", forumService.getForumById(id));
@@ -75,7 +75,7 @@ public class ForumShowController {
 
     @GetMapping("/user_forum/fblog/{id}")
     public String doUserFblog(@PageableDefault(size = 999, sort = {"updateTime"}, direction = Sort.Direction.DESC)
-                                      Pageable pageable, @PathVariable Integer id, HttpServletRequest request, Model model) {
+                              Pageable pageable, @PathVariable Integer id, HttpServletRequest request, Model model) {
         request.getSession().setAttribute("lastPath", request.getServletPath());
 
         model.addAttribute("forum", forumService.getForumById(id));

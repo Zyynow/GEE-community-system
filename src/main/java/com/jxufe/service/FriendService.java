@@ -3,6 +3,7 @@ package com.jxufe.service;
 import com.jxufe.entity.Apply;
 import com.jxufe.entity.Friend;
 import com.jxufe.entity.User;
+import com.jxufe.vo.FootprintVO;
 import com.jxufe.vo.FriendVO;
 import com.jxufe.vo.SearchVO;
 
@@ -35,4 +36,10 @@ public interface FriendService {
     public int friendsCount(Long id);
 
     public boolean isFriend(Long user1Id, Long user2Id);
+
+    public FootprintVO getViewNumMax(Long id);
+
+    FootprintVO getCollectionNumMax(Long id);
+
+    FootprintVO getCommentNumMax(Long id);
 }

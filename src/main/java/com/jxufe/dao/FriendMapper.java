@@ -2,6 +2,7 @@ package com.jxufe.dao;
 
 import com.jxufe.entity.Apply;
 import com.jxufe.entity.Friend;
+import com.jxufe.vo.FootprintVO;
 import com.jxufe.vo.FriendVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -36,4 +37,10 @@ public interface FriendMapper {
     FriendVO isFriendByName(String user1Name, String user2Name);
 
     Friend isFriend(Long user1Id, Long user2Id);
+
+    FootprintVO getUserViewMax(Long id);
+
+    FootprintVO getCollectionMax(Long id);
+
+    FootprintVO getCommentMax(Long id);
 }

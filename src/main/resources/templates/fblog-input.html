@@ -11,7 +11,7 @@
 </head>
   
 <body>
-<nav th:replace="_fragments_login :: menu(2)" class="ui inverted attached segment m-padded-tb-mini">
+<nav th:replace="_fragments_login :: menu()" class="ui inverted attached segment m-padded-tb-mini">
   <div class="ui container"> <!-- 加一个容器 -->
     <div class="ui inverted secondary stackable menu"> <!-- 菜单 stackable:可堆叠的,表示屏幕小时自动堆叠-->
       <h2 class="ui white header item">GuideSystem</h2> <!-- 蓝绿色标题 -->
@@ -54,7 +54,7 @@
               <div class="card-body">
                 <form action="#" th:action="@{/fblog/input/success}" method="post" class="row">
                   <div class="form-group col-md-12">
-                    <label for="type" class="ui header m-text-header-thin">社区</label>
+                    <label for="type" class="ui header m-text-header-thin">发布社区</label>
                     <div class="form-controls">
                       <select name="forum.id" class="form-control" id="type">
                         <option value="0"></option>
@@ -183,6 +183,17 @@
   <script type="text/javascript" src="../static/js/app.js"></script>
   <script type="text/javascript" src="../static/js/main.min.js"></script>
 </th:block>
+<script>
+
+    $('.menu.toggle').click(function () {
+        $('.m-item').toggleClass('m-mobile-hide');
+    });
+
+    $('.ui.dropdown').dropdown({
+        on: 'hover'
+    });
+
+</script>
 
 </body>
 </html>

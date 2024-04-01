@@ -6,6 +6,7 @@ import com.jxufe.entity.Apply;
 import com.jxufe.entity.Friend;
 import com.jxufe.entity.User;
 import com.jxufe.service.FriendService;
+import com.jxufe.vo.FootprintVO;
 import com.jxufe.vo.FriendVO;
 import com.jxufe.vo.SearchVO;
 import org.springframework.stereotype.Service;
@@ -104,5 +105,20 @@ public class FriendServiceImpl implements FriendService {
     @Override
     public boolean isFriend(Long user1Id, Long user2Id) {
         return friendMapper.isFriend(user1Id, user2Id) != null;
+    }
+
+    @Override
+    public FootprintVO getViewNumMax(Long id) {
+        return friendMapper.getUserViewMax(id);
+    }
+
+    @Override
+    public FootprintVO getCollectionNumMax(Long id) {
+        return friendMapper.getCollectionMax(id);
+    }
+
+    @Override
+    public FootprintVO getCommentNumMax(Long id) {
+        return friendMapper.getCommentMax(id);
     }
 }
