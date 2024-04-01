@@ -32,4 +32,8 @@ public interface FriendMapper {
     int updateFriend(Friend friend);
 
     Integer getCount(Long id);
+
+    FriendVO isFriendByName(String user1Name, String user2Name);
+
+    Friend isFriend(Long user1Id, Long user2Id);
 }

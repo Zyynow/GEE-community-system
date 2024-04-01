@@ -33,4 +33,6 @@ public interface FriendService {
     public List<Apply> applyList(Long id);
 
     public int friendsCount(Long id);
+
+    public boolean isFriend(Long user1Id, Long user2Id);
 }

@@ -27,7 +27,7 @@
       <div class="m-top-right m-mobile-hide item m-item" style="margin-top: 5px"> <!-- 靠右 -->
         <form name="search" method="get" action="#" th:action="@{/user_search}" target="_blank">
           <div class="ui icon input">
-            <input type="text" name="query" placeholder="Search..." th:value="${query}">
+            <input type="text" name="query" placeholder="输入博客关键字..." th:value="${query}">
             <i onclick="document.forms['search'].submit()" class="search link icon"></i>
           </div>
         </form>
@@ -38,7 +38,7 @@
           </div>
           <i class="dropdown icon"></i>
           <div class="menu">
-            <a href="#" th:href="@{/about}" class="item">我的</a>
+            <a href="#" th:href="@{/about}" target="_blank" class="item">我的</a>
             <a href="#" th:href="@{/edit/password}" class="item">修改密码</a>
             <a href="#" th:href="@{/login/exit}" id="logout-link" class="item">退出</a>
             <a href="#" th:href="@{/login/delete}" class="item">注销</a> <!--得更新-->
@@ -210,6 +210,11 @@
 </div>
 <br>
 
+<!--暂存信息-->
+<input type="hidden" name="friendName" th:value="${toFriend?.username}"/>
+<input type="hidden" name="friendAvatar" th:value="${toFriend?.avatar}"/>
+<input type="hidden" name="friendNickname" th:value="${toFriend?.nickname}"/>
+
 <script src="../static/js/vue.js" th:src="@{/js/vue.js}"></script>
 <script src="../static/js/axios-0.18.0.js" th:src="@{/js/axios-0.18.0.js}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -229,6 +234,10 @@
 
     // const cUser = '<%= session.getAttribute("user") %>'; // 在JSP中才有用
     const cUsername = $("[name='concurrentUsername']").val();
+
+    const toFriendName = $("[name='friendName']").val();
+    const toFriendAvatar = $("[name='friendAvatar']").val();
+    const toFriendNickname = $("[name='friendNickname']").val();
 
     let ws;
     new Vue({
@@ -279,6 +288,7 @@
         },
         created() {
             this.init();
+            this.showChat(toFriendName, toFriendAvatar, toFriendNickname);
         },
         /*mounted() {
             this.fetchFriendList();
@@ -298,7 +308,13 @@
 
                 ws.onclose = this.onClose;
             },
-            async showChat(friendName, friendAvatar, friendNickname) { // 触发showChat时向后端发起请求, 将返回结果按需存入sessionStorage(请求当前登录用户和friendName的聊天记录)
+            // 触发showChat时向后端发起请求, 将返回结果按需存入sessionStorage(请求当前登录用户和friendName的聊天记录)
+            async showChat(friendName, friendAvatar, friendNickname) {
+                if (friendName == "" || friendName == null || friendName == undefined) {
+                    console.log("无效username");
+                    return;
+                }
+
                 // 拿到friendName用户的id
                 await axios.get("friendId/" + friendName).then(res => {
                     this.toId = res.data;
@@ -309,7 +325,7 @@
                 this.toNickname = friendNickname;
 
                 // 根据toName获取聊天历史记录(sessionStorage以键值对存储数据于浏览器)
-                let history = sessionStorage.getItem(this.toName);
+                let history = sessionStorage.getItem(this.toName); // 如果sessionStorage中没有存储关于toName的历史记录会返回null
                 if (!history) {
                     await axios.get("record/" + this.toName).then(res => {
                         this.historyMessage = res.data;

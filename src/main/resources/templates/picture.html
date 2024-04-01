@@ -10,7 +10,6 @@
   <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
   <link rel="stylesheet" href="../static/lib/picture/css/jkresponsivegallery.css"
         th:href="@{/lib/picture/css/jkresponsivegallery.css}">
-
   <style>
       .edit-delete-buttons {
           position: relative;
@@ -55,7 +54,7 @@
           </div>
           <i class="dropdown icon"></i>
           <div class="menu">
-            <a href="#" th:href="@{/about}" class="item">我的</a>
+            <a href="#" th:href="@{/about}" target="_blank" class="item">我的</a>
             <a href="#" th:href="@{/edit/password}" class="item">修改密码</a>
             <a href="#" th:href="@{/login/exit}" class="item">退出</a>
             <a href="#" th:href="@{/login/delete}" class="item">注销</a> <!--得更新-->
@@ -283,6 +282,7 @@
 </div>
 <br>
 
+<!--确认删除-->
 <div class="ui tiny modal">
   <i class="close icon"></i>
   <div class="header">
@@ -380,7 +380,7 @@
                 if (!response.ok) {
                     throw new Error('Failed to delete picture');
                 }
-                // 如果服务器返回了Location头部，可以手动处理重定向
+                // 如果服务器返回了Location头部，可以手动处理重定向(...不懂...)
                 const myLocation = response.headers.get('Location');
                 console.log(location);
                 if (myLocation) {

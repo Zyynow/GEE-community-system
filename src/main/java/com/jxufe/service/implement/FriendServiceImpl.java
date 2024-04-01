@@ -100,4 +100,9 @@ public class FriendServiceImpl implements FriendService {
     public int friendsCount(Long id) {
         return friendMapper.getCount(id);
     }
+
+    @Override
+    public boolean isFriend(Long user1Id, Long user2Id) {
+        return friendMapper.isFriend(user1Id, user2Id) != null;
+    }
 }

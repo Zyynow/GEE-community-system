@@ -133,5 +133,19 @@
            or user2id = #{id};
     </select>
 
+    <select id="isFriend" resultType="com.jxufe.entity.Friend">
+        select *
+        from t_friend
+        where (user1id = #{user1Id} and user2id = #{user2Id})
+           or (user1id = #{user2Id} and user2id = #{user1Id})
+    </select>
+
+    <select id="isFriendByName" resultType="com.jxufe.entity.Friend">
+        select *
+        from t_friend
+        where (user1username = #{user1Name} and user2username = #{user2Name})
+           or (user1username = #{user2Name} and user2username = #{user1Name})
+    </select>
+
 </mapper>
 

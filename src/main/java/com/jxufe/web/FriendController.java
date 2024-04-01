@@ -39,20 +39,25 @@ public class FriendController {
     @Transactional
     public void addFriend(@RequestBody Friend friend, @RequestParam("applyId") Long applyId, HttpServletResponse response)
             throws IOException {
+        if (friendService.isFriend(friend.getUser1Id(), friend.getUser2Id())) {
+            response.getWriter().print("<script language='javascript'>alert('你们已经是好友啦，无法重复添加');"
+                    + "window.location.href='/dev/friend/';</script>");
+        }
         int p = friendService.saveFriend(friend);
         int q = friendService.deleteApply(applyId);
         if (p == 0 || q == 0) {
             response.getWriter().print("<script language='javascript'>alert('好友同意失败了哦，找找是什么原因吧');" +
-                    "window.location.href='/dev/friend';</script>");
+                    "window.location.href='/dev/friend/';</script>");
         }
     }
 
     @PostMapping("/apply/add")
+    @Transactional
     public void addApply(@RequestBody Apply apply, HttpServletResponse response) throws IOException {
         int p = friendService.addApply(apply);
         if (p == 0) {
             response.getWriter().print("<script language='javascript'>alert('好友申请失败了哦，找找是什么原因吧');" +
-                    "window.location.href='/dev/friend';</script>");
+                    "window.location.href='/dev/friend/';</script>");
         }
     }
 
@@ -87,7 +92,7 @@ public class FriendController {
         int p = friendService.deleteFriendById(id, user.getId());
         if (p == 0) {
             response.getWriter().print("<script language='javascript'>alert('好友删除失败了哦，找找是什么原因吧');" +
-                    "window.location.href='/dev/friend';</script>");
+                    "window.location.href='/dev/friend/';</script>");
         }
     }
 
@@ -97,7 +102,7 @@ public class FriendController {
         int p = friendService.deleteApply(id);
         if (p == 0) {
             response.getWriter().print("<script language='javascript'>alert('申请删除失败了哦，找找是什么原因吧');" +
-                    "window.location.href='/dev/friend';</script>");
+                    "window.location.href='/dev/friend/';</script>");
         }
     }
 
@@ -108,7 +113,7 @@ public class FriendController {
         User user = (User) session.getAttribute("user");
         if (keyword.trim().equals("")) {
             response.getWriter().print("<script language='javascript'>alert('搜索关键字输入不可以为空！');" +
-                    "window.location.href='/dev/friend';</script>");
+                    "window.location.href='/dev/friend/';</script>");
         }
         return friendService.searchUser(keyword, user.getId());
     }

@@ -3,6 +3,7 @@ package com.jxufe.web;
 import com.jxufe.entity.Chat;
 import com.jxufe.entity.User;
 import com.jxufe.service.ChatService;
+import com.jxufe.service.FriendService;
 import com.jxufe.service.UserService;
 import com.jxufe.vo.ChatVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,8 +38,24 @@ public class ChatController {
     @Autowired
     UserService userService;
 
+    @Autowired
+    FriendService friendService;
+
     @GetMapping("/")
     public String doRecord() {
+        return "friends_record";
+    }
+
+    @GetMapping("/{userId}")
+    public String doRecordToUser(@PathVariable Long userId, Model model,
+                                 HttpServletResponse response, HttpSession session) throws IOException {
+        User user1 = userService.findUserById(userId);
+        User user2 = (User) session.getAttribute("user");
+        if (!friendService.isFriend(userId, user2.getId())) {
+            response.getWriter().print("<script language='javascript'>alert('你和 " + user1.getNickname() + " 还是好友哦，请先添加好友吧');"
+                    + "window.location.href='/dev/friend/';</script>");
+        }
+        model.addAttribute("toFriend", user1);
         return "friends_record";
     }
 
@@ -51,6 +71,7 @@ public class ChatController {
 
     /**
      * 返回chatList
+     *
      * @param username 对方用户名
      * @return
      */
@@ -62,11 +83,6 @@ public class ChatController {
         // System.out.println(chatList);
         return chatList;
     }
-
-    /*@GetMapping("/friend/{id}")
-    public String recordByUserId(@PathVariable Long id) {
-        return "friends_record";
-    }*/
 
     @GetMapping("/friendId/{username}")
     @ResponseBody
