@@ -1,9 +1,12 @@
 package com.jxufe.web;
 
+import com.jxufe.entity.Blog;
 import com.jxufe.entity.Favourites;
+import com.jxufe.entity.Resource;
 import com.jxufe.entity.User;
 import com.jxufe.service.BlogService;
 import com.jxufe.service.ResourceService;
+import com.jxufe.vo.CollectionVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,7 +16,12 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.List;
+import java.time.LocalDate;
+import java.time.YearMonth;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/collection")
@@ -80,17 +88,59 @@ public class CollectionController {
     @GetMapping("/blog/list")
     public String getCollectionBlogList(HttpSession session, Model model) {
         User user = (User) session.getAttribute("user");
-        List<Favourites> favourites = blogService.collectionBlogList(user.getId());
-        model.addAttribute("collectionList", favourites);
+        List<CollectionVO> favourites = blogService.collectionBlogList(user.getId());
+        List<List<CollectionVO>> groupedCollections = sortByTime(favourites);
+        List<Blog> hotBlogs = blogService.getHotBlog();
+        List<Blog> collectionMaxB = blogService.getCollectionMax();
+
+        // 现在你可以将groupedCollections传递给模型
+        model.addAttribute("groupedCollectionList", groupedCollections);
+        model.addAttribute("totalCollectionsCount", favourites.size());
+        model.addAttribute("hotBlogs", hotBlogs);
+        model.addAttribute("collectionMaxB", collectionMaxB);
+
         return "collection_blog";
     }
 
     @GetMapping("/resource/list")
     public String getCollectionResourceList(HttpSession session, Model model) {
         User user = (User) session.getAttribute("user");
-        List<Favourites> favourites = resourceService.collectionResourceList(user.getId());
-        model.addAttribute("collectionList", favourites);
+        List<CollectionVO> favourites = resourceService.collectionResourceList(user.getId());
+        List<List<CollectionVO>> groupedCollections = sortByTime(favourites);
+        List<Resource> hotResources = resourceService.getHotResource();
+        List<Resource> collectionMaxR = resourceService.getCollectionMax();
+
+        // 现在你可以将groupedCollections传递给模型
+        model.addAttribute("groupedCollectionList", groupedCollections);
+        model.addAttribute("totalCollectionsCount", favourites.size());
+        model.addAttribute("hotResources", hotResources);
+        model.addAttribute("collectionMaxR", collectionMaxR);
+
         return "collection_resource";
+    }
+
+    public List<List<CollectionVO>> sortByTime(List<CollectionVO> list) {
+        // 将收藏按月份分类并存储月份和对应收藏列表的映射
+        Map<YearMonth, List<CollectionVO>> collectionsByMonth = new HashMap<>();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM");
+
+        for (CollectionVO collection : list) {
+            LocalDate date = collection.getTime().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            YearMonth monthKey = YearMonth.from(date);
+
+            if (!collectionsByMonth.containsKey(monthKey)) {
+                collectionsByMonth.put(monthKey, new ArrayList<>());
+            }
+            collectionsByMonth.get(monthKey).add(collection);
+        }
+
+        // 将Map按照月份逆序排序后转为List<List<CollectionVO>>
+        List<List<CollectionVO>> groupedCollections = new ArrayList<>(collectionsByMonth.entrySet().stream()
+                .sorted(Map.Entry.<YearMonth, List<CollectionVO>>comparingByKey(Comparator.reverseOrder()))
+                .map(entry -> entry.getValue())
+                .collect(Collectors.toList()));
+
+        return groupedCollections;
     }
 
 }

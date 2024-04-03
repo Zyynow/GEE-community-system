@@ -9,6 +9,7 @@ import com.jxufe.exception.NotFoundException;
 import com.jxufe.service.ResourceService;
 import com.jxufe.utils.MarkdownUtils;
 import com.jxufe.utils.MyBeanUtils;
+import com.jxufe.vo.CollectionVO;
 import com.jxufe.vo.ResourceQuery;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -142,13 +143,23 @@ public class ResourceServiceImpl implements ResourceService {
     }
 
     @Override
-    public List<Favourites> collectionResourceList(Long id) {
+    public List<CollectionVO> collectionResourceList(Long id) {
         return collectionMapper.collectionRecourseList(id);
     }
 
     @Override
     public boolean isCollectionResource(Long userId, Long resourceId) {
         return collectionMapper.isCollectionResource(userId, resourceId) != null;
+    }
+
+    @Override
+    public List<Resource> getHotResource() {
+        return resourceRepository.getHotResource();
+    }
+
+    @Override
+    public List<Resource> getCollectionMax() {
+        return collectionMapper.getCollectionResourceMax();
     }
 
     @Override

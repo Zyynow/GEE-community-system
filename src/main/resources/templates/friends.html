@@ -138,41 +138,19 @@
               </a>
             </div>
           </div>
-          <!--<div class="item" v-for="myF in filteredFriends" style="max-height: 80px">
-            <a class="ui tiny image" :href="'/dev/userOtherAbout/' + myF.userId" target="_blank">
-              <img :src="myF.avatar"
-                   style="object-fit: cover;
-                       cursor: pointer;
-                       outline: 0px;
-                       max-height: 80px;
-                       height: 80px;
-                       background-size: 100% 100%;">
+          <!--/*-->
+          <div class="item">
+            <a class="ui tiny image">
+              <img src="../static/images/avatar/joe.jpg">
             </a>
             <div class="content">
-              <a class="header" :href="'/dev/userOtherAbout/' + myF.userId" target="_blank">{{myF.nickname}}</a>
+              <a class="header">Veronika Ossi</a>
               <div class="description">
-                &lt;!&ndash;<p>Stevie Feliciano is a <a>library scientist</a> living in New York City. She likes to spend her time
-                  reading, running, and writing.</p>&ndash;&gt;
-                <p v-if="myF.description.length > 80">{{myF.description.slice(0, 80)}}...</p>
-                <p v-else>{{myF.description}}</p>
+                <p>Veronika Ossi is a set designer living in New York who <a>enjoys</a> kittens, music, and partying.
+                </p>
               </div>
-              <a class="header" :href="'/dev/chat/' + myF.userId" target="_blank" style="float: right;">
-                <div class="ui basic mini right floated button"
-                     style="font-weight: bold!important; margin-top: 5px!important;">
-                  <i class="wechat icon"></i>
-                  聊天
-                </div>
-              </a>
-              <a class="header" :href="'/dev/userOtherAbout/' + myF.userId" target="_blank" style="float: right;">
-                <div class="ui basic mini right floated button"
-                     style="font-weight: bold!important; margin-top: 5px!important;">
-                  <i class="mouse pointer icon"></i>
-                  主页
-                </div>
-              </a>
             </div>
-          </div>-->
-          <!--/*-->
+          </div>
           <div class="item">
             <a class="ui tiny image">
               <img src="../static/images/avatar/joe.jpg">
@@ -261,7 +239,8 @@
           <div class="item">
             <img class="ui avatar image" :src="viewMax.avatar">
             <div class="content">
-              <a class="header" :href="'/dev/userOtherAbout/' + viewMax.userId" target="_blank">{{viewMax.nickname}}</a>
+              <a class="header" :href="'/dev/userOtherAbout/' + viewMax.userId"
+                 target="_blank">{{viewMax.nickname}}</a>
               <div class="description">一直以来访问你的
                 <a :href="'/dev/about'" target="_blank"><b>主页</b></a> 最多。
                 <p>达到 <span style="color: #d27b53; font-weight: bold">{{viewMax.count}}</span> 次</p>

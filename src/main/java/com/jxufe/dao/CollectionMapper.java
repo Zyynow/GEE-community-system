@@ -1,6 +1,9 @@
 package com.jxufe.dao;
 
+import com.jxufe.entity.Blog;
 import com.jxufe.entity.Favourites;
+import com.jxufe.entity.Resource;
+import com.jxufe.vo.CollectionVO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -16,9 +19,9 @@ public interface CollectionMapper {
 
     int deleteCollectionResource(Long userId, Long resourceId);
 
-    List<Favourites> collectionBlogList(Long userId);
+    List<CollectionVO> collectionBlogList(Long userId);
 
-    List<Favourites> collectionRecourseList(Long userId);
+    List<CollectionVO> collectionRecourseList(Long userId);
 
     int deleteResourceId(Long id);
 
@@ -27,4 +30,8 @@ public interface CollectionMapper {
     Favourites isCollectionBlog(Long userId, Long blogId);
 
     Favourites isCollectionResource(Long userId, Long resourceId);
+
+    List<Resource> getCollectionResourceMax();
+
+    List<Blog> getCollectionBlogMax();
 }

@@ -9,6 +9,7 @@ import com.jxufe.service.BlogService;
 import com.jxufe.utils.MarkdownUtils;
 import com.jxufe.utils.MyBeanUtils;
 import com.jxufe.vo.BlogQuery;
+import com.jxufe.vo.CollectionVO;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -21,6 +22,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import javax.persistence.criteria.*;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 @Service
@@ -186,13 +190,23 @@ public class BlogServiceImpl implements BlogService {
     }
 
     @Override
-    public List<Favourites> collectionBlogList(Long id) {
+    public List<CollectionVO> collectionBlogList(Long id) {
         return collectionMapper.collectionBlogList(id);
     }
 
     @Override
     public boolean isCollectionBlog(Long userId, Long BlogId) {
         return collectionMapper.isCollectionBlog(userId, BlogId) != null;
+    }
+
+    @Override
+    public List<Blog> getCollectionMax() {
+        return collectionMapper.getCollectionBlogMax();
+    }
+
+    @Override
+    public List<Blog> getHotBlog() {
+        return blogRepository.getHotBlog();
     }
 
 }

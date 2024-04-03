@@ -513,7 +513,7 @@ h5,h6{font-size:1em;}
            th:if="${isCollection}"><i class="heart outline icon"></i></a>
         <a class="ui icon like-button button" onclick="collectionBlog(this)"
            th:unless="${isCollection}"><i class="heart outline icon"></i></a>
-        <a href="#" id="toTop-button" class="ui button"><i class="chevron up icon"></i></a>
+        <a id="toTop-button" class="ui button"><i class="chevron up icon"></i></a>
     </div>
 </div>
 
@@ -624,7 +624,7 @@ h5,h6{font-size:1em;}
         });
 
         $('#toTop-button').click(function () {
-            $(window).scrollTo(0,500);
+            $(window).scrollTo(0, 500);
         });
 
     });

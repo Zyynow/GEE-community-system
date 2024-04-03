@@ -64,9 +64,9 @@
 
                 <h2 id="section1">一、关于 <i class="serif">Typo.css</i></h2>
 
-                <pre><code class="language-css">p { color: red }</code></pre>
+                <pre style="background: #363636;"><code class="language-css">p { color: red }</code></pre>
 
-                <pre><code class="language-css">p { color: red }</code></pre>
+                <pre style="background: #363636;"><code class="language-css">p { color: red }</code></pre>
 
                 <p><i class="serif">Typo.css</i> 的目的是，在一致化浏览器排版效果的同时，构建最适合中文阅读的网页排版。</p>
                 <h4>现状和如何去做：</h4>
@@ -284,7 +284,7 @@
                     works nice as the
                     demo you're watching now. The following code is the best way to render typo in Chinese:
                 </p>
-                <pre>
+                <pre style="background: #363636;">
                     <code class="language-css">
 /* 标题应该更贴紧内容，并与其他块区分，margin 值要相应做优化 */
 h1,h2,h3,h4,h5,h6 {
@@ -513,7 +513,7 @@ h5,h6{font-size:1em;}
            th:if="${isCollection}"><i class="heart outline icon"></i></a>
         <a class="ui icon like-button button" onclick="collectionBlog(this)"
            th:unless="${isCollection}"><i class="heart outline icon"></i></a>
-        <a href="#" id="toTop-button" class="ui button"><i class="chevron up icon"></i></a>
+        <a id="toTop-button" class="ui button"><i class="chevron up icon"></i></a>
     </div>
 </div>
 
@@ -624,7 +624,7 @@ h5,h6{font-size:1em;}
         });
 
         $('#toTop-button').click(function () {
-            $(window).scrollTo(0,500);
+            $(window).scrollTo(0, 500);
         });
 
     });

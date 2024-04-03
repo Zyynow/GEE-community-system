@@ -3,6 +3,7 @@ package com.jxufe.service;
 import com.jxufe.entity.Blog;
 import com.jxufe.entity.Favourites;
 import com.jxufe.vo.BlogQuery;
+import com.jxufe.vo.CollectionVO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -49,7 +50,11 @@ public interface BlogService {
 
     int removeBlogById(Long id);
 
-    List<Favourites> collectionBlogList(Long id);
+    List<CollectionVO> collectionBlogList(Long id);
 
     boolean isCollectionBlog(Long userId, Long BlogId);
+
+    List<Blog> getCollectionMax();
+
+    List<Blog> getHotBlog();
 }

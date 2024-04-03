@@ -33,7 +33,8 @@ public class FeedbackController {
             return;
         } else {
             userService.sendFeedback(feedback);
-            response.sendRedirect("/dev/feedback");
+            response.getWriter().print("<script language='javascript'>alert('反馈成功');" +
+                    "window.location.href='/dev/feedback';</script>");
         }
     }
 

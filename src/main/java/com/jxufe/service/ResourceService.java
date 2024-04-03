@@ -2,6 +2,7 @@ package com.jxufe.service;
 
 import com.jxufe.entity.Favourites;
 import com.jxufe.entity.Resource;
+import com.jxufe.vo.CollectionVO;
 import com.jxufe.vo.ResourceQuery;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -36,7 +37,11 @@ public interface ResourceService {
 
     int removeCollectionResource(Long userId, Long resourceId);
 
-    List<Favourites> collectionResourceList(Long id);
+    List<CollectionVO> collectionResourceList(Long id);
 
     boolean isCollectionResource(Long userId, Long resourceId);
+
+    List<Resource> getHotResource();
+
+    List<Resource> getCollectionMax();
 }

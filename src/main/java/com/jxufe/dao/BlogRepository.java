@@ -49,4 +49,6 @@ public interface BlogRepository extends JpaRepository<Blog, Long>, JpaSpecificat
     @Query(value = "select * from t_blog where user_id = ?1 order by create_time desc", nativeQuery = true)
     List<Blog> getArchiveBlogs(Long userId);
 
+    @Query(value = "select b.* from t_blog b order by b.views desc limit 8", nativeQuery = true)
+    List<Blog> getHotBlog();
 }

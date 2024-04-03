@@ -15,26 +15,48 @@
         values (#{userId}, #{blogId}, #{time}, #{blogTitle}, #{resourceId}, #{resourceTitle}, #{type}, #{blogUserId})
     </insert>
 
-    <select id="collectionBlogList" resultType="com.jxufe.entity.Favourites">
-        select *
-        from t_collection
-        where user_id = #{userId}
-          and type = 0
+    <select id="collectionBlogList" resultType="com.jxufe.vo.CollectionVO">
+        SELECT a.blog_id    as id,
+               a.blog_title as title,
+               a.time,
+               t.NAME       AS tag
+        FROM t_tag AS t
+                 JOIN (SELECT c.blog_id,
+                              c.blog_title,
+                              c.time,
+                              b.tag_id
+                       FROM t_blog AS b
+                                JOIN (SELECT * FROM t_collection WHERE user_id = #{userId} AND type = 0) AS c
+                                     ON b.id = c.blog_id) AS a ON a.tag_id = t.id
     </select>
 
-    <select id="collectionRecourseList" resultType="com.jxufe.entity.Favourites">
-        select *
-        from t_collection
-        where user_id = #{userId}
-          and type = 1
+    <select id="collectionRecourseList" resultType="com.jxufe.vo.CollectionVO">
+        SELECT a.resource_id    as id,
+               a.resource_title as title,
+               a.time,
+               t.NAME           as tag
+        FROM t_type AS t
+                 JOIN (SELECT c.resource_id,
+                              c.resource_title,
+                              c.time,
+                              r.type_id
+                       FROM t_resource AS r
+                                JOIN (SELECT * FROM t_collection WHERE user_id = #{userId} AND type = 1) AS c
+                                     ON r.id = c.resource_id) AS a ON a.type_id = t.id
     </select>
 
     <select id="isCollectionBlog" resultType="com.jxufe.entity.Favourites">
-        select * from t_collection where user_id = #{userId} and blog_id = #{blogId}
+        select *
+        from t_collection
+        where user_id = #{userId}
+          and blog_id = #{blogId}
     </select>
 
     <select id="isCollectionResource" resultType="com.jxufe.entity.Favourites">
-        select * from t_collection where user_id = #{userId} and resource_id = #{resourceId}
+        select *
+        from t_collection
+        where user_id = #{userId}
+          and resource_id = #{resourceId}
     </select>
 
     <delete id="deleteBlogById">
@@ -52,13 +74,34 @@
     <delete id="deleteCollectionBlog">
         delete
         from t_collection
-        where user_id = #{userId} and blog_id = #{blogId}
+        where user_id = #{userId}
+          and blog_id = #{blogId}
     </delete>
 
     <delete id="deleteCollectionResource">
         delete
         from t_collection
-        where user_id = #{userId} and resource_id = #{resourceId}
+        where user_id = #{userId}
+          and resource_id = #{resourceId}
     </delete>
 
+    <select id="getCollectionResourceMax" resultType="com.jxufe.entity.Resource">
+        SELECT r.*
+        FROM t_resource AS r
+                 JOIN (SELECT resource_id, COUNT(*) as collection_count
+                       FROM t_collection
+                       WHERE type = 1
+                       GROUP BY resource_id
+                       ORDER BY collection_count DESC LIMIT 8) AS c ON r.id = c.resource_id
+    </select>
+
+    <select id="getCollectionBlogMax" resultType="com.jxufe.entity.Blog">
+        SELECT b.*
+        FROM t_blog AS b
+                 JOIN (SELECT blog_id, COUNT(*) as collection_count
+                       FROM t_collection
+                       WHERE type = 0
+                       GROUP BY blog_id
+                       ORDER BY collection_count DESC LIMIT 8) AS c ON b.id = c.blog_id
+    </select>
 </mapper>

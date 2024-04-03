@@ -26,4 +26,7 @@ public interface ResourceRepository extends JpaRepository<Resource, Long>, JpaSp
     @Modifying
     @Query(value = "update t_resource set views = views + 1 where id = ?1", nativeQuery = true)
     Integer updateViews(Long id);
+
+    @Query(value = "select r.* from t_resource r order by r.views desc limit 8", nativeQuery = true)
+    List<Resource> getHotResource();
 }
