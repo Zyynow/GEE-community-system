@@ -33,10 +33,10 @@ public class WebConfig implements WebMvcConfigurer {
                 "/forum/join/**",
                 "/fblog/input/**",
                 "/archives/**",
-                "/consumption_record/**",
                 "/picture/me/**",
                 "/chat/**",
-                "/friend/**"
+                "/friend/**",
+                "/collection/**"
         );
 
 //        registry.addInterceptor(new OtherInterceptor())

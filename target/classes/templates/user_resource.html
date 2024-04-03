@@ -38,7 +38,7 @@
 </nav>
 
 <!--中间内容-->
-<div class="m-container m-margin-top-large animate__fadeIn" id="contentDiv">
+<div class="m-container m-padded-tb-big animate__fadeIn" id="contentDiv">
     <div class="ui container">
         <!--头部-->
         <div class="ui top attached segment">
@@ -497,7 +497,7 @@ h5,h6{font-size:1em;}
                         <li>初次发表时间：<span
                                 th:text="${#dates.format(resource.createTime, 'yyyy-MM-dd HH:mm')}">2202-06-04 09:21</span></li>
                         <li>最近更新：<span
-                                th:text="${#dates.format(resource.createTime, 'yyyy-MM-dd HH:mm')}">2202-06-04 16:06</span></li>
+                                th:text="${#dates.format(resource.updateTime, 'yyyy-MM-dd HH:mm')}">2202-06-04 16:06</span></li>
                     </ui>
                 </div>
             </div>
@@ -509,7 +509,10 @@ h5,h6{font-size:1em;}
     <div class="ui vertical icon buttons">
         <button type="button" class="ui toc blue button">目录</button>
         <a href="#" th:href="@{/feedback}" class="ui blue button">反馈</a>
-        <a class="ui icon like-button button"><i class="heart outline icon"></i></a>
+        <a class="ui icon like-button button large Red" onclick="cancelCollection(this)"
+           th:if="${isCollection}"><i class="heart outline icon"></i></a>
+        <a class="ui icon like-button button" onclick="collectionBlog(this)"
+           th:unless="${isCollection}"><i class="heart outline icon"></i></a>
         <a href="#" id="toTop-button" class="ui button"><i class="chevron up icon"></i></a>
     </div>
 </div>
@@ -624,22 +627,59 @@ h5,h6{font-size:1em;}
             $(window).scrollTo(0,500);
         });
 
-        $('.like-button').on('click', function() {
-            $(this).toggleClass('Red');
-        });
     });
 
-    var waypoint = new Waypoint({
-        element: document.getElementById('contentDiv'),
-        handler: function(direction) {
-            if (direction == 'down') {
-                $('#toolbar').show(100);
-            } else {
-                $('#toolbar').hide(500);
+    var clickNum1 = 0;
+    async function collectionBlog(button) {
+        if (++clickNum1 == 1) {
+            // 注意：thymeleaf不支持传递对象，只能接收boolean和字符串
+            var collection = {
+                userId: $("[name='concurrentId']").val(),
+                blogId: 0,
+                time: new Date(),
+                blogTitle: "", // String类型要包起来
+                resourceId: [[${resource.id}]],
+                resourceTitle: "[[${resource.title}]]",
+                type: true,
+                blogUserId: 0
             }
-            console.log('Scrolled to waypoint!  ' + direction);
+            console.log(collection);
+            await fetch('/dev/collection/user_resource', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(collection)
+            }).then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+            }).catch(error => console.error('Error:', error));
         }
-    })
+
+        $(button).toggleClass('Red');
+        $(button).toggleClass('large');
+    }
+
+    var clickNum2 = 0;
+    async function cancelCollection(button) {
+        if (++clickNum2 == 1) {
+            await fetch('/dev/collection/remove/resource/' + [[${resource.id}]], {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+            }).catch(error => console.error('Error:', error));
+        }
+
+        $(button).toggleClass('Red');
+        $(button).toggleClass('large');
+    }
+
 </script>
 </body>
 </html>

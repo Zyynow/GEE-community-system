@@ -1,6 +1,8 @@
 package com.jxufe.service.implement;
 
+import com.jxufe.dao.CollectionMapper;
 import com.jxufe.dao.ResourceRepository;
+import com.jxufe.entity.Favourites;
 import com.jxufe.entity.Resource;
 import com.jxufe.entity.Type;
 import com.jxufe.exception.NotFoundException;
@@ -29,6 +31,9 @@ public class ResourceServiceImpl implements ResourceService {
 
     @Autowired
     private ResourceRepository resourceRepository;
+
+    @Autowired
+    private CollectionMapper collectionMapper;
 
     @Override
     public Resource getResource(Long id) {
@@ -125,4 +130,30 @@ public class ResourceServiceImpl implements ResourceService {
     public Integer updateViews(Long id) {
         return resourceRepository.updateViews(id);
     }
+
+    @Override
+    public int collectionResource(Favourites favourites) {
+        return collectionMapper.addCollectionResource(favourites);
+    }
+
+    @Override
+    public int removeCollectionResource(Long userId, Long resourceId) {
+        return collectionMapper.deleteCollectionResource(userId, resourceId);
+    }
+
+    @Override
+    public List<Favourites> collectionResourceList(Long id) {
+        return collectionMapper.collectionRecourseList(id);
+    }
+
+    @Override
+    public boolean isCollectionResource(Long userId, Long resourceId) {
+        return collectionMapper.isCollectionResource(userId, resourceId) != null;
+    }
+
+    @Override
+    public int removeResourceById(Long id) {
+        return collectionMapper.deleteResourceId(id);
+    }
+
 }

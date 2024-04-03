@@ -1,6 +1,5 @@
 package com.jxufe.dao;
 
-import com.jxufe.entity.ArchiveBlog;
 import com.jxufe.entity.Blog;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -49,4 +48,5 @@ public interface BlogRepository extends JpaRepository<Blog, Long>, JpaSpecificat
 
     @Query(value = "select * from t_blog where user_id = ?1 order by create_time desc", nativeQuery = true)
     List<Blog> getArchiveBlogs(Long userId);
+
 }

@@ -8,6 +8,7 @@ import com.jxufe.service.UserService;
 import com.jxufe.vo.ChatVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /*
@@ -52,7 +54,7 @@ public class ChatController {
         User user1 = userService.findUserById(userId);
         User user2 = (User) session.getAttribute("user");
         if (!friendService.isFriend(userId, user2.getId())) {
-            response.getWriter().print("<script language='javascript'>alert('你和 " + user1.getNickname() + " 还是好友哦，请先添加好友吧');"
+            response.getWriter().print("<script language='javascript'>alert('你和 " + user1.getNickname() + " 还不是好友哦，请先添加好友吧');"
                     + "window.location.href='/dev/friend/';</script>");
         }
         model.addAttribute("toFriend", user1);
@@ -67,6 +69,19 @@ public class ChatController {
         List<ChatVO> chatList = chatService.record(user.getUsername());
         // System.out.println(chatList);
         return chatList;
+    }
+
+    @DeleteMapping("/delete/{username}")
+    @Transactional
+    public void deleteRecordByUser(@PathVariable("username") String username, HttpSession session, HttpServletResponse response)
+            throws IOException {
+        User user = (User) session.getAttribute("user");
+        int p = chatService.clearRecordByUser(username, user.getUsername());
+        if (p == 0) {
+            // 没有效果(可能是因为vue)
+            response.getWriter().print("<script language='javascript'>alert('聊天记录删除失败了哦，找找是什么原因吧');" +
+                    "window.location.href='/dev/chat/';</script>");
+        }
     }
 
     /**

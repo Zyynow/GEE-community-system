@@ -349,9 +349,8 @@
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
-            return response.json();
+            return response.json(); // 将返回的对象转为JS的JSON对象
         }).then(data => {
-            console.log(data);
             $('.ui.editPicture.modal').modal('show');
 
             // 填充form表单(不用转json格式)
@@ -382,7 +381,7 @@
                 }
                 // 如果服务器返回了Location头部，可以手动处理重定向(...不懂...)
                 const myLocation = response.headers.get('Location');
-                console.log(location);
+                // console.log(location);
                 if (myLocation) {
                     window.location.href = myLocation;
                 } else {

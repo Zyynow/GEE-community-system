@@ -42,4 +42,6 @@ public interface FriendService {
     FootprintVO getCollectionNumMax(Long id);
 
     FootprintVO getCommentNumMax(Long id);
+
+    boolean isFriendByName(String toName, String username);
 }

@@ -38,4 +38,11 @@
          WHERE sender_username = #{recipientUsername}
            AND recipient_username = #{senderUsername}) ORDER BY send_time ASC
     </select>
+
+    <delete id="clearRecordByUser">
+        DELETE
+        FROM t_chat
+        WHERE (sender_username = #{username1} AND recipient_username = #{username2})
+           OR (sender_username = #{username2} AND recipient_username = #{username1})
+    </delete>
 </mapper>

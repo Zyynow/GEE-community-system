@@ -652,8 +652,9 @@
                     });
                 });
 
+                // 点击confirmDel按钮才执行try
+                await confirmed;
                 try {
-                    await confirmed;
                     await axios.delete("delete/" + id);
                     await this.getFriendList();
                     await this.getFriendsNumber();

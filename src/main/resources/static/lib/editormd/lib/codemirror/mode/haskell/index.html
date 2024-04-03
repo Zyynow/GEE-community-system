@@ -36,7 +36,7 @@ where
 uniquePerms :: (Eq a) => [a] -> [[a]]
 uniquePerms = permBag . makeBag
 
--- | An unordered collection where duplicate values are allowed,
+-- | An unordered favourites where duplicate values are allowed,
 -- but represented with a single value and a count.
 type Bag a = [(a, Int)]
 

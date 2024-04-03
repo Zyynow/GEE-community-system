@@ -13,4 +13,6 @@ public interface ChatMapper {
     List<Chat> findRecordByUsername(String senderUsername, String recipientUsername);
 
     int saveChat(Chat chat);
+
+    Integer clearRecordByUser(String username1, String username2);
 }

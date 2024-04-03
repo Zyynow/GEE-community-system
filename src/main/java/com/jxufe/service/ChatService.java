@@ -12,4 +12,6 @@ public interface ChatService {
     List<Object> record(String senderUsername, String recipientUsername);
 
     void saveChat(Message msg, String sender);
+
+    int clearRecordByUser(String username1, String username2);
 }

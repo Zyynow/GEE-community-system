@@ -121,4 +121,9 @@ public class FriendServiceImpl implements FriendService {
     public FootprintVO getCommentNumMax(Long id) {
         return friendMapper.getCommentMax(id);
     }
+
+    @Override
+    public boolean isFriendByName(String toName, String username) {
+        return friendMapper.isFriendByName(toName, username) != null;
+    }
 }

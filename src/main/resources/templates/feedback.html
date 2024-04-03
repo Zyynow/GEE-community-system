@@ -1,135 +1,135 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head th:replace="_fragments_login :: head(~{::title})">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
-    <title>反馈</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
-    <link href="../static/css/app.css" rel="stylesheet">
-    <link href="../static/css/style.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+  <title>反馈</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+  <link href="../static/css/app.css" rel="stylesheet">
+  <link href="../static/css/style.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
 </head>
 
 <body>
 <!--导航-->
 <nav th:replace="_fragments_login :: menu(4)" class="ui inverted attached segment m-padded-tb-mini">
-    <div class="ui container"> <!-- 加一个容器 -->
-        <div class="ui inverted secondary stackable menu"> <!-- 菜单 stackable:可堆叠的,表示屏幕小时自动堆叠-->
-            <h2 class="ui white header item">GuideSystem</h2> <!-- 蓝绿色标题 -->
-            <a href="#" class="m-item m-mobile-hide item"><i class="home icon"></i>首页</a> <!-- icon表示图表 -->
-            <a href="#" class="m-item m-mobile-hide item"><i class="edit outline icon"></i>记录</a>
-            <a href="#" class="m-item m-mobile-hide item"><i class="info icon"></i>我的</a>
-            <div class="m-top-right m-mobile-hide item m-item" style="margin-top: 5px"> <!-- 靠右 -->
-                <div class="ui icon input">
-                    <input type="text" placeholder="Search...">
-                    <i class="search link icon"></i>
-                </div>
-                <div class="ui dropdown item">
-                    <div class="text">
-                        <img src="../static/images/店铺1.jpg" th:src="@{/images/IMG_6361.JPG}"
-                             alt="" class="ui avatar image">
-                    </div>
-                    <i class="dropdown icon"></i>
-                    <div class="menu">
-                        <a href="#" th:href="@{/login/exit}" class="item">足迹</a>
-                        <a href="#" th:href="@{/login}" class="item">我的</a>
-                        <a href="#" th:href="@{/edit/password}" class="item">修改密码</a>
-                        <a href="#" th:href="@{/login/exit}" class="item">退出</a>
-                    </div>
-                </div>
-            </div>
+  <div class="ui container"> <!-- 加一个容器 -->
+    <div class="ui inverted secondary stackable menu"> <!-- 菜单 stackable:可堆叠的,表示屏幕小时自动堆叠-->
+      <h2 class="ui white header item">GuideSystem</h2> <!-- 蓝绿色标题 -->
+      <a href="#" class="m-item m-mobile-hide item"><i class="home icon"></i>首页</a> <!-- icon表示图表 -->
+      <a href="#" class="m-item m-mobile-hide item"><i class="edit outline icon"></i>记录</a>
+      <a href="#" class="m-item m-mobile-hide item"><i class="info icon"></i>我的</a>
+      <div class="m-top-right m-mobile-hide item m-item" style="margin-top: 5px"> <!-- 靠右 -->
+        <div class="ui icon input">
+          <input type="text" placeholder="Search...">
+          <i class="search link icon"></i>
         </div>
+        <div class="ui dropdown item">
+          <div class="text">
+            <img src="../static/images/店铺1.jpg" th:src="@{/images/IMG_6361.JPG}"
+                 alt="" class="ui avatar image">
+          </div>
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <a href="#" th:href="@{/login/exit}" class="item">足迹</a>
+            <a href="#" th:href="@{/login}" class="item">我的</a>
+            <a href="#" th:href="@{/edit/password}" class="item">修改密码</a>
+            <a href="#" th:href="@{/login/exit}" class="item">退出</a>
+          </div>
+        </div>
+      </div>
     </div>
-    <a href="#" class="ui menu toggle black button icon m-top-right m-mobile-show">
-        <i class="sidebar icon"></i>
-    </a>
+  </div>
+  <a href="#" class="ui menu toggle black button icon m-top-right m-mobile-show">
+    <i class="sidebar icon"></i>
+  </a>
 </nav>
 
 <div class="m-container m-padded-tb-big" id="contentDiv">
-    <div class="ui container">
-        <div class="modal-dialog ui container fluid" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="exampleModalLabel">发送新消息给 @管理员</h4>
-                </div>
-                <div class="modal-body">
-                    <form name="return" action="#" th:action="@{/feedback/return}"></form>
-                    <form name="send" action="#" th:action="@{/feedback/send}" method="post">
-                        <div class="form-group">
-                            <label for="recipient-name" class="control-label">标题：</label>
-                            <input type="text" name="title" class="form-control" id="recipient-name">
-                        </div>
-                        <div class="form-group">
-                            <label for="message-text" class="control-label">反馈内容：</label>
-                            <textarea class="form-control" name="content" id="message-text"
-                                      style="height: 100px"></textarea>
-                        </div>
-                    </form>
-                    <div class="modal-footer">
-                        <button type="submit" onclick="document.forms['return'].submit()" class="btn btn-default"
-                                data-dismiss="modal">返回
-                        </button>
-                        <button type="submit" onclick="document.forms['send'].submit()" class="btn btn-primary">
-                            发送消息
-                        </button>
-                    </div>
-                </div>
-            </div>
+  <div class="ui container">
+    <div class="modal-dialog ui container fluid" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="exampleModalLabel">发送新消息给 @管理员</h4>
         </div>
+        <div class="modal-body">
+          <form name="return" action="#" th:action="@{/feedback/return}"></form>
+          <form name="send" action="#" th:action="@{/feedback/send}" method="post">
+            <div class="form-group">
+              <label for="recipient-name" class="control-label">标题：</label>
+              <input type="text" name="title" class="form-control" id="recipient-name">
+            </div>
+            <div class="form-group">
+              <label for="message-text" class="control-label">反馈内容：</label>
+              <textarea class="form-control" name="content" id="message-text"
+                        style="height: 100px"></textarea>
+            </div>
+          </form>
+          <div class="modal-footer">
+            <button type="submit" onclick="document.forms['return'].submit()" class="btn btn-default"
+                    data-dismiss="modal">返回
+            </button>
+            <button type="submit" onclick="document.forms['send'].submit()" class="btn btn-primary">
+              发送消息
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
 
 <footer th:replace="_fragments_login :: footer" class="ui inverted vertical segment m-padded-tb-massive">
-    <!-- vertical:垂直的 segment:条横 inverted:倒置的 -->
-    <div class="ui center aligned container"> <!-- center aligned:居中 aligned:使成为一条线-->
-        <div class="ui inverted divided stackable grid"> <!-- inverted divided grid:格线分成16份 -->
-            <div class="three wide column">
-                <h4 class="ui inverted header m-text-thin">消费者权益</h4>
-                <div class="ui inverted link list">
-                    <span class="item m-text-thin">消费者热线：3838438</span>
-                    <span class="item m-text-thin">外卖热线：5201314</span>
-                    <span class="item m-text-thin">已获得食品安全局认证</span>
-                </div>
-            </div>
-
-            <!-- 分成三列 -->
-            <div class="three wide column">
-                <h4 class="ui inverted header m-text-thin">商家加盟</h4>
-                <div class="ui inverted link list">
-                    <a href="#" class="item m-text-thin">食品外卖开店申请</a>
-                    <a href="#" class="item m-text-thin">美食商家入驻(非外卖)</a>
-                    <a href="#" class="item m-text-thin">合作/招聘</a>
-                </div>
-            </div>
-
-            <!-- 分成三列 -->
-            <div class="three wide column">
-                <h4 class="ui inverted header m-text-thin">联系我</h4>
-                <div class="ui inverted link list">
-                    <span class="item m-text-thin" style="height: 28px">邮箱: 1923326384@qq.com</span>
-                    <span class="item m-text-thin">QQ: 1923326384</span>
-                </div>
-            </div>
-
-            <!-- 分成七列 -->
-            <div class="seven wide column">
-                <h4 class="ui inverted header m-text-thin">企业文化</h4>
-                <p class="m-text-thin m-text-spaced m-opacity-mini m-text-lined">
-                    消费者第一，商家第二 | 诚信诚实正直，言出必践言行一致 | 以“吃”为核心，建设生活服务业从需求侧到供给侧的多层次科技服务平台。
-                </p>
-            </div>
-
+  <!-- vertical:垂直的 segment:条横 inverted:倒置的 -->
+  <div class="ui center aligned container"> <!-- center aligned:居中 aligned:使成为一条线-->
+    <div class="ui inverted divided stackable grid"> <!-- inverted divided grid:格线分成16份 -->
+      <div class="three wide column">
+        <h4 class="ui inverted header m-text-thin">消费者权益</h4>
+        <div class="ui inverted link list">
+          <span class="item m-text-thin">消费者热线：3838438</span>
+          <span class="item m-text-thin">外卖热线：5201314</span>
+          <span class="item m-text-thin">已获得食品安全局认证</span>
         </div>
-        <div class="ui inverted section divider"></div>
-        <p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright @ 2022-05-29 HanYuFan Designed by HanYuFan</p>
+      </div>
+
+      <!-- 分成三列 -->
+      <div class="three wide column">
+        <h4 class="ui inverted header m-text-thin">商家加盟</h4>
+        <div class="ui inverted link list">
+          <a href="#" class="item m-text-thin">食品外卖开店申请</a>
+          <a href="#" class="item m-text-thin">美食商家入驻(非外卖)</a>
+          <a href="#" class="item m-text-thin">合作/招聘</a>
+        </div>
+      </div>
+
+      <!-- 分成三列 -->
+      <div class="three wide column">
+        <h4 class="ui inverted header m-text-thin">联系我</h4>
+        <div class="ui inverted link list">
+          <span class="item m-text-thin" style="height: 28px">邮箱: 1923326384@qq.com</span>
+          <span class="item m-text-thin">QQ: 1923326384</span>
+        </div>
+      </div>
+
+      <!-- 分成七列 -->
+      <div class="seven wide column">
+        <h4 class="ui inverted header m-text-thin">企业文化</h4>
+        <p class="m-text-thin m-text-spaced m-opacity-mini m-text-lined">
+          消费者第一，商家第二 | 诚信诚实正直，言出必践言行一致 | 以“吃”为核心，建设生活服务业从需求侧到供给侧的多层次科技服务平台。
+        </p>
+      </div>
+
     </div>
+    <div class="ui inverted section divider"></div>
+    <p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright @ 2022-05-29 HanYuFan Designed by HanYuFan</p>
+  </div>
 </footer>
 
 <th:block th:replace="_fragments_login :: script">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
-    <script type="text/javascript" src="../static/js/app.js"></script>
-    <script type="text/javascript" src="../static/js/main.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+  <script type="text/javascript" src="../static/js/app.js"></script>
+  <script type="text/javascript" src="../static/js/main.min.js"></script>
 </th:block>
 
 </body>

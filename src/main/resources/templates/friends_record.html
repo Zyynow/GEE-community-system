@@ -8,6 +8,22 @@
   <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
   <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
   <link rel="stylesheet" href="../static/css/friends_record.css" th:href="@{/css/friends_record.css}">
+  <style>
+      .delete-button {
+          height: 20px;
+          border-radius: 50%;
+          background-color: #c66675;
+          color: #fff;
+          font-size: 16px;
+          text-align: center;
+          line-height: 20px;
+          cursor: pointer;
+          opacity: 0.8;
+          width: 60%;
+          margin: auto;
+          margin-top: 5px;
+      }
+  </style>
 </head>
 <body class="friendBody">
 
@@ -103,7 +119,7 @@
             </div>
             <!--对面消息-->
             <div class="item left aligned" v-else>
-              <img class="ui circular image avatar ta" src="../static/images/friend_record_1.jpg" :src="toAvatar"
+              <img class="ui circular image avatar ta" :src="toAvatar"
                    alt="Kafka's Avatar"
                    style="object-fit: cover;
                      cursor: pointer;
@@ -169,11 +185,13 @@
         <div class="ui m-padded-tb-large m-container-mm">
           <div class="ui stackable m-container-mini m-opacityFriendImg grid">
             <!--最近记录显示区域-->
-            <div class="m-margin-tb-tiny four wide column" v-for="friend in friendList">
+            <div class="m-margin-tb-tiny four wide column" v-for="(friend, index) in friendList"
+                 style="padding-top: 0rem!important; padding-bottom: 0rem!important;"
+                 @contextmenu.prevent="showDeleteBtn(index, $event)">
               <a href="#" class="class_outer" @click='showChat(friend.usernameTa, friend.avatarTa, friend.nicknameTa)'>
                 <div align="center">
                   <div class="friends-link">
-                    <img src="../static/images/friend_record_1.jpg" :src="friend.avatarTa" alt=""
+                    <img :src="friend.avatarTa" alt=""
                          class="friends-link-image" style="opacity: 1">
                     <div class="m-margin-top">
                       <h4 class="m-font-size-text-friends m-margin-tb-tiny">
@@ -185,9 +203,17 @@
                   </div>
                 </div>
               </a>
+              <!-- 动态显示的删除按钮 -->
+              <transition name="fade">
+                <div v-if="deleteRecord.deleteIndex == index" class="delete-button"
+                     @click="deleteFriendRecord(friend.usernameTa, index)">
+                  删除记录
+                </div>
+              </transition>
             </div>
             <!--/*-->
-            <div class="m-margin-tb-tiny four wide column" th:each="friendlink : ${friendlinks}">
+            <div class="m-margin-tb-tiny four wide column" th:each="friendlink : ${friendlinks}"
+                 style="padding-top: 0rem!important; padding-bottom: 0rem!important;">
               <a href="#" class="class_outer" th:href="@{${friendlink.blogaddress}}">
                 <div align="center">
                   <div class="friends-link">
@@ -209,6 +235,27 @@
   </div>
 </div>
 <br>
+
+<!--确认删除-->
+<div class="ui tiny modal">
+  <i class="close icon"></i>
+  <div class="header">
+    记录删除
+  </div>
+  <div class="content">
+    <div class="description" name="descriptionDel">
+      确定要删除聊天记录嘛？关于Ta的所有记录将被删除不再找回！
+    </div>
+  </div>
+  <div class="actions">
+    <button class="ui secondary button" id="confirmDel">
+      确认
+    </button>
+    <button class="ui cancel button" id="cancelDel">
+      取消
+    </button>
+  </div>
+</div>
 
 <!--暂存信息-->
 <input type="hidden" name="friendName" th:value="${toFriend?.username}"/>
@@ -252,6 +299,12 @@
                 toNickname: "",
                 toAvatar: "",
                 toId: 0,
+                clickNum: 0,
+                deleteRecord: {
+                    deleteIndex: -1, // 存储当前要删除朋友的索引
+                    deleteX: 0,
+                    deleteY: 0
+                },
                 sendMessage: { // fromName、sendTime等在服务端获取
                     toName: "",
                     message: "",
@@ -264,7 +317,8 @@
                     {toName: "李四", message: "怎么不说话", sendTime: ""}, // 我发的
                     {fromName: "张三", message: "你好,李四", sendTime: ""} // 对面发的*/
                 ],
-                friendList: [ // 需要存(用户名、用户别名、头像地址、聊天记录)
+                // 存放最近聊天记录
+                friendList: [ // 需要存(用户名、用户别名、头像地址、聊天记录...)
                     {
                         usernameTa: "",
                         avatarTa: "",
@@ -375,7 +429,7 @@
                 this.sendMessage.message = "";
             },
             async fetchFriendList() {
-                // 拿到当前登录用户的最近记录列表
+                // 拿到当前登录用户的最近聊天记录列表
                 await axios.get("record").then(res => {
                     this.friendList = res.data;
                     this.$nextTick(() => {
@@ -389,6 +443,35 @@
                 let newFriend = this.friendList.splice(index, 1)[0]; // 移除并获取下标为index的元素
                 // 将该元素插入到数组的第一个位置
                 this.friendList.unshift(newFriend);
+            },
+            // 显示friendIndex的删除键
+            showDeleteBtn(friendIndex, event) {
+                if (this.deleteRecord.deleteIndex != -1) this.deleteRecord.deleteIndex = -1;
+                else this.deleteRecord.deleteIndex = friendIndex;
+                // this.deleteRecord.deleteX = event.clientX - rect.width / 2;
+                // this.deleteRecord.deleteY = event.clientY - rect.height / 2;
+            },
+            // 删除friendIndex聊天记录
+            async deleteFriendRecord(username, index) {
+                $('.tiny.modal').modal('show');
+
+                $('#confirmDel').click(async () => {
+                    try {
+                        // await axios.delete("delete/" + username);
+                        this.friendList.splice(index, 1); // 从数组中删除对应的朋友数据
+                        console.log(this.friendList);
+                        this.deleteRecord.deleteIndex = -1; // 隐藏删除按钮
+                        $('.tiny.modal').modal('hide');
+                    } catch (error) {
+                        // 处理删除失败的情况
+                        console.error('删除失败:', error);
+                    }
+                });
+
+                $('#cancelDel').click(() => {
+                    $('.tiny.modal').modal('hide');
+                    // 这里不需要特殊处理，因为没有执行删除逻辑
+                });
             },
             // 连接成功建立的回调方法
             onOpen() {

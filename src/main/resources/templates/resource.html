@@ -38,7 +38,7 @@
 </nav>
 
 <!--中间内容-->
-<div id="waypoint" class="m-container m-margin-top-large animate__fadeIn"><!--animated fadeIn-->
+<div id="contentDiv" class="m-container m-padded-tb-big animate__fadeIn"><!--animated fadeIn-->
   <div class="ui container m-opacity box-shadow-max">
     <!--头部-->
     <div class="ui top attached segment">
@@ -55,8 +55,9 @@
       </div>
     </div>
 
+    <!--中间主要内容部分-->
     <div class="ui attached padded segment">
-      <!--中间主要内容部分-->
+
       <h2 class="ui center aligned m-text-header-thin header" th:text="${resource.title}">你就是我想把生命交予的人</h2>
       <div id="content" class="typo  typo-selection js-toc-content m-padded-lr-responsive m-padded-tb-large"
            th:utext="${resource.content}">
@@ -497,7 +498,7 @@ h5,h6{font-size:1em;}
                 th:text="${#dates.format(resource.createTime, 'yyyy-MM-dd HH:mm')}">2202-06-04 09:21</span>
             </li>
             <li>最近更新：<span
-                th:text="${#dates.format(resource.createTime, 'yyyy-MM-dd HH:mm')}">2202-06-04 16:06</span>
+                th:text="${#dates.format(resource.updateTime, 'yyyy-MM-dd HH:mm')}">2202-06-04 16:06</span>
             </li>
           </ui>
         </div>
@@ -510,7 +511,6 @@ h5,h6{font-size:1em;}
   <div class="ui vertical icon buttons">
     <button type="button" class="ui toc blue button">目录</button>
     <a href="#" th:href="@{/feedback}" class="ui blue button">反馈</a>
-    <a class="ui icon like-button button"><i class="heart outline icon"></i></a>
     <a href="#" id="toTop-button" class="ui button"><i class="chevron up icon"></i></a>
   </div>
 </div>
@@ -614,17 +614,6 @@ h5,h6{font-size:1em;}
         $(window).scrollTo(0, 500);
     });
 
-    var waypoint = new Waypoint({
-        element: document.getElementById('waypoint'),
-        handler: function (direction) {
-            if (direction == 'down') {
-                $('#toolbar').show(100);
-            } else {
-                $('#toolbar').hide(500);
-            }
-            console.log('Scrolled to waypoint!  ' + direction);
-        }
-    })
 </script>
 </body>
 </html>

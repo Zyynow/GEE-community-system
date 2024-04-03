@@ -1,13 +1,11 @@
 package com.jxufe.web;
 
-import com.jxufe.entity.Feedback;
 import com.jxufe.entity.User;
+import com.jxufe.service.BlogService;
 import com.jxufe.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.Cookie;
@@ -20,6 +18,9 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private BlogService blogService;
 
     @GetMapping("/login")
     public String doLoginPage() {
@@ -86,6 +87,7 @@ public class UserController {
 
     /**
      * 去除日志
+     *
      * @param session
      * @return 重定向到/index
      */
@@ -112,18 +114,18 @@ public class UserController {
 
     @PostMapping("/edit/password/success")
     public void doEditPassword(HttpServletResponse response, HttpSession session,
-                                 @RequestParam String newPwd, @RequestParam String oldPwd, @RequestParam String confirmPwd) throws IOException {
+                               @RequestParam String newPwd, @RequestParam String oldPwd, @RequestParam String confirmPwd) throws IOException {
         response.setContentType("text/html; charset=UTF-8");
         if (!newPwd.equals(confirmPwd)) {
             response.getWriter().print("<script language='javascript'>alert('两次密码输入不一致');" +
                     "window.location.href='/dev/edit/password';</script>");
         } else {
-            Integer res = userService.checkPassword(((User)session.getAttribute("user")).getUsername(), oldPwd);
+            Integer res = userService.checkPassword(((User) session.getAttribute("user")).getUsername(), oldPwd);
             if (res == 0) {
                 response.getWriter().print("<script language='javascript'>alert('原密码校验失败');" +
                         "window.location.href='/dev/edit/password';</script>");
             } else {
-                userService.editPassword(((User)session.getAttribute("user")).getUsername(), newPwd, oldPwd);
+                userService.editPassword(((User) session.getAttribute("user")).getUsername(), newPwd, oldPwd);
                 session.removeAttribute("lastPath");
                 response.getWriter().print("<script language='javascript'>alert('修改成功，请重新登录');" +
                         "window.location.href='/dev/login';</script>");

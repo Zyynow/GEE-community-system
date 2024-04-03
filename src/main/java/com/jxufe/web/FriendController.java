@@ -41,12 +41,14 @@ public class FriendController {
     public void addFriend(@RequestBody Friend friend, @RequestParam("applyId") Long applyId, HttpServletResponse response)
             throws IOException {
         if (friendService.isFriend(friend.getUser1Id(), friend.getUser2Id())) {
+            // 没有效果(可能是因为vue)
             response.getWriter().print("<script language='javascript'>alert('你们已经是好友啦，无法重复添加');"
                     + "window.location.href='/dev/friend/';</script>");
         }
         int p = friendService.saveFriend(friend);
         int q = friendService.deleteApply(applyId);
         if (p == 0 || q == 0) {
+            // 没有效果(可能是因为vue)
             response.getWriter().print("<script language='javascript'>alert('好友同意失败了哦，找找是什么原因吧');" +
                     "window.location.href='/dev/friend/';</script>");
         }
@@ -57,6 +59,7 @@ public class FriendController {
     public void addApply(@RequestBody Apply apply, HttpServletResponse response) throws IOException {
         int p = friendService.addApply(apply);
         if (p == 0) {
+            // 没有效果(可能是因为vue)
             response.getWriter().print("<script language='javascript'>alert('好友申请失败了哦，找找是什么原因吧');" +
                     "window.location.href='/dev/friend/';</script>");
         }
@@ -92,6 +95,7 @@ public class FriendController {
         User user = (User) session.getAttribute("user");
         int p = friendService.deleteFriendById(id, user.getId());
         if (p == 0) {
+            // 没有效果(可能是因为vue)
             response.getWriter().print("<script language='javascript'>alert('好友删除失败了哦，找找是什么原因吧');" +
                     "window.location.href='/dev/friend/';</script>");
         }
@@ -102,6 +106,7 @@ public class FriendController {
     public void deleteApply(@PathVariable Long id, HttpServletResponse response) throws IOException {
         int p = friendService.deleteApply(id);
         if (p == 0) {
+            // 没有效果(可能是因为vue)
             response.getWriter().print("<script language='javascript'>alert('申请删除失败了哦，找找是什么原因吧');" +
                     "window.location.href='/dev/friend/';</script>");
         }
@@ -113,6 +118,7 @@ public class FriendController {
                                       HttpServletResponse response, HttpSession session) throws IOException {
         User user = (User) session.getAttribute("user");
         if (keyword.trim().equals("")) {
+            // 没有效果(可能是因为vue)
             response.getWriter().print("<script language='javascript'>alert('搜索关键字输入不可以为空！');" +
                     "window.location.href='/dev/friend/';</script>");
         }

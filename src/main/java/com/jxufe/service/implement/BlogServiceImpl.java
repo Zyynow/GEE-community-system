@@ -1,7 +1,9 @@
 package com.jxufe.service.implement;
 
 import com.jxufe.dao.BlogRepository;
+import com.jxufe.dao.CollectionMapper;
 import com.jxufe.entity.*;
+import com.jxufe.entity.Favourites;
 import com.jxufe.exception.NotFoundException;
 import com.jxufe.service.BlogService;
 import com.jxufe.utils.MarkdownUtils;
@@ -17,6 +19,7 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import javax.persistence.criteria.*;
 import java.util.*;
 
@@ -28,6 +31,9 @@ public class BlogServiceImpl implements BlogService {
 
     @Autowired
     private CommentServiceImpl commentService;
+
+    @Resource
+    private CollectionMapper collectionMapper;
 
     @Override
     public Blog getBlog(Long id) {
@@ -163,4 +169,30 @@ public class BlogServiceImpl implements BlogService {
     public List<Blog> getArchiveBlogs(Long userId) {
         return blogRepository.getArchiveBlogs(userId);
     }
+
+    @Override
+    public int collectionBlog(Favourites favourites) {
+        return collectionMapper.addCollectionBlog(favourites);
+    }
+
+    @Override
+    public int removeCollectionBlog(Long userId, Long blogId) {
+        return collectionMapper.deleteCollectionBlog(userId, blogId);
+    }
+
+    @Override
+    public int removeBlogById(Long id) {
+        return collectionMapper.deleteBlogById(id);
+    }
+
+    @Override
+    public List<Favourites> collectionBlogList(Long id) {
+        return collectionMapper.collectionBlogList(id);
+    }
+
+    @Override
+    public boolean isCollectionBlog(Long userId, Long BlogId) {
+        return collectionMapper.isCollectionBlog(userId, BlogId) != null;
+    }
+
 }

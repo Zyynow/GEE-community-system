@@ -226,7 +226,7 @@ _.include = (obj, target) ->
   false
 
 
-# Invoke a method with arguments on every item in a collection.
+# Invoke a method with arguments on every item in a favourites.
 _.invoke = (obj, method) ->
   args = _.rest arguments, 2
   (if method then val[method] else val).apply(val, args) for val in obj

@@ -36,7 +36,7 @@
   **                          |/                                          **
   \*                                                                      */
 
-  package scala.collection
+  package scala.favourites
 
   import generic._
   import mutable.{ Builder, ListBuffer }
@@ -44,42 +44,42 @@
   import annotation.unchecked.{ uncheckedVariance => uV }
   import parallel.ParIterable
 
-  /** A template trait for traversable collections of type `Traversable[A]`.
+  /** A template trait for traversable favourites of type `Traversable[A]`.
    *  
    *  $traversableInfo
    *  @define mutability
    *  @define traversableInfo
-   *  This is a base trait of all kinds of $mutability Scala collections. It
-   *  implements the behavior common to all collections, in terms of a method
+   *  This is a base trait of all kinds of $mutability Scala favourites. It
+   *  implements the behavior common to all favourites, in terms of a method
    *  `foreach` with signature:
    * {{{
    *     def foreach[U](f: Elem => U): Unit
    * }}}
    *  Collection classes mixing in this trait provide a concrete 
    *  `foreach` method which traverses all the
-   *  elements contained in the collection, applying a given function to each.
+   *  elements contained in the favourites, applying a given function to each.
    *  They also need to provide a method `newBuilder`
-   *  which creates a builder for collections of the same kind.
+   *  which creates a builder for favourites of the same kind.
    *  
    *  A traversable class might or might not have two properties: strictness
    *  and orderedness. Neither is represented as a type.
    *  
-   *  The instances of a strict collection class have all their elements
+   *  The instances of a strict favourites class have all their elements
    *  computed before they can be used as values. By contrast, instances of
-   *  a non-strict collection class may defer computation of some of their
+   *  a non-strict favourites class may defer computation of some of their
    *  elements until after the instance is available as a value.
-   *  A typical example of a non-strict collection class is a
+   *  A typical example of a non-strict favourites class is a
    *  <a href="../immutable/Stream.html" target="ContentFrame">
-   *  `scala.collection.immutable.Stream`</a>.
+   *  `scala.favourites.immutable.Stream`</a>.
    *  A more general class of examples are `TraversableViews`.
    *  
-   *  If a collection is an instance of an ordered collection class, traversing
+   *  If a favourites is an instance of an ordered favourites class, traversing
    *  its elements with `foreach` will always visit elements in the
    *  same order, even for different runs of the program. If the class is not
    *  ordered, `foreach` can visit elements in different orders for
    *  different runs (but it will keep the same order in the same run).'
    * 
-   *  A typical example of a collection class which is not ordered is a
+   *  A typical example of a favourites class which is not ordered is a
    *  `HashMap` of objects. The traversal order for hash maps will
    *  depend on the hash codes of its elements, and these hash codes might
    *  differ from one run to the next. By contrast, a `LinkedHashMap`
@@ -89,11 +89,11 @@
    *  @author Martin Odersky
    *  @version 2.8
    *  @since   2.8
-   *  @tparam A    the element type of the collection
-   *  @tparam Repr the type of the actual collection containing the elements.
+   *  @tparam A    the element type of the favourites
+   *  @tparam Repr the type of the actual favourites containing the elements.
    *
    *  @define Coll Traversable
-   *  @define coll traversable collection
+   *  @define coll traversable favourites
    */
   trait TraversableLike[+A, +Repr] extends HasNewBuilder[A, Repr] 
                                       with FilterMonadic[A, Repr]
@@ -108,24 +108,24 @@
     /** The type implementing this traversable */
     protected type Self = Repr
 
-    /** The collection of type $coll underlying this `TraversableLike` object.
+    /** The favourites of type $coll underlying this `TraversableLike` object.
      *  By default this is implemented as the `TraversableLike` object itself,
      *  but this can be overridden.
      */
     def repr: Repr = this.asInstanceOf[Repr]
 
-    /** The underlying collection seen as an instance of `$Coll`.
-     *  By default this is implemented as the current collection object itself,
+    /** The underlying favourites seen as an instance of `$Coll`.
+     *  By default this is implemented as the current favourites object itself,
      *  but this can be overridden.
      */
     protected[this] def thisCollection: Traversable[A] = this.asInstanceOf[Traversable[A]]
 
-    /** A conversion from collections of type `Repr` to `$Coll` objects.
+    /** A conversion from favourites of type `Repr` to `$Coll` objects.
      *  By default this is implemented as just a cast, but this can be overridden.
      */
     protected[this] def toCollection(repr: Repr): Traversable[A] = repr.asInstanceOf[Traversable[A]]
 
-    /** Creates a new builder for this collection type.
+    /** Creates a new builder for this favourites type.
      */
     protected[this] def newBuilder: Builder[A, Repr]
 
@@ -164,13 +164,13 @@
     }
 
     /** Tests whether this $coll is known to have a finite size.
-     *  All strict collections are known to have finite size. For a non-strict collection
+     *  All strict favourites are known to have finite size. For a non-strict favourites
      *  such as `Stream`, the predicate returns `true` if all elements have been computed.
      *  It returns `false` if the stream is not yet evaluated to the end.
      *
-     *  Note: many collection methods will not work on collections of infinite sizes. 
+     *  Note: many favourites methods will not work on favourites of infinite sizes.
      *
-     *  @return  `true` if this collection is known to have finite size, `false` otherwise.
+     *  @return  `true` if this favourites is known to have finite size, `false` otherwise.
      */
     def hasDefiniteSize = true
 
@@ -186,15 +186,15 @@
     def ++[B >: A, That](that: TraversableOnce[B])(implicit bf: CanBuildFrom[Repr, B, That]): That =
       ++(that: GenTraversableOnce[B])(bf)
 
-    /** Concatenates this $coll with the elements of a traversable collection.
+    /** Concatenates this $coll with the elements of a traversable favourites.
      *  It differs from ++ in that the right operand determines the type of the
-     *  resulting collection rather than the left one.
+     *  resulting favourites rather than the left one.
      * 
      *  @param that   the traversable to append.
-     *  @tparam B     the element type of the returned collection. 
+     *  @tparam B     the element type of the returned favourites.
      *  @tparam That  $thatinfo
      *  @param bf     $bfinfo
-     *  @return       a new collection of type `That` which contains all elements
+     *  @return       a new favourites of type `That` which contains all elements
      *                of this $coll followed by all elements of `that`.
      * 
      *  @usecase def ++:[B](that: TraversableOnce[B]): $Coll[B]
@@ -211,7 +211,7 @@
     }
 
     /** This overload exists because: for the implementation of ++: we should reuse
-     *  that of ++ because many collections override it with more efficient versions.
+     *  that of ++ because many favourites override it with more efficient versions.
      *  Since TraversableOnce has no '++' method, we have to implement that directly,
      *  but Traversable and down can use the overload.
      */
@@ -258,14 +258,14 @@
       b.result
     }
 
-    /** Builds a new collection by applying an option-valued function to all
+    /** Builds a new favourites by applying an option-valued function to all
      *  elements of this $coll on which the function is defined.
      *
      *  @param f      the option-valued function which filters and maps the $coll.
-     *  @tparam B     the element type of the returned collection.
+     *  @tparam B     the element type of the returned favourites.
      *  @tparam That  $thatinfo
      *  @param bf     $bfinfo
-     *  @return       a new collection of type `That` resulting from applying the option-valued function
+     *  @return       a new favourites of type `That` resulting from applying the option-valued function
      *                `f` to each element and collecting all defined results.
      *                The order of the elements is preserved.
      *
@@ -602,7 +602,7 @@
 
     /** Converts this $coll to a string.
      *
-     *  @return   a string representation of this collection. By default this
+     *  @return   a string representation of this favourites. By default this
      *            string consists of the `stringPrefix` of this $coll,
      *            followed by all elements separated by commas and enclosed in parentheses.
      */
@@ -612,7 +612,7 @@
      *
      *  @return  a string representation which starts the result of `toString`
      *           applied to this $coll. By default the string prefix is the
-     *           simple name of the collection class $coll.
+     *           simple name of the favourites class $coll.
      */
     def stringPrefix : String = {
       var string = repr.asInstanceOf[AnyRef].getClass.getName
@@ -650,7 +650,7 @@
     /** Creates a non-strict filter of this $coll.
      *
      *  Note: the difference between `c filter p` and `c withFilter p` is that
-     *        the former creates a new collection, whereas the latter only
+     *        the former creates a new favourites, whereas the latter only
      *        restricts the domain of subsequent `map`, `flatMap`, `foreach`,
      *        and `withFilter` operations.
      *  $orderDependent
@@ -668,14 +668,14 @@
      */
     class WithFilter(p: A => Boolean) extends FilterMonadic[A, Repr] {
 
-      /** Builds a new collection by applying a function to all elements of the
+      /** Builds a new favourites by applying a function to all elements of the
        *  outer $coll containing this `WithFilter` instance that satisfy predicate `p`.
        *
        *  @param f      the function to apply to each element.
-       *  @tparam B     the element type of the returned collection.
+       *  @tparam B     the element type of the returned favourites.
        *  @tparam That  $thatinfo
        *  @param bf     $bfinfo
-       *  @return       a new collection of type `That` resulting from applying
+       *  @return       a new favourites of type `That` resulting from applying
        *                the given function `f` to each element of the outer $coll
        *                that satisfies predicate `p` and collecting the results.
        *
@@ -692,22 +692,22 @@
         b.result
       }
 
-      /** Builds a new collection by applying a function to all elements of the
+      /** Builds a new favourites by applying a function to all elements of the
        *  outer $coll containing this `WithFilter` instance that satisfy
        *  predicate `p` and concatenating the results. 
        *
        *  @param f      the function to apply to each element.
-       *  @tparam B     the element type of the returned collection.
+       *  @tparam B     the element type of the returned favourites.
        *  @tparam That  $thatinfo
        *  @param bf     $bfinfo
-       *  @return       a new collection of type `That` resulting from applying
-       *                the given collection-valued function `f` to each element
+       *  @return       a new favourites of type `That` resulting from applying
+       *                the given favourites-valued function `f` to each element
        *                of the outer $coll that satisfies predicate `p` and
        *                concatenating the results.
        *
        *  @usecase def flatMap[B](f: A => TraversableOnce[B]): $Coll[B]
        * 
-       *  @return       a new $coll resulting from applying the given collection-valued function
+       *  @return       a new $coll resulting from applying the given favourites-valued function
        *                `f` to each element of the outer $coll that satisfies predicate `p` and concatenating the results.
        */
       def flatMap[B, That](f: A => GenTraversableOnce[B])(implicit bf: CanBuildFrom[Repr, B, That]): That = {

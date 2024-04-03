@@ -1,9 +1,6 @@
 package com.jxufe.web;
 
-import com.jxufe.entity.Blog;
-import com.jxufe.entity.Comment;
-import com.jxufe.entity.Feedback;
-import com.jxufe.entity.Resource;
+import com.jxufe.entity.*;
 import com.jxufe.service.*;
 import com.jxufe.service.implement.BlogServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,8 +67,10 @@ public class IndexController {
 
     @GetMapping("/user_blog/{id}")
     public String doUserBlogPage(@PathVariable Long id, Model model, HttpServletRequest request){
+        User user = (User) request.getSession().getAttribute("user");
         blogService.updateViews(id);
         model.addAttribute("blog", blogService.getAndConvert(id));
+        model.addAttribute("isCollection", blogService.isCollectionBlog(user.getId(), id));
         return "user_blog";
     }
 
@@ -118,10 +117,12 @@ public class IndexController {
     }
 
     @GetMapping("/user_resource/{id}")
-    public String doUserResource(@PathVariable Long id, Model model) {
+    public String doUserResource(@PathVariable Long id, Model model, HttpServletRequest request){
+        User user = (User) request.getSession().getAttribute("user");
         resourceService.updateViews(id);
         Resource resource = resourceService.getAndConvert(id);
         model.addAttribute("resource", resource);
+        model.addAttribute("isCollection", resourceService.isCollectionResource(user.getId(), id));
         return "user_resource";
     }
 }

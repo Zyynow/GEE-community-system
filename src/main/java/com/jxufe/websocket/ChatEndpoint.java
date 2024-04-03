@@ -4,10 +4,10 @@ import com.alibaba.fastjson.JSON;
 import com.jxufe.configuration.GetHttpSessionConfig;
 import com.jxufe.entity.User;
 import com.jxufe.service.ChatService;
+import com.jxufe.service.FriendService;
 import com.jxufe.utils.MessageUtils;
 import com.jxufe.utils.SpringContextHolder;
 import com.jxufe.websocket.pojo.Message;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletResponse;
@@ -56,6 +56,8 @@ public class ChatEndpoint {
     private HttpServletResponse response;
 
     private static ChatService chatService =  SpringContextHolder.getBean(ChatService.class);
+
+    private static FriendService friendService = SpringContextHolder.getBean(FriendService.class);
 
     /**
      * 跳转到聊天界面打开会话，建立websocket连接后，即会调用该被@OnOpen标记的方法
@@ -116,11 +118,16 @@ public class ChatEndpoint {
             System.out.println("消息：" + message);
             // 将json字符串转换为Message对象
             Message msg = JSON.parseObject(message, Message.class);
-
+            // 当前用户的用户名
             String username = ((User) this.httpSession.getAttribute("user")).getUsername();
             // 发送对象为空或发送对象是自己
             if (msg.getToName().equals("") || msg.getToName().equals(username)) {
                 response.getWriter().print("<script language='javascript'>alert('出错啦，发送对象未知！');" +
+                        "window.location.href='/dev/chat/';</script>");
+            }
+            // 不是好友
+            if (!friendService.isFriendByName(msg.getToName(), username)) {
+                response.getWriter().print("<script language='javascript'>alert('你们还不是好友，尝试去添加好友吧~');" +
                         "window.location.href='/dev/chat/';</script>");
             }
             // 存入数据库

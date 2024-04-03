@@ -1,6 +1,6 @@
 package com.jxufe.service;
 
-import com.jxufe.entity.Blog;
+import com.jxufe.entity.Favourites;
 import com.jxufe.entity.Resource;
 import com.jxufe.vo.ResourceQuery;
 import org.springframework.data.domain.Page;
@@ -29,4 +29,14 @@ public interface ResourceService {
     void deleteResource(Long id);
 
     Integer updateViews(Long id);
+
+    int collectionResource(Favourites favourites);
+
+    int removeResourceById(Long id);
+
+    int removeCollectionResource(Long userId, Long resourceId);
+
+    List<Favourites> collectionResourceList(Long id);
+
+    boolean isCollectionResource(Long userId, Long resourceId);
 }

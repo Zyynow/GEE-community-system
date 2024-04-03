@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jxufe.dao.CollectionMapper">
+
+    <insert id="addCollectionBlog" parameterType="com.jxufe.entity.Favourites">
+        insert into t_collection(user_id, blog_id, time, blog_title, resource_id, resource_title, type, blog_user_id)
+        values (#{userId}, #{blogId}, #{time}, #{blogTitle}, #{resourceId}, #{resourceTitle}, #{type}, #{blogUserId})
+    </insert>
+
+    <insert id="addCollectionResource" parameterType="com.jxufe.entity.Favourites">
+        insert into t_collection(user_id, blog_id, time, blog_title, resource_id, resource_title, type, blog_user_id)
+        values (#{userId}, #{blogId}, #{time}, #{blogTitle}, #{resourceId}, #{resourceTitle}, #{type}, #{blogUserId})
+    </insert>
+
+    <select id="collectionBlogList" resultType="com.jxufe.entity.Favourites">
+        select *
+        from t_collection
+        where user_id = #{userId}
+          and type = 0
+    </select>
+
+    <select id="collectionRecourseList" resultType="com.jxufe.entity.Favourites">
+        select *
+        from t_collection
+        where user_id = #{userId}
+          and type = 1
+    </select>
+
+    <select id="isCollectionBlog" resultType="com.jxufe.entity.Favourites">
+        select * from t_collection where user_id = #{userId} and blog_id = #{blogId}
+    </select>
+
+    <select id="isCollectionResource" resultType="com.jxufe.entity.Favourites">
+        select * from t_collection where user_id = #{userId} and resource_id = #{resourceId}
+    </select>
+
+    <delete id="deleteBlogById">
+        delete
+        from t_collection
+        where id = #{id}
+    </delete>
+
+    <delete id="deleteResourceId">
+        delete
+        from t_collection
+        where id = #{id}
+    </delete>
+
+    <delete id="deleteCollectionBlog">
+        delete
+        from t_collection
+        where user_id = #{userId} and blog_id = #{blogId}
+    </delete>
+
+    <delete id="deleteCollectionResource">
+        delete
+        from t_collection
+        where user_id = #{userId} and resource_id = #{resourceId}
+    </delete>
+
+</mapper>

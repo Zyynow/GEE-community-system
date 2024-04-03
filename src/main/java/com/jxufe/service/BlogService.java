@@ -1,7 +1,7 @@
 package com.jxufe.service;
 
-import com.jxufe.entity.ArchiveBlog;
 import com.jxufe.entity.Blog;
+import com.jxufe.entity.Favourites;
 import com.jxufe.vo.BlogQuery;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -42,4 +42,14 @@ public interface BlogService {
     Integer updateViews(Long id);
 
     List<Blog> getArchiveBlogs(Long userId);
+
+    int collectionBlog(Favourites favourites);
+
+    int removeCollectionBlog(Long userId, Long blogId);
+
+    int removeBlogById(Long id);
+
+    List<Favourites> collectionBlogList(Long id);
+
+    boolean isCollectionBlog(Long userId, Long BlogId);
 }
