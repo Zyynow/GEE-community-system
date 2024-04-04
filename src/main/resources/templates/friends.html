@@ -104,7 +104,7 @@
 
         <!-- 好友列表 -->
         <div class="ui items">
-          <div class="item" v-for="friend in filteredFriends" style="max-height: 80px">
+          <div class="item" v-for="friend in pageFriends" style="max-height: 80px">
             <a class="ui tiny image" :href="'/dev/userOtherAbout/' + friend.userId" target="_blank">
               <img :src="friend.avatar"
                    style="object-fit: cover;
@@ -151,20 +151,81 @@
               </div>
             </div>
           </div>
-          <div class="item">
-            <a class="ui tiny image">
-              <img src="../static/images/avatar/joe.jpg">
-            </a>
-            <div class="content">
-              <a class="header">Veronika Ossi</a>
-              <div class="description">
-                <p>Veronika Ossi is a set designer living in New York who <a>enjoys</a> kittens, music, and partying.
-                </p>
+          <!--*/-->
+
+          <!-- 分页容器 -->
+          <div class="ui grid container" style="margin-top: 0rem;">
+            <div class="center aligned column">
+              <!-- 分页板块1 -->
+              <div class="ui pagination menu" v-if="totalPages <= 6">
+                <a href="#" class="item" @click.prevent="goToPage(currentPage - 1)"
+                   :class="{ disabled: currentPage === 1 }">上一页</a>
+                <a href="#"
+                   v-for="pageNumber in totalPages"
+                   :key="pageNumber"
+                   class="item"
+                   @click.prevent="goToPage(pageNumber)"
+                   :class="{ active: pageNumber === currentPage }">{{ pageNumber }}</a>
+                <a href="#" class="item" @click.prevent="goToPage(currentPage + 1)"
+                   :class="{ disabled: currentPage === totalPages }">下一页</a>
               </div>
+
+              <!-- 分页板块2 -->
+              <div class="ui pagination menu" v-else>
+                <a href="#" class="item" @click.prevent="goToPage(currentPage - 1)"
+                   :class="{ disabled: currentPage === 1 }">上一页</a>
+                <!-- 如果不是第一页且当前页在前三页，显示连续页码 -->
+                <a href="#"
+                   v-for="pageNumber in [1, 2, 3]"
+                   :key="pageNumber"
+                   class="item"
+                   @click.prevent="goToPage(pageNumber)"
+                   :class="{ active: pageNumber === currentPage }">{{ pageNumber }}</a>
+
+                <!-- 当前页码与总页数之间的页码处理 -->
+                <template v-if="currentPage > 3 && currentPage < totalPages - 1">
+                  <!-- 显示省略号 -->
+                  <a class="item">...</a>
+                  <!-- 显示当前页码以及前后各1个页码 -->
+                  <a href="#"
+                     :key="currentPage"
+                     class="item"
+                     @click.prevent="goToPage(currentPage)"
+                     :class="{ active: true }">{{ currentPage }}</a>
+                  <!-- 显示省略号 -->
+                  <a class="item">...</a>
+                </template>
+                <template v-else>
+                  <a class="item">...</a>
+                </template>
+
+                <!-- 如果不是最后几页，显示连续页码 -->
+                <a href="#"
+                   v-for="pageNumber in [totalPages - 1, totalPages]"
+                   :key="pageNumber"
+                   class="item"
+                   @click.prevent="goToPage(pageNumber)"
+                   :class="{ active: pageNumber === currentPage }">{{ pageNumber }}</a>
+
+                <a href="#" class="item" @click.prevent="goToPage(currentPage + 1)"
+                   :class="{ disabled: currentPage === totalPages }">下一页</a>
+              </div>
+
+              <!-- 跳转至指定页输入框 -->
+              <div class="ui action input">
+                <input type="number" min="1" max="totalPages" v-model="jumpToPage" placeholder="输入页码..."
+                       style="width: 110px;
+                       height: 41px;
+                       padding-top: 0.5em;">
+                <button class="ui button" @click.prevent="goToJumpedPage" :disabled="!isValidPage(jumpToPage)">跳转
+                </button>
+              </div>
+
             </div>
           </div>
-          <!--*/-->
+
         </div>
+
         <div class="ui search m-top-right" style="margin-right: 15px; margin-top: 10px">
           <div class="ui icon input">
             <input class="prompt" type="text" v-model="searchMyFriends" placeholder="搜索我的好友...">
@@ -172,7 +233,9 @@
           </div>
         </div>
       </div>
+
     </div>
+
     <div class="five wide column">
       <!--申请列表-->
       <div class="ui container transparent-segment segment" v-if="applyList.length > 0">
@@ -257,6 +320,7 @@
         </button>
       </div>
     </div>
+
   </div>
 
   <!--聊得最热模态框-->
@@ -516,8 +580,13 @@
                 friendListOften: [],
                 friendList: [], // 原始好友列表
                 filteredFriends: [], // 过滤后的可见好友列表
+                // pageFriends: [], // 过滤后的分页列表
                 applyList: [],
-                searchMyFriends: ''
+                searchMyFriends: '',
+                currentPage: 1, // 当前页数
+                pageSize: 10, // 每页显示的好友数量
+                jumpToPage: '', //跳转分页
+                // totalPages: 10, // 总页数
             }
         },
         created() { // new这个Vue对象时会自动执行
@@ -532,6 +601,24 @@
                     return friend.nickname.toLowerCase().includes(newVal.toLowerCase());
                 });
             },
+        },
+        // 计算属性(先create再computed，但是data属性变化跟不上computed计算: filteredFriends、currentPage、pageSize一旦变化便重新计算pageFriends、totalPages)
+        /*
+                根据Vue.js的计算属性特性，每当依赖于pageFriends和totalPages计算结果的任何底层数据发生变化时
+                (在这里是filteredFriends和currentPage，也可能包括pageSize)，Vue将会自动且高效地重新计算这些计算属性的值。
+                因为计算属性的结果是基于它们的响应式依赖关系（所依赖的data属性）缓存的，并会在相关依赖发生改变时得到更新。
+        */
+        computed: {
+            pageFriends() {
+                var data = this.filteredFriends.slice((this.currentPage - 1) * this.pageSize, this.currentPage * this.pageSize);
+                console.log(data);
+                return data;
+            },
+            totalPages() {
+                var totalPages = this.filteredFriends ? Math.ceil(this.filteredFriends.length / this.pageSize) : 0;
+                console.log(totalPages);
+                return totalPages;
+            }
         },
         methods: {
             // 初始化方法
@@ -548,6 +635,26 @@
                     this.filteredFriends = res.data;
                     this.friendList = res.data;
                 });
+            },
+            // 列表分页
+            goToPage(pageNum) {
+                if (pageNum >= 1 && pageNum <= this.totalPages) {
+                    this.currentPage = pageNum;
+                    // 取当前分页好友列表
+                    // this.filteredFriends.slice((this.currentPage - 1) * this.pageSize, this.currentPage * this.pageSize);
+                }
+            },
+            // 跳转分页
+            goToJumpedPage() {
+                const targetPage = parseInt(this.jumpToPage);
+                if (targetPage > 0 && targetPage <= this.totalPages) {
+                    this.currentPage = targetPage;
+                    this.jumpToPage = '';
+                }
+            },
+            // 校验跳转是否合理
+            isValidPage(page) {
+                return !isNaN(page) && page > 0 && page <= this.totalPages;
             },
             // 最热好友
             async hottest() { // 写法一

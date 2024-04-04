@@ -61,7 +61,7 @@
       <ul>
         <li class="" th:each="blog : ${myBlogs}">
           <div>
-            <time th:text="${#dates.format(blog.createTime,'yyyy-MM-dd')}">2020/01/01</time>
+            <time th:text="'发布于:' + ${#dates.format(blog.createTime,'yyyy-MM-dd')}">2020/01/01</time>
             <div class="scientist">
               <a href="#" target="_blank" th:href="@{/user_blog/{id}(id=${blog.id})}">
                 <h3 class="state" style="text-align:center;font-size: 16px;color: #000;"

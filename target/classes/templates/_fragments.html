@@ -123,6 +123,10 @@
         }
     });
 
+    $('#toTop-button').click(function () {
+        $(window).scrollTo(0, 500);
+    });
+
     // 页面加载完成后执行一次检查
     (function () {
         let myDiv = document.getElementById('contentDiv');

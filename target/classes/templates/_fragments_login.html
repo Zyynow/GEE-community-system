@@ -129,6 +129,10 @@
         on: 'hover'
     });
 
+    $('#toTop-button').click(function () {
+        $(window).scrollTo(0, 500);
+    });
+
     window.addEventListener('resize', function () {
         let myDiv = document.getElementById('contentDiv');
         if (myDiv.clientHeight < 635) {

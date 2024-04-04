@@ -71,8 +71,11 @@
                            th:src="@{${blog.user.avatar}}"
                            alt="" class="ui avatar image">
                       <div class="content">
-                        <a href="#" th:href="@{/userOtherAbout/{id}(id = ${blog.user.id})}" class="header"
-                           th:text="${blog.user.nickname}" target="_blank">韩宇帆</a>
+                        <th:block
+                            th:with="targetUrl = ${blog.user.id == session.user?.id ? '/about' : '/userOtherAbout/' + blog.user.id}">
+                          <a href="#" th:href="@{__${targetUrl}__}" class="header"
+                             th:text="${blog.user.nickname}" target="_blank">韩宇帆</a>
+                        </th:block>
                       </div>
                     </div>
                     <div class="item">
@@ -236,7 +239,8 @@
           社区贴数：<p class="m-text m-inline-block" th:text="${forum.blogNumber}">800</p>
         </div>
         <div class="ui attached segment">
-          <img src="../static/images/WeChat1.jpg" th:src="@{/images/WeChat1.jpg}" style="width: 85%; margin-left: 1.4em">
+          <img src="../static/images/WeChat1.jpg" th:src="@{/images/WeChat1.jpg}"
+               style="width: 85%; margin-left: 1.4em">
           <p class="m-text" style="text-align: center">欢迎加入社区群聊 6 号群</p>
         </div>
         <div class="ui bottom attached segment">

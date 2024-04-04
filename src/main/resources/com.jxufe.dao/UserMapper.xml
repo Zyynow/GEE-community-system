@@ -120,4 +120,23 @@
            OR u.nickname LIKE "%" #{name} "%"
     </select>
 
+    <insert id="addAboutView">
+        insert into t_view(viewer_id, viewed_id, count)
+        values (#{viewerId}, #{viewedId}, 1)
+    </insert>
+
+    <update id="updateAboutView">
+        update t_view
+        set count = count + 1
+        where viewer_id = #{viewerId}
+          and viewed_id = #{viewedId}
+    </update>
+
+    <select id="findView" resultType="com.jxufe.entity.View">
+        select *
+        from t_view
+        where viewer_id = #{viewerId}
+          and viewed_id = #{viewedId}
+    </select>
+
 </mapper>

@@ -42,7 +42,9 @@ public class AboutController {
     }
 
     @GetMapping("/userOtherAbout/{id}")
-    public String doUserOtherAbout(@PathVariable Long id, Model model) {
+    public String doUserOtherAbout(@PathVariable Long id, Model model, HttpSession session) {
+        User user = (User) session.getAttribute("user");
+        userService.addAboutView(user.getId(), id);
         model.addAttribute("user", userService.findUserById(id));
         model.addAttribute("forums", forumService.findJoinForums(id));
         model.addAttribute("blogs", blogService.listBlogTopById(3, id));

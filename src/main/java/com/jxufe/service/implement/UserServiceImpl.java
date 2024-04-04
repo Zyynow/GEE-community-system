@@ -95,4 +95,13 @@ public class UserServiceImpl implements UserService {
     public User findUser(String username) {
         return dao.findByUsername(username);
     }
+
+    @Override
+    public Integer addAboutView(Long viewerId, Long viewedId) {
+        if (dao.findView(viewerId, viewedId) != null) {
+            return dao.updateAboutView(viewerId, viewedId);
+        } else {
+            return dao.addAboutView(viewerId, viewedId);
+        }
+    }
 }

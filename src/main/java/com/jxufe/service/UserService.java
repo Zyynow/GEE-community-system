@@ -26,4 +26,6 @@ public interface UserService {
     Integer updateBlogNum(Long id);
 
     User findUser(String username);
+
+    Integer addAboutView(Long viewerId, Long viewedId);
 }
