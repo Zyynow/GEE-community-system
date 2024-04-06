@@ -102,6 +102,10 @@ public class ResourceServiceImpl implements ResourceService {
     @Override
     public Resource saveResource(Resource resource) {
         if (resource.getId() == null) {
+            if (resource.getFirstPicture() == null) {
+                // 设置默认图片
+                resource.setFirstPicture("https://d29fhpw069ctt2.cloudfront.net/photo/thumb/34978/pfHrY2VQaGJuCsrFljKy_IMG_0257.JPG");
+            }
             resource.setCreateTime(new Date());
             resource.setUpdateTime(new Date());
             resource.setViews(0);

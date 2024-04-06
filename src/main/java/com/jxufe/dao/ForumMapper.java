@@ -21,4 +21,6 @@ public interface ForumMapper {
     List<Forum> findJoinForumsByUserId(Long id);
 
     List<Forum> listForumsTopById(Long id);
+
+    Integer updateHotById(Long id);
 }

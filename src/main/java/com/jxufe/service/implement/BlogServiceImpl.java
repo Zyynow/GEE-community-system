@@ -80,10 +80,19 @@ public class BlogServiceImpl implements BlogService {
         return blogRepository.findAll(pageable);
     }
 
+    @Override
+    public List<Blog> listBlog(Long id) {
+        return null;
+    }
+
     @Transactional
     @Override
     public Blog saveBlog(Blog blog) {
         if (blog.getId() == null) {
+            if (blog.getFirstPicture() == null) {
+                // 设置默认图片
+                blog.setFirstPicture("https://d29fhpw069ctt2.cloudfront.net/photo/thumb/34978/pfHrY2VQaGJuCsrFljKy_IMG_0257.JPG");
+            }
             blog.setCreateTime(new Date());
             blog.setUpdateTime(new Date());
             blog.setViews(0);

@@ -3,15 +3,13 @@ package com.jxufe.web;
 import com.jxufe.entity.Blog;
 import com.jxufe.entity.Forum;
 import com.jxufe.entity.User;
-import com.jxufe.service.BlogService;
-import com.jxufe.service.ForumService;
-import com.jxufe.service.TagService;
-import com.jxufe.service.UserService;
+import com.jxufe.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -41,6 +39,9 @@ public class ForumShowController {
     @Autowired
     BlogService blogService;
 
+    @Autowired
+    CommentService commentService;
+
     @GetMapping("/forum")
     public String doForum(HttpServletRequest request, Model model) {
         request.getSession().setAttribute("lastPath", request.getServletPath());
@@ -52,8 +53,6 @@ public class ForumShowController {
 
     @GetMapping("/user_forum")
     public String doUserForum(HttpServletRequest request, Model model, HttpSession session) {
-        session.setAttribute("lastPath", request.getServletPath());
-
         User user = (User) session.getAttribute("user");
         model.addAttribute("forums", forumService.listForums());
         model.addAttribute("tags", tagService.listTag());
@@ -76,8 +75,6 @@ public class ForumShowController {
     @GetMapping("/user_forum/fblog/{id}")
     public String doUserFblog(@PageableDefault(size = 999, sort = {"updateTime"}, direction = Sort.Direction.DESC)
                               Pageable pageable, @PathVariable Integer id, HttpServletRequest request, Model model) {
-        request.getSession().setAttribute("lastPath", request.getServletPath());
-
         model.addAttribute("forum", forumService.getForumById(id));
         model.addAttribute("tags", tagService.listTag());
         model.addAttribute("blogs", blogService.findBlogs(id));
@@ -117,6 +114,14 @@ public class ForumShowController {
         return "fblog-input";
     }
 
+    @GetMapping("/fblog/edit/{id}")
+    public String doEditBlog(@PathVariable Long id , Model model) {
+        model.addAttribute("blog", blogService.getBlog(id));
+        model.addAttribute("forums", forumService.listForums());
+        model.addAttribute("tags", tagService.listTag());
+        return "fblog-input";
+    }
+
     @PostMapping("/fblog/input/success")
     public void doWriteBlog(Blog blog, HttpSession session, HttpServletResponse response) throws IOException {
         if (blog.getContent().equals("") || blog.getDescription().equals("") ||
@@ -127,9 +132,22 @@ public class ForumShowController {
         } else {
             User user = (User) session.getAttribute("user");
             blog.setUser(user);
-            blogService.saveBlog(blog);
-            userService.updateBlogNum(user.getId());
-            response.sendRedirect("/dev/user_index");
+            if (blog.getId() == null) {
+                blog = blogService.saveBlog(blog);
+                userService.updateBlogNum(user.getId());
+                forumService.updateHotById(Long.valueOf(blog.getForum().getId()));
+            } else {
+                blog = blogService.updateBlog(blog.getId(), blog);
+            }
+            response.sendRedirect("/dev/user_blog/" + blog.getId());
         }
+    }
+
+    @PostMapping("/fblog/delete/{blogId}")
+    @Transactional
+    public String deleteBlog(@PathVariable Long blogId) {
+        commentService.deleteCommentByBlog(blogId);
+        blogService.deleteBlog(blogId);
+        return "redirect:/archives";
     }
 }

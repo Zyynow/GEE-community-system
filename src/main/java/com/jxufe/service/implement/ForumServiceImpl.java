@@ -48,7 +48,15 @@ public class ForumServiceImpl implements ForumService {
     }
 
     @Override
+    public Integer updateHotById(Long id) {
+        return forumMapper.updateHotById(id);
+    }
+
+    @Override
     public List<Forum> findJoinForums(Long id) {
         return forumMapper.findJoinForumsByUserId(id);
     }
+
+
+
 }

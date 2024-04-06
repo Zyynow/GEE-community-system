@@ -323,6 +323,22 @@
     // 初始化checkbox组件
     $('.ui.checkbox').checkbox();
 
+    $(function () {
+        $('.rthumbnail').responsivegallery();
+    });
+
+    $('#addPicture').click(() => {
+        $('.ui.addPicture.modal').modal('show');
+    })
+
+    $('.clear.button').click(() => {
+        $('.ui.error.message').css('display', 'none');
+    });
+
+    $('.submit.button').on('click', function () {
+        $('.ui.error.message').css('display', 'block');
+    })
+
     // 监听checkbox的状态改变
     $('.ui.checkbox input[type="checkbox"]').on('change', function () {
         const isChecked = $(this).is(':checked');
@@ -390,22 +406,6 @@
             }).catch(error => console.error('Error:', error));
         });
     }
-
-    $(function () {
-        $('.rthumbnail').responsivegallery();
-    });
-
-    $('#addPicture').click(() => {
-        $('.ui.addPicture.modal').modal('show');
-    })
-
-    $('.clear.button').click(() => {
-        $('.ui.error.message').css('display', 'none');
-    });
-
-    $('.submit.button').on('click', function () {
-        $('.ui.error.message').css('display', 'block');
-    })
 
     $('.ui.form').form({
         fields: {

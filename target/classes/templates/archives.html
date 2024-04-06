@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>写贴记录</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+  <link rel="stylesheet" href="../static/lib/semantic/semantic.min.css" th:href="@{/lib/semantic/semantic.min.css}">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
   <!--    <link href="../static/css/app.css" rel="stylesheet">-->
   <!--    <link href="../static/css/style.min.css" rel="stylesheet">-->
@@ -61,12 +61,16 @@
       <ul>
         <li class="" th:each="blog : ${myBlogs}">
           <div>
-            <time th:text="${#dates.format(blog.createTime,'yyyy-MM-dd')}">2020/01/01</time>
-            <div class="scientist">
+            <time th:text="'更新于:' + ${#dates.format(blog.updateTime,'yyyy-MM-dd')}">2020/01/01</time>
+            <div class="scientist" style="position: relative">
               <a href="#" target="_blank" th:href="@{/user_blog/{id}(id=${blog.id})}">
                 <h3 class="state" style="text-align:center;font-size: 16px;color: #000;"
                     th:text="${blog.title}">文章标题</h3>
               </a>
+              <span class="right floated action-links"
+                    style="position: absolute; bottom: 0; right: 0; margin-right: 5px!important; margin-bottom: 3px!important;">
+                <a href="#" th:onclick="deleteBlog([[${blog.id}]])">删除</a>&nbsp;
+                <a href="#" target="_blank" th:href="@{/fblog/edit/{id}(id=${blog.id})}">编辑</a></span>
             </div>
           </div>
         </li>
@@ -78,7 +82,8 @@
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
 <script src="../static/lib/timeline/timeline.js" th:src="@{/lib/timeline/timeline.js}"></script>
-<script src="../static/lib/waypoints/jquery.waypoints.min.js" th:src="@{/lib/waypoints/jquery.waypoints.min.js}"></script>
+<script src="../static/lib/waypoints/jquery.waypoints.min.js"
+        th:src="@{/lib/waypoints/jquery.waypoints.min.js}"></script>
 <!--第一种多人物的看板娘，缓存慢-->
 <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
 
@@ -91,6 +96,32 @@
     $('.menu.toggle').click(function () {
         $('.m-item').toggleClass('m-mobile-hide');
     });
+
+    function deleteBlog(id) {
+        if (window.confirm("确认要删除嘛？帖子下的所有评论也将被删除")) {
+            const url = '/dev/fblog/delete/' + id;
+            // 发起GET请求
+            fetch(url, {
+                method: 'POST',
+                redirect: 'follow', // 允许fetch跟随重定向
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to delete picture');
+                }
+                // 如果服务器返回了Location头部，可以手动处理重定向(...不懂...)
+                const myLocation = response.headers.get('Location');
+                // console.log(location);
+                if (myLocation) {
+                    window.location.href = myLocation;
+                } else {
+                    location.reload();
+                }
+            }).catch(error => console.error('Error:', error));
+        }
+    }
 
 </script>
 

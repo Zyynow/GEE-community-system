@@ -40,7 +40,9 @@
     <i class="sidebar icon"></i>
   </a>
 </nav>
-<div cLass="ui attached pointing menu">
+
+<!--选择栏-->
+<div cLass="ui attached pointing menu" style="margin-top: 4.4em;">
   <div class="ui container">
     <div class="right menu">
       <a href="#" th:href="@{/admin/resources/input}" class="blue active item">发布</a>
@@ -49,9 +51,8 @@
   </div>
 </div>
 
-
 <!--中间内容-->
-<div class="m-container m-padded-tb-big animate__fadeIn">
+<div class="m-container-large m-padded-tb-big animate__fadeIn" style="padding-top: 4em !important;" id="contentDiv">
   <div class="ui container">
     <form id="resource-form" action="#" th:object="${resource}" method="post" th:action="@{/admin/resources/post}"
           class="ui form">
@@ -60,12 +61,13 @@
       <div class="required field">
         <div class="ui left labeled input">
           <label class="ui basic label">标题</label>
-          <input type="text" name="title" th:value="*{title}">
+          <input type="text" name="title" placeholder="标题..." th:value="*{title}">
         </div>
       </div>
+
       <div class="required field">
         <div id="md-content" style="z-index: 1 !important">
-          <textarea placeholder="博客内容" name="content" style="display: none" th:text="*{content}"></textarea>
+          <textarea placeholder="博客内容..." name="content" style="display: none" th:text="*{content}"></textarea>
         </div>
       </div>
 
@@ -76,10 +78,10 @@
             <div class="ui fluid selection dropdown">
               <input type="hidden" name="type.id" th:value="*{type} != null ? *{type.id}">
               <i class="dropdown icon"></i>
-              <div class="default text">分类</div>
+              <div class="default text"></div>
               <div class="menu">
-                <div th:each="type : ${types}" class="item" data-value="1" th:data-value="${type.id}"
-                     th:text="${type.name}">错误日志
+                <div th:each="type : ${types}" class="item" data-value="1" th:data-value="${type?.id}"
+                     th:text="${type?.name}">错误日志
                 </div>
                 <!--/*-->
                 <div class="item" data-value="2">开发者手册</div>
@@ -92,7 +94,7 @@
         <div class="field">
           <div class="ui left labeled input">
             <label class="ui basic label">学校</label>
-            <input type="text" name="school" th:value="*{school}" placeholder="学校对象">
+            <input type="text" name="school" th:value="*{school}" placeholder="学校对象...">
           </div>
         </div>
       </div>
@@ -100,12 +102,12 @@
       <div class="field">
         <div class="ui left labeled input">
           <label class="ui basic label">首图</label>
-          <input type="text" name="firstPicture" th:value="*{firstPicture}" placeholder="首图引用地址">
+          <input type="text" name="firstPicture" th:value="*{firstPicture}" placeholder="首图引用地址...">
         </div>
       </div>
 
       <div class="required field">
-        <textarea name="description" th:text="*{description}" placeholder="博客描述..." maxlength="200"></textarea>
+        <textarea name="description" th:text="*{description}" placeholder="博客简介..." maxlength="200"></textarea>
       </div>
 
       <div class="ui error message"></div>
@@ -181,16 +183,6 @@
             syncScrolling: "single",
             path: "/dev/lib/editormd/lib/"
         });
-
-        /*
-        // or
-        testEditor = editormd({
-            id      : "test-editormd",
-            width   : "90%",
-            height  : 640,
-            path    : "../lib/"
-        });
-        */
     });
 
     $('.menu.toggle').click(function () {
@@ -224,11 +216,19 @@
                 }]
             },
 
+            type: {
+                identifier: 'type.id',
+                rules: [{
+                    type: 'empty',
+                    prompt: '类别: 请输入博客类别'
+                }]
+            },
+
             description: {
                 identifier: 'description',
                 rules: [{
                     type: 'empty',
-                    prompt: '描述: 请输入博客描述'
+                    prompt: '简介: 请输入博客简介'
                 }]
             }
         }

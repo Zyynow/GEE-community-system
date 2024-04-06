@@ -31,7 +31,7 @@ public class WebConfig implements WebMvcConfigurer {
                 "/userOtherAbout/**",
                 "/edit/**",
                 "/forum/join/**",
-                "/fblog/input/**",
+                "/fblog/**",
                 "/archives/**",
                 "/picture/me/**",
                 "/chat/**",

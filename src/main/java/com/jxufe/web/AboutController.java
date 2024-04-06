@@ -3,6 +3,7 @@ package com.jxufe.web;
 import com.jxufe.entity.User;
 import com.jxufe.service.BlogService;
 import com.jxufe.service.ForumService;
+import com.jxufe.service.ResourceService;
 import com.jxufe.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,6 +27,9 @@ public class AboutController {
     @Autowired
     ForumService forumService;
 
+    @Autowired
+    ResourceService resourceService;
+
     @GetMapping("/about")
     public String doAbout(HttpSession session, Model model) {
         User user = (User) session.getAttribute("user");
@@ -37,7 +41,9 @@ public class AboutController {
     public String doOtherAbout(@PathVariable Long id, Model model) {
         model.addAttribute("user", userService.findUserById(id));
         model.addAttribute("forums", forumService.findJoinForums(id));
-        model.addAttribute("blogs", blogService.listBlogTopById(3, id));
+        model.addAttribute("blogs", blogService.getArchiveBlogs(id));
+        model.addAttribute("collectionBlogs", blogService.collectionBlogList(id));
+        model.addAttribute("collectionResources", resourceService.collectionResourceList(id));
         return "other_about";
     }
 
@@ -45,9 +51,12 @@ public class AboutController {
     public String doUserOtherAbout(@PathVariable Long id, Model model, HttpSession session) {
         User user = (User) session.getAttribute("user");
         userService.addAboutView(user.getId(), id);
+
         model.addAttribute("user", userService.findUserById(id));
         model.addAttribute("forums", forumService.findJoinForums(id));
-        model.addAttribute("blogs", blogService.listBlogTopById(3, id));
+        model.addAttribute("blogs", blogService.getArchiveBlogs(id));
+        model.addAttribute("collectionBlogs", blogService.collectionBlogList(id));
+        model.addAttribute("collectionResources", resourceService.collectionResourceList(id));
         return "user_other_about";
     }
 

@@ -57,4 +57,6 @@ public interface BlogService {
     List<Blog> getCollectionMax();
 
     List<Blog> getHotBlog();
+
+    List<Blog> listBlog(Long id);
 }

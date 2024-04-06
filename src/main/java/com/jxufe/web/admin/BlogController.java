@@ -22,6 +22,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
+/**
+ * 不再使用
+ */
 @Controller
 @RequestMapping(value = "/admin")
 public class BlogController {

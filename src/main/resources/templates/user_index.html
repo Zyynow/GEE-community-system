@@ -58,11 +58,13 @@
             <div class="ui mobile reversed middle aligned stackable grid">
               <!--mobile reversed:手机移动端时反序-->
               <div class="eleven wide column">
-                <h3 class="ui header"><a th:href="@{/user_resource/{id}(id=${resource.id})}" href="#" class="m-black"
-                                         target="_blank"
-                                         th:text="${resource.title}">哔哩哔哩
-                  (゜-゜)つロ 干杯~-bilibili</a></h3>
-                <p class="m-text" th:text="|${resource.description}...|">
+                <h3 class="ui header">
+                  <a th:href="@{/user_resource/{id}(id=${resource.id})}" href="#" class="m-black"
+                     target="_blank"
+                     th:text="${resource.title}">哔哩哔哩(゜-゜)つロ 干杯~~bilibili</a>
+                </h3>
+                <p class="m-text"
+                   th:utext="${#strings.length(resource.description) > 100 ? resource.description.substring(0, 100) + '...' : resource.description}">
                   bilibili是国内知名的视频弹幕网站,这里有及时的动漫新番,活跃的ACG氛围,有创意的Up主。大家可以在这里找到许多欢乐。</p>
                 <div class="ui grid">
                   <div class="eleven wide column">
@@ -128,86 +130,6 @@
               <div class="right aligned five wide column">
                 <a href="#" class="_blank">
                   <img src="../static/images/YiChun.jpg" th:src="@{images/YiChun.jpg}" alt=""
-                       class="ui rounded image" width="220"
-                       height="130">
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="ui padded vertical segment m-padded-tb-medium">
-            <div class="ui mobile reversed stackable grid"> <!--mobile reversed:手机移动端时反序-->
-              <div class="eleven wide column">
-                <h3 class="ui header">哔哩哔哩 (゜-゜)つロ 干杯~-bilibili</h3>
-                <p class="m-text">
-                  bilibili是国内知名的视频弹幕网站,这里有及时的动漫新番,活跃的ACG氛围,有创意的Up主。大家可以在这里找到许多欢乐。</p>
-                <div class="ui grid">
-                  <div class="eleven wide column">
-                    <div class="ui mini horizontal link list">
-                      <div class="item">
-                        <img src="../static/images/IMG_6361.JPG" th:src="@{images/IMG_6361.JPG}"
-                             alt="" class="ui avatar image">
-                        <div class="content">
-                          <a href="#" class="header">韩宇帆</a>
-                        </div>
-                      </div>
-                      <div class="item">
-                        <i class="calendar time icon"></i> 2022-03-08
-                      </div>
-                      <div class="item">
-                        <i class="eye icon"></i> 234
-                      </div>
-                    </div>
-                  </div>
-                  <div class="right aligned five wide column">
-                    <a href="#" target="_blank"
-                       class="ui teal basic label m-padded-mini m-text-thin">娱乐玩耍</a>
-                  </div>
-                </div>
-              </div>
-
-              <div class="right aligned five wide column">
-                <a href="#" class="_blank">
-                  <img src="../static/images/IMG_6361.JPG" th:src="@{images/IMG_6361.JPG}" alt=""
-                       class="ui rounded image" width="220"
-                       height="130">
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="ui padded vertical segment m-padded-tb-medium">
-            <div class="ui mobile reversed stackable grid"> <!--mobile reversed:手机移动端时反序-->
-              <div class="eleven wide column">
-                <h3 class="ui header">哔哩哔哩 (゜-゜)つロ 干杯~-bilibili</h3>
-                <p class="m-text">
-                  bilibili是国内知名的视频弹幕网站,这里有及时的动漫新番,活跃的ACG氛围,有创意的Up主。大家可以在这里找到许多欢乐。</p>
-                <div class="ui grid">
-                  <div class="eleven wide column">
-                    <div class="ui mini horizontal link list">
-                      <div class="item">
-                        <img src="../static/images/IMG_6360.JPG" th:src="@{images/IMG_6360.JPG}"
-                             alt="" class="ui avatar image">
-                        <div class="content">
-                          <a href="#" class="header">韩宇帆</a>
-                        </div>
-                      </div>
-                      <div class="item">
-                        <i class="calendar time icon"></i> 2022-03-08
-                      </div>
-                      <div class="item">
-                        <i class="eye icon"></i> 234
-                      </div>
-                    </div>
-                  </div>
-                  <div class="right aligned five wide column">
-                    <a href="#" target="_blank"
-                       class="ui teal basic label m-padded-mini m-text-thin">娱乐玩耍</a>
-                  </div>
-                </div>
-              </div>
-
-              <div class="right aligned five wide column">
-                <a href="#" class="_blank">
-                  <img src="../static/images/IMG_6360.JPG" th:src="@{images/IMG_6360.JPG}" alt=""
                        class="ui rounded image" width="220"
                        height="130">
                 </a>

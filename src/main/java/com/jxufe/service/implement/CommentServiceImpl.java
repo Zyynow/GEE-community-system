@@ -51,4 +51,9 @@ public class CommentServiceImpl implements CommentService {
         // 删除所有子评论
         commentRepository.deleteSub(id);
     }
+
+    @Override
+    public void deleteCommentByBlog(Long blogId) {
+        commentRepository.deleteByBlog(blogId);
+    }
 }

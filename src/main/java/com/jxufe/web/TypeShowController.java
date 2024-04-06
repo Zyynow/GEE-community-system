@@ -29,7 +29,7 @@ public class TypeShowController {
 
     @GetMapping("/types/{id}")
     public String doTypes(@PageableDefault(size = 6, sort = {"updateTime"}, direction = Sort.Direction.DESC)
-                                Pageable pageable, @PathVariable Long id, Model model, HttpServletRequest request) {
+                          Pageable pageable, @PathVariable Long id, Model model, HttpServletRequest request) {
         request.getSession().setAttribute("lastPath", request.getServletPath());
 
         List<Type> types = typeService.listTypeTop(10000); //拿到分类的列表
@@ -47,9 +47,7 @@ public class TypeShowController {
 
     @GetMapping("/user_types/{id}")
     public String doUserTypes(@PageableDefault(size = 6, sort = {"updateTime"}, direction = Sort.Direction.DESC)
-                                  Pageable pageable, @PathVariable Long id, Model model, HttpServletRequest request) {
-        request.getSession().setAttribute("lastPath", request.getServletPath());
-
+                              Pageable pageable, @PathVariable Long id, Model model, HttpServletRequest request) {
         List<Type> types = typeService.listTypeTop(10000); //拿到分类的列表
         if (id == -1) { //表示开始没有选定是哪一个分类
             id = types.get(0).getId(); //给他一个默认的分类值

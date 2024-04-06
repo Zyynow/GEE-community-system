@@ -184,50 +184,63 @@
       <div class="ui top attached teal m-opacityFriendImg segment box-shadow-max">
         <div class="ui m-padded-tb-large m-container-mm">
           <div class="ui stackable m-container-mini m-opacityFriendImg grid">
-            <!--最近记录显示区域-->
-            <div class="m-margin-tb-tiny four wide column" v-for="(friend, index) in friendList"
-                 style="padding-top: 0rem!important; padding-bottom: 0rem!important;"
-                 @contextmenu.prevent="showDeleteBtn(index, $event)">
-              <a href="#" class="class_outer" @click='showChat(friend.usernameTa, friend.avatarTa, friend.nicknameTa)'>
-                <div align="center">
-                  <div class="friends-link">
-                    <img :src="friend.avatarTa" alt=""
-                         class="friends-link-image" style="opacity: 1">
-                    <div class="m-margin-top">
-                      <h4 class="m-font-size-text-friends m-margin-tb-tiny">
-                        {{friend.nicknameTa}}:&nbsp;
-                        <span v-if="friend.chat.content.length > 5">{{friend.chat.content.slice(0, 5)}}...</span>
-                        <span v-else>{{friend.chat.content}}</span>
-                      </h4>
+            <!-- 父容器，用于设置flex布局和滚动 -->
+            <div class="scrollable-friends"
+                 style="display: flex;
+                 overflow-x: auto;
+                 -webkit-overflow-scrolling: touch; /* 为移动端提供更好的滚动体验 */
+                 white-space: nowrap;width: 100%;">
+              <!-- 最近记录显示区域 -->
+              <div class="m-margin-tb-tiny four wide column" v-for="(friend, index) in friendList" :key="index"
+                   style="padding-top: 0rem!important;
+                   padding-bottom: 0rem!important;
+                   flex-shrink: 0;
+                   padding-right: 5px;
+                   padding-left: 5px;"
+                   @contextmenu.prevent="showDeleteBtn(index, $event)">
+                <a href="#" class="class_outer"
+                   @click='showChat(friend.usernameTa, friend.avatarTa, friend.nicknameTa)'>
+                  <div align="center">
+                    <div class="friends-link">
+                      <img :src="friend.avatarTa" alt=""
+                           class="friends-link-image" style="opacity: 1">
+                      <div class="m-margin-top">
+                        <h4 class="m-font-size-text-friends m-margin-tb-tiny">
+                          {{friend.nicknameTa}}:&nbsp;
+                          <span v-if="friend.chat.content.length > 5">{{friend.chat.content.slice(0, 5)}}...</span>
+                          <span v-else>{{friend.chat.content}}</span>
+                        </h4>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </a>
-              <!-- 动态显示的删除按钮 -->
-              <transition name="fade">
-                <div v-if="deleteRecord.deleteIndex == index" class="delete-button"
-                     @click="deleteFriendRecord(friend.usernameTa, index)">
-                  删除记录
-                </div>
-              </transition>
-            </div>
-            <!--/*-->
-            <div class="m-margin-tb-tiny four wide column" th:each="friendlink : ${friendlinks}"
-                 style="padding-top: 0rem!important; padding-bottom: 0rem!important;">
-              <a href="#" class="class_outer" th:href="@{${friendlink.blogaddress}}">
-                <div align="center">
-                  <div class="friends-link">
-                    <img src="../static/images/friend_record_3.jpg" th:src="@{${friendlink.pictureaddress}}" alt=""
-                         class="friends-link-image" style="opacity: 1">
-                    <div class="m-margin-top">
-                      <h4 class="m-font-size-text-friends m-margin-tb-tiny" th:text="${friendlink.blogname}">断背山</h4>
-                      <span>(*´▽｀)ノノ</span>
+                </a>
+                <!-- 动态显示的删除按钮 -->
+                <transition name="fade">
+                  <div v-if="deleteRecord.deleteIndex == index" class="delete-button"
+                       @click="deleteFriendRecord(friend.usernameTa, index)">
+                    删除记录
+                  </div>
+                </transition>
+              </div>
+              <!--/*-->
+              <div class="m-margin-tb-tiny four wide column" th:each="friendlink : ${friendlinks}"
+                   style="padding-top: 0rem!important; padding-bottom: 0rem!important;">
+                <a href="#" class="class_outer" th:href="@{${friendlink.blogaddress}}">
+                  <div align="center">
+                    <div class="friends-link">
+                      <img src="../static/images/friend_record_3.jpg" th:src="@{${friendlink.pictureaddress}}" alt=""
+                           class="friends-link-image" style="opacity: 1">
+                      <div class="m-margin-top">
+                        <h4 class="m-font-size-text-friends m-margin-tb-tiny" th:text="${friendlink.blogname}">
+                          断背山</h4>
+                        <span>(*´▽｀)ノノ</span>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </a>
+                </a>
+              </div>
+              <!--*/-->
             </div>
-            <!--*/-->
           </div>
         </div>
       </div>

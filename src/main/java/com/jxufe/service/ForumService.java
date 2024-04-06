@@ -19,5 +19,8 @@ public interface ForumService {
 
     public List<Forum> findNotJoinForums(Long id);
 
-    List<Forum> listForumsById(Long id);
+    public List<Forum> listForumsById(Long id);
+
+    public Integer updateHotById(Long id);
+
 }

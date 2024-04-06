@@ -47,4 +47,10 @@
                   AND t_forum_users.forums_id = t_forum.id) AS tt
         WHERE uid = 0
     </select>
+
+    <update id="updateHotById">
+        update t_forum
+        set popular = popular + 100
+        where id = #{id}
+    </update>
 </mapper>

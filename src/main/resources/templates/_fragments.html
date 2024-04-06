@@ -19,8 +19,8 @@
     <div class="gird-header" style="opacity: 0.85 !important;">
         <div class="ui container"> <!-- 加一个容器 -->
             <div class="ui inverted secondary stackable menu"> <!-- 菜单 stackable:可堆叠的,表示屏幕小时自动堆叠-->
-                <h2 class="ui white header item">GuideSystem</h2> <!-- 蓝绿色标题 -->
-                <a href="#" th:href="@{/index}" class="m-item m-mobile-hide item" th:classappend="${n==1} ? 'active' "><i
+                <a th:href="@{/index}"><h2 class="ui white header item">GuideSystem</h2></a> <!-- 蓝绿色标题 -->
+                <a href="#"  class="m-item m-mobile-hide item" th:classappend="${n==1} ? 'active' "><i
                     class="home icon"></i>首页</a> <!-- icon表示图表 -->
                 <a href="forum.html" th:href="@{/forum}" class="m-item m-mobile-hide item"
                    th:classappend="${n==2} ? 'active' "><i class="comments icon"></i>论坛</a>

@@ -15,4 +15,6 @@ public interface CommentService {
     List<Comment> findGrandListBySonId(Long id);
 
     void deleteComment(Comment comment, Long id);
+
+    void deleteCommentByBlog(Long blogId);
 }

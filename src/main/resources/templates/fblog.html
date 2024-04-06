@@ -54,7 +54,7 @@
             </div>
             <div class="card-body">
               <div class="row">
-                <p th:text="|${blog.description}...|">
+                <p th:utext="${#strings.length(blog.description) > 140 ? blog.description.substring(0, 140) + '...' : blog.description}">
                   高考即将开始，马上也要迎来志愿填报的时刻，都说高考志愿填报是另一次高考，考得好不如选得好，关于高考志愿填报你有哪些困惑或者经验呢？
                   2022年6月2日-7月19日，发布高考志愿填报相关问题或回答，即有机会获得奖金和周边奖品。用过来人的经验为高考生答疑解惑，帮助高考生填报志愿。
                 </p>
@@ -234,7 +234,8 @@
           社区贴数：<p class="m-text m-inline-block" th:text="${forum.blogNumber}">800</p>
         </div>
         <div class="ui attached segment">
-          <img src="../static/images/WeChat1.jpg" th:src="@{/images/WeChat1.jpg}" style="width: 85%; margin-left: 1.4em">
+          <img src="../static/images/WeChat1.jpg" th:src="@{/images/WeChat1.jpg}"
+               style="width: 85%; margin-left: 1.4em">
           <p class="m-text" style="text-align: center">欢迎加入社区群聊 6 号群</p>
         </div>
         <div class="ui bottom attached segment">
