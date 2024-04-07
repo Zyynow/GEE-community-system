@@ -38,6 +38,7 @@ public class IndexController {
 
         model.addAttribute("page", resourceService.listResource(pageable)); // 拿到分页查询的数据
         model.addAttribute("types", typeService.listTypeTop(8));
+        model.addAttribute("hotResources", resourceService.getHotResource());
         model.addAttribute("recommendResources", resourceService.listRecommendResourceTop(2));
         if (request.getSession().getAttribute("user") != null) {
             return "user_index";
@@ -50,6 +51,7 @@ public class IndexController {
                                       Pageable pageable, Model model) {
         model.addAttribute("page", resourceService.listResource(pageable)); // 拿到分页查询的数据
         model.addAttribute("types", typeService.listTypeTop(8));
+        model.addAttribute("hotResources", resourceService.getHotResource());
         model.addAttribute("recommendResources", resourceService.listRecommendResourceTop(2));
         return "user_index";
     }

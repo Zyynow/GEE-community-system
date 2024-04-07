@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -40,12 +41,16 @@ public class ForumShowController {
     @Autowired
     private CommentService commentService;
 
+
     @GetMapping("/forum")
     public String doForum(HttpServletRequest request, Model model) {
         request.getSession().setAttribute("lastPath", request.getServletPath());
 
         model.addAttribute("forums", forumService.listForums());
         model.addAttribute("tags", tagService.listTag());
+        if (request.getSession().getAttribute("user") != null) {
+            return "user_forum";
+        }
         return "forum";
     }
 
@@ -66,7 +71,11 @@ public class ForumShowController {
 
         model.addAttribute("forum", forumService.getForumById(id));
         model.addAttribute("tags", tagService.listTag());
+        model.addAttribute("hotBlogs", blogService.getHotBlog());
         model.addAttribute("blogs", blogService.findBlogs(id));
+        if (request.getSession().getAttribute("user") != null) {
+            return "user_fblog";
+        }
         return "fblog";
     }
 
@@ -75,6 +84,7 @@ public class ForumShowController {
                               @PathVariable Integer id, HttpServletRequest request, Model model) {
         model.addAttribute("forum", forumService.getForumById(id));
         model.addAttribute("tags", tagService.listTag());
+        model.addAttribute("hotBlogs", blogService.getHotBlog());
         model.addAttribute("blogs", blogService.findBlogs(id));
         return "user_fblog";
     }
@@ -86,8 +96,12 @@ public class ForumShowController {
 
         model.addAttribute("forum", forumService.getForumById(forumId));
         model.addAttribute("tags", tagService.listTag());
+        model.addAttribute("hotBlogs", blogService.getHotBlog());
         model.addAttribute("blogs", blogService.findBlogsByTag(forumId, tagId));
         model.addAttribute("activeTagId", tagId);
+        if (request.getSession().getAttribute("user") != null) {
+            return "user_fblog_tags";
+        }
         return "fblog_tags";
     }
 
@@ -96,6 +110,7 @@ public class ForumShowController {
                                    @PathVariable Integer forumId, @PathVariable Long tagId, Model model) {
         model.addAttribute("forum", forumService.getForumById(forumId));
         model.addAttribute("tags", tagService.listTag());
+        model.addAttribute("hotBlogs", blogService.getHotBlog());
         model.addAttribute("blogs", blogService.findBlogsByTag(forumId, tagId));
         model.addAttribute("activeTagId", tagId);
         return "user_fblog_tags";
@@ -106,6 +121,7 @@ public class ForumShowController {
         response.setContentType("text/html; charset=UTF-8");
         Integer res = forumService.joinForum(userId, forumId);
         if (res == 1) {
+            forumService.updatePeopleNum(forumId);
             response.getWriter().print("<script language='javascript'>alert('添加成功');" +
                     "window.location.href='/dev/user_forum';</script>");
         } else {
@@ -145,15 +161,16 @@ public class ForumShowController {
     @PostMapping("/fblog/input/success")
     public void doWriteBlog(Blog blog, HttpSession session, HttpServletResponse response) throws IOException {
         if (blog.getContent().equals("") || blog.getDescription().equals("") ||
-                blog.getTitle().equals("") || blog.getFirstPicture().equals("") ||
-                blog.getForum() == null || blog.getTag() == null) {
+                blog.getTitle().equals("") || blog.getForum() == null || blog.getTag() == null) {
             response.getWriter().print("<script language='javascript'>alert('内容请填写完整');" +
                     "window.location.href='/dev/fblog/input';</script>");
         } else {
             User user = (User) session.getAttribute("user");
             blog.setUser(user);
+
             if (blog.getId() == null) {
                 blog = blogService.saveBlog(blog);
+                forumService.updateBlogNum(blog.getForum().getId());
                 userService.updateBlogNum(user.getId());
                 forumService.updateHotById(Long.valueOf(blog.getForum().getId()));
             } else {
@@ -166,9 +183,11 @@ public class ForumShowController {
 
     @PostMapping("/fblog/delete/{blogId}")
     @Transactional
-    public String deleteBlog(@PathVariable Long blogId) {
+    public String deleteBlog(@PathVariable Long blogId, @RequestParam(value = "forumId", required = false) Integer forumId) {
         commentService.deleteCommentByBlog(blogId);
         blogService.deleteBlog(blogId);
+        blogService.removeCollection(blogId);
+        forumService.reduceBlogNum(forumId);
         return "redirect:/archives";
     }
 }

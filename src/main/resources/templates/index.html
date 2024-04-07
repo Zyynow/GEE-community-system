@@ -40,11 +40,11 @@
 </nav>
 
 <!--中间内容-->
-<div class="m-container-large m-padded-tb-big" id="contentDiv">
+<div class="m-container-plus m-padded-tb-big" id="contentDiv">
   <div class="ui container">
     <div class="ui stackable grid">
       <!-- 左边博客列表 -->
-      <div class="twelve wide column">
+      <div class="eleven wide column">
         <!--content-->
         <div class="ui attached segment">
           <div class="ui padded vertical segment m-padded-tb-medium" style="padding-top: 1em !important;"
@@ -230,7 +230,7 @@
         </div>
       </div>
       <!-- 右侧top -->
-      <div class="four wide column">
+      <div class="five wide column">
         <!-- 分类 -->
         <div class="ui segments">
           <div class="ui secondary segment">
@@ -265,6 +265,7 @@
             </div>
           </div>
         </div>
+
         <!-- 最新推荐 -->
         <div class="ui segments m-margin-top-large"> <!--注意是segments-->
           <div class="ui secondary segment">
@@ -287,6 +288,22 @@
           </div>
           <!--*/-->
         </div>
+
+        <!--热度前八-->
+        <div class="ui container segment">
+          <h4>
+            热度前八
+          </h4>
+          <div class="ui relaxed list">
+            <a class="item" th:href="@{/resource/{id}(id=${R.id})}" target="_blank" th:each="R : ${hotResources}">
+              <i class="right triangle icon"></i>
+              <div class="content">
+                <div class="header" style="font-weight: normal; font-size: 14px" th:text="${R.title}">图标对齐方式</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
         <h4 class="ui horizontal divider header">欢迎━(*｀∀´*)ノ亻!</h4>
         <div class="ui centered card" style="width: 200px"> <!-- 指定宽度时居中使用centered -->
           <img src="../static/images/WeChat.jpg" style="margin-left: 0.1px !important;"

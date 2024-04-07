@@ -90,6 +90,11 @@ public class BlogServiceImpl implements BlogService {
         return null;
     }
 
+    @Override
+    public void removeCollection(Long blogId) {
+        collectionMapper.deleteCollectionByBlog(blogId);
+    }
+
     @Transactional
     @Override
     public Blog saveBlog(Blog blog) {

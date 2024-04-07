@@ -58,6 +58,21 @@ public class ForumServiceImpl implements ForumService {
     }
 
     @Override
+    public void updateBlogNum(Integer id) {
+        forumMapper.updateBlogNum(id);
+    }
+
+    @Override
+    public void reduceBlogNum(Integer id) {
+        forumMapper.reduceBlogNum(id);
+    }
+
+    @Override
+    public void updatePeopleNum(Integer forumId) {
+        forumMapper.updatePeopleNum(forumId);
+    }
+
+    @Override
     public List<Forum> findJoinForums(Long id) {
         return forumMapper.findJoinForumsByUserId(id);
     }

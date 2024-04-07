@@ -121,6 +121,10 @@
       <div class="eight wide column">
         <img src="../static/images/店铺1.jpg" th:src="@{${user.avatar}}" alt=""
              class="ui rounded image">
+        <div class="right aligned column" style="text-align: right; position: relative; margin-top: 5px">
+          <a th:href="@{/picture/list/{id}(id=${user.id})}" style="font-weight: bold;">浏览Ta的照片墙 <i
+              class="right arrow icon"></i></a>
+        </div>
       </div>
       <div class="four wide column">
         <div class="ui segment">

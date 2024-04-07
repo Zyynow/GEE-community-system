@@ -33,15 +33,21 @@ public class TypeShowController {
         request.getSession().setAttribute("lastPath", request.getServletPath());
 
         List<Type> types = typeService.listTypeTop(10000); //拿到分类的列表
+
         if (id == -1) { //表示开始没有选定是哪一个分类
             id = types.get(0).getId(); //给他一个默认的分类值(第一个)
         }
+
         ResourceQuery resourceQuery = new ResourceQuery();
         resourceQuery.setTypeId(id); //根据id来分页查询
         //将数据返回给视图 -> 前台
         model.addAttribute("types", types);
         model.addAttribute("page", resourceService.listResource(pageable, resourceQuery));
         model.addAttribute("activeTypeId", id);
+
+        if (request.getSession().getAttribute("user") != null) {
+            return "user_types";
+        }
         return "types";
     }
 

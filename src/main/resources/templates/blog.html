@@ -38,7 +38,7 @@
 </nav>
 
 <!--中间内容-->
-<div class="m-container m-padded-tb-big animate__fadeIn" id="contentDiv">
+<div class="m-container-muddle m-padded-tb-big animate__fadeIn" id="contentDiv">
   <div class="ui container">
     <!--        头部-->
     <div class="ui top attached segment">
@@ -541,7 +541,7 @@ h5,h6{font-size:1em;}
                 </a>
                 <div class="content">
                   <th:block
-                      th:with="targetUrl = ${comment.hostId == session.user?.id ? '/about' : '/userOtherAbout/' + comment.hostId}">
+                      th:with="targetUrl = ${comment.hostId == session.user?.id ? '/about' : '/otherAbout/' + comment.hostId}">
                     <a class="author" th:href="@{__${targetUrl}__}"
                        target="_blank">
                       <span th:text="${comment?.nickname}">Kafka</span>
@@ -571,7 +571,7 @@ h5,h6{font-size:1em;}
                     </a>
                     <div class="content">
                       <th:block
-                          th:with="targetUrl = ${sub.hostId == session.user?.id ? '/about' : '/userOtherAbout/' + sub.hostId}">
+                          th:with="targetUrl = ${sub.hostId == session.user?.id ? '/about' : '/otherAbout/' + sub.hostId}">
                         <a class="author" th:href="@{__${targetUrl}__}"
                            target="_blank">
                           <span th:text="${sub?.nickname}">Matt</span>

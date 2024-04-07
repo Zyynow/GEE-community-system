@@ -77,6 +77,18 @@
         where id = #{id}
     </delete>
 
+    <delete id="deleteCollectionByResource">
+        delete
+        from t_collection
+        where resource_id = #{resourceId}
+    </delete>
+
+    <delete id="deleteCollectionByBlog">
+        delete
+        from t_collection
+        where blog_id = #{blogId}
+    </delete>
+
     <delete id="deleteCollectionBlog">
         delete
         from t_collection

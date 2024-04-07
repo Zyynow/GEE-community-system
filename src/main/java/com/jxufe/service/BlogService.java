@@ -63,4 +63,6 @@ public interface BlogService {
     List<Blog> getHotBlog();
 
     List<Blog> listBlog(Long id);
+
+    void removeCollection(Long blogId);
 }

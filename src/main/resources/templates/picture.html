@@ -138,50 +138,6 @@
         <div class="ui button danger" onclick="deletePicture()">删除</div>
       </div>
     </article>
-    <article class="thumb">
-      <div>
-        <div class="rthumbnail">
-          <a href="../static/images/archiveImg_1.jpg" th:href="@{${picture.pictureaddress}}">
-            <img class="picture-zmki_px" src="../static/images/archiveImg_1.jpg" style="border-radius: .6rem !important"
-                 th:src="@{${picture.pictureaddress}}">
-          </a>
-          <div class="m-picture-text" th:text="${picture.picturename}">起风了</div>
-          <div class="rcaption">
-            <div style="font-size: large;" th:text="${picture.picturename}">起风了</div>
-            <div style="font-size: 16px" class="m-margin-top" th:text="${picture.picturetime}">2024-03-21 &nbsp;南昌
-            </div>
-            <p style="font-size: 16px" th:text="${picture.picturedescription}">
-              我曾难自拔于世界之大，也沉迷于其中梦话</p>
-          </div>
-        </div>
-      </div>
-      <div class="edit-delete-buttons" style="position: relative; display: none;">
-        <div class="ui button" onclick="editPicture()">编辑</div>
-        <div class="ui button danger" onclick="deletePicture()">删除</div>
-      </div>
-    </article>
-    <article class="thumb">
-      <div>
-        <div class="rthumbnail">
-          <a href="../static/images/archiveImg.jpg" th:href="@{${picture.pictureaddress}}">
-            <img class="picture-zmki_px" src="../static/images/archiveImg.jpg" style="border-radius: .6rem !important"
-                 th:src="@{${picture.pictureaddress}}">
-          </a>
-          <div class="m-picture-text" th:text="${picture.picturename}">起风了</div>
-          <div class="rcaption">
-            <div style="font-size: large;" th:text="${picture.picturename}">起风了</div>
-            <div style="font-size: 16px" class="m-margin-top" th:text="${picture.picturetime}">2024-03-21 &nbsp;南昌
-            </div>
-            <p style="font-size: 16px" th:text="${picture.picturedescription}">
-              我曾难自拔于世界之大，也沉迷于其中梦话</p>
-          </div>
-        </div>
-      </div>
-      <div class="edit-delete-buttons" style="position: relative; display: none;">
-        <div class="ui button" onclick="editPicture()">编辑</div>
-        <div class="ui button danger" onclick="deletePicture()">删除</div>
-      </div>
-    </article>
     <!--*/-->
   </div>
 
@@ -191,7 +147,7 @@
     <div class="ui  aligned two column grid"> <!-- middle aligned:垂直方向居中 -->
       <!--左侧-->
       <th:block
-          th:with="targetUrl = ${session.user == null ? '/picture/list/' + user?.id : '/picture/me/list'}">
+          th:with="targetUrl = ${session.user?.id != user?.id ? '/picture/list/' + user?.id : '/picture/me/list'}">
         <div class="left aligned column" style="padding-left: 2em !important;">
           <a href="#" th:href="@{__${targetUrl}__(pageNum=${pagePicture.hasPreviousPage}?${pagePicture.prePage}:1)}"
              th:unless="${pagePicture.isFirstPage}" class="ui mini blue basic button">上一页</a> <!-- 小按钮 -->
@@ -199,7 +155,7 @@
       </th:block>
       <!--右侧-->
       <th:block
-          th:with="targetUrl = ${session.user == null ? '/picture/list/' + user?.id : '/picture/me/list'}">
+          th:with="targetUrl = ${session.user?.id != user?.id ? '/picture/list/' + user?.id : '/picture/me/list'}">
         <div class="right aligned column" style="padding-right: 2.2em !important;">
           <a href="#"
              th:href="@{__${targetUrl}__(pageNum=${pagePicture.hasNextPage}?${pagePicture.nextPage}:${pagePicture.pages})}"

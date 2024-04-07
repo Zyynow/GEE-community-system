@@ -16,6 +16,24 @@
           and users_id = #{userId}
     </delete>
 
+    <update id="updateBlogNum">
+        update t_forum
+        set blog_number = blog_number + 1
+        where id = #{id}
+    </update>
+
+    <update id="updatePeopleNum">
+        update t_forum
+        set people_number = people_number + 1
+        where id = #{forumId}
+    </update>
+
+    <update id="reduceBlogNum">
+        update t_forum
+        set blog_number = blog_number - 1
+        where id = #{id}
+    </update>
+
     <select id="findListForums" resultType="com.jxufe.entity.Forum">
         select *
         from t_forum

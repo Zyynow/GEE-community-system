@@ -167,6 +167,11 @@ public class ResourceServiceImpl implements ResourceService {
     }
 
     @Override
+    public void removeCollection(Long resourceId) {
+        collectionMapper.deleteCollectionByResource(resourceId);
+    }
+
+    @Override
     public int removeResourceById(Long id) {
         return collectionMapper.deleteResourceId(id);
     }

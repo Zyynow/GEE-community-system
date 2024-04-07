@@ -44,4 +44,6 @@ public interface ResourceService {
     List<Resource> getHotResource();
 
     List<Resource> getCollectionMax();
+
+    void removeCollection(Long resourceId);
 }

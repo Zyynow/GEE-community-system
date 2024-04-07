@@ -25,4 +25,10 @@ public interface ForumMapper {
     Integer updateHotById(Long id);
 
     void deleteJoinByUser(Long userId);
+
+    void updateBlogNum(Integer id);
+
+    void reduceBlogNum(Integer id);
+
+    void updatePeopleNum(Integer forumId);
 }

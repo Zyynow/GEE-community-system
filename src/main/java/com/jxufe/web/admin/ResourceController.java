@@ -104,6 +104,7 @@ public class ResourceController {
     @GetMapping("/resources/{id}/delete")
     public String delete(@PathVariable Long id) {
         resourceService.deleteResource(id);
+        resourceService.removeCollection(id);
         return "redirect:/admin/resources";
     }
 }

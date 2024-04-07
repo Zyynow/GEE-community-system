@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @Controller
@@ -41,12 +42,15 @@ public class AboutController {
     }
 
     @GetMapping("/otherAbout/{id}")
-    public String doOtherAbout(@PathVariable Long id, Model model) {
+    public String doOtherAbout(@PathVariable Long id, Model model, HttpServletRequest request) {
         model.addAttribute("user", userService.findUserById(id));
         model.addAttribute("forums", forumService.findJoinForums(id));
         model.addAttribute("blogs", blogService.getArchiveBlogs(id));
         model.addAttribute("collectionBlogs", blogService.collectionBlogList(id));
         model.addAttribute("collectionResources", resourceService.collectionResourceList(id));
+        if (request.getSession().getAttribute("user") != null) {
+            return "user_other_about";
+        }
         return "other_about";
     }
 

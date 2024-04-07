@@ -14,8 +14,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -34,7 +36,6 @@ public class PictureController {
         User user = (User) session.getAttribute("user");
         PageHelper.startPage(pageNum, 4);
         PageInfo<Picture> page = pictureService.listPictures(user.getId()).toPageInfo();
-//        System.out.println(page.getTotal() + " " + page.getPages() + " " + page.getList());
         model.addAttribute("user", user);
         model.addAttribute("pagePicture", page);
         return "picture";
@@ -42,10 +43,18 @@ public class PictureController {
 
     @GetMapping("/list/{id}")
     public String listPictureByUser(@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum,
-                                    @PathVariable Long id, Model model) {
+                                    @PathVariable Long id, Model model, HttpSession session, HttpServletResponse response) throws IOException {
+        User user = (User) session.getAttribute("user");
+
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
+        if (user == null) {
+            response.getWriter().print("<script language='javascript'>alert('登录后才能查看他人照片墙');" +
+                    "window.location.href='/dev/login';</script>");
+        }
+
         PageHelper.startPage(pageNum, 4);
         PageInfo<Picture> page = pictureService.listPictures(id).toPageInfo();
-//        System.out.println(page.getTotal() + " " + page.getPages() + " " + page.getList());
         model.addAttribute("user", userService.findUserById(id));
         model.addAttribute("pagePicture", page);
         return "picture";

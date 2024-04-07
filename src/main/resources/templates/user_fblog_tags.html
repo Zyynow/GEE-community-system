@@ -249,17 +249,30 @@
           <a class="ui orange basic left pointing label m-margin-tb-tiny">升学</a>
           <!--*/-->
         </div>
-        <div class="ui attached segment">
-          社区人数：<p class="m-text m-inline-block" th:text="${forum?.peopleNumber}">1600</p><br>
-          社区贴数：<p class="m-text m-inline-block" th:text="${forum?.blogNumber}">800</p>
+        <!--热度前八-->
+        <div class="ui container segment">
+          <h3>
+            热度前八
+          </h3>
+          <div class="ui relaxed list">
+            <a class="item" th:href="@{/user_blog/{id}(id=${blog.id})}" target="_blank" th:each="blog : ${hotBlogs}">
+              <i class="right triangle icon"></i>
+              <div class="content">
+                <div class="header" style="font-weight: normal; font-size: 14px" th:text="${blog.title}">图标对齐方式
+                </div>
+              </div>
+            </a>
+          </div>
         </div>
-        <div class="ui attached segment">
+        <div class="ui attached segment" style="border-top-right-radius: 0.4rem; border-top-left-radius: 0.4rem;">
           <img src="../static/images/WeChat1.jpg" th:src="@{/images/WeChat1.jpg}"
                style="width: 85%; margin-left: 1.5em">
           <p class="m-text" style="text-align: center">欢迎加入社区群聊 6 号群</p>
         </div>
         <div class="ui bottom attached segment">
           社区热度：<p class="m-text m-inline-block" th:text="${forum?.popular}">1600</p><br>
+          社区人数：<p class="m-text m-inline-block" th:text="${forum?.peopleNumber}">1600</p><br>
+          社区贴数：<p class="m-text m-inline-block" th:text="${forum?.blogNumber}">800</p>
         </div>
       </div>
     </div>

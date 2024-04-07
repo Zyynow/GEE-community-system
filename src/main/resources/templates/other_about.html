@@ -37,7 +37,7 @@
   </a>
 </nav>
 
-<div class="m-container m-padded-tb-big" style="width: 1100px !important;" id="contentDiv">
+<div class="m-container-large m-padded-tb-big" style="width: 1100px !important;" id="contentDiv">
   <div class="ui container">
     <div class="ui stackable grid">
       <div class="four wide column">
@@ -121,6 +121,10 @@
       <div class="eight wide column">
         <img src="../static/images/店铺1.jpg" th:src="@{${user.avatar}}" alt=""
              class="ui rounded image">
+        <div class="right aligned column" style="text-align: right; position: relative; margin-top: 5px">
+          <a th:href="@{/picture/list/{id}(id=${user.id})}" style="font-weight: bold;" target="_blank">浏览Ta的照片墙 <i
+              class="right arrow icon"></i></a>
+        </div>
       </div>
       <div class="four wide column">
         <div class="ui segment">

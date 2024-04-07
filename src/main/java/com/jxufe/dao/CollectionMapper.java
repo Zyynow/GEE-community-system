@@ -40,4 +40,8 @@ public interface CollectionMapper {
     void updateCollectionByBlog(Long blogId, String title);
 
     void updateCollectionByResource(Long resourceId, String title);
+
+    void deleteCollectionByBlog(Long blogId);
+
+    void deleteCollectionByResource(Long resourceId);
 }
