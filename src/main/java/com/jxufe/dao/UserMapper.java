@@ -44,4 +44,6 @@ public interface UserMapper {
     View findView(Long viewerId, Long viewedId);
 
     Integer updateAboutView(Long viewerId, Long viewedId);
+
+    void deleteViewByUser(Long userId);
 }

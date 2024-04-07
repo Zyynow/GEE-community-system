@@ -24,6 +24,10 @@
         values (#{username}, #{password}, #{nickname}, #{email}, #{sex}, #{createTime}, #{avatar}, #{blogNum});
     </insert>
 
+    <delete id="deleteUser">
+        delete from t_user where username = #{username}
+    </delete>
+
     <select id="findByUsername" resultType="com.jxufe.entity.User">
         select *
         from t_user
@@ -97,7 +101,7 @@
                         u.signature,
                         CASE
 
-                            WHEN u.id IN (f.user1id, f.user2id) THEN
+                            WHEN #{meId} IN (f.user1id, f.user2id) THEN
                                 1
                             ELSE 0
                             END AS is_friend,
@@ -107,7 +111,6 @@
                                 1
                             ELSE 0
                             END AS is_me
-
         FROM t_user AS u
                  LEFT JOIN (SELECT DISTINCT user1id,
                                             user2id
@@ -124,6 +127,13 @@
         insert into t_view(viewer_id, viewed_id, count)
         values (#{viewerId}, #{viewedId}, 1)
     </insert>
+
+    <delete id="deleteViewByUser">
+        delete
+        from t_view
+        where viewer_id = #{userId}
+           or viewed_id = #{userId}
+    </delete>
 
     <update id="updateAboutView">
         update t_view

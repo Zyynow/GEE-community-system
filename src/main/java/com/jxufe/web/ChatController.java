@@ -54,6 +54,7 @@ public class ChatController {
         User user1 = userService.findUserById(userId);
         User user2 = (User) session.getAttribute("user");
         if (!friendService.isFriend(userId, user2.getId())) {
+            // 没有效果(可能是因为axios和普通js表单提交不一样)
             response.getWriter().print("<script language='javascript'>alert('你和 " + user1.getNickname() + " 还不是好友哦，请先添加好友吧');"
                     + "window.location.href='/dev/friend/';</script>");
         }
@@ -78,7 +79,7 @@ public class ChatController {
         User user = (User) session.getAttribute("user");
         int p = chatService.clearRecordByUser(username, user.getUsername());
         if (p == 0) {
-            // 没有效果(可能是因为vue)
+            // 没有效果(可能是因为axios和普通js表单提交不一样)
             response.getWriter().print("<script language='javascript'>alert('聊天记录删除失败了哦，找找是什么原因吧');" +
                     "window.location.href='/dev/chat/';</script>");
         }

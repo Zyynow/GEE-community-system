@@ -14,4 +14,6 @@ public interface ChatService {
     void saveChat(Message msg, String sender);
 
     int clearRecordByUser(String username1, String username2);
+
+    void deleteChatByUser(String username);
 }

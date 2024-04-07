@@ -17,4 +17,8 @@ public interface CommentService {
     void deleteComment(Comment comment, Long id);
 
     void deleteCommentByBlog(Long blogId);
+
+    void deleteCommentByUser(Long userId);
+
+    void updateComments(Long userId, String nickname, String avatar);
 }

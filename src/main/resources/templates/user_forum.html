@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 
-<head th:replace="_fragments_login :: head(~{::title})">
+<head>
   <meta charset="utf-8">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link rel="canonical" href="https://demo-basic.adminkit.io/ui-cards.html"/>
   <title>论坛</title>
-  <link href="../static/css/app.css" rel="stylesheet">
-  <link rel="stylesheet" href="../static/css/me.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../static/css/app.css" th:href="@{/css/app.css}">
+  <link rel="stylesheet" href="../static/css/style.min.css" th:href="@{/css/style.min.css}">
+  <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
+  <link rel="stylesheet" href="../static/css/animate.css" th:href="@{/css/animate.css}">
 </head>
 
 <body>
@@ -128,66 +127,6 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-3">
-              <div class="card">
-                <img class="card-img-top" src="../static/images/IMG_6360.JPG"
-                     th:src="@{/images/IMG_6360.JPG}" alt="Unsplash">
-                <div class="card-header">
-                  <h5 class="card-title mb-0">升学指南</h5>
-                </div>
-                <div class="card-body">
-                  <p class="card-text">
-                    最新一届计划的指南已经出版，内容包括内地升学概况、文凭试收生计划详情及策略、各参与高校的介绍及招生课程一览</p>
-                  <a href="#" class="card-link">进入社区</a>
-                  <a href="#" class="card-link">加入社区</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="card">
-                <img class="card-img-top" src="../static/images/IMG_6360.JPG"
-                     th:src="@{/images/IMG_6360.JPG}" alt="Unsplash">
-                <div class="card-header">
-                  <h5 class="card-title mb-0">高校俱乐部</h5>
-                </div>
-                <div class="card-body">
-                  <p class="card-text">
-                    最新一届计划的指南已经出版，内容包括内地升学概况、文凭试收生计划详情及策略、各参与高校的介绍及招生课程一览</p>
-                  <a href="#" class="card-link">进入社区</a>
-                  <a href="#" class="card-link">加入社区</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="card">
-                <img class="card-img-top" src="../static/images/IMG_6360.JPG"
-                     th:src="@{/images/IMG_6360.JPG}" alt="Unsplash">
-                <div class="card-header">
-                  <h5 class="card-title mb-0">专业问答</h5>
-                </div>
-                <div class="card-body">
-                  <p class="card-text">
-                    最新一届计划的指南已经出版，内容包括内地升学概况、文凭试收生计划详情及策略、各参与高校的介绍及招生课程一览</p>
-                  <a href="#" class="card-link">进入社区</a>
-                  <a href="#" class="card-link">加入社区</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="card">
-                <img class="card-img-top" src="../static/images/IMG_6360.JPG"
-                     th:src="@{/images/IMG_6360.JPG}" alt="Unsplash">
-                <div class="card-header">
-                  <h5 class="card-title mb-0">奇思妙想</h5>
-                </div>
-                <div class="card-body">
-                  <p class="card-text">
-                    最新一届计划的指南已经出版，内容包括内地升学概况、文凭试收生计划详情及策略、各参与高校的介绍及招生课程一览</p>
-                  <a href="#" class="card-link">进入社区</a>
-                  <a href="#" class="card-link">加入社区</a>
-                </div>
-              </div>
-            </div>
             <!--*/-->
           </div>
         </div>
@@ -256,6 +195,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
 </th:block>
+<script src="../static/js/app.js" th:src="@{/js/app.js}"></script>
 </body>
 
 </html>

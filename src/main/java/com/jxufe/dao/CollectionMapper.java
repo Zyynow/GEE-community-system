@@ -27,6 +27,8 @@ public interface CollectionMapper {
 
     int deleteBlogById(Long id);
 
+    void deleteCollectionByUser(Long userId);
+
     Favourites isCollectionBlog(Long userId, Long blogId);
 
     Favourites isCollectionResource(Long userId, Long resourceId);
@@ -34,4 +36,8 @@ public interface CollectionMapper {
     List<Resource> getCollectionResourceMax();
 
     List<Blog> getCollectionBlogMax();
+
+    void updateCollectionByBlog(Long blogId, String title);
+
+    void updateCollectionByResource(Long resourceId, String title);
 }

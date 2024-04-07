@@ -27,7 +27,7 @@ public class AdminServiceImpl implements AdminService {
         Integer res = 0;
         if (user != null) {
             user.setDescription("我是管理员哦");
-            user.setAvatar("https://img0.baidu.com/it/u=1855725179,2561304587&fm=253&fmt=auto&app=138&f=JPEG?w=499&h=500");
+            user.setAvatar("https://sky-take-out-kafka.oss-cn-beijing.aliyuncs.com/defaultAvatar.png");
             res = adminMapper.saveUser(user);
         }
         return res;

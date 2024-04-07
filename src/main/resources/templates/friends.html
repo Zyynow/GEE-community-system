@@ -24,18 +24,15 @@
 
 <!--导航-->
 <nav class="gird-header">
-  <div class="ui container"> <!-- 加一个容器 -->
+  <div class="ui container" style="width: 95%!important;"> <!-- 加一个容器 -->
     <div class="ui inverted secondary stackable menu"> <!-- 菜单 stackable:可堆叠的,表示屏幕小时自动堆叠-->
-      <h2 class="ui white header item">GuideSystem</h2> <!-- 蓝绿色标题 -->
-      <a href="#" th:href="@{/user_index}" class="m-item m-mobile-hide item" th:classappend="${n==1} ? 'active' "><i
-          class="home icon"></i>首页</a> <!-- icon表示图表 -->
-      <a href="#" th:href="@{/user_forum}" class="m-item m-mobile-hide item" th:classappend="${n==2} ? 'active' "><i
-          class="comments icon"></i>论坛</a>
-      <a href="#" th:href="@{/user_types/-1}" class="m-item m-mobile-hide item" th:classappend="${n==3} ? 'active' "><i
-          class="idea icon"></i>分类</a>
-      <a href="#" th:href="@{/about}" class="m-item m-mobile-hide item" th:classappend="${n==4} ? 'active' "><i
-          class="info icon"></i>我的</a>
-      <div class="m-top-right m-mobile-hide item m-item" style="margin-top: 5px"> <!-- 靠右 -->
+      <a th:href="@{/user_index}"><h2 class="ui white header item">GuideSystem</h2></a> <!-- 蓝绿色标题 -->
+      <a href="#" th:href="@{/user_index}" class="m-item m-mobile-hide item"><i class="home icon"></i>首页</a>
+      <!-- icon表示图标 -->
+      <a href="#" th:href="@{/user_forum}" class="m-item m-mobile-hide item"><i class="comments icon"></i>论坛</a>
+      <a href="#" th:href="@{/user_types/-1}" class="m-item m-mobile-hide item"><i class="idea icon"></i>分类</a>
+      <a href="#" th:href="@{/about}" class="m-item m-mobile-hide item"><i class="info icon"></i>我的</a>
+      <div class="m-top-right m-mobile-hide item m-item" style="margin: auto; margin-top: -5px;"> <!-- 靠右 -->
         <form name="search" method="get" action="#" th:action="@{/user_search}" target="_blank">
           <div class="ui icon input">
             <input type="text" name="query" placeholder="Search..." th:value="${query}">
@@ -43,16 +40,18 @@
           </div>
         </form>
         <div class="ui dropdown item">
-          <div class="text">
-            <img src="../static/images/店铺1.jpg" th:src="@{${session.user?.avatar}}"
-                 alt="" class="ui avatar image">
+          <div class="container">
+            <img src="../static/images/店铺1.jpg" th:src="@{${session.user?.avatar}}" alt="" class="ui avatar image"
+                 style="object-fit: cover;
+                       outline: 0px;
+                       background-size: 100% 100%;">
           </div>
           <i class="dropdown icon"></i>
           <div class="menu">
             <a href="#" th:href="@{/about}" target="_blank" class="item">我的</a>
             <a href="#" th:href="@{/edit/password}" class="item">修改密码</a>
-            <a href="#" th:href="@{/login/exit}" class="item">退出</a>
-            <a href="#" th:href="@{/login/delete}" class="item">注销</a> <!--得更新-->
+            <a href="#" th:href="@{/login/exit}" id="logout-link" class="item">退出</a>
+            <a href="#" onclick="deleteAccount()" class="item">注销</a> <!--得更新-->
           </div>
           <input type="hidden" name="concurrentId" th:value="${session.user?.id}"/>
           <input type="hidden" name="concurrentUsername" th:value="${session.user?.username}"/>
@@ -281,7 +280,7 @@
       <!--足迹展示-->
       <div class="ui container transparent-segment segment">
         <div class="ui relaxed list">
-          <div class="item">
+          <div class="item" v-if="commentMax">
             <img class="ui avatar image" :src="commentMax.avatar">
             <div class="content">
               <a class="header" :href="'/dev/userOtherAbout/' + commentMax.userId"
@@ -290,7 +289,7 @@
               <p>达到 <span style="color: #d27b53; font-weight: bold">{{commentMax.count}}</span> 条</p>
             </div>
           </div>
-          <div class="item">
+          <div class="item" v-if="collectionMax">
             <img class="ui avatar image" :src="collectionMax.avatar">
             <div class="content">
               <a class="header" :href="'/dev/userOtherAbout/' + collectionMax.userId"
@@ -299,7 +298,7 @@
               <p>达到 <span style="color: #d27b53; font-weight: bold">{{collectionMax.count}}</span> 篇</p>
             </div>
           </div>
-          <div class="item">
+          <div class="item" v-if="viewMax">
             <img class="ui avatar image" :src="viewMax.avatar">
             <div class="content">
               <a class="header" :href="'/dev/userOtherAbout/' + viewMax.userId"
@@ -364,7 +363,7 @@
           <a :href="'/dev/userOtherAbout/' + friend.userId" target="_blank">
             <div class="ui icon button">查看主页</div>
           </a>
-          <a :href="'/dev/chat/' + friendHottest.userId" target="_blank">
+          <a :href="'/dev/chat/' + friend.userId" target="_blank">
             <div class="ui blue icon button">找Ta聊天</div>
           </a>
         </div>
@@ -535,6 +534,37 @@
   </div>
 </div>
 
+<!--确认注销-->
+<div th:fragment="destroyAccount" class="ui destroy modal">
+  <i class="close icon"></i>
+  <div class="header">
+    账号注销
+  </div>
+  <div class="content">
+    <div class="ui form warning">
+      <div class="field">
+        <label>确认密码</label>
+        <input type="password" name="password" placeholder="请输入密码...">
+      </div>
+      <div class="ui warning message">
+        <div class="header">注销提醒！</div>
+        <ul class="list">
+          <li>只有填入你的账号密码, 你才能注销帐号</li>
+          <li>注销账号, 意味着你的账号信息全部清空</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="actions">
+    <button class="ui secondary button" id="confirmDestroy">
+      确认
+    </button>
+    <button class="ui cancel button">
+      取消
+    </button>
+  </div>
+</div>
+
 <script src="../static/js/vue.js" th:src="@{/js/vue.js}"></script>
 <script src="../static/js/axios-0.18.0.js" th:src="@{/js/axios-0.18.0.js}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -545,6 +575,37 @@
     $('.ui.dropdown').dropdown({
         on: 'hover'
     });
+
+    // 绑定退出按钮的点击事件
+    $('#logout-link').on('click', function (event) {
+        // 清除 sessionStorage
+        window.sessionStorage.clear();
+    });
+
+    function deleteAccount() {
+        $('.destroy.modal').modal('show');
+
+        $('#confirmDestroy').click(async () => {
+            var searchParams = new URLSearchParams();
+            searchParams.append("password", $("[name='password']").val());
+
+            const response = await fetch("/dev/login/delete", {
+                method: 'POST',
+                redirect: 'follow', // 允许fetch跟随重定向
+                body: searchParams
+            });
+            const data = await response.json();
+            console.log(data)
+            if (data.status === "error") {
+                alert(data.message);
+                window.location.href = data.redirectUrl;
+            } else if (data.status === "success") {
+                alert(data.message);
+                // 重定向到指定URL
+                window.location.href = data.redirectUrl;
+            }
+        })
+    }
 
     const cId = $("[name='concurrentId']").val();
     const cUsername = $("[name='concurrentUsername']").val();
@@ -563,9 +624,9 @@
                 userDescription: cDescription,
                 userNickname: cNickname,
                 friendsNumber: 0,
-                viewMax: {},
-                collectionMax: {},
-                commentMax: {},
+                viewMax: null,
+                collectionMax: null,
+                commentMax: null,
                 searchText: "",
                 showErrorMessage: false,
                 errorMessage: '输入内容不能为空',
@@ -659,7 +720,7 @@
             // 最热好友
             async hottest() { // 写法一
                 await axios.get("hottest").then(res => {
-                    this.friendHottest = res.data;
+                    if (res.data) this.friendHottest = res.data;
                 });
             },
             // 展示最热模态框
@@ -755,13 +816,13 @@
             // 用户足迹展示
             async showFootprint() {
                 await axios.get("about/viewMax").then(res => {
-                    this.viewMax = res.data;
+                    if (res.data) this.viewMax = res.data; // if等效于res.data != null && res.data != undefined
                 });
                 await axios.get("blog/collectionMax").then(res => {
-                    this.collectionMax = res.data;
+                    if (res.data) this.collectionMax = res.data;
                 });
                 await axios.get("blog/commentMax").then(res => {
-                    this.commentMax = res.data;
+                    if (res.data) this.commentMax = res.data;
                 });
             },
             // 获取好友申请

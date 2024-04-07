@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<nav th:replace="_fragments_login :: menu(2)" class="ui inverted attached segment m-padded-tb-mini">
+<nav th:replace="_fragments_login :: menu(0)" class="ui inverted attached segment m-padded-tb-mini">
   <div class="ui container"> <!-- 加一个容器 -->
     <div class="ui inverted secondary stackable menu"> <!-- 菜单 stackable:可堆叠的,表示屏幕小时自动堆叠-->
       <h2 class="ui white header item">ShopSystem</h2> <!-- 蓝绿色标题 -->
@@ -119,12 +119,12 @@
         </div>
       </div>
       <div class="eight wide column">
-        <img src="../static/images/店铺1.jpg" th:src="@{/images/店铺1.jpg}" alt=""
+        <img src="../static/images/店铺1.jpg" th:src="@{${user.avatar}}" alt=""
              class="ui rounded image">
       </div>
       <div class="four wide column">
         <div class="ui segment">
-          <div style="margin-top: 20px; margin-left: 10px" class="m-padded-lr">Hi！你好</div>
+          <div style="margin-top: 20px; margin-left: 10px; font-weight: bold" class="m-padded-lr">Hi！你好</div>
           <div style="margin-top: 20px; margin-left: 10px">
             用户名：<p class="m-inline-block" th:text="${user.username}">卡夫卡</p><br>
             用户昵称：<p class="m-inline-block" th:text="${user.nickname}">2001-01-12</p><br>

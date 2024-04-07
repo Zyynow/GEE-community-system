@@ -17,4 +17,6 @@ public interface PictureService {
     int updatePicture(Picture picture);
 
     void deletePicture(Long id);
+
+    void deletePictureByUser(Long id);
 }

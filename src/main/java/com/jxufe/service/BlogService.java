@@ -16,6 +16,8 @@ public interface BlogService {
 
     List<Blog> findBlogs(Integer id);
 
+    List<Blog> findBlogsByTag(Integer forumId, Long tagId);
+
     //通过类型来搜索
     Page<Blog> listBlog(Pageable pageable, BlogQuery blog);
 
@@ -26,6 +28,8 @@ public interface BlogService {
     Blog updateBlog(Long id, Blog blog);
 
     void deleteBlog(Long id);
+
+    void deleteBlogsByUser(Long id);
 
     List<Blog> listRecommendBlogTop(Integer size);
 

@@ -44,4 +44,12 @@ public interface FriendService {
     FootprintVO getCommentNumMax(Long id);
 
     boolean isFriendByName(String toName, String username);
+
+    void deleteFriendByUser(Long id);
+
+    void deleteApplyByUser(Long id);
+
+    void updateFriends(Long userId, String nickname, String description, String avatar);
+
+    void updateApplys(Long userId, String nickname, String avatar);
 }

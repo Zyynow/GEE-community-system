@@ -12,7 +12,7 @@
 <body>
 
 <!--导航-->
-<nav th:replace="_fragments_login :: menu(4)" class="ui inverted attached segment m-padded-tb-mini">
+<nav th:replace="_fragments_login :: menu(0)" class="ui inverted attached segment m-padded-tb-mini">
   <div class="ui container"> <!-- 加一个容器 -->
     <div class="ui inverted secondary stackable menu"> <!-- 菜单 stackable:可堆叠的,表示屏幕小时自动堆叠-->
       <h2 class="ui white header item">GuideSystem</h2> <!-- 蓝绿色标题 -->
@@ -173,10 +173,10 @@
         <!--申请列表-->
         <div class="ui container segment">
           <h3>
-            热度前八贴
+            热度前八
           </h3>
           <div class="ui relaxed list">
-            <a class="item" th:href="@{/user_blog/{id}(id=${blog.id})}" th:each="blog : ${hotBlogs}">
+            <a class="item" th:href="@{/user_blog/{id}(id=${blog.id})}" target="_blank" th:each="blog : ${hotBlogs}">
               <i class="right triangle icon"></i>
               <div class="content">
                 <div class="header" style="font-weight: normal; font-size: 14px" th:text="${blog.title}">图标对齐方式
@@ -188,7 +188,7 @@
         <!--足迹展示-->
         <div class="ui container segment">
           <h3>
-            收藏量前八贴
+            收藏量前八
           </h3>
           <div class="ui relaxed list">
             <a class="item" th:href="@{/user_blog/{id}(id=${blog.id})}" target="_blank"

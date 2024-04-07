@@ -23,4 +23,5 @@ public interface ForumService {
 
     public Integer updateHotById(Long id);
 
+    void deleteJoinByUser(Long id);
 }

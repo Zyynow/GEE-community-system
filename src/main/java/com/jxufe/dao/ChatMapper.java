@@ -15,4 +15,6 @@ public interface ChatMapper {
     int saveChat(Chat chat);
 
     Integer clearRecordByUser(String username1, String username2);
+
+    void deleteChatByUser(String username);
 }

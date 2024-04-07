@@ -81,6 +81,11 @@ public class ChatServiceImpl implements ChatService {
         return chatMapper.clearRecordByUser(username1, username2);
     }
 
+    @Override
+    public void deleteChatByUser(String username) {
+        chatMapper.deleteChatByUser(username);
+    }
+
     public ChatVO createChatVO(String username, Chat chat) {
         User user = userMapper.findByUsername(username);
         ChatVO chatVO = new ChatVO();

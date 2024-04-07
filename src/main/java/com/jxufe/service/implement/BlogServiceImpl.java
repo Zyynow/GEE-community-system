@@ -50,6 +50,11 @@ public class BlogServiceImpl implements BlogService {
     }
 
     @Override
+    public List<Blog> findBlogsByTag(Integer forumId, Long tagId) {
+        return blogRepository.findBlogsByForumIdAndTagId(forumId, tagId);
+    }
+
+    @Override
     public Page<Blog> listBlog(Pageable pageable, BlogQuery blog) {
         return blogRepository.findAll(new Specification<Blog>() {
             @Override
@@ -116,6 +121,11 @@ public class BlogServiceImpl implements BlogService {
     @Override
     public void deleteBlog(Long id) {
         blogRepository.deleteById(id);
+    }
+
+    @Override
+    public void deleteBlogsByUser(Long id) {
+        blogRepository.deleteBlogsByUser(id);
     }
 
     @Override

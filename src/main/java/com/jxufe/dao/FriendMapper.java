@@ -34,7 +34,7 @@ public interface FriendMapper {
 
     Integer getCount(Long id);
 
-    FriendVO isFriendByName(String user1Name, String user2Name);
+    Friend isFriendByName(String user1Name, String user2Name);
 
     Friend isFriend(Long user1Id, Long user2Id);
 
@@ -43,4 +43,14 @@ public interface FriendMapper {
     FootprintVO getCollectionMax(Long id);
 
     FootprintVO getCommentMax(Long id);
+
+    void deleteFriendByUser(Long userId);
+
+    void deleteApplyByUser(Long userId);
+
+    void updateFriendsByUser1(Long userId, String nickname, String description, String avatar);
+
+    void updateFriendsByUser2(Long userId, String nickname, String description, String avatar);
+
+    void updateApplys(Long userId, String nickname, String avatar);
 }

@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head th:replace="_fragments_login :: head(~{::title})">
+<head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
   <title>反馈</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
-  <link href="../static/css/app.css" rel="stylesheet">
-  <link href="../static/css/style.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../static/css/app.css" th:href="@{/css/app.css}">
+  <link rel="stylesheet" href="../static/css/style.min.css" th:href="@{/css/style.min.css}">
   <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
+  <link rel="stylesheet" href="../static/css/animate.css" th:href="@{/css/animate.css}">
 </head>
 
 <body>
 <!--导航-->
-<nav th:replace="_fragments_login :: menu(4)" class="ui inverted attached segment m-padded-tb-mini">
+<nav th:replace="_fragments_login :: menu(0)" class="ui inverted attached segment m-padded-tb-mini">
   <div class="ui container"> <!-- 加一个容器 -->
     <div class="ui inverted secondary stackable menu"> <!-- 菜单 stackable:可堆叠的,表示屏幕小时自动堆叠-->
       <h2 class="ui white header item">GuideSystem</h2> <!-- 蓝绿色标题 -->
@@ -131,6 +132,7 @@
   <script type="text/javascript" src="../static/js/app.js"></script>
   <script type="text/javascript" src="../static/js/main.min.js"></script>
 </th:block>
+<script src="../static/js/app.js" th:src="@{/js/app.js}"></script>
 <script>
     function submitFeedback() {
         if (!$("[name='title']").val() || $("[name='title']").val().trim() == ""

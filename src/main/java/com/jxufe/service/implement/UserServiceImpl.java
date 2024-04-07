@@ -1,5 +1,6 @@
 package com.jxufe.service.implement;
 
+import com.jxufe.dao.CollectionMapper;
 import com.jxufe.dao.UserMapper;
 import com.jxufe.entity.Feedback;
 import com.jxufe.entity.User;
@@ -16,6 +17,9 @@ public class UserServiceImpl implements UserService {
 
     @Resource //Autowired也可以的
     private UserMapper dao;
+
+    @Resource
+    private CollectionMapper collectionMapper;
 
     @Transactional
     @Override
@@ -94,6 +98,26 @@ public class UserServiceImpl implements UserService {
     @Override
     public User findUser(String username) {
         return dao.findByUsername(username);
+    }
+
+    @Override
+    public void deleteCollectionByUser(Long id) {
+        collectionMapper.deleteCollectionByUser(id);
+    }
+
+    @Override
+    public void deleteViewByUser(Long id) {
+        dao.deleteViewByUser(id);
+    }
+
+    @Override
+    public void updateCollectionByBlog(Long blogId, String title) {
+        collectionMapper.updateCollectionByBlog(blogId ,title);
+    }
+
+    @Override
+    public void updateCollectionByResource(Long resourceId, String title) {
+        collectionMapper.updateCollectionByResource(resourceId ,title);
     }
 
     @Override

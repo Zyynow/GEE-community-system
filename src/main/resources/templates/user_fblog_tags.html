@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head th:replace="_fragments_login :: head(~{::title})">
+<head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
-  <title>社区详情</title>
-  <link href="../static/css/app.css" rel="stylesheet">
-  <link href="../static/css/style.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
-  <link href="../static/css/me.css" rel="stylesheet">
+  <title>社区详情—标签</title>
+  <link href="../static/css/style.min.css" rel="stylesheet" th:href="@{/css/style.min.css}">
+  <link rel="stylesheet" href="../static/lib/semantic/semantic.min.css" th:href="@{/lib/semantic/semantic.min.css}">
+  <link href="../static/css/me.css" rel="stylesheet" th:href="@{/css/me.css}">
+  <link rel="stylesheet" href="../static/css/animate.css" th:href="@{/css/animate.css}">
 </head>
 
 <body>
@@ -43,11 +43,23 @@
     <i class="sidebar icon"></i>
   </a>
 </nav>
-<br>
 
 <div class="m-container-plus m-padded-tb-big" id="contentDiv">
   <div class="ui container">
     <div class="ui grid">
+      <!--header-->
+      <div class="ui top attached segment"
+           style="width: 97.5%; margin-left: auto; margin-right: auto; border-radius: 0.4rem; margin-top: 1em;">
+        <div class="ui middle aligned two column grid">
+          <div class="column">
+            <h3 class="ui header">帖子</h3>
+          </div>
+          <div class="right aligned column">
+            共 <h3 class="ui orange header m-inline-block m-text-thin" th:text="${#arrays.length(blogs)}">
+            14</h3> 个
+          </div>
+        </div>
+      </div>
       <div class="eleven wide column">
         <div class="col-lg-12">
           <div class="card" th:each="blog : ${blogs}">
@@ -218,27 +230,28 @@
       </div>
       <div class="five wide column">
         <div class="ui top attached segment">
-          <div class="ui header" th:text="${forum.forumName}">论坛名称</div>
+          <div class="ui header" th:text="${forum?.forumName}">论坛名称</div>
         </div>
         <div class="ui attached segment">
-          <p class="m-text" th:text="${forum.description}">
+          <p class="m-text" th:text="${forum?.description}">
             我要努力学习，为了娶到漂亮的小熊。我要努力学习，为了娶到漂亮的小熊。我要努力学习，为了娶到漂亮的小熊。我要努力学习，为了娶到漂亮的小熊。</p>
         </div>
         <div class="ui attached segment">
-          <a th:each="tag : ${tags}" th:href="@{/user_forum/fblog/{forumId}/{tagId}(forumId=${forum?.id}, tagId=${tag?.id})}"
-             class="ui orange basic left pointing label m-margin-tb-tiny" target="_blank"
-             th:text="${tag.name}">编程
+          <a th:each="tag : ${tags}"
+             th:href="@{/user_forum/fblog/{forumId}/{tagId}(forumId=${forum?.id}, tagId=${tag?.id})}"
+             th:class="${tag?.id==activeTagId ? 'ui orange left pointing label m-margin-tb-tin' : 'ui orange basic left pointing label m-margin-tb-tin'}"
+             th:text="${tag?.name}">编程
           </a>
           <!--/*-->
-          <div class="ui orange basic left pointing label m-margin-tb-tiny">写作</div>
-          <div class="ui orange basic left pointing label m-margin-tb-tiny">答疑</div>
-          <div class="ui orange basic left pointing label m-margin-tb-tiny">冥想</div>
-          <div class="ui orange basic left pointing label m-margin-tb-tiny">升学</div>
+          <a class="ui orange basic left pointing label m-margin-tb-tiny">写作</a>
+          <a class="ui orange basic left pointing label m-margin-tb-tiny">答疑</a>
+          <a class="ui orange basic left pointing label m-margin-tb-tiny">冥想</a>
+          <a class="ui orange basic left pointing label m-margin-tb-tiny">升学</a>
           <!--*/-->
         </div>
         <div class="ui attached segment">
-          社区人数：<p class="m-text m-inline-block" th:text="${forum.peopleNumber}">1600</p><br>
-          社区贴数：<p class="m-text m-inline-block" th:text="${forum.blogNumber}">800</p>
+          社区人数：<p class="m-text m-inline-block" th:text="${forum?.peopleNumber}">1600</p><br>
+          社区贴数：<p class="m-text m-inline-block" th:text="${forum?.blogNumber}">800</p>
         </div>
         <div class="ui attached segment">
           <img src="../static/images/WeChat1.jpg" th:src="@{/images/WeChat1.jpg}"
@@ -246,7 +259,7 @@
           <p class="m-text" style="text-align: center">欢迎加入社区群聊 6 号群</p>
         </div>
         <div class="ui bottom attached segment">
-          社区热度：<p class="m-text m-inline-block" th:text="${forum.popular}">1600</p><br>
+          社区热度：<p class="m-text m-inline-block" th:text="${forum?.popular}">1600</p><br>
         </div>
       </div>
     </div>

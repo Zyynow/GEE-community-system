@@ -123,6 +123,27 @@ public class FriendServiceImpl implements FriendService {
     }
 
     @Override
+    public void deleteApplyByUser(Long id) {
+        friendMapper.deleteApplyByUser(id);
+    }
+
+    @Override
+    public void updateFriends(Long userId, String nickname, String description, String avatar) {
+        friendMapper.updateFriendsByUser1(userId, nickname, description, avatar);
+        friendMapper.updateFriendsByUser2(userId, nickname, description, avatar);
+    }
+
+    @Override
+    public void updateApplys(Long userId, String nickname, String avatar) {
+        friendMapper.updateApplys(userId, nickname, avatar);
+    }
+
+    @Override
+    public void deleteFriendByUser(Long id) {
+        friendMapper.deleteFriendByUser(id);
+    }
+
+    @Override
     public boolean isFriendByName(String toName, String username) {
         return friendMapper.isFriendByName(toName, username) != null;
     }

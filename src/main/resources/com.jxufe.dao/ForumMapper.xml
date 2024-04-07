@@ -53,4 +53,10 @@
         set popular = popular + 100
         where id = #{id}
     </update>
+
+    <delete id="deleteJoinByUser">
+        delete
+        from t_forum_users
+        where users_id = #{userId}
+    </delete>
 </mapper>

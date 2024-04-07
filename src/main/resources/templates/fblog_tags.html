@@ -1,58 +1,67 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head th:replace="_fragments_login :: head(~{::title})">
+<head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
-  <title>社区详情</title>
-  <link href="../static/css/app.css" rel="stylesheet">
-  <link href="../static/css/style.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
-  <link href="../static/css/me.css" rel="stylesheet">
+  <title>社区详情—标签</title>
+  <link href="../static/css/style.min.css" rel="stylesheet" th:href="@{/css/style.min.css}">
+  <link rel="stylesheet" href="../static/lib/semantic/semantic.min.css" th:href="@{/lib/semantic/semantic.min.css}">
+  <link href="../static/css/me.css" rel="stylesheet" th:href="@{/css/me.css}">
+  <link rel="stylesheet" href="../static/css/animate.css" th:href="@{/css/animate.css}">
 </head>
 
 <body>
-<nav th:replace="_fragments_login :: menu(0)" class="ui inverted attached segment m-padded-tb-mini">
+<nav th:replace="_fragments :: menu(0)" class="ui inverted attached segment m-padded-tb-mini">
   <div class="ui container"> <!-- 加一个容器 -->
     <div class="ui inverted secondary stackable menu"> <!-- 菜单 stackable:可堆叠的,表示屏幕小时自动堆叠-->
       <h2 class="ui white header item">GuideSystem</h2> <!-- 蓝绿色标题 -->
-      <a href="#" class="m-item m-mobile-hide item"><i class="home icon"></i>首页</a> <!-- icon表示图表 -->
-      <a href="#" class="m-item m-mobile-hide item"><i class="edit outline icon"></i>记录</a>
-      <a href="#" class="m-item m-mobile-hide item"><i class="info icon"></i>我的</a>
-      <div class="m-top-right m-mobile-hide item m-item" style="margin-top: 5px"> <!-- 靠右 -->
+      <a href="#" th:href="@{/index}" class="m-item m-mobile-hide item" th:classappend="${n==1} ? 'active' "><i
+          class="home icon"></i>首页</a> <!-- icon表示图表 -->
+      <a href="#" th:href="@{/comment}" class="m-item m-mobile-hide item" th:classappend="${n==2} ? 'active' "><i
+          class="comments icon"></i>论坛</a>
+      <a href="#" th:href="@{/types/-1}" class="m-item m-mobile-hide item" th:classappend="${n==3} ? 'active' "><i
+          class="idea icon"></i>分类</a>
+      <a href="#" th:href="@{/about}" class="m-item m-mobile-hide item" th:classappend="${n==4} ? 'active' "><i
+          class="info icon"></i>我的</a>
+      <div class="right item m-item"> <!-- 靠右 -->
         <div class="ui icon input">
           <input type="text" placeholder="Search...">
           <i class="search link icon"></i>
         </div>
-        <div class="ui dropdown item">
-          <div class="text">
-            <img src="../static/images/店铺1.jpg" th:src="@{/images/IMG_6361.JPG}"
-                 alt="" class="ui avatar image">
-          </div>
-          <i class="dropdown icon"></i>
-          <div class="menu">
-            <a href="#" th:href="@{/login/exit}" class="item">足迹</a>
-            <a href="#" th:href="@{/login}" class="item">我的</a>
-            <a href="#" th:href="@{/edit/password}" class="item">修改密码</a>
-            <a href="#" th:href="@{/login/exit}" class="item">退出</a>
-          </div>
-        </div>
+      </div>
+      <div style="margin-top: 1.25em">
+        <a href="#" th:href="@{/login}" style="font-size: 16px; color: #1ab7ea">
+          <p class="m-inline-block">登录</p>
+        </a>&nbsp;
+        <a href="#" th:href="@{/register}" style="font-size: 16px; color: #1ab7ea">
+          <p class="m-inline-block">注册</p>
+        </a>
       </div>
     </div>
   </div>
-  <a href="#" class="ui menu toggle black button icon m-top-right m-mobile-show">
-    <i class="sidebar icon"></i>
-  </a>
 </nav>
-<br>
 
 <div class="m-container-plus m-padded-tb-big" id="contentDiv">
   <div class="ui container">
     <div class="ui grid">
+      <!--header-->
+      <div class="ui top attached segment"
+           style="width: 97.5%; margin-left: auto; margin-right: auto; border-radius: 0.4rem; margin-top: 1em;">
+        <div class="ui middle aligned two column grid">
+          <div class="column">
+            <h3 class="ui header">帖子</h3>
+          </div>
+          <div class="right aligned column">
+            共 <h3 class="ui orange header m-inline-block m-text-thin" th:text="${#arrays.length(blogs)}">
+            14</h3> 个
+          </div>
+        </div>
+      </div>
       <div class="eleven wide column">
         <div class="col-lg-12">
           <div class="card" th:each="blog : ${blogs}">
             <div class="card-header">
-              <h4><a th:href="@{/user_blog/{id}(id=${blog.id})}"
+              <h4><a th:href="@{/blog/{id}(id=${blog.id})}"
                      href="#" class="m-black" target="_blank"
                      th:text="${blog.title}">考研法则十二套！</a></h4>
             </div>
@@ -72,11 +81,8 @@
                            th:src="@{${blog.user.avatar}}"
                            alt="" class="ui avatar image">
                       <div class="content">
-                        <th:block
-                            th:with="targetUrl = ${blog.user.id == session.user?.id ? '/about' : '/userOtherAbout/' + blog.user.id}">
-                          <a href="#" th:href="@{__${targetUrl}__}" class="header"
-                             th:text="${blog.user.nickname}" target="_blank">韩宇帆</a>
-                        </th:block>
+                        <a href="#" th:href="@{/otherAbout/{id}(id = ${blog.user.id})}" class="header"
+                           th:text="${blog.user.nickname}" target="_blank">韩宇帆</a>
                       </div>
                     </div>
                     <div class="item">
@@ -89,8 +95,9 @@
                   </div>
                 </div>
                 <div class="right aligned five wide column">
-                  <a href="#" th:href="@{/user_blog/{id}(id=${blog.id})}" class="ui m-padded-mini m-text-thin">回复</a>
-                  <a href="#" class="ui m-padded-mini m-text-thin">分享</a>
+                  <a href="#" th:href="@{/blog/{id}(id=${blog.id})}"
+                     target="_blank" class="ui m-padded-mini m-text-thin">回复</a>
+                  <a href="#" class="ui m-padded-mini m-text-thin" target="_blank">分享</a>
                 </div>
               </div>
             </div>
@@ -218,27 +225,27 @@
       </div>
       <div class="five wide column">
         <div class="ui top attached segment">
-          <div class="ui header" th:text="${forum.forumName}">论坛名称</div>
+          <div class="ui header" th:text="${forum?.forumName}">论坛名称</div>
         </div>
         <div class="ui attached segment">
-          <p class="m-text" th:text="${forum.description}">
+          <p class="m-text" th:text="${forum?.description}">
             我要努力学习，为了娶到漂亮的小熊。我要努力学习，为了娶到漂亮的小熊。我要努力学习，为了娶到漂亮的小熊。我要努力学习，为了娶到漂亮的小熊。</p>
         </div>
         <div class="ui attached segment">
-          <a th:each="tag : ${tags}" th:href="@{/user_forum/fblog/{forumId}/{tagId}(forumId=${forum?.id}, tagId=${tag?.id})}"
-             class="ui orange basic left pointing label m-margin-tb-tiny" target="_blank"
-             th:text="${tag.name}">编程
+          <a th:each="tag : ${tags}" th:href="@{/forum/fblog/{forumId}/{tagId}(forumId=${forum?.id}, tagId=${tag?.id})}"
+             th:class="${tag?.id==activeTagId ? 'ui orange left pointing label m-margin-tb-tin' : 'ui orange basic left pointing label m-margin-tb-tin'}"
+             th:text="${tag?.name}">编程
           </a>
           <!--/*-->
-          <div class="ui orange basic left pointing label m-margin-tb-tiny">写作</div>
-          <div class="ui orange basic left pointing label m-margin-tb-tiny">答疑</div>
-          <div class="ui orange basic left pointing label m-margin-tb-tiny">冥想</div>
-          <div class="ui orange basic left pointing label m-margin-tb-tiny">升学</div>
+          <a class="ui orange basic left pointing label m-margin-tb-tiny">写作</a>
+          <a class="ui orange basic left pointing label m-margin-tb-tiny">答疑</a>
+          <a class="ui orange basic left pointing label m-margin-tb-tiny">冥想</a>
+          <a class="ui orange basic left pointing label m-margin-tb-tiny">升学</a>
           <!--*/-->
         </div>
         <div class="ui attached segment">
-          社区人数：<p class="m-text m-inline-block" th:text="${forum.peopleNumber}">1600</p><br>
-          社区贴数：<p class="m-text m-inline-block" th:text="${forum.blogNumber}">800</p>
+          社区人数：<p class="m-text m-inline-block" th:text="${forum?.peopleNumber}">1600</p><br>
+          社区贴数：<p class="m-text m-inline-block" th:text="${forum?.blogNumber}">800</p>
         </div>
         <div class="ui attached segment">
           <img src="../static/images/WeChat1.jpg" th:src="@{/images/WeChat1.jpg}"
@@ -246,7 +253,7 @@
           <p class="m-text" style="text-align: center">欢迎加入社区群聊 6 号群</p>
         </div>
         <div class="ui bottom attached segment">
-          社区热度：<p class="m-text m-inline-block" th:text="${forum.popular}">1600</p><br>
+          社区热度：<p class="m-text m-inline-block" th:text="${forum?.popular}">1600</p><br>
         </div>
       </div>
     </div>
@@ -255,17 +262,16 @@
 
 <div class="m-padded m-right-bottom m-fixed">
   <div class="ui vertical icon buttons">
-    <a href="feedback.html" th:href="@{/feedback}" type="button" class="ui blue button">反馈</a>
-    <a href="#" th:href="@{/fblog/input}" class="ui blue button">写贴</a>
+    <a onclick="requestLogin(this)" type="button" class="ui blue button">反馈</a>
+    <a onclick="requestLogin(this)" class="ui blue button">写贴</a>
     <button class="ui icon button"><i class="headphones icon"></i></button>
     <a id="toTop-button" class="ui button"><i class="chevron up icon"></i></a>
   </div>
 </div>
 
-<!--确认注销-->
-<div th:replace="_fragments_login :: destroyAccount"></div>
+<div th:replace="_fragments :: noLogin"></div>
 
-<footer th:replace="_fragments_login :: footer" class="ui inverted vertical segment m-padded-tb-massive">
+<footer th:replace="_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive">
   <!-- vertical:垂直的 segment:条横 inverted:倒置的 -->
   <div class="ui center aligned container"> <!-- center aligned:居中 aligned:使成为一条线-->
     <div class="ui inverted divided stackable grid"> <!-- inverted divided grid:格线分成16份 -->
@@ -311,7 +317,7 @@
   </div>
 </footer>
 
-<th:block th:replace="_fragments_login :: script">
+<th:block th:replace="_fragments :: script">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
   <script type="text/javascript" src="../static/js/app.js"></script>

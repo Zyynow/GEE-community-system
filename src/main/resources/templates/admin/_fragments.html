@@ -18,7 +18,7 @@
 
 <nav th:fragment="menu(n)">
   <div class="gird-header" style="opacity: 0.85 !important;">
-    <div class="ui container"> <!-- 加一个容器 -->
+    <div class="ui container" style="width: 95%!important;"> <!-- 加一个容器 -->
       <div class="ui inverted secondary stackable menu"> <!-- 菜单 stackable:可堆叠的,表示屏幕小时自动堆叠-->
         <h2 class="ui white header item">GuideSystem</h2>
         <a th:href="@{/admin/resources}" href="#" class="m-item m-mobile-hide item"
@@ -33,7 +33,10 @@
           <div class="ui dropdown item">
             <div class="text">
               <img class="ui avatar image" th:src="@{${session.admin.avatar}}"
-                   src="https://unsplash.it/100/100?image=1005">
+                   src="https://sky-take-out-kafka.oss-cn-beijing.aliyuncs.com/defaultAvatar.png"
+                   style="object-fit: cover;
+                       outline: 0px;
+                       background-size: 100% 100%;">
             </div>
             <i class="dropdown icon"></i>
             <div class="menu">
@@ -50,7 +53,8 @@
 </nav>
 
 <footer class="ui inverted vertical segment m-padded-tb-massive"
-        style="position: relative; width: 100%; opacity: 0.85; background-color: rgba(0, 0, 0, 1);"> <!-- vertical:垂直的 segment:条横 inverted:倒置的 -->
+        style="position: relative; width: 100%; opacity: 0.85; background-color: rgba(0, 0, 0, 1);">
+  <!-- vertical:垂直的 segment:条横 inverted:倒置的 -->
   <div class="ui center aligned container"> <!-- center aligned:居中 aligned:使成为一条线-->
     <div class="ui inverted divided stackable grid"> <!-- inverted divided grid:格线分成16份 -->
       <div class="three wide column">

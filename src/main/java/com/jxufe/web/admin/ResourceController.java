@@ -4,6 +4,7 @@ package com.jxufe.web.admin;
 import com.jxufe.service.ResourceService;
 import com.jxufe.service.TagService;
 import com.jxufe.service.TypeService;
+import com.jxufe.service.UserService;
 import com.jxufe.vo.ResourceQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
@@ -33,6 +34,9 @@ public class ResourceController {
 
     @Resource
     private TagService tagService;
+
+    @Resource
+    private UserService userService;
 
     /**
      * 执行分页查询，以时间倒叙排序
@@ -77,6 +81,7 @@ public class ResourceController {
             resource1 = resourceService.saveResource(resource);
         } else {
             resource1 = resourceService.updateResource(resource.getId(), resource); //如果id不为空，则更新id
+            userService.updateCollectionByResource(resource.getId(), resource.getTitle());
         }
         if (resource1 == null) {
             attributes.addFlashAttribute("message", "操作失败");

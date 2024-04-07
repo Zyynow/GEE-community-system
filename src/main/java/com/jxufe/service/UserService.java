@@ -28,4 +28,12 @@ public interface UserService {
     User findUser(String username);
 
     Integer addAboutView(Long viewerId, Long viewedId);
+
+    void deleteCollectionByUser(Long id);
+
+    void deleteViewByUser(Long id);
+
+    void updateCollectionByBlog(Long blogId, String title);
+
+    void updateCollectionByResource(Long resourceId, String title);
 }

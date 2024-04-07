@@ -29,35 +29,34 @@
 
 <!--导航-->
 <nav class="gird-header">
-  <div class="ui container"> <!-- 加一个容器 -->
+  <div class="ui container" style="width: 95%!important;"> <!-- 加一个容器 -->
     <div class="ui inverted secondary stackable menu"> <!-- 菜单 stackable:可堆叠的,表示屏幕小时自动堆叠-->
-      <h2 class="ui white header item">GuideSystem</h2> <!-- 蓝绿色标题 -->
-      <a href="#" th:href="@{/user_index}" class="m-item m-mobile-hide item" th:classappend="${n==1} ? 'active' "><i
-          class="home icon"></i>首页</a> <!-- icon表示图表 -->
-      <a href="#" th:href="@{/user_forum}" class="m-item m-mobile-hide item" th:classappend="${n==2} ? 'active' "><i
-          class="comments icon"></i>论坛</a>
-      <a href="#" th:href="@{/user_types/-1}" class="m-item m-mobile-hide item" th:classappend="${n==3} ? 'active' "><i
-          class="idea icon"></i>分类</a>
-      <a href="#" th:href="@{/about}" class="m-item m-mobile-hide item" th:classappend="${n==4} ? 'active' "><i
-          class="info icon"></i>我的</a>
-      <div class="m-top-right m-mobile-hide item m-item" style="margin-top: 5px"> <!-- 靠右 -->
+      <a th:href="@{/user_index}"><h2 class="ui white header item">GuideSystem</h2></a> <!-- 蓝绿色标题 -->
+      <a href="#" th:href="@{/user_index}" class="m-item m-mobile-hide item"><i class="home icon"></i>首页</a>
+      <!-- icon表示图标 -->
+      <a href="#" th:href="@{/user_forum}" class="m-item m-mobile-hide item"><i class="comments icon"></i>论坛</a>
+      <a href="#" th:href="@{/user_types/-1}" class="m-item m-mobile-hide item"><i class="idea icon"></i>分类</a>
+      <a href="#" th:href="@{/about}" class="m-item m-mobile-hide item"><i class="info icon"></i>我的</a>
+      <div class="m-top-right m-mobile-hide item m-item" style="margin: auto; margin-top: -5px;"> <!-- 靠右 -->
         <form name="search" method="get" action="#" th:action="@{/user_search}" target="_blank">
           <div class="ui icon input">
-            <input type="text" name="query" placeholder="输入博客关键字..." th:value="${query}">
+            <input type="text" name="query" placeholder="Search..." th:value="${query}">
             <i onclick="document.forms['search'].submit()" class="search link icon"></i>
           </div>
         </form>
         <div class="ui dropdown item">
-          <div class="text">
-            <img src="../static/images/店铺1.jpg" th:src="@{${session.user?.avatar}}"
-                 alt="" class="ui avatar image">
+          <div class="container">
+            <img src="../static/images/店铺1.jpg" th:src="@{${session.user?.avatar}}" alt="" class="ui avatar image"
+                 style="object-fit: cover;
+                       outline: 0px;
+                       background-size: 100% 100%;">
           </div>
           <i class="dropdown icon"></i>
           <div class="menu">
             <a href="#" th:href="@{/about}" target="_blank" class="item">我的</a>
             <a href="#" th:href="@{/edit/password}" class="item">修改密码</a>
             <a href="#" th:href="@{/login/exit}" id="logout-link" class="item">退出</a>
-            <a href="#" th:href="@{/login/delete}" class="item">注销</a> <!--得更新-->
+            <a href="#" onclick="deleteAccount()" class="item">注销</a> <!--得更新-->
           </div>
           <input type="hidden" name="concurrentUsername" th:value="${session.user?.username}"/>
         </div>
@@ -195,8 +194,8 @@
                    style="padding-top: 0rem!important;
                    padding-bottom: 0rem!important;
                    flex-shrink: 0;
-                   padding-right: 5px;
-                   padding-left: 5px;"
+                   padding-right: 7px;
+                   padding-left: 7px;"
                    @contextmenu.prevent="showDeleteBtn(index, $event)">
                 <a href="#" class="class_outer"
                    @click='showChat(friend.usernameTa, friend.avatarTa, friend.nicknameTa)'>
@@ -270,6 +269,37 @@
   </div>
 </div>
 
+<!--确认注销-->
+<div th:fragment="destroyAccount" class="ui destroy modal">
+  <i class="close icon"></i>
+  <div class="header">
+    账号注销
+  </div>
+  <div class="content">
+    <div class="ui form warning">
+      <div class="field">
+        <label>确认密码</label>
+        <input type="password" name="password" placeholder="请输入密码...">
+      </div>
+      <div class="ui warning message">
+        <div class="header">注销提醒！</div>
+        <ul class="list">
+          <li>只有填入你的账号密码, 你才能注销帐号</li>
+          <li>注销账号, 意味着你的账号信息全部清空</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="actions">
+    <button class="ui secondary button" id="confirmDestroy">
+      确认
+    </button>
+    <button class="ui cancel button">
+      取消
+    </button>
+  </div>
+</div>
+
 <!--暂存信息-->
 <input type="hidden" name="friendName" th:value="${toFriend?.username}"/>
 <input type="hidden" name="friendAvatar" th:value="${toFriend?.avatar}"/>
@@ -291,6 +321,31 @@
     $('.menu.toggle').click(function () {
         $('.m-item').toggleClass('m-mobile-hide');
     });
+
+    function deleteAccount() {
+        $('.destroy.modal').modal('show');
+
+        $('#confirmDestroy').click(async () => {
+            var searchParams = new URLSearchParams();
+            searchParams.append("password", $("[name='password']").val());
+
+            const response = await fetch("/dev/login/delete", {
+                method: 'POST',
+                redirect: 'follow', // 允许fetch跟随重定向
+                body: searchParams
+            });
+            const data = await response.json();
+            console.log(data)
+            if (data.status === "error") {
+                alert(data.message);
+                window.location.href = data.redirectUrl;
+            } else if (data.status === "success") {
+                alert(data.message);
+                // 重定向到指定URL
+                window.location.href = data.redirectUrl;
+            }
+        })
+    }
 
     // const cUser = '<%= session.getAttribute("user") %>'; // 在JSP中才有用
     const cUsername = $("[name='concurrentUsername']").val();
@@ -445,6 +500,7 @@
                 // 拿到当前登录用户的最近聊天记录列表
                 await axios.get("record").then(res => {
                     this.friendList = res.data;
+                    console.log(this.friendList)
                     this.$nextTick(() => {
                         // 视图现在应该已经更新了
                     });
@@ -452,10 +508,31 @@
             },
             updateFriendList(username, message) {
                 let index = this.friendList.findIndex(friend => friend.usernameTa === username);
-                this.$set(this.friendList[index].chat, 'content', message);
-                let newFriend = this.friendList.splice(index, 1)[0]; // 移除并获取下标为index的元素
-                // 将该元素插入到数组的第一个位置
-                this.friendList.unshift(newFriend);
+                if (index >= 0) {
+                    this.$set(this.friendList[index].chat, 'content', message);
+                    let newFriend = this.friendList.splice(index, 1)[0]; // 移除并获取下标为index的元素
+                    // 将该元素插入到数组的第一个位置
+                    this.friendList.unshift(newFriend);
+                } else {
+                    // this.fetchFriendList(); // 执行在FriendMapper.isFriendByName和ChatMapper.saveChat前(...未知...)
+                    // 如果friendList里面没有username的记录，则username一定来源于toFriendName
+                    let newFriend = {
+                        usernameTa: toFriendName,
+                        avatarTa: toFriendAvatar,
+                        nicknameTa: toFriendNickname,
+                        chat: {
+                            id: null,
+                            sendTime: new Date(),
+                            senderUsername: this.username, // 当前用户
+                            recipientUsername: username, // toFriendName
+                            content: message,
+                            type: false,
+                            isRead: true
+                        }
+                    }
+                    // 将该元素插入到数组的第一个位置
+                    this.friendList.unshift(newFriend);
+                }
             },
             // 显示friendIndex的删除键
             showDeleteBtn(friendIndex, event) {

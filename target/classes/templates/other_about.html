@@ -50,37 +50,88 @@
             当前学历：<p class="m-inline-block" th:text="${user.academic}">本科</p>
           </div>
         </div>
+
         <div class="ui segment">
           <div style="margin-left: 10px">
             <h4>个人描述</h4>
             <p th:text="${user.description}">一息尚存，战斗不止！</p>
           </div>
         </div>
+
         <div class="ui segment">
           <div style="margin-left: 10px">
             <h4>加入的社区</h4>
-            <p th:text="${forum.forumName}" th:each="forum : ${forums}">GuideSystem学习</p>
+            <div th:if="${forums.size() > 0}">
+              <a style="color: #0a0a0a" th:each="forum, iterStat : ${forums}"
+                 th:href="@{/forum/fblog/{id}(id=${forum.id})}" th:if="${iterStat.index} &lt;= 2"
+                 target="_blank">
+                <p style="padding-bottom: 10px" th:text="${forum.forumName}">GuideSystem学习</p>
+              </a>
+            </div>
+            <p style="margin-bottom: 10px; color: #8b95a5" th:unless="${forums.size() > 0}">暂无</p>
+            <p th:if="${forums.size() > 3}" style="padding-bottom: 6px">&nbsp;. . .</p>
           </div>
         </div>
+
         <div class="ui segment">
           <div style="margin-left: 10px">
             <h4>发布的帖子</h4>
-            <p th:text="${blog.title}" th:each="blog : ${blogs}">这是我生命中最美丽的一天</p>
+            <div th:if="${blogs.size() > 0}">
+              <a style="color: #0a0a0a;" th:each="blog, iterStat : ${blogs}"
+                 th:href="@{/blog/{id}(id=${blog.id})}" th:if="${iterStat.index} &lt;= 2"
+                 target="_blank">
+                <p style="padding-bottom: 10px" th:text="${blog.title}">这是我生命中最美丽的一天</p>
+              </a>
+            </div>
+            <p style="margin-bottom: 10px; color: #8b95a5" th:unless="${blogs.size() > 0}">暂无</p>
+            <p th:if="${blogs.size() > 3}" style="padding-bottom: 6px">&nbsp;. . .</p>
+          </div>
+        </div>
+
+        <div class="ui segment">
+          <div style="margin-left: 10px">
+            <h4>收藏的社区帖子</h4>
+            <div th:if="${collectionBlogs.size() > 0}">
+              <a style="color: #0a0a0a" th:each="blog, iterStat : ${collectionBlogs}"
+                 th:href="@{/blog/{id}(id=${blog.id})}" th:if="${iterStat.index} &lt;= 2"
+                 target="_blank">
+                <p style="padding-bottom: 10px" th:text="${blog.title}">这是我生命中最美丽的一天</p>
+              </a>
+            </div>
+            <p style="margin-bottom: 10px; color: #8b95a5" th:unless="${collectionBlogs.size() > 0}">暂无</p>
+            <p th:if="${collectionBlogs.size() > 3}" style="padding-bottom: 6px">&nbsp;. . .</p>
+          </div>
+        </div>
+
+        <div class="ui segment">
+          <div style="margin-left: 10px">
+            <h4>收藏的考研博客</h4>
+            <div th:if="${collectionResources.size() > 0}">
+              <a style="color: #0a0a0a" th:if="${iterStat.index} &lt;= 2"
+                 th:each="resource, iterStat : ${collectionResources}" th:href="@{/resource/{id}(id=${resource.id})}"
+                 target="_blank">
+                <p style="padding-bottom: 10px" th:text="${resource.title}">这是我生命中最美丽的一天</p>
+              </a>
+            </div>
+            <p style="margin-bottom: 10px; color: #8b95a5" th:unless="${collectionResources.size() > 0}">暂无</p>
+            <p th:if="${collectionResources.size() > 3}" style="padding-bottom: 6px">&nbsp;. . .</p>
           </div>
         </div>
       </div>
       <div class="eight wide column">
-        <img src="../static/images/店铺1.jpg" th:src="@{/images/店铺1.jpg}" alt=""
+        <img src="../static/images/店铺1.jpg" th:src="@{${user.avatar}}" alt=""
              class="ui rounded image">
       </div>
       <div class="four wide column">
         <div class="ui segment">
-          <div style="margin-top: 20px; margin-left: 10px" class="m-padded-lr">Hi！你好</div>
+          <div style="margin-top: 20px; margin-left: 10px; font-weight: bold" class="m-padded-lr">Hi！你好</div>
           <div style="margin-top: 20px; margin-left: 10px">
             用户名：<p class="m-inline-block" th:text="${user.username}">卡夫卡</p><br>
             用户昵称：<p class="m-inline-block" th:text="${user.nickname}">2001-01-12</p><br>
             性别：<p class="m-inline-block" th:text="${user.sex}">男</p><br>
-            个签：<p class="m-inline-block" th:text="${user.signature}">不要停止我的音乐</p><br>
+            个签：<p class="m-inline-block"
+                    th:utext="${#strings.length(user.signature) > 11 ? user.signature.substring(0, 10) + '...' : user.signature}">
+            不要停止我的音乐</p><br>
             所在地：<p class="m-inline-block" th:text="${user.address}">江西南昌</p><br>
             理想院校：<p class="ui blue basic label m-padded-mini m-text-thin"
                         th:text="${user.dreamCollege}" style="margin-bottom: 10px">麻省理工大学</p>

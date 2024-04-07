@@ -23,4 +23,6 @@ public interface ForumMapper {
     List<Forum> listForumsTopById(Long id);
 
     Integer updateHotById(Long id);
+
+    void deleteJoinByUser(Long userId);
 }

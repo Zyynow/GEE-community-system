@@ -53,6 +53,11 @@ public class ForumServiceImpl implements ForumService {
     }
 
     @Override
+    public void deleteJoinByUser(Long id) {
+        forumMapper.deleteJoinByUser(id);
+    }
+
+    @Override
     public List<Forum> findJoinForums(Long id) {
         return forumMapper.findJoinForumsByUserId(id);
     }

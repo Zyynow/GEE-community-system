@@ -236,6 +236,8 @@
   </div>
 </div>
 
+<!--确认注销-->
+<div th:replace="_fragments_login :: destroyAccount"></div>
 
 <!--底部footer-->
 <footer th:replace="_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive">
@@ -290,9 +292,11 @@
 </th:block>
 <!--点击执行操作-->
 <script>
+
     $('.menu.toggle').click(function () {
         $('.m-item').toggleClass('m-mobile-hide');
     })
+
 </script>
 </body>
 </html>

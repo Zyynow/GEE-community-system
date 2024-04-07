@@ -1,10 +1,7 @@
 package com.jxufe.web;
 
 import com.jxufe.entity.User;
-import com.jxufe.service.BlogService;
-import com.jxufe.service.ForumService;
-import com.jxufe.service.ResourceService;
-import com.jxufe.service.UserService;
+import com.jxufe.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,6 +26,12 @@ public class AboutController {
 
     @Autowired
     ResourceService resourceService;
+
+    @Autowired
+    private FriendService friendService;
+
+    @Autowired
+    private CommentService commentService;
 
     @GetMapping("/about")
     public String doAbout(HttpSession session, Model model) {
@@ -73,6 +76,9 @@ public class AboutController {
     @PostMapping("/about/edit/success")
     public String doAboutEdit(User user) {
         userService.editUserInfo(user);
+        friendService.updateFriends(user.getId(), user.getNickname(), user.getDescription(), user.getAvatar());
+        commentService.updateComments(user.getId(), user.getNickname(), user.getAvatar());
+        friendService.updateApplys(user.getId(), user.getNickname(), user.getAvatar());
         return "redirect:/about";
     }
 

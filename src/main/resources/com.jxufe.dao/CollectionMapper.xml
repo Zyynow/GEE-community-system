@@ -65,6 +65,12 @@
         where id = #{id}
     </delete>
 
+    <delete id="deleteCollectionByUser">
+        delete
+        from t_collection
+        where user_id = #{userId}
+    </delete>
+
     <delete id="deleteResourceId">
         delete
         from t_collection
@@ -84,6 +90,18 @@
         where user_id = #{userId}
           and resource_id = #{resourceId}
     </delete>
+    
+    <update id="updateCollectionByBlog">
+        update t_collection
+        set blog_title = #{title}
+        where blog_id = #{blogId}
+    </update>
+
+    <update id="updateCollectionByResource">
+        update t_collection
+        set resource_title = #{title}
+        where resource_id = #{resourceId}
+    </update>
 
     <select id="getCollectionResourceMax" resultType="com.jxufe.entity.Resource">
         SELECT r.*

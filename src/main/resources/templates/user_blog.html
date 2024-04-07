@@ -14,7 +14,7 @@
 <body>
 
 <!--导航-->
-<nav th:replace="_fragments_login :: menu(2)" class="ui inverted attached segment m-padded-tb-mini">
+<nav th:replace="_fragments_login :: menu(0)" class="ui inverted attached segment m-padded-tb-mini">
   <div class="ui container"> <!-- 加一个容器 -->
     <div class="ui inverted secondary stackable menu"> <!-- 菜单 stackable:可堆叠的,表示屏幕小时自动堆叠-->
       <h2 class="ui teal header item">Blog</h2> <!-- 蓝绿色标题 -->
@@ -715,6 +715,9 @@ h5,h6{font-size:1em;}
   </div>
 </div>
 
+<!--确认注销-->
+<div th:replace="_fragments_login :: destroyAccount"></div>
+
 <!--底部footer-->
 <footer th:replace="_fragments_login :: footer" class="ui inverted vertical segment m-padded-tb-massive">
   <!-- vertical:垂直的 segment:条横 inverted:倒置的 -->
@@ -785,6 +788,12 @@ h5,h6{font-size:1em;}
         $('.m-item').toggleClass('m-mobile-hide');
     });
 
+    // 绑定退出按钮的点击事件
+    $('#logout-link').on('click', function (event) {
+        // 清除 sessionStorage
+        window.sessionStorage.clear();
+    });
+
     $('#payButton').popup({
         popup: $('.pay.popup'),
         on: 'click',
@@ -814,6 +823,10 @@ h5,h6{font-size:1em;}
     $('#toTop-button').click(function () {
         $(window).scrollTo(0, 500);
     });
+
+    function deleteAccount() {
+        $('.destroy.modal').modal('show');
+    }
 
     var clickNum1 = 0;
     async function collectionBlog(button) {

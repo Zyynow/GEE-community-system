@@ -19,4 +19,6 @@ public interface PictureMapper {
     int updatePicture(Picture picture);
 
     void deletePicture(Long id);
+
+    void deletePictureByUser(Long userId);
 }

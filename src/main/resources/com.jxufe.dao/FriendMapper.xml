@@ -120,10 +120,23 @@
            OR (user1id = #{user2Id} and user2id = #{user1Id})
     </delete>
 
+    <delete id="deleteFriendByUser">
+        delete
+        from t_friend
+        where user1id = #{userId} OR user2id = #{userId}
+    </delete>
+
     <delete id="deleteApplyById">
         delete
         from t_apply
         where id = #{id}
+    </delete>
+
+    <delete id="deleteApplyByUser">
+        delete
+        from t_apply
+        where sender_id = #{userId}
+           or recipient_id = #{userId}
     </delete>
 
     <select id="getCount" resultType="java.lang.Integer">
@@ -184,19 +197,39 @@
                u.nickname,
                u.avatar,
                a.comment_count as count
-        FROM t_user u
-                 JOIN (SELECT c.host_id   AS user_id,
-                              COUNT(c.id) AS comment_count
-                       FROM t_comment c
-                                JOIN t_blog b ON c.blog_id = b.id
-                       WHERE b.user_id = #{id}
-                         AND c.host_id != #{id}
-                       GROUP BY
-                           c.host_id
-                       ORDER BY
-                           comment_count DESC
-                           LIMIT 1) AS a ON a.user_id = u.id;
+        FROM
+            t_user u JOIN
+            (SELECT c.host_id AS user_id, COUNT(c.id) AS comment_count
+            FROM t_comment c
+            JOIN t_blog b ON c.blog_id = b.id
+            WHERE b.user_id = #{id} AND c.host_id != #{id}
+            GROUP BY c.host_id
+            ORDER BY comment_count DESC
+            LIMIT 1) AS a
+        ON a.user_id = u.id;
     </select>
     
+    <update id="updateFriendsByUser1">
+        UPDATE t_friend
+        SET user1nickname    = #{nickname},
+            user1description = #{description},
+            user1avatar      = #{avatar}
+        WHERE user1id = #{userId};
+    </update>
+
+    <update id="updateFriendsByUser2">
+        UPDATE t_friend
+        SET user2nickname    = #{nickname},
+            user2description = #{description},
+            user2avatar      = #{avatar}
+        WHERE user2id = #{userId};
+    </update>
+
+    <update id="updateApplys">
+        UPDATE t_apply
+        SET sender_nickname = #{nickname},
+            sender_avatar   = #{avatar}
+        WHERE sender_id = #{userId};
+    </update>
 </mapper>
 

@@ -1,9 +1,10 @@
 package com.jxufe.web;
 
 import com.jxufe.entity.User;
-import com.jxufe.service.BlogService;
-import com.jxufe.service.UserService;
+import com.jxufe.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -21,6 +22,21 @@ public class UserController {
 
     @Autowired
     private BlogService blogService;
+
+    @Autowired
+    private PictureService pictureService;
+
+    @Autowired
+    private FriendService friendService;
+
+    @Autowired
+    private ChatService chatService;
+
+    @Autowired
+    private CommentService commentService;
+
+    @Autowired
+    private ForumService forumService;
 
     @GetMapping("/login")
     public String doLoginPage() {
@@ -98,13 +114,33 @@ public class UserController {
         return "redirect:/index";
     }
 
-    @GetMapping("/login/delete")
-    public String doDelete(HttpSession session, HttpServletResponse response) throws IOException {
+    @PostMapping("/login/delete")
+    @ResponseBody
+    public ResponseEntity<String> doDelete(@RequestParam String password, HttpSession session, HttpServletResponse response) throws IOException {
         User user = (User) session.getAttribute("user");
-        userService.removeUser(user.getUsername());
-        session.removeAttribute("user");
-        session.removeAttribute("lastPath");
-        return "redirect:/index";
+        // 确认密码
+        Integer res = userService.checkPassword(((User) session.getAttribute("user")).getUsername(), password);
+        if (res == 0) {
+            return ResponseEntity.status(HttpStatus.OK)
+                    .body("{\"status\": \"error\", \"message\": \"密码校验失败，即将回到首页\", \"redirectUrl\": \"/dev/user_index\"}");
+        } else {
+            // 删除该用户全部记录
+            pictureService.deletePictureByUser(user.getId());
+            blogService.deleteBlogsByUser(user.getId());
+            friendService.deleteApplyByUser(user.getId());
+            friendService.deleteFriendByUser(user.getId());
+            chatService.deleteChatByUser(user.getUsername());
+            commentService.deleteCommentByUser(user.getId());
+            forumService.deleteJoinByUser(user.getId());
+            userService.deleteCollectionByUser(user.getId());
+            userService.deleteViewByUser(user.getId());
+            userService.removeUser(user.getUsername());
+
+            session.removeAttribute("user");
+            session.removeAttribute("lastPath");
+            return ResponseEntity.status(HttpStatus.OK)
+                    .body("{\"status\": \"success\", \"message\": \"注销成功，即将回到首页\", \"redirectUrl\": \"/dev/index\"}");
+        }
     }
 
     @GetMapping("/edit/password")

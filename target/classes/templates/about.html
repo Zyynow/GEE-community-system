@@ -45,24 +45,24 @@
           <ul>
             <li><h4>我的订单</h4></li>
             <li class="m-padded-tb-tiny">
-              <a href="#" target="_blank" style="color: #0a0a0a">
+              <a href="#" style="color: #0a0a0a">
                 <span>全部订单</span>
                 <i style="margin-left: 54px" class="ui angle double right icon m-inline-block"></i>
               </a>
             </li>
             <li class="m-padded-tb-tiny">
-              <a href="#" target="_blank" style="color: #0a0a0a"><span>待支付</span>
+              <a href="#" style="color: #0a0a0a"><span>待支付</span>
                 <i style="margin-left: 68px" class="ui angle double right icon m-inline-block"></i>
               </a>
             </li>
             <li class="m-padded-tb-tiny">
-              <a href="#" target="_blank" style="color: #0a0a0a">
+              <a href="#" style="color: #0a0a0a">
                 <span>待评价</span>
                 <i style="margin-left: 68px" class="ui angle double right icon m-inline-block"></i>
               </a>
             </li>
             <li class="m-padded-tb-tiny">
-              <a href="#" target="_blank" style="color: #0a0a0a">
+              <a href="#" style="color: #0a0a0a">
                 <span>退款订单</span>
                 <i style="margin-left: 54px" class="ui angle double right icon m-inline-block"></i>
               </a>
@@ -70,13 +70,13 @@
             <br>
             <li><h4>我的收藏</h4></li>
             <li class="m-padded-tb-tiny">
-              <a href="#" target="_blank" style="color: #0a0a0a">
+              <a href="#" th:href="@{/collection/resource/list}" style="color: #0a0a0a">
                 <span>收藏的资料</span>
                 <i style="margin-left: 40px" class="ui angle double right icon m-inline-block"></i>
               </a>
             </li>
             <li class="m-padded-tb-tiny">
-              <a href="#" target="_blank" style="color: #0a0a0a">
+              <a href="#" th:href="@{/collection/blog/list}" style="color: #0a0a0a">
                 <span>收藏的帖子</span>
                 <i style="margin-left: 40px" class="ui angle double right icon m-inline-block"></i>
               </a>
@@ -84,27 +84,41 @@
             <br>
             <li><h4>我的动态</h4></li>
             <li class="m-padded-tb-tiny">
-              <a href="#" target="_blank" style="color: #0a0a0a">
+              <a href="./personal_space.html" th:href="@{/about/space}" target="_blank" style="color: #0a0a0a">
                 <span>个人空间</span>
                 <i style="margin-left: 54px" class="ui angle double right icon m-inline-block"></i>
               </a>
             </li>
             <li class="m-padded-tb-tiny">
               <a href="#" th:href="@{/archives}" target="_blank" style="color: #0a0a0a">
-                <span>发帖记录</span>
+                <span>发帖动态</span>
                 <i style="margin-left: 54px" class="ui angle double right icon m-inline-block"></i>
+              </a>
+            </li>
+            <br>
+            <li><h4>我的联系人</h4></li>
+            <li class="m-padded-tb-tiny">
+              <a href="#" th:href="@{/friend/}" target="_blank" style="color: #0a0a0a">
+                <span>好友列表</span>
+                <i style="margin-left: 54px" class="ui angle double right icon m-inline-block"></i>
+              </a>
+            </li>
+            <li class="m-padded-tb-tiny">
+              <a href="#" th:href="@{/chat/}" target="_blank" style="color: #0a0a0a">
+                <span>消息</span>
+                <i style="margin-left: 82px" class="ui angle double right icon m-inline-block"></i>
               </a>
             </li>
             <br>
             <li><h4>我的钱包</h4></li>
             <li class="m-padded-tb-tiny">
-              <a href="#" target="_blank" style="color: #0a0a0a">
+              <a href="#" style="color: #0a0a0a">
                 <span>余额</span>
                 <i style="margin-left: 82px" class="ui angle double right icon m-inline-block"></i>
               </a>
             </li>
             <li class="m-padded-tb-tiny">
-              <a href="#" target="_blank" style="color: #0a0a0a">
+              <a href="#" style="color: #0a0a0a">
                 <span>优惠卷</span>
                 <i style="margin-left: 68px" class="ui angle double right icon m-inline-block"></i>
               </a>
@@ -112,13 +126,13 @@
             <br>
             <li><h4>个人信息</h4></li>
             <li class="m-padded-tb-tiny">
-              <a href="about/detail" target="_blank" th:href="@{/about/detail}" style="color: #0a0a0a">
+              <a href="about/detail" th:href="@{/about/detail}" style="color: #0a0a0a">
                 <span>详细信息</span>
                 <i style="margin-left: 54px" class="ui angle double right icon m-inline-block"></i>
               </a>
             </li>
             <li class="m-padded-tb-tiny">
-              <a href="about/edit" target="_blank" th:href="@{/about/edit}" style="color: #0a0a0a">
+              <a href="about/edit" th:href="@{/about/edit}" style="color: #0a0a0a">
                 <span>账户设置</span>
                 <i style="margin-left: 54px" class="ui angle double right icon m-inline-block"></i>
               </a>
@@ -137,7 +151,9 @@
             用户名：<p class="m-inline-block" th:text="${session.user.username}">卡夫卡</p><br>
             用户昵称：<p class="m-inline-block" th:text="${session.user.nickname}">Kafka</p><br>
             性别：<p class="m-inline-block" th:text="${session.user.sex}">男</p><br>
-            个签：<p class="m-inline-block" th:text="${session.user.signature}">不要停止我的音乐</p><br>
+            个签：<p class="m-inline-block"
+                    th:utext="${#strings.length(user.signature) > 11 ? user.signature.substring(0, 10) + '...' : user.signature}">
+            不要停止我的音乐</p><br>
             所在地：<p class="m-inline-block" th:text="${session.user.address}">江西南昌</p><br>
             理想院校：<p class="ui blue basic label m-padded-mini m-text-thin"
                         th:text="${session?.user?.dreamCollege}"

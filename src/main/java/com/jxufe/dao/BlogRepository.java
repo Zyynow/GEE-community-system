@@ -1,6 +1,7 @@
 package com.jxufe.dao;
 
 import com.jxufe.entity.Blog;
+import org.apache.ibatis.annotations.Delete;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -31,6 +32,9 @@ public interface BlogRepository extends JpaRepository<Blog, Long>, JpaSpecificat
     @Query(value = "select * from t_blog where forum_id = ?1", nativeQuery = true)
     List<Blog> findBlogsByForumId(Integer id);
 
+    @Query(value = "select * from t_blog where forum_id = ?1 and tag_id = ?2", nativeQuery = true)
+    List<Blog> findBlogsByForumIdAndTagId(Integer forumId, Long tagId);
+
     @Transactional
     @Modifying
     @Query(value = "update t_blog set views = views + 1 where id = ?1", nativeQuery = true)
@@ -51,4 +55,9 @@ public interface BlogRepository extends JpaRepository<Blog, Long>, JpaSpecificat
 
     @Query(value = "select b.* from t_blog b order by b.views desc limit 8", nativeQuery = true)
     List<Blog> getHotBlog();
+
+    @Query(value = "delete from t_blog where user_id = ?1", nativeQuery = true)
+    @Transactional
+    @Modifying
+    Integer deleteBlogsByUser(Long userId);
 }

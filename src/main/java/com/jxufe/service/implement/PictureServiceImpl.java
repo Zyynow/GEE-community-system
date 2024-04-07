@@ -50,4 +50,9 @@ public class PictureServiceImpl implements PictureService {
     public void deletePicture(Long id) {
         pictureMapper.deletePicture(id);
     }
+
+    @Override
+    public void deletePictureByUser(Long id) {
+        pictureMapper.deletePictureByUser(id);
+    }
 }

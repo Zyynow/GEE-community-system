@@ -11,7 +11,7 @@
 </head>
 
 <body>
-<nav th:replace="_fragments_login :: menu(2)" class="ui inverted attached segment m-padded-tb-mini">
+<nav th:replace="_fragments_login :: menu(0)" class="ui inverted attached segment m-padded-tb-mini">
   <div class="ui container"> <!-- 加一个容器 -->
     <div class="ui inverted secondary stackable menu"> <!-- 菜单 stackable:可堆叠的,表示屏幕小时自动堆叠-->
       <h2 class="ui white header item">GuideSystem</h2> <!-- 蓝绿色标题 -->
@@ -225,9 +225,10 @@
             我要努力学习，为了娶到漂亮的小熊。我要努力学习，为了娶到漂亮的小熊。我要努力学习，为了娶到漂亮的小熊。我要努力学习，为了娶到漂亮的小熊。</p>
         </div>
         <div class="ui attached segment">
-          <div class="ui orange basic left pointing label m-margin-tb-tiny" th:each="tag : ${tags}"
-               th:text="${tag.name}">编程
-          </div>
+          <a th:each="tag : ${tags}" th:href="@{/user_forum/fblog/{forumId}/{tagId}(forumId=${forum?.id}, tagId=${tag?.id})}"
+             class="ui orange basic left pointing label m-margin-tb-tiny" target="_blank"
+             th:text="${tag.name}">编程
+          </a>
           <!--/*-->
           <div class="ui orange basic left pointing label m-margin-tb-tiny">写作</div>
           <div class="ui orange basic left pointing label m-margin-tb-tiny">答疑</div>
@@ -241,7 +242,7 @@
         </div>
         <div class="ui attached segment">
           <img src="../static/images/WeChat1.jpg" th:src="@{/images/WeChat1.jpg}"
-               style="width: 85%; margin-left: 1.4em">
+               style="width: 85%; margin-left: 1.5em">
           <p class="m-text" style="text-align: center">欢迎加入社区群聊 6 号群</p>
         </div>
         <div class="ui bottom attached segment">
@@ -260,6 +261,9 @@
     <a id="toTop-button" class="ui button"><i class="chevron up icon"></i></a>
   </div>
 </div>
+
+<!--确认注销-->
+<div th:replace="_fragments_login :: destroyAccount"></div>
 
 <footer th:replace="_fragments_login :: footer" class="ui inverted vertical segment m-padded-tb-massive">
   <!-- vertical:垂直的 segment:条横 inverted:倒置的 -->

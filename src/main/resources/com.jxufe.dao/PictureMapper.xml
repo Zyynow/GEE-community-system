@@ -40,5 +40,12 @@
         from t_picture
         where id = #{id}
     </delete>
+
+    <!--删除用户图片-->
+    <delete id="deletePictureByUser">
+        delete
+        from t_picture
+        where user_id = #{userId}
+    </delete>
 </mapper>
 

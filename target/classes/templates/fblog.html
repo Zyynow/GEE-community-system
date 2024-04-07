@@ -4,14 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
   <title>社区详情</title>
-  <link href="../static/css/app.css" rel="stylesheet">
   <link href="../static/css/style.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
   <link href="../static/css/me.css" rel="stylesheet">
 </head>
 
 <body>
-<nav th:replace="_fragments :: menu(2)" class="ui inverted attached segment m-padded-tb-mini">
+<nav th:replace="_fragments :: menu(0)" class="ui inverted attached segment m-padded-tb-mini">
   <div class="ui container"> <!-- 加一个容器 -->
     <div class="ui inverted secondary stackable menu"> <!-- 菜单 stackable:可堆叠的,表示屏幕小时自动堆叠-->
       <h2 class="ui white header item">GuideSystem</h2> <!-- 蓝绿色标题 -->
@@ -219,14 +218,15 @@
             我要努力学习，为了娶到漂亮的小熊。我要努力学习，为了娶到漂亮的小熊。我要努力学习，为了娶到漂亮的小熊。我要努力学习，为了娶到漂亮的小熊。</p>
         </div>
         <div class="ui attached segment">
-          <div class="ui orange basic left pointing label m-margin-tb-tiny" th:each="tag : ${tags}"
-               th:text="${tag.name}">编程
-          </div>
+          <a th:each="tag : ${tags}" th:href="@{/forum/fblog/{forumId}/{tagId}(forumId=${forum?.id}, tagId=${tag?.id})}"
+             class="ui orange basic left pointing label m-margin-tb-tiny" target="_blank"
+             th:text="${tag.name}">编程
+          </a>
           <!--/*-->
-          <div class="ui orange basic left pointing label m-margin-tb-tiny">写作</div>
-          <div class="ui orange basic left pointing label m-margin-tb-tiny">答疑</div>
-          <div class="ui orange basic left pointing label m-margin-tb-tiny">冥想</div>
-          <div class="ui orange basic left pointing label m-margin-tb-tiny">升学</div>
+          <a class="ui orange basic left pointing label m-margin-tb-tiny">写作</a>
+          <a class="ui orange basic left pointing label m-margin-tb-tiny">答疑</a>
+          <a class="ui orange basic left pointing label m-margin-tb-tiny">冥想</a>
+          <a class="ui orange basic left pointing label m-margin-tb-tiny">升学</a>
           <!--*/-->
         </div>
         <div class="ui attached segment">
@@ -235,7 +235,7 @@
         </div>
         <div class="ui attached segment">
           <img src="../static/images/WeChat1.jpg" th:src="@{/images/WeChat1.jpg}"
-               style="width: 85%; margin-left: 1.4em">
+               style="width: 85%; margin-left: 1.5em">
           <p class="m-text" style="text-align: center">欢迎加入社区群聊 6 号群</p>
         </div>
         <div class="ui bottom attached segment">
@@ -248,12 +248,14 @@
 
 <div class="m-padded m-right-bottom m-fixed">
   <div class="ui vertical icon buttons">
-    <a href="feedback.html" th:href="@{/feedback}" type="button" class="ui blue button">反馈</a>
-    <a href="#" th:href="@{/fblog/input}" class="ui blue button">写贴</a>
+    <a onclick="requestLogin(this)" type="button" class="ui blue button">反馈</a>
+    <a onclick="requestLogin(this)" class="ui blue button">写贴</a>
     <button class="ui icon button"><i class="headphones icon"></i></button>
     <a id="toTop-button" class="ui button"><i class="chevron up icon"></i></a>
   </div>
 </div>
+
+<div th:replace="_fragments :: noLogin"></div>
 
 <footer th:replace="_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive">
   <!-- vertical:垂直的 segment:条横 inverted:倒置的 -->

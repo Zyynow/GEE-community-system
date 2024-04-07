@@ -16,31 +16,29 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.annotation.Resource;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.Date;
 import java.util.List;
 
 @Controller
 public class ForumShowController {
 
     @Resource
-    ForumService forumService;
+    private ForumService forumService;
 
     @Autowired
-    TagService tagService;
+    private TagService tagService;
 
     @Autowired
-    UserService userService;
+    private UserService userService;
 
     @Autowired
-    BlogService blogService;
+    private BlogService blogService;
 
     @Autowired
-    CommentService commentService;
+    private CommentService commentService;
 
     @GetMapping("/forum")
     public String doForum(HttpServletRequest request, Model model) {
@@ -74,11 +72,33 @@ public class ForumShowController {
 
     @GetMapping("/user_forum/fblog/{id}")
     public String doUserFblog(@PageableDefault(size = 999, sort = {"updateTime"}, direction = Sort.Direction.DESC)
-                              Pageable pageable, @PathVariable Integer id, HttpServletRequest request, Model model) {
+                              @PathVariable Integer id, HttpServletRequest request, Model model) {
         model.addAttribute("forum", forumService.getForumById(id));
         model.addAttribute("tags", tagService.listTag());
         model.addAttribute("blogs", blogService.findBlogs(id));
         return "user_fblog";
+    }
+
+    @GetMapping("/forum/fblog/{forumId}/{tagId}")
+    public String doFblogByTag(@PageableDefault(size = 999, sort = {"updateTime"}, direction = Sort.Direction.DESC)
+                               @PathVariable Integer forumId, @PathVariable Long tagId, HttpServletRequest request, Model model) {
+        request.getSession().setAttribute("lastPath", request.getServletPath());
+
+        model.addAttribute("forum", forumService.getForumById(forumId));
+        model.addAttribute("tags", tagService.listTag());
+        model.addAttribute("blogs", blogService.findBlogsByTag(forumId, tagId));
+        model.addAttribute("activeTagId", tagId);
+        return "fblog_tags";
+    }
+
+    @GetMapping("/user_forum/fblog/{forumId}/{tagId}")
+    public String doUserFblogByTag(@PageableDefault(size = 999, sort = {"updateTime"}, direction = Sort.Direction.DESC)
+                                   @PathVariable Integer forumId, @PathVariable Long tagId, Model model) {
+        model.addAttribute("forum", forumService.getForumById(forumId));
+        model.addAttribute("tags", tagService.listTag());
+        model.addAttribute("blogs", blogService.findBlogsByTag(forumId, tagId));
+        model.addAttribute("activeTagId", tagId);
+        return "user_fblog_tags";
     }
 
     @GetMapping({"/user_forum/join", "/forum/join"})
@@ -115,7 +135,7 @@ public class ForumShowController {
     }
 
     @GetMapping("/fblog/edit/{id}")
-    public String doEditBlog(@PathVariable Long id , Model model) {
+    public String doEditBlog(@PathVariable Long id, Model model) {
         model.addAttribute("blog", blogService.getBlog(id));
         model.addAttribute("forums", forumService.listForums());
         model.addAttribute("tags", tagService.listTag());
@@ -138,6 +158,7 @@ public class ForumShowController {
                 forumService.updateHotById(Long.valueOf(blog.getForum().getId()));
             } else {
                 blog = blogService.updateBlog(blog.getId(), blog);
+                userService.updateCollectionByBlog(blog.getId(), blog.getTitle());
             }
             response.sendRedirect("/dev/user_blog/" + blog.getId());
         }
