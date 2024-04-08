@@ -6,6 +6,7 @@ import com.jxufe.entity.Admin;
 import com.jxufe.entity.Forum;
 import com.jxufe.entity.Picture;
 import com.jxufe.entity.User;
+import com.jxufe.service.BlogService;
 import com.jxufe.service.ForumService;
 import com.jxufe.vo.ResourceQuery;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,9 @@ public class ForumController {
 
     @Autowired
     private ForumService forumService;
+
+    @Autowired
+    private BlogService blogService;
 
     @GetMapping({"", "/"})
     public String doForums(@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum, Model model) {
@@ -59,6 +63,7 @@ public class ForumController {
             attributes.addFlashAttribute("messageFailed", "非顶级管理员没有权限删除论坛社区");
             return "redirect:/admin/forums/";
         }
+        blogService.deleteBlogsByForum(id);
         forumService.deleteForum(id);
         attributes.addFlashAttribute("messageSuccessful", "删除成功啦！");
         return "redirect:/admin/forums/";

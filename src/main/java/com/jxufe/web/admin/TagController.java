@@ -1,6 +1,7 @@
 package com.jxufe.web.admin;
 
 import com.jxufe.entity.Tag;
+import com.jxufe.service.BlogService;
 import com.jxufe.service.TagService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
@@ -24,6 +25,9 @@ public class TagController {
 
     @Autowired
     private TagService service;
+
+    @Autowired
+    private BlogService blogService;
 
     @GetMapping("/tags")
     public String doTags(@PageableDefault(size = 6, sort = {"id"}, direction = Sort.Direction.DESC)
@@ -91,8 +95,10 @@ public class TagController {
 
     @Transactional
     @GetMapping("tags/{id}/delete")
-    public String delete(@PathVariable Long id) {
+    public String delete(@PathVariable Long id, RedirectAttributes attributes) {
+        blogService.deleteBlogsByTag(id);
         service.deleteTag(id);
+        attributes.addFlashAttribute("message", "操作成功");
         return "redirect:/admin/tags";
     }
 }

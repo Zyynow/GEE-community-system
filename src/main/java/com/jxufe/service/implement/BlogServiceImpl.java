@@ -95,6 +95,16 @@ public class BlogServiceImpl implements BlogService {
         collectionMapper.deleteCollectionByBlog(blogId);
     }
 
+    @Override
+    public void deleteBlogsByForum(Long id) {
+        blogRepository.deleteBlogsByForum(id);
+    }
+
+    @Override
+    public void deleteBlogsByTag(Long id) {
+        blogRepository.deleteBlogsByTag(id);
+    }
+
     @Transactional
     @Override
     public Blog saveBlog(Blog blog) {

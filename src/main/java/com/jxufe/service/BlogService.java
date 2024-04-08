@@ -65,4 +65,8 @@ public interface BlogService {
     List<Blog> listBlog(Long id);
 
     void removeCollection(Long blogId);
+
+    void deleteBlogsByForum(Long id);
+
+    void deleteBlogsByTag(Long id);
 }

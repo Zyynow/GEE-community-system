@@ -60,4 +60,14 @@ public interface BlogRepository extends JpaRepository<Blog, Long>, JpaSpecificat
     @Transactional
     @Modifying
     Integer deleteBlogsByUser(Long userId);
+
+    @Query(value = "delete from t_blog where forum_id = ?1", nativeQuery = true)
+    @Transactional
+    @Modifying
+    void deleteBlogsByForum(Long id);
+
+    @Query(value = "delete from t_blog where tag_id = ?1", nativeQuery = true)
+    @Transactional
+    @Modifying
+    void deleteBlogsByTag(Long id);
 }

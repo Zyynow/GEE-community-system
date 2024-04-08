@@ -4303,3 +4303,131 @@ org.springframework.expression.spel.SpelEvaluationException: EL1007E: Property o
 2024-04-08 15:48:06.024  INFO 14716 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-04-08 15:48:06.026  INFO 14716 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2024-04-08 15:48:06.036  INFO 14716 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-04-08 15:56:01.982  INFO 9960 --- [restartedMain] com.jxufe.GuideSystemApplication         : Starting GuideSystemApplication using Java 11.0.19 on Kafka with PID 9960 (D:\MyFiles\JAVA\myProjects\learn-community-system\target\classes started by 19233 in D:\MyFiles\JAVA\myProjects\learn-community-system)
+2024-04-08 15:56:01.982 DEBUG 9960 --- [restartedMain] com.jxufe.GuideSystemApplication         : Running with Spring Boot v2.6.4, Spring v5.3.16
+2024-04-08 15:56:01.982  INFO 9960 --- [restartedMain] com.jxufe.GuideSystemApplication         : The following 1 profile is active: "dev"
+2024-04-08 15:56:02.008  INFO 9960 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-04-08 15:56:02.008  INFO 9960 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-04-08 15:56:02.431  INFO 9960 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-08 15:56:02.486  INFO 9960 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 50 ms. Found 5 JPA repository interfaces.
+2024-04-08 15:56:02.919  INFO 9960 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2024-04-08 15:56:02.925  INFO 9960 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-04-08 15:56:02.925  INFO 9960 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2024-04-08 15:56:02.983  INFO 9960 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/dev]    : Initializing Spring embedded WebApplicationContext
+2024-04-08 15:56:02.983  INFO 9960 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 974 ms
+2024-04-08 15:56:03.094  INFO 9960 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-08 15:56:03.120  INFO 9960 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.5.Final
+2024-04-08 15:56:03.201  INFO 9960 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-04-08 15:56:03.253  INFO 9960 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-04-08 15:56:03.446  INFO 9960 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-04-08 15:56:03.456  INFO 9960 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2024-04-08 15:56:03.975  INFO 9960 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-04-08 15:56:03.981  INFO 9960 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-08 15:56:04.728  WARN 9960 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-04-08 15:56:04.896  INFO 9960 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-04-08 15:56:05.189  INFO 9960 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-04-08 15:56:05.217  INFO 9960 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/dev'
+2024-04-08 15:56:05.223  INFO 9960 --- [restartedMain] com.jxufe.GuideSystemApplication         : Started GuideSystemApplication in 3.541 seconds (JVM running for 4.235)
+2024-04-08 15:56:13.103  INFO 9960 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/dev]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-08 15:56:13.104  INFO 9960 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-04-08 15:56:13.105  INFO 9960 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-04-08 15:56:14.509  INFO 9960 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/login', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.UserController.doLoginPage', args=[]}
+2024-04-08 15:56:14.520  INFO 9960 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : method : login
+2024-04-08 15:56:14.520  INFO 9960 --- [http-nio-8080-exec-5] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-04-08 15:56:14.830  INFO 9960 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/codeImage', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.VerificationController.doGet', args=[org.apache.catalina.connector.RequestFacade@200c0661, org.apache.catalina.connector.ResponseFacade@3658c684]}
+2024-04-08 15:56:15.199  INFO 9960 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : method : null
+2024-04-08 15:56:15.199  INFO 9960 --- [http-nio-8080-exec-4] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-04-08 15:56:22.271  INFO 9960 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/login', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.UserController.doLoginPage', args=[]}
+2024-04-08 15:56:22.271  INFO 9960 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : method : login
+2024-04-08 15:56:22.271  INFO 9960 --- [http-nio-8080-exec-7] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-04-08 15:56:22.314  INFO 9960 --- [http-nio-8080-exec-9] com.jxufe.aspect.LogAspect               : RequestLog : RequestLog{url='http://localhost:8080/dev/codeImage', ip='0:0:0:0:0:0:0:1', classMethod='com.jxufe.web.VerificationController.doGet', args=[org.apache.catalina.connector.RequestFacade@5b12d690, org.apache.catalina.connector.ResponseFacade@55d52382]}
+2024-04-08 15:56:22.326  INFO 9960 --- [http-nio-8080-exec-9] com.jxufe.aspect.LogAspect               : method : null
+2024-04-08 15:56:22.326  INFO 9960 --- [http-nio-8080-exec-9] com.jxufe.aspect.LogAspect               : ------------doAfter-----------
+2024-04-08 15:56:26.177 DEBUG 9960 --- [http-nio-8080-exec-9] c.j.d.A.findByUsernameAndPassword        : ==>  Preparing: select * from t_admin where username = ? and password = ?
+2024-04-08 15:56:26.184 DEBUG 9960 --- [http-nio-8080-exec-9] c.j.d.A.findByUsernameAndPassword        : ==> Parameters: root(String), hyfhsy(String)
+2024-04-08 15:56:26.192 DEBUG 9960 --- [http-nio-8080-exec-9] c.j.d.A.findByUsernameAndPassword        : <==      Total: 1
+2024-04-08 15:56:28.180 DEBUG 9960 --- [http-nio-8080-exec-7] c.j.dao.ForumMapper.pageForums_COUNT     : ==>  Preparing: SELECT count(0) FROM t_forum
+2024-04-08 15:56:28.181 DEBUG 9960 --- [http-nio-8080-exec-7] c.j.dao.ForumMapper.pageForums_COUNT     : ==> Parameters: 
+2024-04-08 15:56:28.182 DEBUG 9960 --- [http-nio-8080-exec-7] c.j.dao.ForumMapper.pageForums_COUNT     : <==      Total: 1
+2024-04-08 15:56:28.184 DEBUG 9960 --- [http-nio-8080-exec-7] com.jxufe.dao.ForumMapper.pageForums     : ==>  Preparing: select * from t_forum LIMIT ?
+2024-04-08 15:56:28.184 DEBUG 9960 --- [http-nio-8080-exec-7] com.jxufe.dao.ForumMapper.pageForums     : ==> Parameters: 6(Integer)
+2024-04-08 15:56:28.187 DEBUG 9960 --- [http-nio-8080-exec-7] com.jxufe.dao.ForumMapper.pageForums     : <==      Total: 6
+2024-04-08 15:56:55.134 DEBUG 9960 --- [http-nio-8080-exec-4] c.j.dao.ForumMapper.pageForums_COUNT     : ==>  Preparing: SELECT count(0) FROM t_forum
+2024-04-08 15:56:55.135 DEBUG 9960 --- [http-nio-8080-exec-4] c.j.dao.ForumMapper.pageForums_COUNT     : ==> Parameters: 
+2024-04-08 15:56:55.136 DEBUG 9960 --- [http-nio-8080-exec-4] c.j.dao.ForumMapper.pageForums_COUNT     : <==      Total: 1
+2024-04-08 15:56:55.136 DEBUG 9960 --- [http-nio-8080-exec-4] com.jxufe.dao.ForumMapper.pageForums     : ==>  Preparing: select * from t_forum LIMIT ?
+2024-04-08 15:56:55.136 DEBUG 9960 --- [http-nio-8080-exec-4] com.jxufe.dao.ForumMapper.pageForums     : ==> Parameters: 6(Integer)
+2024-04-08 15:56:55.138 DEBUG 9960 --- [http-nio-8080-exec-4] com.jxufe.dao.ForumMapper.pageForums     : <==      Total: 6
+2024-04-08 16:02:12.990 DEBUG 9960 --- [http-nio-8080-exec-7] c.j.dao.ForumMapper.pageForums_COUNT     : ==>  Preparing: SELECT count(0) FROM t_forum
+2024-04-08 16:02:12.991 DEBUG 9960 --- [http-nio-8080-exec-7] c.j.dao.ForumMapper.pageForums_COUNT     : ==> Parameters: 
+2024-04-08 16:02:12.991 DEBUG 9960 --- [http-nio-8080-exec-7] c.j.dao.ForumMapper.pageForums_COUNT     : <==      Total: 1
+2024-04-08 16:02:12.992 DEBUG 9960 --- [http-nio-8080-exec-7] com.jxufe.dao.ForumMapper.pageForums     : ==>  Preparing: select * from t_forum LIMIT ?
+2024-04-08 16:02:12.992 DEBUG 9960 --- [http-nio-8080-exec-7] com.jxufe.dao.ForumMapper.pageForums     : ==> Parameters: 6(Integer)
+2024-04-08 16:02:12.995 DEBUG 9960 --- [http-nio-8080-exec-7] com.jxufe.dao.ForumMapper.pageForums     : <==      Total: 6
+2024-04-08 16:02:17.654 DEBUG 9960 --- [http-nio-8080-exec-5] c.j.d.F.pageFeedbacks_COUNT              : ==>  Preparing: SELECT count(0) FROM t_feedback
+2024-04-08 16:02:17.655 DEBUG 9960 --- [http-nio-8080-exec-5] c.j.d.F.pageFeedbacks_COUNT              : ==> Parameters: 
+2024-04-08 16:02:17.656 DEBUG 9960 --- [http-nio-8080-exec-5] c.j.d.F.pageFeedbacks_COUNT              : <==      Total: 1
+2024-04-08 16:02:17.656 DEBUG 9960 --- [http-nio-8080-exec-5] c.j.dao.FeedbackMapper.pageFeedbacks     : ==>  Preparing: select * from t_feedback LIMIT ?
+2024-04-08 16:02:17.657 DEBUG 9960 --- [http-nio-8080-exec-5] c.j.dao.FeedbackMapper.pageFeedbacks     : ==> Parameters: 6(Integer)
+2024-04-08 16:02:17.657 DEBUG 9960 --- [http-nio-8080-exec-5] c.j.dao.FeedbackMapper.pageFeedbacks     : <==      Total: 6
+2024-04-08 16:02:21.112 DEBUG 9960 --- [http-nio-8080-exec-8] c.j.dao.ForumMapper.pageForums_COUNT     : ==>  Preparing: SELECT count(0) FROM t_forum
+2024-04-08 16:02:21.113 DEBUG 9960 --- [http-nio-8080-exec-8] c.j.dao.ForumMapper.pageForums_COUNT     : ==> Parameters: 
+2024-04-08 16:02:21.113 DEBUG 9960 --- [http-nio-8080-exec-8] c.j.dao.ForumMapper.pageForums_COUNT     : <==      Total: 1
+2024-04-08 16:02:21.114 DEBUG 9960 --- [http-nio-8080-exec-8] com.jxufe.dao.ForumMapper.pageForums     : ==>  Preparing: select * from t_forum LIMIT ?
+2024-04-08 16:02:21.114 DEBUG 9960 --- [http-nio-8080-exec-8] com.jxufe.dao.ForumMapper.pageForums     : ==> Parameters: 6(Integer)
+2024-04-08 16:02:21.115 DEBUG 9960 --- [http-nio-8080-exec-8] com.jxufe.dao.ForumMapper.pageForums     : <==      Total: 6
+2024-04-08 16:02:28.116  INFO 9960 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-08 16:02:28.117  INFO 9960 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-04-08 16:02:28.125  INFO 9960 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-04-08 16:02:32.136  INFO 22504 --- [restartedMain] com.jxufe.GuideSystemApplication         : Starting GuideSystemApplication using Java 11.0.19 on Kafka with PID 22504 (D:\MyFiles\JAVA\myProjects\learn-community-system\target\classes started by 19233 in D:\MyFiles\JAVA\myProjects\learn-community-system)
+2024-04-08 16:02:32.138 DEBUG 22504 --- [restartedMain] com.jxufe.GuideSystemApplication         : Running with Spring Boot v2.6.4, Spring v5.3.16
+2024-04-08 16:02:32.138  INFO 22504 --- [restartedMain] com.jxufe.GuideSystemApplication         : The following 1 profile is active: "dev"
+2024-04-08 16:02:32.161  INFO 22504 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-04-08 16:02:32.161  INFO 22504 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-04-08 16:02:32.613  INFO 22504 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-08 16:02:32.675  INFO 22504 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 54 ms. Found 5 JPA repository interfaces.
+2024-04-08 16:02:33.138  INFO 22504 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2024-04-08 16:02:33.145  INFO 22504 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-04-08 16:02:33.145  INFO 22504 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.58]
+2024-04-08 16:02:33.211  INFO 22504 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/dev]    : Initializing Spring embedded WebApplicationContext
+2024-04-08 16:02:33.212  INFO 22504 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1050 ms
+2024-04-08 16:02:33.333  INFO 22504 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-08 16:02:33.362  INFO 22504 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.5.Final
+2024-04-08 16:02:33.451  INFO 22504 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-04-08 16:02:33.505  INFO 22504 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-04-08 16:02:33.713  INFO 22504 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-04-08 16:02:33.724  INFO 22504 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2024-04-08 16:02:34.249  INFO 22504 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-04-08 16:02:34.254  INFO 22504 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-08 16:02:35.078  WARN 22504 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-04-08 16:02:35.265  INFO 22504 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-04-08 16:02:35.560  INFO 22504 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-04-08 16:02:35.592  INFO 22504 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/dev'
+2024-04-08 16:02:35.599  INFO 22504 --- [restartedMain] com.jxufe.GuideSystemApplication         : Started GuideSystemApplication in 3.753 seconds (JVM running for 4.472)
+2024-04-08 16:03:14.648  INFO 22504 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/dev]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-08 16:03:14.649  INFO 22504 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-04-08 16:03:14.649  INFO 22504 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-04-08 16:03:15.870 DEBUG 22504 --- [http-nio-8080-exec-10] c.j.d.A.findByUsernameAndPassword        : ==>  Preparing: select * from t_admin where username = ? and password = ?
+2024-04-08 16:03:15.876 DEBUG 22504 --- [http-nio-8080-exec-10] c.j.d.A.findByUsernameAndPassword        : ==> Parameters: root(String), hyfhsy(String)
+2024-04-08 16:03:15.884 DEBUG 22504 --- [http-nio-8080-exec-10] c.j.d.A.findByUsernameAndPassword        : <==      Total: 1
+2024-04-08 16:03:33.142 DEBUG 22504 --- [http-nio-8080-exec-8] c.j.d.A.findByUsernameAndPassword        : ==>  Preparing: select * from t_admin where username = ? and password = ?
+2024-04-08 16:03:33.143 DEBUG 22504 --- [http-nio-8080-exec-8] c.j.d.A.findByUsernameAndPassword        : ==> Parameters: root(String), hyfhsy(String)
+2024-04-08 16:03:33.144 DEBUG 22504 --- [http-nio-8080-exec-8] c.j.d.A.findByUsernameAndPassword        : <==      Total: 1
+2024-04-08 16:03:38.660 DEBUG 22504 --- [http-nio-8080-exec-6] c.j.d.A.findByUsernameAndPassword        : ==>  Preparing: select * from t_admin where username = ? and password = ?
+2024-04-08 16:03:38.661 DEBUG 22504 --- [http-nio-8080-exec-6] c.j.d.A.findByUsernameAndPassword        : ==> Parameters: hyf(String), hyfhsy(String)
+2024-04-08 16:03:38.662 DEBUG 22504 --- [http-nio-8080-exec-6] c.j.d.A.findByUsernameAndPassword        : <==      Total: 1
+2024-04-08 16:03:39.834 DEBUG 22504 --- [http-nio-8080-exec-9] c.j.dao.ForumMapper.pageForums_COUNT     : ==>  Preparing: SELECT count(0) FROM t_forum
+2024-04-08 16:03:39.835 DEBUG 22504 --- [http-nio-8080-exec-9] c.j.dao.ForumMapper.pageForums_COUNT     : ==> Parameters: 
+2024-04-08 16:03:39.836 DEBUG 22504 --- [http-nio-8080-exec-9] c.j.dao.ForumMapper.pageForums_COUNT     : <==      Total: 1
+2024-04-08 16:03:39.838 DEBUG 22504 --- [http-nio-8080-exec-9] com.jxufe.dao.ForumMapper.pageForums     : ==>  Preparing: select * from t_forum LIMIT ?
+2024-04-08 16:03:39.839 DEBUG 22504 --- [http-nio-8080-exec-9] com.jxufe.dao.ForumMapper.pageForums     : ==> Parameters: 6(Integer)
+2024-04-08 16:03:39.842 DEBUG 22504 --- [http-nio-8080-exec-9] com.jxufe.dao.ForumMapper.pageForums     : <==      Total: 6
+2024-04-08 16:03:53.974 DEBUG 22504 --- [http-nio-8080-exec-4] c.j.dao.ForumMapper.pageForums_COUNT     : ==>  Preparing: SELECT count(0) FROM t_forum
+2024-04-08 16:03:53.975 DEBUG 22504 --- [http-nio-8080-exec-4] c.j.dao.ForumMapper.pageForums_COUNT     : ==> Parameters: 
+2024-04-08 16:03:53.976 DEBUG 22504 --- [http-nio-8080-exec-4] c.j.dao.ForumMapper.pageForums_COUNT     : <==      Total: 1
+2024-04-08 16:03:53.977 DEBUG 22504 --- [http-nio-8080-exec-4] com.jxufe.dao.ForumMapper.pageForums     : ==>  Preparing: select * from t_forum LIMIT ?
+2024-04-08 16:03:53.977 DEBUG 22504 --- [http-nio-8080-exec-4] com.jxufe.dao.ForumMapper.pageForums     : ==> Parameters: 6(Integer)
+2024-04-08 16:03:53.978 DEBUG 22504 --- [http-nio-8080-exec-4] com.jxufe.dao.ForumMapper.pageForums     : <==      Total: 6
+2024-04-08 16:04:01.927  INFO 22504 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-08 16:04:01.930  INFO 22504 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-04-08 16:04:01.945  INFO 22504 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
