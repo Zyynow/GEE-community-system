@@ -78,6 +78,11 @@
             <i class="search icon"></i>搜索
           </button>
         </div>
+        <div class="field">
+          <div class="ui mini grey basic button" onclick="refreshPage()">
+            <i class="undo icon"></i>重置
+          </div>
+        </div>
       </div>
     </form>
 
@@ -206,6 +211,10 @@
     $('.message .close').on('click', function () {
         $(this).closest('.message').transition('fade');
     });
+
+    async function refreshPage() {
+        location.href = "/dev/admin/resources";
+    }
 
     function loaddata() {
         $("#table-container").load(/*[[@{/admin/resources/search}]]*/"/admin/resources/search", {

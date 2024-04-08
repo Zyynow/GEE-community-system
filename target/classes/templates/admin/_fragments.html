@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="../../static/lib/editormd/css/editormd.min.css"
         th:href="@{/lib/editormd/css/editormd.min.css}"/>
   <link rel="stylesheet" th:href="@{/css/me.css}" href="../../static/css/me.css">
+  <!--<link href="../../static/css/style.min.css" rel="stylesheet" th:href="@{/css/style.min.css}">-->
 </head>
 <body>
 
@@ -20,7 +21,7 @@
   <div class="gird-header" style="opacity: 0.85 !important;">
     <div class="ui container" style="width: 95%!important;"> <!-- 加一个容器 -->
       <div class="ui inverted secondary stackable menu"> <!-- 菜单 stackable:可堆叠的,表示屏幕小时自动堆叠-->
-        <h2 class="ui white header item">GuideSystem</h2>
+        <a th:href="@{/admin/index}"><h2 class="ui white header item">GuideSystem</h2></a>
         <a th:href="@{/admin/resources}" href="#" class="m-item m-mobile-hide item"
            th:classappend="${n==1} ? 'active' "><i class="home icon"></i>博客</a> <!-- icon表示图表 -->
         <a th:href="@{/admin/types}" href="#" class="m-item m-mobile-hide item" th:classappend="${n==2} ? 'active' "><i
@@ -29,10 +30,12 @@
             class="tags icon"></i>标签</a>
         <a th:href="@{/admin/forums}" href="#" class="m-item m-mobile-hide item" th:classappend="${n==4} ? 'active' "><i
             class="comments icon"></i>论坛</a>
+        <a th:href="@{/admin/news}" href="#" class="m-item m-mobile-hide item" th:classappend="${n==5} ? 'active' "><i
+            class="envelope icon"></i>反馈</a>
         <div class="right m-item m-mobile-hide menu">
           <div class="ui dropdown item">
             <div class="text">
-              <img class="ui avatar image" th:src="@{${session.admin.avatar}}"
+              <img class="ui avatar image" th:src="@{${session.admin?.avatar}}"
                    src="https://sky-take-out-kafka.oss-cn-beijing.aliyuncs.com/defaultAvatar.png"
                    style="object-fit: cover;
                        outline: 0px;
@@ -40,7 +43,8 @@
             </div>
             <i class="dropdown icon"></i>
             <div class="menu">
-              <a href="#" th:href="@{/admin/logout}" class="item">退出</a>
+              <a href="#" th:href="@{/admin/logout}" class="item">切换账户</a>
+              <a href="#" th:href="@{/admin/edit/password}" class="item">修改密码</a>
             </div>
           </div>
         </div>
@@ -97,7 +101,7 @@
 
     </div>
     <div class="ui inverted section divider"></div>
-    <p class="m-text-thin m-text-spaced m-opacity-tiny">版权 @ 2023-07-04 设计 软件214项目组</p>
+    <p class="m-text-thin m-text-spaced m-opacity-tiny">版权 @ 2023-07-04 设计 Kafka项目组</p>
   </div>
 </footer>
 
@@ -106,33 +110,36 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
   <script src="../static/lib/prime/prism.js" th:src="@{/lib/prime/prism.js}"></script>
   <script src="../../static/lib/editormd/editormd.min.js" th:src="@{/lib/editormd/editormd.min.js}"></script>
+  <script>
+
+      $('.ui.dropdown').dropdown({
+          on: 'hover'
+      });
+
+      window.addEventListener('resize', function () {
+          let myDiv = document.getElementById('contentDiv');
+          if (myDiv.clientHeight < 635) {
+              myDiv.style.height = '635px';
+          } else {
+              // 如果之前已经设置了固定的550px高度，这里可以取消设置以恢复原始高度
+              myDiv.style.height = '';
+          }
+      });
+
+      $('#toTop-button').click(function () {
+          $(window).scrollTo(0, 500);
+      });
+
+      // 页面加载完成后执行一次检查
+      (function () {
+          let myDiv = document.getElementById('contentDiv');
+          if (myDiv.clientHeight < 635) {
+              myDiv.style.height = '635px';
+          }
+      })();
+
+  </script>
 </th:block>
-
-<script>
-
-    window.addEventListener('resize', function () {
-        let myDiv = document.getElementById('contentDiv');
-        if (myDiv.clientHeight < 635) {
-            myDiv.style.height = '635px';
-        } else {
-            // 如果之前已经设置了固定的550px高度，这里可以取消设置以恢复原始高度
-            myDiv.style.height = '';
-        }
-    });
-
-    $('#toTop-button').click(function () {
-        $(window).scrollTo(0, 500);
-    });
-
-    // 页面加载完成后执行一次检查
-    (function () {
-        let myDiv = document.getElementById('contentDiv');
-        if (myDiv.clientHeight < 635) {
-            myDiv.style.height = '635px';
-        }
-    })();
-
-</script>
 
 </body>
 </html>

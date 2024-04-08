@@ -45,14 +45,14 @@
 <!--中间内容-->
 <div class="m-container m-padded-tb-big" id="contentDiv">
   <br>
-  <div class="ui container">
+  <div class="ui container" style="margin-top: 3em;">
     <div class="ui success large message">
       <h2>Hi,</h2>
-      <p><span>软件214</span>，欢迎来访！</p>
+      <p><span th:text="${session.admin?.username}">软件214</span>，欢迎来访！</p>
     </div>
     <div class="ui success large message" style="height: 220px">
       <h3>个人描述,</h3>
-      <p>我是管理员哦</p>
+      <p th:text="${session.admin?.description}">我是管理员哦</p>
     </div>
   </div>
   <br>

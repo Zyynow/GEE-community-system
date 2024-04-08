@@ -36,18 +36,172 @@
 
 <!--中间内容-->
 <div class="m-container m-padded-tb-big" id="contentDiv">
-  <br>
   <div class="ui container">
-    <div class="ui success large message" style="height: 200px">
-      <h2 style="margin-top: 60px;margin-left: 440px">待开发</h2>
+    <!--        内容头部-->
+    <form action="#" th:action="@{/admin/forums/search}" method="get" class="ui segment form m-padded-tb-tiny">
+      <input type="hidden" name="page">
+      <div class="inline fields m-margin-top">
+        <div class="field" style="width: 20em">
+          <input type="text" name="forumName" placeholder="社区名称" style="width: 100%">
+        </div>
+        <div class="field" style="margin-left: 0.8em">
+          <button class="ui mini blue basic button">
+            <i class="search icon"></i>搜索
+          </button>
+        </div>
+        <div class="field">
+          <div class="ui mini grey basic button" onclick="refreshPage()">
+            <i class="undo icon"></i>重置
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <!--        表格-->
+    <div id="table-container">
+      <table class="ui celled table">
+        <!--            表头-->
+        <thead>
+        <tr>
+          <th></th>
+          <th>标题</th>
+          <th>帖子数</th>
+          <th>成员数</th>
+          <th>描述</th>
+          <th>编辑</th>
+        </tr>
+        </thead>
+        <!--            表体-->
+        <tbody>
+        <tr th:each="forum, iterStat : ${pageForums.list}"> <!--拿到查询到的多个结果进行循环-->
+          <td th:text="${iterStat.count}">1</td> <!--循环计数 从1开始-->
+          <td th:text="${forum?.forumName}">刻意练习清单</td> <!--获取blog对象里的forumName-->
+          <td th:text="${forum?.blogNumber}">认知升级</td> <!--从blog中拿到type对象获取name-->
+          <td th:text="${forum?.peopleNumber}">已发布</td>
+          <td th:text="${#strings.length(forum?.description) > 18 ? forum?.description.substring(0, 18) + '...' : forum?.description}">
+            2022-03-13 10:29
+          </td>
+          <td>
+            <a th:onclick="editForum([[${forum?.id}]])"
+               class="ui mini blue basic button">编辑</a>
+            <a th:data-url="@{/admin/forums/delete/{id}(id=${forum?.id})}" onclick="confirmAndDelete(this)"
+               th:class="${session.admin?.username == 'root' ? 'ui mini gray basic button' : 'ui mini gray disabled button'}">删除</a>
+          </td>
+        </tr>
+        </tbody>
+        <!--表尾-->
+        <tfoot>
+        <tr th:if="${pageForums.total}>6">
+          <th colspan="7">
+            <div class="ui pagination menu">
+              <!--th:unless="${page.first}"表示如果不是第一页，这个item才会显示-->
+              <a th:href="@{/admin/forums(pageNum=${pageForums.hasPreviousPage}?${pageForums.prePage}:1)}" class="item"
+                 th:unless="${pageForums.isFirstPage}">上一页</a>
+              <a th:href="@{/admin/forums(pageNum=${pageForums.hasNextPage}?${pageForums.nextPage}:${pageForums.pages})}"
+                 class="item"
+                 th:unless="${pageForums.isLastPage}">下一页</a>
+            </div>
+            <a onclick="addForum()"
+               class="ui mini right floated blue basic button m-padded-tb m-padded-lr m-margin-top-small">新增</a>
+          </th>
+        </tr>
+        </tfoot>
+      </table>
+      <div class="ui m-container-alter" th:unless="${#strings.isEmpty(messageFailed)}">
+        <div class="ui negative message">
+          <i class="close icon"></i>
+          <div class="header">非常抱歉</div>
+          <p th:text="${messageFailed}">Failed</p></div>
+      </div>
+      <div class="ui m-container-alter" th:unless="${#strings.isEmpty(messageSuccessful)}">
+        <div class="ui success message">
+          <i class="close icon"></i>
+          <div class="header">成功</div>
+          <p th:text="${messageSuccessful}">Successful</p></div>
+      </div>
     </div>
   </div>
-  <br>
-  <br>
+</div>
+
+<!--添加图片模态框-->
+<div class="ui addForum modal">
+  <i class="close icon"></i>
+  <h3 style="padding-left: 1em !important; font-size: x-large !important; padding-bottom: 0.1em !important;">
+    创建社区</h3>
+  <form class="ui form segment" method="post" action="#" th:action="@{/admin/forums/save}">
+    <div class="two fields">
+      <div class="field" style="width: 30% !important;">
+        <label>名称</label>
+        <input placeholder="请输入名称..." name="forumName" type="text">
+      </div>
+      <div class="field" style="width: 70% !important;">
+        <label>宣传图链接</label>
+        <input placeholder="请输入图片链接..." name="promotionalImage" type="text">
+      </div>
+    </div>
+    <div class="field">
+      <label>描述</label>
+      <textarea placeholder="请输入描述..." name="description" type="text" style="height: 80px"></textarea>
+    </div>
+    <div class="actions">
+      <div class="ui primary submit button">提交</div>
+      <div class="ui clear button">重置</div>
+    </div>
+  </form>
+</div>
+
+<!--编辑图片模态框-->
+<div class="ui editForum modal">
+  <i class="close icon"></i>
+  <h3 style="padding-left: 1em !important; font-size: x-large !important; padding-bottom: 0.1em !important;">
+    编辑社区</h3>
+  <form class="ui form segment" method="post" action="#" th:action="@{/admin/forums/edit}">
+    <input type="hidden" name="id">
+    <div class="two fields">
+      <div class="field" style="width: 30% !important;">
+        <label>名称</label>
+        <input placeholder="请输入名称..." name="forumName" type="text">
+      </div>
+      <div class="field" style="width: 70% !important;">
+        <label>链接</label>
+        <input placeholder="请输入图片链接..." name="promotionalImage" type="text">
+      </div>
+    </div>
+    <div class="field">
+      <label>描述</label>
+      <textarea placeholder="请输入描述..." name="description" type="text" style="height: 80px"></textarea>
+    </div>
+    <div class="actions">
+      <div class="ui primary submit button">提交</div>
+      <div class="ui clear button">重置</div>
+    </div>
+  </form>
+</div>
+
+<!--确认删除-->
+<div class="ui tiny modal">
+  <i class="close icon"></i>
+  <div class="header">
+    论坛删除
+  </div>
+  <div class="content">
+    <div class="description" name="descriptionDel">
+      确定要删除该论坛嘛？所有帖子也都会将被删除！
+    </div>
+  </div>
+  <div class="actions">
+    <button class="ui secondary button" id="confirmDel">
+      确认
+    </button>
+    <button class="ui cancel button">
+      取消
+    </button>
+  </div>
 </div>
 
 <!--底部footer-->
-<footer th:replace="admin/_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive"> <!-- vertical:垂直的 segment:条横 inverted:倒置的 -->
+<footer th:replace="admin/_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive">
+  <!-- vertical:垂直的 segment:条横 inverted:倒置的 -->
   <div class="ui center aligned container"> <!-- center aligned:居中 aligned:使成为一条线-->
     <div class="ui inverted divided stackable grid"> <!-- inverted divided grid:格线分成16份 -->
       <div class="three wide column">
@@ -99,12 +253,38 @@
 
 <!--点击执行操作-->
 <script>
+
     $('.menu.toggle').click(function () {
         $('.m-item').toggleClass('m-mobile-hide');
     });
 
     $('.ui.dropdown').dropdown({
         on: 'hover'
+    });
+
+    $('.clear.button').click(() => {
+        $('.ui.error.message').css('display', 'none');
+    });
+
+    $('.ui.form').form({
+        fields: {
+            forumName: {
+                rules: [{
+                    type: 'empty',
+                    prompt: '社区名称不能为空'
+                }]
+            },
+            promotionalImage: {
+                rules: [{
+                    type: 'empty',
+                    prompt: '宣传图链接不能为空'
+                }]
+            }
+        },
+    });
+
+    $('.message .close').on('click', function () {
+        $(this).closest('.message').transition('fade');
     });
 
     window.addEventListener('resize', function () {
@@ -124,6 +304,58 @@
             myDiv.style.height = '550px';
         }
     })();
+
+    async function confirmAndDelete(button) {
+        $('.tiny.modal').modal('show');
+
+        await $('#confirmDel').click(() => {
+            const url = button.dataset.url;
+
+            fetch(url, {
+                method: 'POST',
+                credentials: 'same-origin', // 或者其他适合你的请求认证方式
+            }).then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to delete forum');
+                }
+                location.reload(); // 刷新页面
+            });
+        })
+    }
+
+    async function refreshPage() {
+        location.href = "/dev/admin/forums";
+    }
+
+    function addForum() {
+        $('.ui.addForum.modal').modal('show');
+    }
+
+    async function editForum(forumId) {
+        const url = '/dev/admin/forums/' + forumId;
+        // 发起GET请求
+        await fetch(url, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json(); // 将返回的对象转为JS的JSON对象
+        }).then(data => {
+            $('.ui.editForum.modal').modal('show');
+
+            // 填充form表单(不用转json格式)
+            const form = $('.ui.editForum.modal form');
+            form.find('input[name="id"]').val(data.id);
+            form.find('input[name="forumName"]').val(data.forumName);
+            form.find('input[name="promotionalImage"]').val(data.promotionalImage);
+            form.find('textarea[name="description"]').val(data.description);
+        }).catch(error => console.error('Error:', error));
+    }
+
 </script>
 </body>
 </html>

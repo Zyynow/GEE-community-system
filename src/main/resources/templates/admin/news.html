@@ -44,7 +44,7 @@
   <div class="ui container">
 
     <!--        表格-->
-    <div id="table-container">
+    <div id="table-container" style="margin-top: 5em;">
       <table class="ui celled striped table">
         <thead>
         <tr>
@@ -54,17 +54,23 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
+        <tr th:each="news,iterStat : ${pageNews.list}">
           <td class="collapsing">
-            <i class="folder icon"></i> <span>node_modules</span>
+            <i class="folder open icon" th:classappend="${iterStat.index % 2 == 1 ? 'outline' : ''}"></i>
+            <span th:text="${#strings.length(news?.title) > 12 ? news?.title.substring(0, 12) + '...' : news?.title}">node_modules</span>
           </td>
-          <td>Initial commit</td>
-          <td class="right aligned collapsing">10 hours ago</td>
+          <td th:text="${#strings.length(news?.content) > 40 ? news?.content.substring(0, 40) + '...' : news?.content}">
+            Initial commit
+          </td>
+          <td class="right aligned collapsing" th:text="${#dates.format(news.createTime, 'yyyy-MM-dd')}">
+            10 hours ago
+          </td>
           <td class="collapsing">
-            <a th:href="@{/admin/resources/{id}/delete(id=${resource.id})}"
+            <a th:data-url="@{/admin/news/delete/{id}(id=${news?.id})}" onclick="deleteNews(this)"
                class="ui mini gray basic button">删除</a>
           </td>
         </tr>
+        <!--/*-->
         <tr>
           <td class="collapsing">
             <i class="file outline icon"></i> <span>package.json</span>
@@ -76,24 +82,29 @@
                class="ui mini gray basic button">删除</a>
           </td>
         </tr>
+        <!--*/-->
         </tbody>
         <!--            表尾-->
         <tfoot>
-        <tr>
+        <tr th:if="${pageNews.total}>6">
           <th colspan="7">
-            <div class="ui pagination menu" th:if="${pages.totalPages}>1">
+            <div class="ui pagination menu">
               <!--th:unless="${page.first}"表示如果不是第一页，这个item才会显示-->
-              <a th:href="@{/admin/resources(page=${pages.number}-1)}" class="item"
-                 th:unless="${pages.first}">上一页</a>
-              <a th:href="@{/admin/resources(page=${pages.number}+1)}" class="item"
-                 th:unless="${pages.last}">下一页</a>
+              <a th:href="@{/admin/news(pageNum=${pageNews.hasPreviousPage}?${pageNews.prePage}:1)}" class="item"
+                 th:unless="${pageNews.isFirstPage}">上一页</a>
+              <a th:href="@{/admin/news(pageNum=${pageNews.hasNextPage}?${pageNews.nextPage}:${pageNews.pages})}"
+                 class="item"
+                 th:unless="${pageNews.isLastPage}">下一页</a>
             </div>
           </th>
         </tr>
         </tfoot>
       </table>
-
-
+      <div class="ui success message" th:unless="${#strings.isEmpty(message)}">
+        <i class="close icon"></i>
+        <div class="header">提示：</div>
+        <p th:text="${message}">操作成功。</p>
+      </div>
     </div>
   </div>
 </div>
@@ -151,6 +162,7 @@
 
 <!--点击执行操作-->
 <script>
+
     $('.menu.toggle').click(function () {
         $('.m-item').toggleClass('m-mobile-hide');
     });
@@ -159,23 +171,24 @@
         on: 'hover'
     });
 
-    function page(object) {
-        $("[name='page']").val($(object)).data("page"); //通过隐含域对象(type=hidden)拿到data-page中的值
-        loaddata();
-    }
-
     $('.message .close').on('click', function () {
         $(this).closest('.message').transition('fade');
     });
 
-    function loaddata() {
-        $("#table-container").load(/*[[@{/admin/resources/search}]]*/"/admin/resources/search", {
-            title: $(" [name='title']").val(),
-            typeId: $(" [name='typeId']").val(),
-            recommend: $(" [name='recommend']").prop('checked'),
-            page: $(" [name='page']").val()
+    async function deleteNews(button) {
+        const url = button.dataset.url;
+
+        await fetch(url, {
+            method: 'POST',
+            credentials: 'same-origin', // 或者其他适合你的请求认证方式
+        }).then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to delete forum');
+            }
+            location.reload(); // 刷新页面
         });
     }
+
 </script>
 </body>
 </html>

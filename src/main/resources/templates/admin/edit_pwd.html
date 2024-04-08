@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head th:replace="admin/_fragments :: head(~{::title})">
+<head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
   <title>修改密码</title>
   <!--    引入semantic.min.css-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
-  <!--    引入me.css-->
-  <link rel="stylesheet" href="../../static/css/me.css">
-  <link href="../../static/css/style.min.css" rel="stylesheet">
-  <link href="../../static/css/materialdesignicons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../static/css/animate.css" th:href="@{/css/animate.css}">
+  <link rel="stylesheet" th:href="@{/css/me.css}" href="../../static/css/me.css">
+  <link href="../../static/css/style.min.css" rel="stylesheet" th:href="@{/css/style.min.css}">
+  <link href="../../static/css/materialdesignicons.min.css" th:href="@{/css/materialdesignicons.min.css}"
+        rel="stylesheet">
 </head>
 
 <!--导航-->
@@ -43,7 +44,7 @@
 
 <body>
 <div class="m-container m-padded-tb-big" id="contentDiv">
-  <div class="ui container">
+  <div class="ui container" style="margin-top: 4em;">
     <!--页面主要内容-->
     <div class="container-fluid">
       <div class="card">

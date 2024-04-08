@@ -91,9 +91,9 @@
         </tbody>
         <!--表尾-->
         <tfoot>
-        <tr>
+        <tr th:if="${pageForums.total}>6">
           <th colspan="7">
-            <div class="ui pagination menu" th:if="${pageForums.total}>1">
+            <div class="ui pagination menu">
               <!--th:unless="${page.first}"表示如果不是第一页，这个item才会显示-->
               <a th:href="@{/admin/forums(pageNum=${pageForums.hasPreviousPage}?${pageForums.prePage}:1)}" class="item"
                  th:unless="${pageForums.isFirstPage}">上一页</a>
