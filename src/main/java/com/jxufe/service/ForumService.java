@@ -1,5 +1,7 @@
 package com.jxufe.service;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageInfo;
 import com.jxufe.entity.Forum;
 import org.springframework.stereotype.Service;
 
@@ -30,4 +32,14 @@ public interface ForumService {
     void reduceBlogNum(Integer id);
 
     void updatePeopleNum(Integer forumId);
+
+    Page<Forum> pageForums();
+
+    void deleteForum(Long id);
+
+    int saveForum(Forum forum);
+
+    int updateForum(Forum forum);
+
+    Page<Forum> pageSearch(String query);
 }

@@ -40,6 +40,36 @@
         order by popular DESC
     </select>
 
+    <select id="pageSearch" resultType="com.jxufe.entity.Forum">
+        select *
+        from t_forum
+        where forum_name LIKE "%" #{query} "%"
+    </select>
+
+    <insert id="saveForum">
+        insert into t_forum(forum_name, people_number, blog_number, popular, promotional_image, description)
+        values (#{forumName}, #{peopleNumber}, #{blogNumber}, #{popular}, #{promotionalImage}, #{description})
+    </insert>
+
+    <delete id="deleteForum">
+        delete
+        from t_forum
+        where id = #{id}
+    </delete>
+
+    <update id="updateForum">
+        update t_forum
+        set forum_name        = #{forumName},
+            promotional_image = #{promotionalImage},
+            description       = #{description}
+        where id = #{id}
+    </update>
+
+    <select id="pageForums" resultType="com.jxufe.entity.Forum">
+        select *
+        from t_forum
+    </select>
+
     <select id="findForumById" resultType="com.jxufe.entity.Forum">
         select *
         from t_forum

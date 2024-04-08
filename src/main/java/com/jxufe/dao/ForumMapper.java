@@ -1,5 +1,7 @@
 package com.jxufe.dao;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageInfo;
 import com.jxufe.entity.Forum;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -31,4 +33,14 @@ public interface ForumMapper {
     void reduceBlogNum(Integer id);
 
     void updatePeopleNum(Integer forumId);
+
+    Page<Forum> pageForums();
+
+    void deleteForum(Long id);
+
+    int saveForum(Forum forum);
+
+    int updateForum(Forum forum);
+
+    Page<Forum> pageSearch(String query);
 }

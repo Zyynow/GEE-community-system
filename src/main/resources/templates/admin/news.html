@@ -7,12 +7,12 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
   <!--    引入me.css-->
   <link rel="stylesheet" href="../../static/css/me.css">
-  <title>博客管理</title>
+  <title>消息管理</title>
 </head>
 <body>
 
 <!--导航-->
-<nav th:replace="admin/_fragments :: menu(1)" class="ui inverted attached segment m-padded-tb-mini">
+<nav th:replace="admin/_fragments :: menu(5)" class="ui inverted attached segment m-padded-tb-mini">
   <div class="ui container"> <!-- 加一个容器 -->
     <div class="ui inverted secondary stackable menu"> <!-- 菜单 stackable:可堆叠的,表示屏幕小时自动堆叠-->
       <h2 class="ui white header item">GuideSystem</h2> <!-- 蓝绿色标题 --> <a href="#"
@@ -39,78 +39,39 @@
   </a>
 </nav>
 
-<div cLass="ui attached pointing menu" style="margin-top: 4.4em;">
-  <div class="ui container">
-    <div class="right menu">
-      <a href="#" th:href="@{/admin/resources/input}" class="item">发布</a>
-      <a href="#" th:href="@{/admin/resources}" class="blue active item">列表</a>
-    </div>
-  </div>
-</div>
-
 <!--中间内容-->
 <div class="m-container m-padded-tb-big" style="padding-top: 4em !important;" id="contentDiv">
   <div class="ui container">
-    <!--        内容头部-->
-    <form action="#" th:action="@{/admin/resources/search}" method="get" class="ui segment form m-padded-tb-tiny">
-      <input type="hidden" name="page">
-      <div class="inline fields m-margin-top">
-        <div class="field">
-          <input type="text" name="title" placeholder="标题">
-        </div>
-        <div class="field">
-          <div class="ui selection dropdown">
-            <input type="hidden" name="typeId">
-            <i class="dropdown icon"></i>
-            <div class="default text">分类</div>
-            <div class="menu">
-              <div th:each="type:${types}" class="item" data-value="1" th:data-value="${type.id}"
-                   th:text="${type.name}">错误日志
-              </div>
-              <!--/*-->
-              <div class="item" data-value="2">开发者手册</div>
-              <!--*/-->
-            </div>
-          </div>
-        </div>
-        <div class="field">
-          <button class="ui mini blue basic button">
-            <i class="search icon"></i>搜索
-          </button>
-        </div>
-        <div class="field">
-          <div class="ui mini grey basic button" onclick="refreshPage()">
-            <i class="undo icon"></i>重置
-          </div>
-        </div>
-      </div>
-    </form>
 
     <!--        表格-->
     <div id="table-container">
-      <table class="ui celled table">
-        <!--            表头-->
+      <table class="ui celled striped table">
         <thead>
         <tr>
-          <th></th>
-          <th>标题</th>
-          <th>类型</th>
-          <th>状态</th>
-          <th>更新时间</th>
-          <th>编辑</th>
+          <th colspan="4">
+            消息列表
+          </th>
         </tr>
         </thead>
-        <!--            表体-->
         <tbody>
-        <tr th:each="resource,iterStat : ${pages.content}"> <!--拿到查询到的多个结果进行循环-->
-          <td th:text="${iterStat.count}">1</td> <!--循环计数 从1开始-->
-          <td th:text="${resource.title}">刻意练习清单</td> <!--获取blog对象里的title-->
-          <td th:text="${resource.type.name}">认知升级</td> <!--从blog中拿到type对象获取name-->
-          <td>已发布</td>
-          <td th:text="${resource.updateTime}">2022-03-13 10:29</td>
-          <td>
-            <a th:href="@{/admin/resources/{id}/input(id=${resource.id})}"
-               class="ui mini blue basic button">编辑</a>
+        <tr>
+          <td class="collapsing">
+            <i class="folder icon"></i> <span>node_modules</span>
+          </td>
+          <td>Initial commit</td>
+          <td class="right aligned collapsing">10 hours ago</td>
+          <td class="collapsing">
+            <a th:href="@{/admin/resources/{id}/delete(id=${resource.id})}"
+               class="ui mini gray basic button">删除</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="collapsing">
+            <i class="file outline icon"></i> <span>package.json</span>
+          </td>
+          <td>Initial commit</td>
+          <td class="right aligned collapsing">10 hours ago</td>
+          <td class="collapsing">
             <a th:href="@{/admin/resources/{id}/delete(id=${resource.id})}"
                class="ui mini gray basic button">删除</a>
           </td>
@@ -127,17 +88,12 @@
               <a th:href="@{/admin/resources(page=${pages.number}+1)}" class="item"
                  th:unless="${pages.last}">下一页</a>
             </div>
-            <a href="#" th:href="@{/admin/resources/input}"
-               class="ui mini right floated blue basic button m-padded-tb m-padded-lr m-margin-top-small">新增</a>
           </th>
         </tr>
         </tfoot>
       </table>
-      <div class="ui success message" th:unless="${#strings.isEmpty(message)}">
-        <i class="close icon"></i>
-        <div class="header">提示：</div>
-        <p th:text="${message}">操作成功。</p>
-      </div>
+
+
     </div>
   </div>
 </div>
@@ -211,10 +167,6 @@
     $('.message .close').on('click', function () {
         $(this).closest('.message').transition('fade');
     });
-
-    async function refreshPage() {
-        location.href = "/dev/admin/resources";
-    }
 
     function loaddata() {
         $("#table-container").load(/*[[@{/admin/resources/search}]]*/"/admin/resources/search", {

@@ -1,5 +1,7 @@
 package com.jxufe.service.implement;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageInfo;
 import com.jxufe.dao.ForumMapper;
 import com.jxufe.entity.Forum;
 import com.jxufe.service.ForumService;
@@ -70,6 +72,34 @@ public class ForumServiceImpl implements ForumService {
     @Override
     public void updatePeopleNum(Integer forumId) {
         forumMapper.updatePeopleNum(forumId);
+    }
+
+    @Override
+    public Page<Forum> pageForums() {
+        return forumMapper.pageForums();
+    }
+
+    @Override
+    public void deleteForum(Long id) {
+        forumMapper.deleteForum(id);
+    }
+
+    @Override
+    public int saveForum(Forum forum) {
+        forum.setBlogNumber(2600);
+        forum.setPeopleNumber(1200);
+        forum.setPopular(4800);
+        return forumMapper.saveForum(forum);
+    }
+
+    @Override
+    public int updateForum(Forum forum) {
+        return forumMapper.updateForum(forum);
+    }
+
+    @Override
+    public Page<Forum> pageSearch(String query) {
+        return forumMapper.pageSearch(query);
     }
 
     @Override

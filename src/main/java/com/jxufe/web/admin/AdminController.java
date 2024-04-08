@@ -30,11 +30,15 @@ public class AdminController {
         return "admin/login";
     }
 
+    @GetMapping("/index")
+    public String index() {
+        return "admin/index";
+    }
+
     /**
-     *
      * @param username 用户输入的用户名
      * @param password 用户输入的密码
-     * @param session 用来会话跟踪的类 可以缓存重要信息 session是服务器端对象 保存在服务器端
+     * @param session  用来会话跟踪的类 可以缓存重要信息 session是服务器端对象 保存在服务器端
      * @param response 绑定响应
      * @return 返回一个页面
      */
@@ -86,6 +90,7 @@ public class AdminController {
 
     /**
      * 去除日志
+     *
      * @param session
      * @return 重定向到/admin
      */
@@ -93,5 +98,31 @@ public class AdminController {
     public String doLogout(HttpSession session) {
         session.removeAttribute("admin");
         return "redirect:/admin";
+    }
+
+    @GetMapping("/edit/password")
+    public String editPassword() {
+        return "admin/edit_pwd";
+    }
+
+    @PostMapping("/edit/password/success")
+    public void doEditPassword(HttpServletResponse response, HttpSession session,
+                                 @RequestParam String newPwd, @RequestParam String oldPwd, @RequestParam String confirmPwd) throws IOException {
+        response.setContentType("text/html; charset=UTF-8");
+        if (!newPwd.equals(confirmPwd)) {
+            response.getWriter().print("<script language='javascript'>alert('两次密码输入不一致');" +
+                    "window.location.href='/dev/admin/edit/password';</script>");
+        } else {
+            Integer res = adminService.checkPassword(((Admin) session.getAttribute("admin")).getUsername(), oldPwd);
+            if (res == 0) {
+                response.getWriter().print("<script language='javascript'>alert('原密码校验失败');" +
+                        "window.location.href='/dev/admin/edit/password';</script>");
+            } else {
+                adminService.editPassword(((Admin) session.getAttribute("admin")).getUsername(), newPwd, oldPwd);
+                session.removeAttribute("lastPath");
+                response.getWriter().print("<script language='javascript'>alert('修改成功，请重新登录');" +
+                        "window.location.href='/dev/admin/login';</script>");
+            }
+        }
     }
 }
