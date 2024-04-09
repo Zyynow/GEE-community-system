@@ -547,7 +547,7 @@
 
                 $('#confirmDel').click(async () => {
                     try {
-                        // await axios.delete("delete/" + username);
+                        // await axios.delete("delete/" + username); // 会以等差数列递增删除(严重bug)
                         this.friendList.splice(index, 1); // 从数组中删除对应的朋友数据
                         console.log(this.friendList);
                         this.deleteRecord.deleteIndex = -1; // 隐藏删除按钮

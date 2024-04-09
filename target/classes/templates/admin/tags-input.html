@@ -38,7 +38,7 @@
     <i class="sidebar icon"></i>
   </a>
 </nav>
-<div cLass="ui attached pointing menu">
+<div cLass="ui attached pointing menu" style="margin-top: 4.4em;">
   <div class="ui container">
     <div class="right menu">
       <a href="#" th:href="@{/admin/tags/input}" class="blue active item">新增</a>
@@ -64,13 +64,6 @@
       </div>
 
       <div class="ui error message"></div>
-      <!--/*/
-      <div class="ui negative message" th:if="${#fields.hasErrors('name')}">
-          <i class="close icon"></i>
-          <div class="header">验证失败</div>
-          <p th:errors="*{name}">提交信息不符合规则</p>
-      </div>
-      /*/-->
       <div class="ui right aligned container">
         <button type="button" class="ui button" onclick="window.history.go(-1)">返回</button>
         <button class="ui blue button">提交</button>
