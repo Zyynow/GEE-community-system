@@ -62,14 +62,14 @@
           <div>
             <time th:text="'更新于:' + ${#dates.format(blog.updateTime,'yyyy-MM-dd')}">2020/01/01</time>
             <div class="scientist" style="position: relative">
-              <a href="#" target="_blank" th:href="@{/user_blog/{id}(id=${blog.id})}">
+              <a href="#" th:href="@{/user_blog/{id}(id=${blog.id})}">
                 <h3 class="state" style="text-align:center;font-size: 16px;color: #000;"
                     th:text="${blog.title}">文章标题</h3>
               </a>
               <span class="right floated action-links"
                     style="position: absolute; bottom: 0; right: 0; margin-right: 5px!important; margin-bottom: 3px!important;">
                 <a href="#" th:onclick="deleteBlog([[${blog.id}]], [[${blog.forum.id}]])">删除</a>&nbsp;
-                <a href="#" target="_blank" th:href="@{/fblog/edit/{id}(id=${blog.id})}">编辑</a></span>
+                <a href="#" th:href="@{/fblog/edit/{id}(id=${blog.id})}">编辑</a></span>
             </div>
           </div>
         </li>
@@ -92,6 +92,7 @@
 <script src="../static/lib/timeline/timeline.js" th:src="@{/lib/timeline/timeline.js}"></script>
 <script src="../static/lib/waypoints/jquery.waypoints.min.js"
         th:src="@{/lib/waypoints/jquery.waypoints.min.js}"></script>
+<script src="../static/js/perfect-scrollbar.min.js" th:src="@{/js/perfect-scrollbar.min.js}"></script>
 <!--第一种多人物的看板娘，缓存慢-->
 <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
 

@@ -108,6 +108,11 @@ public class FriendServiceImpl implements FriendService {
     }
 
     @Override
+    public boolean isApply(Long senderId, Long recipientId) {
+        return friendMapper.isApply(senderId, recipientId) != null;
+    }
+
+    @Override
     public FootprintVO getViewNumMax(Long id) {
         return friendMapper.getUserViewMax(id);
     }

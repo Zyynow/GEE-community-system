@@ -57,6 +57,9 @@ public class FriendController {
     @PostMapping("/apply/add")
     @Transactional
     public void addApply(@RequestBody Apply apply, HttpServletResponse response) throws IOException {
+        if (friendService.isApply(apply.getSenderId(), apply.getRecipientId())) {
+            return;
+        }
         int p = friendService.addApply(apply);
         if (p == 0) {
             // 没有效果(可能是因为vue)

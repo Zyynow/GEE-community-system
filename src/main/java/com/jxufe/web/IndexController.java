@@ -86,8 +86,6 @@ public class IndexController {
     @GetMapping("/search")
     public String doSearch(@PageableDefault(size = 10, sort = {"updateTime"}, direction = Sort.Direction.DESC)
                                    Pageable pageable, @RequestParam String query, Model model, HttpServletRequest request) {
-        request.getSession().setAttribute("lastPath", request.getServletPath());
-
         model.addAttribute("page", resourceService.listResource(pageable, "%" + query + "%"));
         model.addAttribute("query", query);
         if (request.getSession().getAttribute("user") != null) {

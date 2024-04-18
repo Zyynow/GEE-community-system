@@ -37,6 +37,8 @@ public interface FriendService {
 
     public boolean isFriend(Long user1Id, Long user2Id);
 
+    public boolean isApply(Long senderId, Long recipientId);
+
     public FootprintVO getViewNumMax(Long id);
 
     FootprintVO getCollectionNumMax(Long id);

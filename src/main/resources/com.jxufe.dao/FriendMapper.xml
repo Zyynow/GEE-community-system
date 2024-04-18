@@ -153,6 +153,13 @@
            or (user1id = #{user2Id} and user2id = #{user1Id})
     </select>
 
+    <select id="isApply" resultType="com.jxufe.entity.Apply">
+        select *
+        from t_apply
+        where sender_id = #{sender_id}
+          and recipient_id = #{recipientId}
+    </select>
+
     <select id="isFriendByName" resultType="com.jxufe.entity.Friend">
         select *
         from t_friend

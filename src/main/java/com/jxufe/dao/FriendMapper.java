@@ -53,4 +53,6 @@ public interface FriendMapper {
     void updateFriendsByUser2(Long userId, String nickname, String description, String avatar);
 
     void updateApplys(Long userId, String nickname, String avatar);
+
+    Apply isApply(Long senderId, Long recipientId);
 }
